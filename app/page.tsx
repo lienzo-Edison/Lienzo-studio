@@ -59,8 +59,8 @@ export default function Home() {
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="text-white text-6xl font-bold tracking-wide">
+      <div className="relative z-10 flex items-center justify-center h-full w-full text-center">
+        <h1 className="text-white text-6xl font-bold tracking-wide mx-auto">
           LIENZO STUDIO
         </h1>
       </div>
