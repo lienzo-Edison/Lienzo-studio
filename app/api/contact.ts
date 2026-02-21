@@ -1,46 +1,56 @@
-import type { NextRequest } from "next/server";
-import nodemailer from "nodemailer";
+"use client";
+import Link from "next/link";
+import { useState } from "react";
 
-export async function POST(req: NextRequest) {
-  try {
-    const data = await req.json();
-    const { name, email, message } = data;
+export default function Contact() {
+  const [revealed, setRevealed] = useState(false);
 
-    if (!name || !email || !message) {
-      return new Response(JSON.stringify({ success: false, error: "Missing fields" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+  const emailUser = "contact";
+  const emailDomain = "yourdomain.com";
+  const fullEmail = `${emailUser}@${emailDomain}`;
 
-    // Configure Nodemailer for Zoho Mail
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: true, // SSL for port 465
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-start bg-black text-white p-6">
+      {/* Navigation Bar */}
+      <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white text-sm uppercase tracking-wide">
+        <Link href="/" className="hover:opacity-70 transition">
+          Home
+        </Link>
+        <Link href="/portfolio" className="hover:opacity-70 transition">
+          Portafolio
+        </Link>
+        <Link href="/contact" className="hover:opacity-70 transition">
+          Contact Us
+        </Link>
+      </nav>
 
-    // Send email
-    await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: process.env.CONTACT_EMAIL,
-      subject: `Contact Form Submission: ${name}`,
-      text: message,
-    });
+      <div className="mt-32 text-center max-w-xl">
+        <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+        <p className="text-lg text-white/80 mb-8">
+          If you're interested in working with us or have any questions,
+          feel free to reach out via email.
+        </p>
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (err) {
-    console.error(err);
-    return new Response(JSON.stringify({ success: false, error: "Server error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+        <div className="bg-white/10 border border-white/20 rounded-lg p-6">
+          {!revealed ? (
+            <>
+              <p className="mb-4 text-white/70">
+                Click below to reveal our contact email.
+              </p>
+              <button
+                onClick={() => setRevealed(true)}
+                className="bg-white/10 hover:bg-white/20 border border-white/20 rounded px-6 py-3 transition"
+              >
+                Reveal Email
+              </button>
+            </>
+          ) : (
+            <p className="text-lg font-medium">
+              {fullEmail}
+            </p>
+          )}
+        </div>
+      </div>
+    </main>
+  );
 }

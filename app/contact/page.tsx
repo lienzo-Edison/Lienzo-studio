@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 
 export default function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [status, setStatus] = useState("");
+  const [revealed, setRevealed] = useState(false);
+
+  const emailUser = "ventas";
+  const emailDomain = "lienzo.studio";
+  const fullEmail = `${emailUser}@${emailDomain}`;
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-start bg-black text-white p-6">
@@ -22,60 +23,34 @@ export default function Contact() {
           Contact Us
         </Link>
       </nav>
-      <h1 className="text-4xl font-bold mb-8 mt-24">Contact Us</h1>
-      <form
-        className="w-full max-w-md flex flex-col gap-4"
-        onSubmit={async (e: FormEvent) => {
-          e.preventDefault();
-          setStatus("Sending...");
-          try {
-            const res = await fetch("/api/contact", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ name, email, message }),
-            });
-            const data = await res.json();
-            if (data.success) {
-              setStatus("Message sent!");
-              setName("");
-              setEmail("");
-              setMessage("");
-            } else {
-              setStatus(`Error: ${data.error}`);
-            }
-          } catch (err) {
-            setStatus("Error sending message.");
-          }
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="p-3 rounded bg-white/10 border border-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="p-3 rounded bg-white/10 border border-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
-        />
-        <textarea
-          placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="p-3 rounded bg-white/10 border border-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white h-32 resize-none"
-        />
-        <button
-          type="submit"
-          className="bg-white/10 hover:bg-white/20 border border-white/20 rounded p-3 mt-2 transition"
-        >
-          Submit
-        </button>
-        {status && <p className="mt-2 text-white">{status}</p>}
-      </form>
+
+      <div className="mt-32 text-center max-w-xl">
+        <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+        <p className="text-lg text-white/80 mb-8">
+          If you're interested in working with us or have any questions,
+          feel free to reach out via email.
+        </p>
+
+        <div className="bg-white/10 border border-white/20 rounded-lg p-6">
+          {!revealed ? (
+            <>
+              <p className="mb-4 text-white/70">
+                Click below to reveal our contact email.
+              </p>
+              <button
+                onClick={() => setRevealed(true)}
+                className="bg-white/10 hover:bg-white/20 border border-white/20 rounded px-6 py-3 transition"
+              >
+                Reveal Email
+              </button>
+            </>
+          ) : (
+            <p className="text-lg font-medium">
+              {fullEmail}
+            </p>
+          )}
+        </div>
+      </div>
     </main>
   );
 }
