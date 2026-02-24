@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [revealed, setRevealed] = useState(false);
@@ -10,7 +11,12 @@ export default function Contact() {
   const fullEmail = `${emailUser}@${emailDomain}`;
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-start bg-black text-white p-6">
+    <motion.main
+      className="min-h-screen flex flex-col items-center justify-start bg-black text-white p-6"
+      initial={{ opacity: 0, backgroundColor: "#000000" }}
+      animate={{ opacity: 1, backgroundColor: "#000000" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       {/* Navigation Bar */}
       <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white text-sm uppercase tracking-wide">
         <Link href="/" className="hover:opacity-70 transition">
@@ -51,6 +57,6 @@ export default function Contact() {
           )}
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 }
