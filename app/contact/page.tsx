@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -19,21 +19,21 @@ export default function Contact() {
     >
       {/* Navigation Bar */}
       <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white text-sm uppercase tracking-wide">
-        <Link href="/" className="hover:opacity-70 transition">
+        <TransitionLink href="/" className="hover:opacity-70 transition">
           Home
-        </Link>
-        <Link href="/portfolio" className="hover:opacity-70 transition">
+        </TransitionLink>
+        <TransitionLink href="/portfolio" className="hover:opacity-70 transition">
           Portafolio
-        </Link>
-        <Link href="/contact" className="hover:opacity-70 transition">
+        </TransitionLink>
+        <TransitionLink href="/contact" className="hover:opacity-70 transition">
           Contact Us
-        </Link>
+        </TransitionLink>
       </nav>
 
       <div className="mt-32 text-center max-w-xl">
         <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
         <p className="text-lg text-white/80 mb-8">
-          If you're interested in working with us or have any questions,
+          If you&apos;re interested in working with us or have any questions,
           feel free to reach out via email.
         </p>
 

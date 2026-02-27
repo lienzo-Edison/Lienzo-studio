@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
@@ -32,9 +32,9 @@ export default function Home() {
     >
       {/* Navigation Bar */}
       <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white text-sm uppercase tracking-wide">
-        <Link href="/" className="hover:opacity-70 transition">Home</Link>
-        <Link href="/portfolio" className="hover:opacity-70 transition">Portafolio</Link>
-        <Link href="/contact" className="hover:opacity-70 transition">Contact Us</Link>
+        <TransitionLink href="/" className="hover:opacity-70 transition">Home</TransitionLink>
+        <TransitionLink href="/portfolio" className="hover:opacity-70 transition">Portafolio</TransitionLink>
+        <TransitionLink href="/contact" className="hover:opacity-70 transition">Contact Us</TransitionLink>
       </nav>
 
       {/* Hero Section */}
