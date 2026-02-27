@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import TransitionLink from "@/components/TransitionLink";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -73,13 +72,6 @@ export default function Portfolio() {
       animate="visible"
       variants={containerVariants}
     >
-      {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white/80 text-sm uppercase tracking-wide">
-        <TransitionLink href="/" className="hover:opacity-70 transition">Home</TransitionLink>
-        <TransitionLink href="/portfolio" className="hover:opacity-70 transition">Portafolio</TransitionLink>
-        <TransitionLink href="/contact" className="hover:opacity-70 transition">Contact Us</TransitionLink>
-      </nav>
-
       <div className="mt-32 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold mb-16 text-center text-white">Portfolio</h1>
 
