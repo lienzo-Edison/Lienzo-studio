@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import TransitionLink from "@/components/TransitionLink";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const projects = Array.from({ length: 16 }).map((_, i) => ({
@@ -35,6 +36,35 @@ const itemVariants = {
 };
 
 export default function Portfolio() {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+
+    const updateTouchMode = () => {
+      const isTouch = mediaQuery.matches;
+      setIsTouchDevice(isTouch);
+
+      if (!isTouch) {
+        setActiveProject(null);
+      }
+    };
+
+    updateTouchMode();
+    mediaQuery.addEventListener("change", updateTouchMode);
+
+    return () => mediaQuery.removeEventListener("change", updateTouchMode);
+  }, []);
+
+  const handleProjectTap = (index: number) => {
+    if (!isTouchDevice) {
+      return;
+    }
+
+    setActiveProject((prev) => (prev === index ? null : index));
+  };
+
   return (
     <motion.main
       className="min-h-screen p-6"
@@ -61,26 +91,37 @@ export default function Portfolio() {
           animate="visible"
         >
           {projects.map((proj, idx) => (
-            <motion.div
+            <motion.article
               key={idx}
               className={`relative overflow-hidden group cursor-pointer bg-black rounded-sm col-span-1 ${
                 mosaicPattern[idx % mosaicPattern.length]
               }`}
               variants={itemVariants}
+              onClick={() => handleProjectTap(idx)}
             >
+              {/*
+                On touch devices this mirrors hover: tap toggles reveal state.
+                Desktop keeps the existing hover behavior.
+              */}
               <Image
                 src={proj.image}
                 alt={proj.title}
                 fill
                 sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className={`w-full h-full object-cover transition-transform duration-500 ${
+                  isTouchDevice && activeProject === idx ? "scale-110" : "group-hover:scale-110"
+                }`}
               />
 
-              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white p-6">
+              <div
+                className={`absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center transition-opacity duration-300 text-white p-6 pointer-events-none ${
+                  isTouchDevice && activeProject === idx ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                }`}
+              >
                 <h3 className="text-xl font-bold">{proj.title}</h3>
                 <p className="text-sm mt-2">{proj.description}</p>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </motion.div>
       </div>
