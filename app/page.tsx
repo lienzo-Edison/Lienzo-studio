@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import TransitionLink from "@/components/TransitionLink";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
@@ -44,15 +43,8 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white text-sm uppercase tracking-wide">
-        <TransitionLink href="/" className="hover:opacity-70 transition">Home</TransitionLink>
-        <TransitionLink href="/portfolio" className="hover:opacity-70 transition">Portafolio</TransitionLink>
-        <TransitionLink href="/contact" className="hover:opacity-70 transition">Contact Us</TransitionLink>
-      </nav>
-
       {/* Hero Section */}
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-[84svh] overflow-hidden">
         <video
           ref={videoRef}
           autoPlay
@@ -90,7 +82,7 @@ export default function Home() {
 
       {/* About Section */}
       <section className="relative" style={{ backgroundColor: '#eae5d9' }}>
-        <div className="max-w-4xl mx-auto text-center py-32 px-6 text-black">
+        <div className="max-w-4xl mx-auto text-center pt-16 pb-32 px-6 text-black md:pt-20">
           <motion.article
             className="space-y-6"
             variants={fadeUpVariants}

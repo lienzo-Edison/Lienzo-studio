@@ -1,5 +1,4 @@
 "use client";
-import TransitionLink from "@/components/TransitionLink";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -17,19 +16,6 @@ export default function Contact() {
       animate={{ opacity: 1, backgroundColor: "#000000" }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 w-full z-20 flex justify-center gap-10 py-6 text-white text-sm uppercase tracking-wide">
-        <TransitionLink href="/" className="hover:opacity-70 transition">
-          Home
-        </TransitionLink>
-        <TransitionLink href="/portfolio" className="hover:opacity-70 transition">
-          Portafolio
-        </TransitionLink>
-        <TransitionLink href="/contact" className="hover:opacity-70 transition">
-          Contact Us
-        </TransitionLink>
-      </nav>
-
       <div className="mt-32 text-center max-w-xl">
         <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
         <p className="text-lg text-white/80 mb-8">
