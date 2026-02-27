@@ -10,6 +10,13 @@ const teamMembers = Array.from({ length: 4 }).map((_, i) => ({
   bio: "Short profile description placeholder. Replace this with each member's bio.",
 }));
 
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionViewport = { once: true, amount: 0.2 };
+
 export default function Home() {
   const [fadeIn, setFadeIn] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -83,33 +90,64 @@ export default function Home() {
 
       {/* About Section */}
       <section className="relative" style={{ backgroundColor: '#eae5d9' }}>
-        <div className="max-w-4xl mx-auto text-center space-y-6 py-32 px-6 text-black">
-          <h2 className="text-4xl font-bold">Who We Are</h2>
-          <p className="text-lg text-black/80">
-            Lienzo Studio is a digital design and media agency specializing in crafting modern, engaging websites and digital experiences that elevate brands.
-          </p>
-          <h2 className="text-4xl font-bold mt-12">What We Do</h2>
-          <p className="text-lg text-black/80">
-            We provide end-to-end solutions including branding, web design, content creation, and social media strategy to help businesses connect with their audience effectively.
-          </p>
+        <div className="max-w-4xl mx-auto text-center py-32 px-6 text-black">
+          <motion.article
+            className="space-y-6"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+          >
+            <h2 className="text-4xl font-bold">Who We Are</h2>
+            <p className="text-lg text-black/80">
+              Lienzo Studio is a digital design and media agency specializing in crafting modern, engaging websites and digital experiences that elevate brands.
+            </p>
+          </motion.article>
+
+          <motion.article
+            className="space-y-6 mt-16"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+          >
+            <h2 className="text-4xl font-bold">What We Do</h2>
+            <p className="text-lg text-black/80">
+              We provide end-to-end solutions including branding, web design, content creation, and social media strategy to help businesses connect with their audience effectively.
+            </p>
+          </motion.article>
         </div>
       </section>
 
       {/* Team Section */}
       <section className="relative bg-black text-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+          >
             <h2 className="text-4xl font-bold">Meet The Team</h2>
             <p className="mt-4 text-white/70">
               Placeholder cards for the four current team members.
             </p>
-          </div>
+          </motion.div>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member) => (
-              <article
+            {teamMembers.map((member, idx) => (
+              <motion.article
                 key={member.name}
                 className="rounded-2xl border border-white/15 bg-white/5 p-6 text-center"
+                variants={fadeUpVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
                 <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-white/25 bg-white/10 text-[10px] uppercase tracking-[0.2em] text-white/60">
                   Photo
@@ -117,7 +155,7 @@ export default function Home() {
                 <h3 className="mt-5 text-lg font-semibold">{member.name}</h3>
                 <p className="mt-1 text-sm text-white/55">{member.role}</p>
                 <p className="mt-4 text-sm leading-relaxed text-white/70">{member.bio}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
