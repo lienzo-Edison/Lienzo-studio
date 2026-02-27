@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <PageTransitionProvider>
           <TopNav />
-          {children}
+          <div className="pb-16 md:pb-0">{children}</div>
         </PageTransitionProvider>
       </body>
     </html>
