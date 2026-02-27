@@ -1,7 +1,14 @@
 "use client";
+import Image from "next/image";
 import TransitionLink from "@/components/TransitionLink";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+
+const teamMembers = Array.from({ length: 4 }).map((_, i) => ({
+  name: `Team Member ${i + 1}`,
+  role: "Role Placeholder",
+  bio: "Short profile description placeholder. Replace this with each member's bio.",
+}));
 
 export default function Home() {
   const [fadeIn, setFadeIn] = useState(true);
@@ -62,7 +69,7 @@ export default function Home() {
           className="absolute bottom-6 left-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-3 opacity-80 hover:opacity-100 hover:bg-white/20 transition-all duration-300"
           aria-label="Replay background video"
         >
-          <img src="/icon_replay.svg" alt="Replay" className="w-6 h-6" />
+          <Image src="/icon_replay.svg" alt="Replay" width={24} height={24} className="w-6 h-6" />
         </button>
 
         {/* Initial Fade From Black */}
@@ -85,6 +92,34 @@ export default function Home() {
           <p className="text-lg text-black/80">
             We provide end-to-end solutions including branding, web design, content creation, and social media strategy to help businesses connect with their audience effectively.
           </p>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="relative bg-black text-white py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold">Meet The Team</h2>
+            <p className="mt-4 text-white/70">
+              Placeholder cards for the four current team members.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {teamMembers.map((member) => (
+              <article
+                key={member.name}
+                className="rounded-2xl border border-white/15 bg-white/5 p-6 text-center"
+              >
+                <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-white/25 bg-white/10 text-[10px] uppercase tracking-[0.2em] text-white/60">
+                  Photo
+                </div>
+                <h3 className="mt-5 text-lg font-semibold">{member.name}</h3>
+                <p className="mt-1 text-sm text-white/55">{member.role}</p>
+                <p className="mt-4 text-sm leading-relaxed text-white/70">{member.bio}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </motion.main>
