@@ -14,8 +14,8 @@ export default function TopNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/45 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl justify-center gap-10 py-5 text-sm uppercase tracking-wide text-white/90 font-semibold">
+    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/55 backdrop-blur-md md:top-0 md:bottom-auto md:border-t-0 md:border-b md:bg-black/45">
+      <div className="mx-auto flex max-w-7xl items-center justify-around px-4 py-3 text-[11px] uppercase tracking-wide text-white/90 font-semibold md:justify-center md:gap-10 md:px-0 md:py-5 md:text-sm">
         {navItems.map((item, idx) => (
           <TransitionLink
             key={item.href}
