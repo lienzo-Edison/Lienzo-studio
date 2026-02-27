@@ -3,21 +3,21 @@ import Image from "next/image";
 import TransitionLink from "@/components/TransitionLink";
 import { motion } from "framer-motion";
 
-const projects = Array.from({ length: 15 }).map((_, i) => ({
+const projects = Array.from({ length: 16 }).map((_, i) => ({
   image: "/projects/sample-portfolio.jpg",
   title: `Project ${i + 1}`,
   description: "Brief description of the project goes here.",
 }));
 
 const mosaicPattern = [
-  "col-span-2 row-span-2 md:col-span-3 md:row-span-3",
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
-  "col-span-1 row-span-2 md:col-span-1 md:row-span-3",
-  "col-span-2 row-span-1 md:col-span-3 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
-  "col-span-1 row-span-2 md:col-span-2 md:row-span-3",
-  "col-span-2 row-span-1 md:col-span-3 md:row-span-2",
-  "col-span-1 row-span-1 md:col-span-1 md:row-span-2",
+  "row-span-4",
+  "row-span-3",
+  "row-span-4",
+  "row-span-3",
+  "row-span-5",
+  "row-span-4",
+  "row-span-3",
+  "row-span-4",
 ];
 
 const containerVariants = {
@@ -55,7 +55,7 @@ export default function Portfolio() {
 
         {/* Mosaic Layout */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-8 auto-rows-[110px] md:auto-rows-[90px] gap-3 md:gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-flow-dense auto-rows-[80px] sm:auto-rows-[86px] gap-3 md:gap-4"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -63,7 +63,7 @@ export default function Portfolio() {
           {projects.map((proj, idx) => (
             <motion.div
               key={idx}
-              className={`relative overflow-hidden group cursor-pointer bg-black rounded-2xl ${
+              className={`relative overflow-hidden group cursor-pointer bg-black rounded-sm col-span-1 ${
                 mosaicPattern[idx % mosaicPattern.length]
               }`}
               variants={itemVariants}
@@ -72,7 +72,7 @@ export default function Portfolio() {
                 src={proj.image}
                 alt={proj.title}
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
