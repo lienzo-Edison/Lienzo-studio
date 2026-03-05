@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import SplitText from "@/components/SplitText";
 
 const teamMembers = Array.from({ length: 4 }).map((_, i) => ({
   name: `Team Member ${i + 1}`,
@@ -15,10 +16,16 @@ const fadeUpVariants = {
 };
 
 const sectionViewport = { once: true, amount: 0.2 };
+const HERO_TITLE_REVEAL_SECOND = 1.5;
 
 export default function Home() {
   const [fadeIn, setFadeIn] = useState(true);
+  const [showHeroTitle, setShowHeroTitle] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleAnimationComplete = () => {
+    console.log("All letters have animated!");
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => setFadeIn(false), 600);
@@ -50,6 +57,16 @@ export default function Home() {
           autoPlay
           muted
           playsInline
+          onTimeUpdate={(event) => {
+            if (
+              !showHeroTitle &&
+              event.currentTarget.currentTime >= HERO_TITLE_REVEAL_SECOND
+            ) {
+              setShowHeroTitle(true);
+            }
+          }}
+          onEnded={() => setShowHeroTitle(true)}
+          onError={() => setShowHeroTitle(true)}
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
           <source src="/background.mp4" type="video/mp4" />
@@ -61,8 +78,9 @@ export default function Home() {
         <button
           onClick={() => {
             if (videoRef.current) {
+              setShowHeroTitle(false);
               videoRef.current.currentTime = 0;
-              videoRef.current.play();
+              void videoRef.current.play();
             }
           }}
           className="absolute bottom-6 left-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-3 opacity-80 hover:opacity-100 hover:bg-white/20 transition-all duration-300"
@@ -76,7 +94,23 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center h-full w-full text-center">
-          <h1 className="text-white text-6xl font-bold tracking-wide mx-auto">LIENZO STUDIO</h1>
+          {showHeroTitle ? (
+            <SplitText
+              text="LIENZO STUDIO"
+              className="text-white text-6xl font-bold tracking-wide mx-auto"
+              delay={80}
+              duration={0.4}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+              onLetterAnimationComplete={handleAnimationComplete}
+              showCallback
+            />
+          ) : null}
         </div>
       </section>
 
