@@ -1,13 +1,11 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 import Prism from "@/components/Prism";
 import SplitText from "@/components/SplitText";
-
-const teamMembers = Array.from({ length: 4 }).map((_, i) => ({
-  name: `Team Member ${i + 1}`,
-  role: "Role Placeholder",
-  bio: "Short profile description placeholder. Replace this with each member's bio.",
-}));
+import { useLanguage } from "@/components/LanguageProvider";
+import { getTranslations } from "@/lib/i18n";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -17,11 +15,19 @@ const fadeUpVariants = {
 const sectionViewport = { once: true, amount: 0.2 };
 
 export default function Home() {
+  const { language } = useLanguage();
+  const t = getTranslations(language);
   const showHeroTitle = true;
 
-  const handleAnimationComplete = () => {
-    console.log("All letters have animated!");
-  };
+  const teamMembers = useMemo(
+    () =>
+      Array.from({ length: 4 }).map((_, i) => ({
+        name: t.home.teamMemberName(i + 1),
+        role: t.home.teamRole,
+        bio: t.home.teamBio,
+      })),
+    [t.home],
+  );
 
   return (
     <motion.main
@@ -32,7 +38,7 @@ export default function Home() {
     >
       {/* Hero Section */}
       <section className="px-6 pb-8 pt-16 md:px-10 md:pt-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full max-w-6xl">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[1.4rem] border border-black/10 shadow-[0_20px_80px_rgba(0,0,0,0.2)] md:aspect-[16/9]">
             <div className="absolute inset-0">
               <Prism
@@ -53,39 +59,38 @@ export default function Home() {
             <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
               {showHeroTitle ? (
                 <>
-                  <SplitText
-                    text="LIENZO STUDIO"
-                    className="mx-auto max-w-4xl text-3xl font-semibold tracking-[0.16em] text-white md:text-5xl"
-                    delay={80}
-                    duration={0.4}
-                    ease="power3.out"
-                    splitType="chars"
-                    from={{ opacity: 0, y: 40 }}
-                    to={{ opacity: 1, y: 0 }}
-                    threshold={0.1}
-                    rootMargin="-100px"
-                    textAlign="center"
-                    onLetterAnimationComplete={handleAnimationComplete}
-                    showCallback
-                  />
-                  <div className="mt-6">
-                    <SplitText
-                      text="Creativity that crosses every border."
-                      className="mx-auto max-w-2xl text-base font-medium tracking-[0.06em] text-white/90 md:text-xl"
-                      delay={35}
-                      duration={0.35}
-                      ease="power3.out"
-                      splitType="words"
-                      from={{ opacity: 0, y: 20 }}
-                      to={{ opacity: 1, y: 0 }}
-                      threshold={0.1}
-                      rootMargin="-100px"
-                      textAlign="center"
-                      onLetterAnimationComplete={handleAnimationComplete}
+                  <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="mx-auto flex w-full max-w-4xl justify-center"
+                  >
+                    <Image
+                      src="/Lienzo - Logotipo W-01.svg"
+                      alt={t.home.heroLogoAlt}
+                      width={640}
+                      height={220}
+                      priority
+                      className="h-auto w-[340px] sm:w-[520px] md:w-[720px]"
                     />
-                  </div>
+                  </motion.div>
                 </>
               ) : null}
+              <div className="absolute bottom-8 left-0 right-0 px-6 md:bottom-12">
+                <SplitText
+                  text={t.home.heroSubtitle}
+                  className="mx-auto max-w-2xl text-base font-medium tracking-[0.06em] text-white/90 md:text-xl"
+                  delay={35}
+                  duration={0.35}
+                  ease="power3.out"
+                  splitType="words"
+                  from={{ opacity: 0, y: 20 }}
+                  to={{ opacity: 1, y: 0 }}
+                  threshold={0.1}
+                  rootMargin="-100px"
+                  textAlign="center"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -102,9 +107,9 @@ export default function Home() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="text-4xl font-bold">Who We Are</h2>
+            <h2 className="text-4xl font-bold">{t.home.whoTitle}</h2>
             <p className="text-lg text-black/80">
-              Lienzo Studio is a digital design and media agency specializing in crafting modern, engaging websites and digital experiences that elevate brands.
+              {t.home.whoBody}
             </p>
           </motion.article>
 
@@ -116,9 +121,9 @@ export default function Home() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
           >
-            <h2 className="text-4xl font-bold">What We Do</h2>
+            <h2 className="text-4xl font-bold">{t.home.whatTitle}</h2>
             <p className="text-lg text-black/80">
-              We provide end-to-end solutions including branding, web design, content creation, and social media strategy to help businesses connect with their audience effectively.
+              {t.home.whatBody}
             </p>
           </motion.article>
         </div>
@@ -135,9 +140,9 @@ export default function Home() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="text-4xl font-bold">Meet The Team</h2>
+            <h2 className="text-4xl font-bold">{t.home.teamTitle}</h2>
             <p className="mt-4 text-black/65">
-              Placeholder cards for the four current team members.
+              {t.home.teamSubtitle}
             </p>
           </motion.div>
 
@@ -153,7 +158,7 @@ export default function Home() {
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
                 <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-black/20 bg-black/5 text-[10px] uppercase tracking-[0.2em] text-black/50">
-                  Photo
+                  {t.home.photoLabel}
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">{member.name}</h3>
                 <p className="mt-1 text-sm text-black/55">{member.role}</p>

@@ -13,6 +13,7 @@ export type MasonryItem = {
   height?: number;
   title?: string;
   description?: string;
+  alt?: string;
 };
 
 type AnimateFrom = "start" | "center" | "end" | "random";
@@ -109,7 +110,7 @@ export default function Masonry({
             >
               <Image
                 src={item.img}
-                alt={item.title ?? `Project image ${index + 1}`}
+                alt={item.alt ?? item.title ?? `Project image ${index + 1}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 className={`object-cover transition-all duration-500 ${

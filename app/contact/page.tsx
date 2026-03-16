@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/LanguageProvider";
+import { getTranslations } from "@/lib/i18n";
 
 export default function Contact() {
   const [revealed, setRevealed] = useState(false);
+  const { language } = useLanguage();
+  const t = getTranslations(language);
 
   const emailUser = "ventas";
   const emailDomain = "lienzo.studio";
@@ -17,23 +21,22 @@ export default function Contact() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="mt-32 text-center max-w-xl">
-        <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+        <h1 className="text-4xl font-bold mb-6">{t.contact.title}</h1>
         <p className="text-lg text-white/80 mb-8">
-          If you&apos;re interested in working with us or have any questions,
-          feel free to reach out via email.
+          {t.contact.intro}
         </p>
 
         <div className="bg-white/10 border border-white/20 rounded-lg p-6">
           {!revealed ? (
             <>
               <p className="mb-4 text-white/70">
-                Click below to reveal our contact email.
+                {t.contact.revealPrompt}
               </p>
               <button
                 onClick={() => setRevealed(true)}
                 className="bg-white/10 hover:bg-white/20 border border-white/20 rounded px-6 py-3 transition"
               >
-                Reveal Email
+                {t.contact.revealButton}
               </button>
             </>
           ) : (
