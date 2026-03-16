@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Masonry, { type MasonryItem } from "@/components/Masonry";
 import Beams from "@/components/Beams";
 import GlassSurface from "@/components/GlassSurface";
+import { useLanguage } from "@/components/LanguageProvider";
+import { getTranslations } from "@/lib/i18n";
 
 type Project = {
   image: string;
@@ -17,36 +19,33 @@ type Project = {
   };
 };
 
-const projects: Project[] = Array.from({ length: 9 }).map((_, i) => ({
-  image: "/projects/sample-portfolio.jpg",
-  title: `Project ${i + 1}`,
-  description:
-    i === 0
-      ? "Residential remodel with warm materials and natural light study."
-      : "Brief description of the project goes here.",
-  details: {
-    gallery: [
-      "/projects/sample-portfolio.jpg",
-      "/projects/sample-portfolio.jpg",
-      "/projects/sample-portfolio.jpg",
-    ],
-    overview:
-      i === 0
-        ? "Project 1 is a full-home design concept focused on balancing clean modern geometry with lived-in comfort. The goal was to create a layout that feels bright and calm while still supporting daily family routines."
-        : `Project ${i + 1} expanded overview placeholder. Replace this with your full project story, design intent, and key outcomes.`,
-    scope: [
-      "Defined spatial concept, circulation, and furniture zoning.",
-      "Refined palette and material direction for a cohesive look.",
-      "Prepared visual studies to communicate mood and final intent.",
-    ],
-  },
-}));
-
 const masonryHeights = [420, 290, 560, 340, 470, 315, 510, 360, 445];
 
 export default function Portfolio() {
   const [openProject, setOpenProject] = useState<number | null>(null);
   const [activeGalleryImage, setActiveGalleryImage] = useState(0);
+  const { language } = useLanguage();
+  const t = getTranslations(language);
+
+  const projects: Project[] = useMemo(
+    () =>
+      Array.from({ length: 9 }).map((_, i) => ({
+        image: "/projects/sample-portfolio.jpg",
+        title: t.portfolio.projectTitle(i + 1),
+        description: i === 0 ? t.portfolio.projectDescPrimary : t.portfolio.projectDescOther,
+        details: {
+          gallery: [
+            "/projects/sample-portfolio.jpg",
+            "/projects/sample-portfolio.jpg",
+            "/projects/sample-portfolio.jpg",
+          ],
+          overview:
+            i === 0 ? t.portfolio.projectOverviewPrimary : t.portfolio.projectOverviewOther(i + 1),
+          scope: t.portfolio.scopeItems,
+        },
+      })),
+    [t.portfolio],
+  );
 
   const handleProjectTap = (index: number) => {
     setOpenProject((prev) => (prev === index ? null : index));
@@ -55,14 +54,19 @@ export default function Portfolio() {
 
   const selectedProject = openProject !== null ? projects[openProject] : null;
   const openProjectDetails = selectedProject?.details;
-  const masonryItems: MasonryItem[] = projects.map((project, idx) => ({
-    id: String(idx),
-    img: project.image,
-    url: project.details ? "#" : undefined,
-    height: masonryHeights[idx % masonryHeights.length],
-    title: project.title,
-    description: project.description,
-  }));
+  const masonryItems: MasonryItem[] = useMemo(
+    () =>
+      projects.map((project, idx) => ({
+        id: String(idx),
+        img: project.image,
+        url: project.details ? "#" : undefined,
+        height: masonryHeights[idx % masonryHeights.length],
+        title: project.title,
+        description: project.description,
+        alt: t.masonry.projectImageAlt(idx + 1),
+      })),
+    [projects, t.masonry],
+  );
 
   useEffect(() => {
     if (openProject === null) return;
@@ -102,7 +106,7 @@ export default function Portfolio() {
               lightColor="#ffffff"
               speed={2.6}
               noiseIntensity={1.75}
-              scale={0.2}
+              scale={1}
               rotation={30}
             />
           </div>
@@ -125,7 +129,7 @@ export default function Portfolio() {
               mixBlendMode="screen"
               className="px-5"
             >
-              <h1 className="text-4xl font-bold text-center text-white tracking-wide">Portfolio</h1>
+              <h1 className="text-4xl font-bold text-center text-white tracking-wide">{t.portfolio.title}</h1>
             </GlassSurface>
           </div>
 
@@ -173,7 +177,7 @@ export default function Portfolio() {
               >
                 <button
                   type="button"
-                  aria-label="Close project details"
+                  aria-label={t.portfolio.closeDetailsLabel}
                   onClick={() => setOpenProject(null)}
                   className="absolute inset-0 bg-black/80 backdrop-blur-[2px]"
                 />
@@ -188,14 +192,14 @@ export default function Portfolio() {
                   <div className="mb-4 flex items-start justify-between gap-4">
                     <div>
                       <h2 className="text-2xl font-bold text-white">{selectedProject.title}</h2>
-                      <p className="mt-1 text-sm text-white/70">Expanded project view</p>
+                      <p className="mt-1 text-sm text-white/70">{t.portfolio.expandedViewLabel}</p>
                     </div>
                     <button
                       type="button"
                       onClick={() => setOpenProject(null)}
                       className="rounded border border-white/20 px-3 py-1 text-xs text-white/80 transition hover:border-white/40 hover:text-white"
                     >
-                      Close
+                      {t.portfolio.close}
                     </button>
                   </div>
 
@@ -207,7 +211,10 @@ export default function Portfolio() {
                       >
                         <Image
                           src={openProjectDetails.gallery[activeGalleryImage]}
-                          alt={`${selectedProject.title} detail image ${activeGalleryImage + 1}`}
+                          alt={t.portfolioModal.detailAlt(
+                            selectedProject.title,
+                            activeGalleryImage + 1,
+                          )}
                           fill
                           sizes="(max-width: 1024px) 100vw, 58vw"
                           className="object-cover"
@@ -228,7 +235,10 @@ export default function Portfolio() {
                           >
                             <Image
                               src={img}
-                              alt={`${selectedProject.title} thumbnail ${imgIndex + 1}`}
+                              alt={t.portfolioModal.thumbAlt(
+                                selectedProject.title,
+                                imgIndex + 1,
+                              )}
                               fill
                               sizes="(max-width: 1024px) 30vw, 15vw"
                               className="object-cover"
@@ -239,10 +249,12 @@ export default function Portfolio() {
                     </div>
 
                     <div className="rounded-md border border-white/10 bg-black/30 p-4 md:p-5">
-                      <h3 className="text-lg font-semibold text-white">Project Overview</h3>
+                      <h3 className="text-lg font-semibold text-white">{t.portfolio.overviewHeading}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-white/80">{openProjectDetails.overview}</p>
 
-                      <h4 className="mt-5 text-sm font-semibold uppercase tracking-wide text-white/90">Scope</h4>
+                      <h4 className="mt-5 text-sm font-semibold uppercase tracking-wide text-white/90">
+                        {t.portfolio.scopeHeading}
+                      </h4>
                       <ul className="mt-2 space-y-2 text-sm text-white/80">
                         {openProjectDetails.scope.map((item) => (
                           <li key={item}>• {item}</li>
