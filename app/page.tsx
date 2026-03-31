@@ -2,10 +2,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
-import Prism from "@/components/Prism";
-import SplitText from "@/components/SplitText";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
+import ColorBends from "@/components/ColorBends";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -17,13 +16,12 @@ const sectionViewport = { once: true, amount: 0.2 };
 export default function Home() {
   const { language } = useLanguage();
   const t = getTranslations(language);
-  const showHeroTitle = true;
 
   const teamMembers = useMemo(
     () =>
-      Array.from({ length: 4 }).map((_, i) => ({
-        name: t.home.teamMemberName(i + 1),
-        role: t.home.teamRole,
+      t.home.teamMembers.map((member) => ({
+        name: member.name,
+        role: member.role,
         bio: t.home.teamBio,
       })),
     [t.home],
@@ -31,108 +29,126 @@ export default function Home() {
 
   return (
     <motion.main
-      className="relative min-h-screen w-full overflow-x-hidden bg-[#eae5d9] text-black"
+      className="relative min-h-screen w-full overflow-x-hidden bg-white text-black"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       {/* Hero Section */}
-      <section className="px-6 pb-8 pt-16 md:px-10 md:pt-20">
+      <section className="px-6 pb-12 pt-24 md:px-10 md:pt-28">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[1.4rem] border border-black/10 shadow-[0_20px_80px_rgba(0,0,0,0.2)] md:aspect-[16/9]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
             <div className="absolute inset-0">
-              <Prism
-                animationType="hover"
-                timeScale={0.6}
-                height={4.6}
-                baseWidth={5.5}
-                scale={3.9}
-                hueShift={0}
-                colorFrequency={1}
-                noise={0}
-                glow={1}
+              <ColorBends
+                className="h-full w-full"
+                rotation={0}
+                speed={0.2}
+                colors={["#a81a02", "#1d3653", "#2b3425"]}
+                transparent
+                autoRotate={0.1}
+                scale={1}
+                frequency={2}
+                warpStrength={1}
+                mouseInfluence={1.6}
+                parallax={0.9}
+                noise={0.1}
               />
             </div>
             <div className="absolute inset-0 bg-black/35"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-black/15"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10"></div>
 
-            <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
-              {showHeroTitle ? (
-                <>
-                  <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="mx-auto flex w-full max-w-4xl justify-center"
-                  >
-                    <Image
-                      src="/Lienzo - Logotipo W-01.svg"
-                      alt={t.home.heroLogoAlt}
-                      width={640}
-                      height={220}
-                      priority
-                      className="h-auto w-[340px] sm:w-[520px] md:w-[720px]"
-                    />
-                  </motion.div>
-                </>
-              ) : null}
-              <div className="absolute bottom-8 left-0 right-0 px-6 md:bottom-12">
-                <SplitText
-                  text={t.home.heroSubtitle}
-                  className="mx-auto max-w-2xl text-base font-medium tracking-[0.06em] text-white/90 md:text-xl"
-                  delay={35}
-                  duration={0.35}
-                  ease="power3.out"
-                  splitType="words"
-                  from={{ opacity: 0, y: 20 }}
-                  to={{ opacity: 1, y: 0 }}
-                  threshold={0.1}
-                  rootMargin="-100px"
-                  textAlign="center"
-                  onLetterAnimationComplete={() => {}}
+            <div className="relative z-10 flex min-h-[60vh] flex-col justify-end px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <Image
+                  src="/Logos/Lienzo - completo-white.svg"
+                  alt={t.home.heroLogoAlt}
+                  width={680}
+                  height={220}
+                  className="w-[280px] opacity-85 sm:w-[420px] md:w-[520px]"
+                  priority
                 />
               </div>
+              <motion.p
+                className="max-w-3xl font-[var(--font-display)] font-bold uppercase text-4xl leading-tight text-white sm:text-5xl md:text-6xl"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
+              >
+                {t.home.heroSubtitle}
+              </motion.p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="relative">
-        <div className="mx-auto max-w-4xl px-6 pb-28 pt-10 text-center md:pt-14">
+      {/* Who + What Section */}
+      <section className="relative px-6 pb-12 pt-6 md:pt-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-16 md:gap-20">
           <motion.article
-            className="space-y-6"
+            className="flex flex-col gap-6 border-b border-black/15 pb-12 pt-2 md:flex-row md:items-center md:justify-between md:gap-12 md:pt-4"
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="text-4xl font-bold">{t.home.whoTitle}</h2>
-            <p className="text-lg text-black/80">
+            <motion.h2
+              className="font-[var(--font-display)] font-bold uppercase text-3xl text-[#254566] md:text-4xl"
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={sectionViewport}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+            >
+              {t.home.whoTitle}
+            </motion.h2>
+            <motion.p
+              className="max-w-xl text-sm text-black/70 md:text-base"
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={sectionViewport}
+              transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+            >
               {t.home.whoBody}
-            </p>
+            </motion.p>
           </motion.article>
 
           <motion.article
-            className="space-y-6 mt-16"
+            className="flex flex-col gap-6 border-b border-black/15 pb-12 md:flex-row md:items-center md:justify-between md:gap-12"
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
-            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="text-4xl font-bold">{t.home.whatTitle}</h2>
-            <p className="text-lg text-black/80">
+            <motion.h2
+              className="font-[var(--font-display)] font-bold uppercase text-3xl text-[#a61b00] md:text-4xl"
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={sectionViewport}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+            >
+              {t.home.whatTitle}
+            </motion.h2>
+            <motion.p
+              className="max-w-xl text-sm text-black/70 md:text-base"
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={sectionViewport}
+              transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+            >
               {t.home.whatBody}
-            </p>
+            </motion.p>
           </motion.article>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="relative px-6 pb-24">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white/55 p-8 md:p-12">
+      <section className="relative px-6 pb-20 pt-12">
+        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-12">
           <motion.div
             className="text-center"
             variants={fadeUpVariants}
@@ -141,27 +157,37 @@ export default function Home() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="text-4xl font-bold">{t.home.teamTitle}</h2>
-            <p className="mt-4 text-black/65">
+            <h2 className="mt-3 font-[var(--font-display)] font-bold uppercase text-3xl text-black md:text-4xl">
+              {t.home.teamTitle}
+            </h2>
+            <p className="mt-4 text-sm text-black/65 md:text-base">
               {t.home.teamSubtitle}
             </p>
           </motion.div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {teamMembers.map((member, idx) => (
               <motion.article
                 key={member.name}
-                className="rounded-2xl border border-black/10 bg-white/75 p-6 text-center"
+                className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
-                <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-black/20 bg-black/5 text-[10px] uppercase tracking-[0.2em] text-black/50">
-                  {t.home.photoLabel}
+                <div className="h-[180px] overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70">
+                  <Image
+                    src="/projects/sample-portfolio.jpg"
+                    alt={`${member.name} profile placeholder`}
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold">{member.name}</h3>
+            <h3 className="mt-6 text-lg font-bold font-[var(--font-display)] text-black">
+              {member.name}
+            </h3>
                 <p className="mt-1 text-sm text-black/55">{member.role}</p>
                 <p className="mt-4 text-sm leading-relaxed text-black/70">{member.bio}</p>
               </motion.article>

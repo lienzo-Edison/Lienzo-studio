@@ -23,9 +23,9 @@ type Translations = {
     whatBody: string;
     teamTitle: string;
     teamSubtitle: string;
+    teamLabel: string;
     photoLabel: string;
-    teamMemberName: (index: number) => string;
-    teamRole: string;
+    teamMembers: { name: string; role: string }[];
     teamBio: string;
   };
   portfolio: {
@@ -49,12 +49,14 @@ type Translations = {
     detailAlt: (title: string, index: number) => string;
     thumbAlt: (title: string, index: number) => string;
   };
-  contact: {
-    title: string;
-    intro: string;
-    revealPrompt: string;
-    revealButton: string;
-  };
+    contact: {
+      title: string;
+      intro: string;
+      revealPrompt: string;
+      revealButton: string;
+      preferEmail: string;
+      whatsappButton: string;
+    };
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -75,15 +77,21 @@ export const translations: Record<Locale, Translations> = {
       heroSubtitle: "Creativity that crosses every border.",
       whoTitle: "Who We Are",
       whoBody:
-        "Lienzo Studio is a digital design and media agency specializing in crafting modern, engaging websites and digital experiences that elevate brands.",
+        "We are a branding and marketing studio working across the U.S. and Latin America.\nWe create bold, high-quality visuals backed by strategy so brands don’t just look good, they grow.",
       whatTitle: "What We Do",
       whatBody:
-        "We provide end-to-end solutions including branding, web design, content creation, and social media strategy to help businesses connect with their audience effectively.",
+        "We build brands and create marketing that performs.\nFrom identity design to advertising creatives, everything we deliver is made to attract, communicate, and convert.",
       teamTitle: "Meet The Team",
-      teamSubtitle: "Placeholder cards for the four current team members.",
+      teamSubtitle:
+        "A tight-knit team working across the U.S. and Mexico. We collaborate closely on every project, blending perspectives and craft to deliver focused, high-impact brand work.",
+      teamLabel: "Team",
       photoLabel: "Photo",
-      teamMemberName: (index) => `Team Member ${index}`,
-      teamRole: "Role Placeholder",
+      teamMembers: [
+        { name: "Edison Carrillo", role: "Founder & Director" },
+        { name: "Eduardo Carrillo", role: "Brand Designer" },
+        { name: "Michelle Portillo", role: "Brand Designer" },
+        { name: "Reymundo Torres", role: "Brand Designer" },
+      ],
       teamBio: "Short profile description placeholder. Replace this with each member's bio.",
     },
     portfolio: {
@@ -115,9 +123,11 @@ export const translations: Record<Locale, Translations> = {
     },
     contact: {
       title: "Contact Us",
-      intro: "If you're interested in working with us or have any questions, feel free to reach out via email.",
+      intro: "If you're interested in working with us or have any questions, reach out by phone, WhatsApp, or email.",
       revealPrompt: "Click below to reveal our contact email.",
       revealButton: "Reveal Email",
+      preferEmail: "Prefer email?",
+      whatsappButton: "Message us on WhatsApp",
     },
   },
   es: {
@@ -137,15 +147,21 @@ export const translations: Record<Locale, Translations> = {
       heroSubtitle: "Creatividad que cruza todas las fronteras.",
       whoTitle: "Quiénes Somos",
       whoBody:
-        "Lienzo Studio es una agencia de diseño digital y medios especializada en crear sitios web modernos y experiencias digitales que elevan las marcas.",
+        "Somos un estudio de branding y marketing que trabaja en Estados Unidos y México.\nCreamos visuales audaces y de alta calidad respaldados por estrategia para que las marcas no solo se vean bien, sino que crezcan.",
       whatTitle: "Lo Que Hacemos",
       whatBody:
-        "Ofrecemos soluciones integrales que incluyen branding, diseño web, creación de contenido y estrategia en redes sociales para ayudar a las empresas a conectar con su audiencia de forma efectiva.",
+        "Construimos marcas y creamos marketing que funciona.\nDesde el diseño de identidad hasta creativos publicitarios, todo lo que entregamos está hecho para atraer, comunicar y convertir.",
       teamTitle: "Conoce al Equipo",
-      teamSubtitle: "Tarjetas de muestra para los cuatro miembros actuales del equipo.",
+      teamSubtitle:
+        "Un equipo unido que trabaja entre Estados Unidos y México. Colaboramos de cerca en cada proyecto, combinando perspectivas y oficio para entregar trabajo de marca enfocado y de alto impacto.",
+      teamLabel: "Equipo",
       photoLabel: "Foto",
-      teamMemberName: (index) => `Miembro del Equipo ${index}`,
-      teamRole: "Rol de Ejemplo",
+      teamMembers: [
+        { name: "Edison Carrillo", role: "Fundador y director" },
+        { name: "Eduardo Carrillo", role: "Diseñador de marca" },
+        { name: "Michelle Portillo", role: "Diseñadora de marca" },
+        { name: "Reymundo Torres", role: "Diseñador de marca" },
+      ],
       teamBio: "Descripción breve de perfil. Reemplaza esto con la biografía de cada miembro.",
     },
     portfolio: {
@@ -177,9 +193,11 @@ export const translations: Record<Locale, Translations> = {
     },
     contact: {
       title: "Contáctanos",
-      intro: "Si te interesa trabajar con nosotros o tienes alguna pregunta, contáctanos por correo.",
+      intro: "Si te interesa trabajar con nosotros o tienes alguna pregunta, contáctanos por teléfono, WhatsApp o correo.",
       revealPrompt: "Haz clic abajo para mostrar nuestro correo de contacto.",
       revealButton: "Mostrar correo",
+      preferEmail: "¿Prefieres correo?",
+      whatsappButton: "Escríbenos por WhatsApp",
     },
   },
 };

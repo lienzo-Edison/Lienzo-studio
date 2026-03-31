@@ -3,8 +3,6 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Masonry, { type MasonryItem } from "@/components/Masonry";
-import Beams from "@/components/Beams";
-import GlassSurface from "@/components/GlassSurface";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 
@@ -91,66 +89,20 @@ export default function Portfolio() {
   return (
     <LayoutGroup>
       <motion.main
-        className="relative min-h-screen overflow-hidden p-6"
-        style={{ backgroundColor: "#020202" }}
+        className="relative min-h-screen overflow-hidden bg-white p-6 text-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.35 }}
       >
-        <div className="absolute inset-0">
-          <div style={{ width: "100%", height: "100%", position: "relative" }}>
-            <Beams
-              beamWidth={1.1}
-              beamHeight={30}
-              beamNumber={12}
-              lightColor="#ffffff"
-              speed={2.6}
-              noiseIntensity={1.75}
-              scale={1}
-              rotation={30}
-            />
-          </div>
-          <div className="absolute inset-0 bg-black/52" />
-        </div>
-
         <div className="relative z-10 mt-32 max-w-7xl mx-auto">
           <div className="mb-14 flex justify-center">
-            <GlassSurface
-              width="fit-content"
-              height={84}
-              borderRadius={24}
-              displace={0.5}
-              distortionScale={-180}
-              redOffset={0}
-              greenOffset={10}
-              blueOffset={20}
-              brightness={50}
-              opacity={0.93}
-              mixBlendMode="screen"
-              className="px-5"
-            >
-              <h1 className="text-4xl font-bold text-center text-white tracking-wide">{t.portfolio.title}</h1>
-            </GlassSurface>
+            <h1 className="text-4xl font-bold font-[var(--font-display)] text-center text-black tracking-wide">
+              {t.portfolio.title}
+            </h1>
           </div>
 
-          <section className="relative rounded-[28px]">
-            <div className="pointer-events-none absolute inset-0">
-              <GlassSurface
-                width="100%"
-                height="100%"
-                borderRadius={28}
-                displace={0.35}
-                distortionScale={-120}
-                redOffset={0}
-                greenOffset={8}
-                blueOffset={14}
-                brightness={46}
-                opacity={0.88}
-                mixBlendMode="screen"
-              />
-            </div>
-
-            <div className="relative z-10 p-3 md:p-4">
+          <section className="relative rounded-[28px] border border-black/10 bg-white p-3 md:p-4">
+            <div className="relative z-10">
               <Masonry
                 items={masonryItems}
                 ease="power3.out"
