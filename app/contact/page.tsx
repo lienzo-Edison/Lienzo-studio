@@ -9,41 +9,66 @@ export default function Contact() {
   const { language } = useLanguage();
   const t = getTranslations(language);
 
-  const emailUser = "ventas";
-  const emailDomain = "lienzo.studio";
-  const fullEmail = `${emailUser}@${emailDomain}`;
+  const fullEmail = language === "es" ? "ventas@lienzo.studio" : "sales@lienzo.studio";
+  const phoneNumber = "+1 (720) 990-7795";
+  const whatsappLink = "https://wa.me/message/LVLY6STJJOM4K1";
 
   return (
     <motion.main
-      className="min-h-screen flex flex-col items-center justify-start bg-black text-white p-6"
-      initial={{ opacity: 0, backgroundColor: "#000000" }}
-      animate={{ opacity: 1, backgroundColor: "#000000" }}
+      className="min-h-screen flex flex-col items-center justify-start bg-white text-black p-6"
+      initial={{ opacity: 0, backgroundColor: "#ffffff" }}
+      animate={{ opacity: 1, backgroundColor: "#ffffff" }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="mt-32 text-center max-w-xl">
-        <h1 className="text-4xl font-bold mb-6">{t.contact.title}</h1>
-        <p className="text-lg text-white/80 mb-8">
+        <h1 className="text-4xl font-bold font-[var(--font-display)] mb-6">
+          {t.contact.title}
+        </h1>
+        <p className="text-lg text-black/70 mb-8">
           {t.contact.intro}
         </p>
 
-        <div className="bg-white/10 border border-white/20 rounded-lg p-6">
-          {!revealed ? (
-            <>
-              <p className="mb-4 text-white/70">
-                {t.contact.revealPrompt}
-              </p>
-              <button
-                onClick={() => setRevealed(true)}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 rounded px-6 py-3 transition"
+        <div className="bg-black/5 border border-black/10 rounded-lg p-6 text-left">
+          <div className="flex flex-col gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-black/50">Phone</p>
+              <a
+                href={`tel:${phoneNumber.replace(/[^+\\d]/g, "")}`}
+                className="mt-2 inline-block text-lg font-medium text-black hover:text-black/70"
               >
-                {t.contact.revealButton}
-              </button>
-            </>
-          ) : (
-            <p className="text-lg font-medium">
-              {fullEmail}
-            </p>
-          )}
+                {phoneNumber}
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-black/50">WhatsApp</p>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex items-center justify-center rounded border border-black/15 bg-black/5 px-6 py-2 text-sm font-medium text-black transition hover:border-[#25d366] hover:text-black hover:shadow-[0_0_18px_rgba(37,211,102,0.55)]"
+              >
+                {t.contact.whatsappButton}
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-black/50">Email</p>
+              {!revealed ? (
+                <>
+                  <p className="mt-2 text-sm text-black/60">{t.contact.preferEmail}</p>
+                  <button
+                    onClick={() => setRevealed(true)}
+                    className="mt-3 bg-black/5 hover:bg-black/10 border border-black/10 rounded px-5 py-2 text-sm transition"
+                  >
+                    {t.contact.revealButton}
+                  </button>
+                </>
+              ) : (
+                <p className="mt-2 text-lg font-medium text-black">{fullEmail}</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </motion.main>

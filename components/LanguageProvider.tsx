@@ -25,12 +25,14 @@ const normalizeLocale = (value: string | null): Locale | null => {
   return null;
 };
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Locale>(() => {
-    if (typeof window === "undefined") return defaultLocale;
-    const stored = normalizeLocale(window.localStorage.getItem(STORAGE_KEY));
-    return stored ?? detectBrowserLanguage();
-  });
+export function LanguageProvider({
+  children,
+  initialLanguage,
+}: {
+  children: ReactNode;
+  initialLanguage?: Locale;
+}) {
+  const [language, setLanguageState] = useState<Locale>(initialLanguage ?? defaultLocale);
 
   const setLanguage = useCallback((next: Locale) => {
     setLanguageState(next);
@@ -42,6 +44,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = language;
+  }, [language]);
+
+  useEffect(() => {
+    const stored = normalizeLocale(window.localStorage.getItem(STORAGE_KEY));
+    const detected = stored ?? detectBrowserLanguage();
+    if (detected !== language) {
+      setLanguageState(detected);
+      window.localStorage.setItem(STORAGE_KEY, detected);
+      document.cookie = `lang=${detected}; path=/; max-age=31536000`;
+      document.documentElement.lang = detected;
+    }
   }, [language]);
 
   const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);

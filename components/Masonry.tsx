@@ -100,7 +100,7 @@ export default function Masonry({
               }
               if (item.url) window.open(item.url, "_blank", "noopener,noreferrer");
             }}
-            className="group relative block w-full overflow-hidden rounded-sm bg-black"
+            className="group relative block w-full overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
             style={hoverVar}
           >
             <motion.div

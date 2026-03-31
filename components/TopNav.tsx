@@ -12,6 +12,7 @@ export default function TopNav() {
   const pathname = usePathname();
   const { language } = useLanguage();
   const t = getTranslations(language);
+  const isHome = pathname === "/";
 
   const navItems = [
     { href: "/", label: t.nav.home },
@@ -20,31 +21,39 @@ export default function TopNav() {
   ];
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/55 backdrop-blur-md md:top-0 md:bottom-auto md:border-t-0 md:border-b md:bg-black/45">
-      <div className="relative mx-auto flex max-w-7xl items-center justify-center px-4 py-3 text-[11px] uppercase tracking-wide text-white/90 font-semibold md:px-0 md:py-5 md:text-sm">
-        <div className="absolute left-0 hidden items-center md:flex">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md ${
+        isHome
+          ? "border-black/10 bg-[#e6e1d5]/70 text-black"
+          : "border-black/10 bg-white/80 text-black"
+      }`}
+    >
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-4 text-[11px] uppercase tracking-[0.22em] font-semibold md:px-8 md:py-5 md:text-sm">
+        <div className="flex items-center">
           <Image
-            src="/Lienzo - Logotipo W-02.svg"
+            src="/Logos/Lienzo-compacto-black.svg"
             alt="Lienzo Studio logo"
-            width={150}
-            height={50}
-            className="h-auto w-[140px]"
+            width={160}
+            height={48}
+            className="h-auto w-[120px] md:w-[150px]"
             priority
           />
         </div>
-        <div className="flex items-center justify-center gap-6 md:gap-10">
+        <div className="flex flex-1 items-center justify-center gap-6 md:gap-10">
           {navItems.map((item, idx) => (
             <TransitionLink
               key={item.href}
               href={item.href}
-              className={`transition hover:opacity-70 ${pathname === "/" ? "nav-wave" : ""}`}
+              className={`transition hover:text-[#a61b00] ${
+                pathname === "/" ? "nav-wave" : ""
+              }`}
               style={{ "--wave-delay": `${idx * 180}ms` } as CSSProperties}
             >
               {item.label}
             </TransitionLink>
           ))}
         </div>
-        <div className="absolute right-4 md:right-0">
+        <div className="flex items-center">
           <LanguageToggle />
         </div>
       </div>
