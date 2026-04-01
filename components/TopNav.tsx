@@ -28,23 +28,23 @@ export default function TopNav() {
           : "border-black/10 bg-white/80 text-black"
       }`}
     >
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-4 text-[11px] uppercase tracking-[0.22em] font-semibold md:px-8 md:py-5 md:text-sm">
-        <div className="flex items-center">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 text-[9px] font-semibold uppercase tracking-[0.12em] sm:text-[10px] sm:tracking-[0.18em] md:px-8 md:py-5 md:text-sm md:tracking-[0.22em]">
+        <div className="flex items-center shrink-0">
           <Image
             src="/Logos/Lienzo-compacto-black.svg"
             alt="Lienzo Studio logo"
             width={160}
             height={48}
-            className="h-auto w-[120px] md:w-[150px]"
+            className="h-auto w-[88px] sm:w-[102px] md:w-[150px]"
             priority
           />
         </div>
-        <div className="flex flex-1 items-center justify-center gap-6 md:gap-10">
+        <div className="flex min-w-0 flex-1 items-center justify-center gap-3 sm:gap-6 md:gap-10 flex-nowrap">
           {navItems.map((item, idx) => (
             <TransitionLink
               key={item.href}
               href={item.href}
-              className={`transition hover:text-[#a61b00] ${
+              className={`whitespace-nowrap font-display font-bold transition hover:text-[#a61b00] ${
                 pathname === "/" ? "nav-wave" : ""
               }`}
               style={{ "--wave-delay": `${idx * 180}ms` } as CSSProperties}
@@ -53,7 +53,7 @@ export default function TopNav() {
             </TransitionLink>
           ))}
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center shrink-0 scale-90 sm:scale-100">
           <LanguageToggle />
         </div>
       </div>

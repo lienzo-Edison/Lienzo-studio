@@ -57,19 +57,19 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/35"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10"></div>
 
-            <div className="relative z-10 flex min-h-[60vh] flex-col justify-end px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="relative z-10 grid min-h-[60vh] grid-rows-[1fr_auto] px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
+              <div className="pointer-events-none flex items-center justify-center sm:items-start sm:pt-8 md:pt-10 lg:items-center lg:pt-0">
                 <Image
                   src="/Logos/Lienzo - completo-white.svg"
                   alt={t.home.heroLogoAlt}
                   width={680}
                   height={220}
-                  className="w-[280px] opacity-85 sm:w-[420px] md:w-[520px]"
+                  className="w-[340px] opacity-85 sm:w-[460px] md:w-[620px] lg:w-[720px]"
                   priority
                 />
               </div>
               <motion.p
-                className="max-w-3xl font-[var(--font-display)] font-bold uppercase text-4xl leading-tight text-white sm:text-5xl md:text-6xl"
+                className="max-w-3xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
@@ -93,7 +93,7 @@ export default function Home() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <motion.h2
-              className="font-[var(--font-display)] font-bold uppercase text-3xl text-[#254566] md:text-4xl"
+              className="font-display font-bold uppercase text-3xl text-[#254566] md:text-4xl"
               variants={fadeUpVariants}
               initial="hidden"
               whileInView="visible"
@@ -123,7 +123,7 @@ export default function Home() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <motion.h2
-              className="font-[var(--font-display)] font-bold uppercase text-3xl text-[#a61b00] md:text-4xl"
+              className="font-display font-bold uppercase text-3xl text-[#a61b00] md:text-4xl"
               variants={fadeUpVariants}
               initial="hidden"
               whileInView="visible"
@@ -157,7 +157,7 @@ export default function Home() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="mt-3 font-[var(--font-display)] font-bold uppercase text-3xl text-black md:text-4xl">
+            <h2 className="mt-3 font-display font-bold uppercase text-3xl text-black md:text-4xl">
               {t.home.teamTitle}
             </h2>
             <p className="mt-4 text-sm text-black/65 md:text-base">
@@ -185,7 +185,7 @@ export default function Home() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-            <h3 className="mt-6 text-lg font-bold font-[var(--font-display)] text-black">
+            <h3 className="mt-6 text-lg font-bold font-display text-black">
               {member.name}
             </h3>
                 <p className="mt-1 text-sm text-black/55">{member.role}</p>

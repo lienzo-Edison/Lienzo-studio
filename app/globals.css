@@ -126,6 +126,11 @@
     font-family: var(--font-body);
   }
 
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
   html {
     background-color: #ffffff;
   }

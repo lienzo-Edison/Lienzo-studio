@@ -125,7 +125,9 @@ export default function Masonry({
 
             {(item.title || item.description) && (
               <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-black/55 px-5 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                {item.title && <h3 className="text-xl font-bold">{item.title}</h3>}
+                {item.title && (
+                  <h3 className="text-xl font-bold font-display">{item.title}</h3>
+                )}
                 {item.description && <p className="mt-2 text-sm">{item.description}</p>}
               </div>
             )}
