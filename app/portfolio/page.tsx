@@ -7,57 +7,80 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 
 type Project = {
-  image: string;
+  cover: string;
   title: string;
   description: string;
-  details: {
-    gallery: string[];
-    overview: string;
-    scope: string[];
-  };
+  gallery: string[];
 };
 
 const masonryHeights = [420, 290, 560, 340, 470, 315, 510, 360, 445];
 
 export default function Portfolio() {
   const [openProject, setOpenProject] = useState<number | null>(null);
-  const [activeGalleryImage, setActiveGalleryImage] = useState(0);
   const { language } = useLanguage();
   const t = getTranslations(language);
 
   const projects: Project[] = useMemo(
     () =>
       Array.from({ length: 9 }).map((_, i) => ({
-        image: "/projects/sample-portfolio.jpg",
+        cover:
+          i === 0
+            ? "/projects/P1/WicFix_1.jpg"
+            : i === 1
+              ? "/projects/P2/Mass_1.jpg"
+              : "/projects/sample-portfolio.jpg",
         title: t.portfolio.projectTitle(i + 1),
-        description: i === 0 ? t.portfolio.projectDescPrimary : t.portfolio.projectDescOther,
-        details: {
-          gallery: [
-            "/projects/sample-portfolio.jpg",
-            "/projects/sample-portfolio.jpg",
-            "/projects/sample-portfolio.jpg",
-          ],
-          overview:
-            i === 0 ? t.portfolio.projectOverviewPrimary : t.portfolio.projectOverviewOther(i + 1),
-          scope: t.portfolio.scopeItems,
-        },
+        description:
+          i === 0
+            ? t.portfolio.projectDescPrimary
+            : i === 1
+              ? t.portfolio.projectDescSecondary
+              : t.portfolio.projectDescOther,
+        gallery:
+          i === 0
+            ? [
+                "/projects/P1/WicFix_1.jpg",
+                "/projects/P1/WicFix_2.jpg",
+                "/projects/P1/WicFix_3.jpg",
+                "/projects/P1/WicFix_4.jpg",
+                "/projects/P1/WicFix_5.jpg",
+                "/projects/P1/WicFix_6.jpg",
+                "/projects/P1/WicFix_7.jpg",
+                "/projects/P1/WicFix_8.jpg",
+                "/projects/P1/WicFix_9.jpg",
+              ]
+            : i === 1
+              ? [
+                  "/projects/P2/Mass_1.jpg",
+                  "/projects/P2/Mass_2.jpg",
+                  "/projects/P2/Mass_3.jpg",
+                  "/projects/P2/Mass_4.jpg",
+                  "/projects/P2/Mass_5.jpg",
+                  "/projects/P2/Mass_6.jpg",
+                  "/projects/P2/Mass_7.jpg",
+                  "/projects/P2/Mass_8.jpg",
+                  "/projects/P2/Mass_9.jpg",
+                ]
+            : [
+                "/projects/sample-portfolio.jpg",
+                "/projects/sample-portfolio.jpg",
+                "/projects/sample-portfolio.jpg",
+              ],
       })),
     [t.portfolio],
   );
 
   const handleProjectTap = (index: number) => {
     setOpenProject((prev) => (prev === index ? null : index));
-    setActiveGalleryImage(0);
   };
 
   const selectedProject = openProject !== null ? projects[openProject] : null;
-  const openProjectDetails = selectedProject?.details;
   const masonryItems: MasonryItem[] = useMemo(
     () =>
       projects.map((project, idx) => ({
         id: String(idx),
-        img: project.image,
-        url: project.details ? "#" : undefined,
+        img: project.cover,
+        url: project.gallery.length ? "#" : undefined,
         height: masonryHeights[idx % masonryHeights.length],
         title: project.title,
         description: project.description,
@@ -72,7 +95,6 @@ export default function Portfolio() {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpenProject(null);
-        setActiveGalleryImage(0);
       }
     };
 
@@ -112,7 +134,6 @@ export default function Portfolio() {
                 scaleOnHover
                 hoverScale={0.95}
                 blurToFocus
-                colorShiftOnHover
                 layoutIdPrefix="project-image"
                 onItemClick={(_, idx) => handleProjectTap(idx)}
               />
@@ -120,9 +141,9 @@ export default function Portfolio() {
           </section>
 
           <AnimatePresence>
-            {openProjectDetails && selectedProject && openProject !== null && (
+            {selectedProject && openProject !== null && (
               <motion.div
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+                className="fixed inset-0 z-50 bg-black"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -131,88 +152,45 @@ export default function Portfolio() {
                   type="button"
                   aria-label={t.portfolio.closeDetailsLabel}
                   onClick={() => setOpenProject(null)}
-                  className="absolute inset-0 bg-black/80 backdrop-blur-[2px]"
+                  className="absolute inset-0 bg-black/70"
                 />
 
                 <motion.section
-                  className="relative z-10 w-full max-w-6xl max-h-[88vh] overflow-y-auto rounded-xl border border-white/15 bg-[#0d0d0d] p-4 md:p-6"
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.94, y: 12 }}
-                  transition={{ duration: 0.24 }}
+                  className="relative z-10 h-full w-full overflow-y-auto"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <div className="mb-4 flex items-start justify-between gap-4">
-                    <div>
-                      <h2 className="text-2xl font-bold text-white">{selectedProject.title}</h2>
-                      <p className="mt-1 text-sm text-white/70">{t.portfolio.expandedViewLabel}</p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setOpenProject(null)}
-                      className="rounded border border-white/20 px-3 py-1 text-xs text-white/80 transition hover:border-white/40 hover:text-white"
-                    >
-                      {t.portfolio.close}
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setOpenProject(null)}
+                    aria-label={t.portfolio.closeDetailsLabel}
+                    className="fixed right-6 top-24 z-40 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/85 backdrop-blur transition hover:border-white/50 hover:bg-white/20 hover:text-white"
+                  >
+                    Back to projects
+                  </button>
 
-                  <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-                    <div>
+                  <div className="mt-16 space-y-0 pb-0">
+                    {selectedProject.gallery.map((img, imgIndex) => (
                       <motion.div
-                        layoutId={`project-image-${openProject}`}
-                        className="relative overflow-hidden rounded-md border border-white/10 bg-black/40 aspect-[4/3]"
+                        key={`${img}-${imgIndex}`}
+                        layoutId={imgIndex === 0 ? `project-image-${openProject}` : undefined}
+                        className="relative h-[85vh] w-full overflow-hidden bg-black"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: imgIndex * 0.05 }}
                       >
                         <Image
-                          src={openProjectDetails.gallery[activeGalleryImage]}
-                          alt={t.portfolioModal.detailAlt(
-                            selectedProject.title,
-                            activeGalleryImage + 1,
-                          )}
+                          src={img}
+                          alt={t.portfolioModal.detailAlt(selectedProject.title, imgIndex + 1)}
                           fill
-                          sizes="(max-width: 1024px) 100vw, 58vw"
-                          className="object-cover"
+                          sizes="100vw"
+                          priority={imgIndex === 0}
+                          className="object-contain"
                         />
                       </motion.div>
-
-                      <div className="mt-3 grid grid-cols-3 gap-2">
-                        {openProjectDetails.gallery.map((img, imgIndex) => (
-                          <button
-                            key={`${img}-${imgIndex}`}
-                            type="button"
-                            onClick={() => setActiveGalleryImage(imgIndex)}
-                            className={`relative overflow-hidden rounded-md border aspect-[4/3] ${
-                              activeGalleryImage === imgIndex
-                                ? "border-white/70"
-                                : "border-white/20 hover:border-white/45"
-                            }`}
-                          >
-                            <Image
-                              src={img}
-                              alt={t.portfolioModal.thumbAlt(
-                                selectedProject.title,
-                                imgIndex + 1,
-                              )}
-                              fill
-                              sizes="(max-width: 1024px) 30vw, 15vw"
-                              className="object-cover"
-                            />
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded-md border border-white/10 bg-black/30 p-4 md:p-5">
-                      <h3 className="text-lg font-semibold text-white">{t.portfolio.overviewHeading}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-white/80">{openProjectDetails.overview}</p>
-
-                      <h4 className="mt-5 text-sm font-semibold uppercase tracking-wide text-white/90">
-                        {t.portfolio.scopeHeading}
-                      </h4>
-                      <ul className="mt-2 space-y-2 text-sm text-white/80">
-                        {openProjectDetails.scope.map((item) => (
-                          <li key={item}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    ))}
                   </div>
                 </motion.section>
               </motion.div>

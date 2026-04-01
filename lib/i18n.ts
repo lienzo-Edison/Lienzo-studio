@@ -32,6 +32,7 @@ type Translations = {
     title: string;
     projectTitle: (index: number) => string;
     projectDescPrimary: string;
+    projectDescSecondary: string;
     projectDescOther: string;
     projectOverviewPrimary: string;
     projectOverviewOther: (index: number) => string;
@@ -96,8 +97,12 @@ export const translations: Record<Locale, Translations> = {
     },
     portfolio: {
       title: "PORTFOLIO",
-      projectTitle: (index) => `Project ${index}`,
-      projectDescPrimary: "Residential remodel with warm materials and natural light study.",
+      projectTitle: (index) =>
+        index === 1 ? "WicFix" : index === 2 ? "Mass Architecture" : `Project ${index}`,
+      projectDescPrimary:
+        "Premium tech repair and maintenance in Durango, Mexico, with white-glove care and meticulous detail.",
+      projectDescSecondary:
+        "Mass Architecture brand redesign with refined positioning, crisp typography, and a premium architectural tone.",
       projectDescOther: "Brief description of the project goes here.",
       projectOverviewPrimary:
         "Project 1 is a full-home design concept focused on balancing clean modern geometry with lived-in comfort. The goal was to create a layout that feels bright and calm while still supporting daily family routines.",
@@ -166,8 +171,12 @@ export const translations: Record<Locale, Translations> = {
     },
     portfolio: {
       title: "PORTAFOLIO",
-      projectTitle: (index) => `Proyecto ${index}`,
-      projectDescPrimary: "Remodelación residencial con materiales cálidos y estudio de luz natural.",
+      projectTitle: (index) =>
+        index === 1 ? "WicFix" : index === 2 ? "Mass Architecture" : `Proyecto ${index}`,
+      projectDescPrimary:
+        "Servicio premium de reparación y mantenimiento tecnológico en Durango, México, con atención tipo concierge y detalle impecable.",
+      projectDescSecondary:
+        "Rediseño de marca para Mass Architecture con posicionamiento refinado, tipografía precisa y un tono arquitectónico premium.",
       projectDescOther: "Descripción breve del proyecto aquí.",
       projectOverviewPrimary:
         "El Proyecto 1 es un concepto de diseño integral centrado en equilibrar geometría moderna y comodidad cotidiana. El objetivo fue crear un espacio luminoso y sereno que apoye las rutinas diarias de la familia.",
