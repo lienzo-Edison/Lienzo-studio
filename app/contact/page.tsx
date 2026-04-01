@@ -18,6 +18,11 @@ export default function Contact() {
     const fbq = (window as typeof window & { fbq?: (...args: unknown[]) => void }).fbq;
     if (typeof fbq !== "function") return;
     fbq("track", "Contact", { method });
+
+    const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag;
+    if (typeof gtag === "function") {
+      gtag("event", "contact", { method });
+    }
   };
 
   return (
