@@ -33,7 +33,7 @@ export default function Contact() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="mt-32 text-center max-w-xl">
-        <h1 className="text-4xl font-bold font-[var(--font-display)] mb-6">
+        <h1 className="text-4xl font-bold font-display mb-6">
           {t.contact.title}
         </h1>
         <p className="text-lg text-black/70 mb-8">
@@ -43,7 +43,9 @@ export default function Contact() {
         <div className="bg-black/5 border border-black/10 rounded-lg p-6 text-left">
           <div className="flex flex-col gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-black/50">Phone</p>
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+                Phone
+              </p>
               <a
                 href={`tel:${phoneNumber.replace(/[^+\\d]/g, "")}`}
                 className="mt-2 inline-block text-lg font-medium text-black hover:text-black/70"
@@ -54,7 +56,9 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-black/50">WhatsApp</p>
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+                WhatsApp
+              </p>
               <a
                 href={whatsappLink}
                 target="_blank"
@@ -67,7 +71,9 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-black/50">Email</p>
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+                Email
+              </p>
               {!revealed ? (
                 <>
                   <p className="mt-2 text-sm text-black/60">{t.contact.preferEmail}</p>
