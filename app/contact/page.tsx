@@ -13,6 +13,13 @@ export default function Contact() {
   const phoneNumber = "+1 (720) 990-7795";
   const whatsappLink = "https://wa.me/message/LVLY6STJJOM4K1";
 
+  const trackContact = (method: "phone" | "whatsapp" | "email_reveal") => {
+    if (typeof window === "undefined") return;
+    const fbq = (window as typeof window & { fbq?: (...args: unknown[]) => void }).fbq;
+    if (typeof fbq !== "function") return;
+    fbq("track", "Contact", { method });
+  };
+
   return (
     <motion.main
       className="min-h-screen flex flex-col items-center justify-start bg-white text-black p-6"
@@ -35,6 +42,7 @@ export default function Contact() {
               <a
                 href={`tel:${phoneNumber.replace(/[^+\\d]/g, "")}`}
                 className="mt-2 inline-block text-lg font-medium text-black hover:text-black/70"
+                onClick={() => trackContact("phone")}
               >
                 {phoneNumber}
               </a>
@@ -47,6 +55,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noreferrer"
                 className="mt-3 inline-flex items-center justify-center rounded border border-black/15 bg-black/5 px-6 py-2 text-sm font-medium text-black transition hover:border-[#25d366] hover:text-black hover:shadow-[0_0_18px_rgba(37,211,102,0.55)]"
+                onClick={() => trackContact("whatsapp")}
               >
                 {t.contact.whatsappButton}
               </a>
@@ -58,7 +67,10 @@ export default function Contact() {
                 <>
                   <p className="mt-2 text-sm text-black/60">{t.contact.preferEmail}</p>
                   <button
-                    onClick={() => setRevealed(true)}
+                    onClick={() => {
+                      setRevealed(true);
+                      trackContact("email_reveal");
+                    }}
                     className="mt-3 bg-black/5 hover:bg-black/10 border border-black/10 rounded px-5 py-2 text-sm transition"
                   >
                     {t.contact.revealButton}
