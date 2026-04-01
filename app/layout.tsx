@@ -37,7 +37,10 @@ export default async function RootLayout({
     <html lang={initialLanguage}>
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
