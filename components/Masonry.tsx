@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
 export type MasonryItem = {
@@ -60,6 +60,9 @@ export default function Masonry({
   onItemClick,
 }: MasonryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [rowSpans, setRowSpans] = useState<number[]>([]);
+  const baseRowHeight = 10;
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -85,12 +88,56 @@ export default function Masonry({
     return () => ctx.revert();
   }, [animateFrom, blurToFocus, duration, ease, items.length, stagger]);
 
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const measureSpans = () => {
+      const styles = getComputedStyle(container);
+      const rowGap = Number.parseFloat(styles.rowGap || "0");
+      const nextSpans = items.map((_, index) => {
+        const tile = tileRefs.current[index];
+        if (!tile) return 0;
+        const height = tile.getBoundingClientRect().height;
+        return Math.ceil((height + rowGap) / (baseRowHeight + rowGap));
+      });
+      setRowSpans(nextSpans);
+    };
+
+    requestAnimationFrame(() => measureSpans());
+    const observer = new ResizeObserver(() => measureSpans());
+    observer.observe(container);
+    tileRefs.current.forEach((tile) => {
+      if (tile) observer.observe(tile);
+    });
+
+    return () => observer.disconnect();
+  }, [baseRowHeight, items]);
+
   const hoverVar = { ["--hover-scale" as string]: String(hoverScale) } as CSSProperties;
 
   return (
-    <div ref={containerRef} className="columns-1 sm:columns-2 xl:columns-3 gap-3 md:gap-4">
-      {items.map((item, index) => (
-        <article key={item.id} className="masonry-tile mb-3 md:mb-4 break-inside-avoid">
+    <div
+      ref={containerRef}
+      className="grid auto-rows-[10px] grid-flow-row-dense grid-cols-1 gap-3 md:gap-4 sm:grid-cols-2 xl:grid-cols-3"
+    >
+      {items.map((item, index) => {
+        const fallbackSpan = Math.ceil((item.height ?? 360) / baseRowHeight);
+        const span =
+          rowSpans[index] && rowSpans[index] > 0 ? rowSpans[index] : fallbackSpan;
+
+        return (
+          <article
+          key={item.id}
+          className="masonry-tile"
+          ref={(node) => {
+            tileRefs.current[index] = node;
+          }}
+          style={{
+            gridRowEnd: `span ${span}`,
+            minHeight: item.height ?? 360,
+          }}
+        >
           <button
             type="button"
             onClick={() => {
@@ -132,8 +179,9 @@ export default function Masonry({
               </div>
             )}
           </button>
-        </article>
-      ))}
+          </article>
+        );
+      })}
     </div>
   );
 }
