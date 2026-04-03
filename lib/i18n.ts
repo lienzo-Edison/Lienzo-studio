@@ -33,6 +33,7 @@ type Translations = {
     projectTitle: (index: number) => string;
     projectDescPrimary: string;
     projectDescSecondary: string;
+    projectDescTertiary: string;
     projectDescOther: string;
     projectOverviewPrimary: string;
     projectOverviewOther: (index: number) => string;
@@ -98,11 +99,19 @@ export const translations: Record<Locale, Translations> = {
     portfolio: {
       title: "PORTFOLIO",
       projectTitle: (index) =>
-        index === 1 ? "WicFix" : index === 2 ? "Mass Architecture" : `Project ${index}`,
+        index === 1
+          ? "WicFix"
+          : index === 2
+            ? "Mass Architecture"
+            : index === 3
+              ? "Dulce Michi"
+              : `Project ${index}`,
       projectDescPrimary:
         "Premium tech repair and maintenance in Durango, Mexico, with white-glove care and meticulous detail.",
       projectDescSecondary:
         "Mass Architecture brand redesign with refined positioning, crisp typography, and a premium architectural tone.",
+      projectDescTertiary:
+        "Dessert cafe serving cookies, cakes, and Japanese-French pastries with coffee and tea.",
       projectDescOther: "Brief description of the project goes here.",
       projectOverviewPrimary:
         "Project 1 is a full-home design concept focused on balancing clean modern geometry with lived-in comfort. The goal was to create a layout that feels bright and calm while still supporting daily family routines.",
@@ -172,11 +181,19 @@ export const translations: Record<Locale, Translations> = {
     portfolio: {
       title: "PORTAFOLIO",
       projectTitle: (index) =>
-        index === 1 ? "WicFix" : index === 2 ? "Mass Architecture" : `Proyecto ${index}`,
+        index === 1
+          ? "WicFix"
+          : index === 2
+            ? "Mass Architecture"
+            : index === 3
+              ? "Dulce Michi"
+              : `Proyecto ${index}`,
       projectDescPrimary:
         "Servicio premium de reparación y mantenimiento tecnológico en Durango, México, con atención tipo concierge y detalle impecable.",
       projectDescSecondary:
         "Rediseño de marca para Mass Architecture con posicionamiento refinado, tipografía precisa y un tono arquitectónico premium.",
+      projectDescTertiary:
+        "Cafetería de postres con galletas, pasteles y repostería japonesa-francesa, café y té.",
       projectDescOther: "Descripción breve del proyecto aquí.",
       projectOverviewPrimary:
         "El Proyecto 1 es un concepto de diseño integral centrado en equilibrar geometría moderna y comodidad cotidiana. El objetivo fue crear un espacio luminoso y sereno que apoye las rutinas diarias de la familia.",

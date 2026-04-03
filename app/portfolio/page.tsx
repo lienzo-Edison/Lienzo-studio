@@ -30,14 +30,18 @@ export default function Portfolio() {
             ? "/projects/P1/WicFix_1.jpg"
             : i === 1
               ? "/projects/P2/Mass_1.jpg"
-              : "/projects/sample-portfolio.jpg",
+              : i === 2
+                ? "/projects/P3/Dulce_01.png"
+                : "/projects/sample-portfolio.jpg",
         title: t.portfolio.projectTitle(i + 1),
         description:
           i === 0
             ? t.portfolio.projectDescPrimary
             : i === 1
               ? t.portfolio.projectDescSecondary
-              : t.portfolio.projectDescOther,
+              : i === 2
+                ? t.portfolio.projectDescTertiary
+                : t.portfolio.projectDescOther,
         gallery:
           i === 0
             ? [
@@ -63,11 +67,24 @@ export default function Portfolio() {
                   "/projects/P2/Mass_8.jpg",
                   "/projects/P2/Mass_9.jpg",
                 ]
-            : [
-                "/projects/sample-portfolio.jpg",
-                "/projects/sample-portfolio.jpg",
-                "/projects/sample-portfolio.jpg",
-              ],
+            : i === 2
+              ? [
+                  "/projects/P3/Dulce_01.png",
+                  "/projects/P3/Dulce_02.png",
+                  "/projects/P3/Dulce_03.png",
+                  "/projects/P3/Dulce_04.png",
+                  "/projects/P3/Dulce_05.png",
+                  "/projects/P3/Dulce_06.png",
+                  "/projects/P3/Dulce_07.png",
+                  "/projects/P3/Dulce_08.png",
+                  "/projects/P3/Dulce_09.png",
+                  "/projects/P3/Dulce_10.png",
+                ]
+              : [
+                  "/projects/sample-portfolio.jpg",
+                  "/projects/sample-portfolio.jpg",
+                  "/projects/sample-portfolio.jpg",
+                ],
       })),
     [t.portfolio],
   );
