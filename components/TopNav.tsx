@@ -12,8 +12,6 @@ export default function TopNav() {
   const pathname = usePathname();
   const { language } = useLanguage();
   const t = getTranslations(language);
-  const isHome = pathname === "/";
-
   const navItems = [
     { href: "/", label: t.nav.home },
     { href: "/portfolio", label: t.nav.portfolio },
@@ -21,13 +19,7 @@ export default function TopNav() {
   ];
 
   return (
-    <nav
-      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md ${
-        isHome
-          ? "border-black/10 bg-[#e6e1d5]/70 text-black"
-          : "border-black/10 bg-white/80 text-black"
-      }`}
-    >
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-[#e6e1d5]/70 text-black backdrop-blur-md">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 text-[9px] font-semibold uppercase tracking-[0.12em] sm:text-[10px] sm:tracking-[0.18em] md:px-8 md:py-5 md:text-sm md:tracking-[0.22em]">
         <div className="flex items-center shrink-0">
           <Image
