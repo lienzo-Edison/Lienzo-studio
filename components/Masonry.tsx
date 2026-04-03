@@ -60,7 +60,7 @@ export default function Masonry({
   onItemClick,
 }: MasonryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const tileRefs = useRef<(HTMLElement | null)[]>([]);
   const [rowSpans, setRowSpans] = useState<number[]>([]);
   const baseRowHeight = 10;
 
