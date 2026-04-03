@@ -90,7 +90,7 @@ export default function Masonry({
   return (
     <div
       ref={containerRef}
-      className="columns-1 gap-3 md:gap-4 sm:columns-2 lg:columns-3 xl:columns-4"
+      className="columns-1 gap-3 md:gap-4 sm:columns-2 lg:columns-3"
     >
       {items.map((item, index) => (
         <article

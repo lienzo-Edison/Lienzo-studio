@@ -19,6 +19,7 @@ export default function Portfolio() {
   const [openProject, setOpenProject] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const modalScrollRef = useRef<HTMLElement | null>(null);
+  const openProjectRef = useRef<number | null>(null);
   const { language } = useLanguage();
   const t = getTranslations(language);
 
@@ -89,8 +90,23 @@ export default function Portfolio() {
     [t.portfolio],
   );
 
+  const closeProject = () => {
+    if (typeof window !== "undefined") {
+      const state = window.history.state as { portfolioModal?: boolean } | null;
+      if (state?.portfolioModal) {
+        window.history.back();
+        return;
+      }
+    }
+    setOpenProject(null);
+  };
+
   const handleProjectTap = (index: number) => {
-    setOpenProject((prev) => (prev === index ? null : index));
+    if (openProject === index) {
+      closeProject();
+      return;
+    }
+    setOpenProject(index);
   };
 
   const selectedProject = openProject !== null ? projects[openProject] : null;
@@ -109,11 +125,12 @@ export default function Portfolio() {
   );
 
   useEffect(() => {
+    openProjectRef.current = openProject;
     if (openProject === null) return;
 
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpenProject(null);
+        closeProject();
       }
     };
 
@@ -127,6 +144,30 @@ export default function Portfolio() {
     };
   }, [openProject]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPopState = () => {
+      if (openProjectRef.current !== null) {
+        setOpenProject(null);
+      }
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (openProject === null) return;
+    const state = window.history.state as { portfolioModal?: boolean; index?: number } | null;
+    if (!state?.portfolioModal) {
+      window.history.pushState(
+        { portfolioModal: true, index: openProject },
+        "",
+        window.location.pathname,
+      );
+    }
+  }, [openProject]);
+
   return (
     <LayoutGroup>
       <motion.main
@@ -135,14 +176,14 @@ export default function Portfolio() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.35 }}
       >
-        <div className="relative z-10 mt-32 max-w-7xl mx-auto">
+        <div className="relative z-10 mt-32 mx-auto w-full px-2 sm:px-4">
           <div className="mb-14 flex justify-center">
             <h1 className="text-4xl font-bold font-display text-center text-black tracking-wide">
               {t.portfolio.title}
             </h1>
           </div>
 
-          <section className="relative rounded-[28px] border border-black/10 bg-white p-3 md:p-4">
+          <section className="relative rounded-[28px] border border-black/10 bg-white p-2 sm:p-3 md:p-4">
             <div className="relative z-10">
               <Masonry
                 items={masonryItems}
@@ -170,7 +211,7 @@ export default function Portfolio() {
                 <button
                   type="button"
                   aria-label={t.portfolio.closeDetailsLabel}
-                  onClick={() => setOpenProject(null)}
+                  onClick={closeProject}
                   className="absolute inset-0 bg-black/70"
                 />
 
@@ -184,7 +225,7 @@ export default function Portfolio() {
                 >
                   <button
                     type="button"
-                    onClick={() => setOpenProject(null)}
+                    onClick={closeProject}
                     aria-label={t.portfolio.closeDetailsLabel}
                     className="fixed right-6 top-24 z-40 hidden rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/85 backdrop-blur transition hover:border-white/50 hover:bg-white/20 hover:text-white md:inline-flex"
                   >
@@ -208,7 +249,7 @@ export default function Portfolio() {
                         </button>
                         <button
                           type="button"
-                          onClick={() => setOpenProject(null)}
+                          onClick={closeProject}
                           className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/90 backdrop-blur transition hover:border-white/50 hover:bg-white/20 hover:text-white"
                         >
                           <span className="text-sm leading-none">←</span>
