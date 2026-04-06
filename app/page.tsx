@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 import ColorBends from "@/components/ColorBends";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -22,7 +23,6 @@ export default function Home() {
       t.home.teamMembers.map((member, index) => ({
         name: member.name,
         role: member.role,
-        bio: t.home.teamBio,
         image:
           index === 0
             ? "/pfp/edy.jpeg"
@@ -177,29 +177,29 @@ export default function Home() {
             {teamMembers.map((member, idx) => (
               <motion.article
                 key={member.name}
-                className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
-                <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70">
-                  {member.image ? (
-                    <Image
-                      src={member.image}
-                      alt={`${member.name} profile`}
-                      width={600}
-                      height={600}
-                      className="h-full w-full object-cover"
-                    />
-                  ) : null}
-                </div>
-                <h3 className="mt-6 text-lg font-bold font-display text-black">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm text-black/55">{member.role}</p>
-                <p className="mt-4 text-sm leading-relaxed text-black/70">{member.bio}</p>
+                <SpotlightCard className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
+                  <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={`${member.name} profile`}
+                        width={600}
+                        height={600}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : null}
+                  </div>
+                  <h3 className="mt-6 text-lg font-bold font-display text-black">
+                    {member.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-black/55">{member.role}</p>
+                </SpotlightCard>
               </motion.article>
             ))}
           </div>

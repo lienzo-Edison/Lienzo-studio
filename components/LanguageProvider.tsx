@@ -14,17 +14,6 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(undefine
 
 const STORAGE_KEY = "lienzo-lang";
 
-const detectBrowserLanguage = (): Locale => {
-  if (typeof window === "undefined") return defaultLocale;
-  const raw = navigator.languages?.[0] ?? navigator.language ?? defaultLocale;
-  return raw.toLowerCase().startsWith("es") ? "es" : "en";
-};
-
-const normalizeLocale = (value: string | null): Locale | null => {
-  if (value === "en" || value === "es") return value;
-  return null;
-};
-
 export function LanguageProvider({
   children,
   initialLanguage,
@@ -44,17 +33,6 @@ export function LanguageProvider({
 
   useEffect(() => {
     document.documentElement.lang = language;
-  }, [language]);
-
-  useEffect(() => {
-    const stored = normalizeLocale(window.localStorage.getItem(STORAGE_KEY));
-    const detected = stored ?? detectBrowserLanguage();
-    if (detected !== language) {
-      setLanguageState(detected);
-      window.localStorage.setItem(STORAGE_KEY, detected);
-      document.cookie = `lang=${detected}; path=/; max-age=31536000`;
-      document.documentElement.lang = detected;
-    }
   }, [language]);
 
   const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);
