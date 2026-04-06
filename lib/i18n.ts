@@ -28,6 +28,22 @@ type Translations = {
     teamMembers: { name: string; role: string }[];
     teamBio: string;
   };
+  landing: {
+    badge: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    heroBody: string;
+    homeCta: string;
+    scrollHint: string;
+    servicesTitle: string;
+    servicesIntro: string;
+    serviceLabel: string;
+    services: { title: string; body: string }[];
+    offerEyebrow: string;
+    offerTitle: string;
+    offerBody: string;
+    secondaryCta: string;
+  };
   portfolio: {
     title: string;
     projectTitle: (index: number) => string;
@@ -95,6 +111,42 @@ export const translations: Record<Locale, Translations> = {
         { name: "Reymundo Torres", role: "Brand Designer" },
       ],
       teamBio: "Short profile description placeholder. Replace this with each member's bio.",
+    },
+    landing: {
+      badge: "Ad Campaign",
+      heroTitle: "Launch Campaign",
+      heroSubtitle: "Creative that looks premium and performs.",
+      heroBody:
+        "We build brand identities, campaigns, and content that help businesses grow across the U.S. and Latin America.",
+      homeCta: "Visit The Main Site",
+      scrollHint: "Scroll For Services",
+      servicesTitle: "What We Offer",
+      servicesIntro:
+        "A focused mix of strategy, design, and production. Choose exactly what you need or let us handle the full launch.",
+      serviceLabel: "Service",
+      services: [
+        {
+          title: "Brand Strategy & Identity",
+          body: "Positioning, naming, logos, and guidelines that make your brand instantly recognizable and trusted.",
+        },
+        {
+          title: "Social & Ad Creative",
+          body: "High-performing ad concepts and social content tailored to each platform, audience, and objective.",
+        },
+        {
+          title: "Content Production",
+          body: "Photography, video, and design assets crafted to feel premium and consistent across every touchpoint.",
+        },
+        {
+          title: "Campaign & Launch Support",
+          body: "From landing pages to rollout plans, we keep your launch cohesive, measurable, and on schedule.",
+        },
+      ],
+      offerEyebrow: "Tailored For Growth",
+      offerTitle: "A Launch Plan Built Around Your Goals",
+      offerBody:
+        "Every project starts with clarity: what you need, when you need it, and how it should perform. We map the creative to the outcome and deliver assets that feel as good as they work.",
+      secondaryCta: "Back To Home",
     },
     portfolio: {
       title: "PORTFOLIO",
@@ -177,6 +229,42 @@ export const translations: Record<Locale, Translations> = {
         { name: "Reymundo Torres", role: "Diseñador de marca" },
       ],
       teamBio: "Descripción breve de perfil. Reemplaza esto con la biografía de cada miembro.",
+    },
+    landing: {
+      badge: "Campaña Publicitaria",
+      heroTitle: "Lanzamiento de Campaña",
+      heroSubtitle: "Creatividad premium que también rinde.",
+      heroBody:
+        "Construimos identidades de marca, campañas y contenido que ayudan a crecer a negocios en Estados Unidos y Latinoamérica.",
+      homeCta: "Ver Sitio Principal",
+      scrollHint: "Desliza Para Ver",
+      servicesTitle: "Lo Que Ofrecemos",
+      servicesIntro:
+        "Una mezcla enfocada de estrategia, diseño y producción. Elige lo que necesitas o déjanos manejar el lanzamiento completo.",
+      serviceLabel: "Servicio",
+      services: [
+        {
+          title: "Estrategia e Identidad",
+          body: "Posicionamiento, naming, logos y guías para que tu marca sea reconocible y confiable.",
+        },
+        {
+          title: "Creativos para Redes y Ads",
+          body: "Conceptos de anuncios y contenido social pensados para cada plataforma, audiencia y objetivo.",
+        },
+        {
+          title: "Producción de Contenido",
+          body: "Fotografía, video y diseño creados para verse premium y consistentes en cada punto de contacto.",
+        },
+        {
+          title: "Soporte de Campaña",
+          body: "Desde landing pages hasta planes de lanzamiento, mantenemos todo coherente, medible y a tiempo.",
+        },
+      ],
+      offerEyebrow: "Enfocado en Crecimiento",
+      offerTitle: "Un Plan de Lanzamiento Hecho Para Tus Metas",
+      offerBody:
+        "Cada proyecto empieza con claridad: qué necesitas, cuándo lo necesitas y cómo debe rendir. Alineamos el creativo con el resultado y entregamos piezas que funcionan.",
+      secondaryCta: "Volver al Inicio",
     },
     portfolio: {
       title: "PORTAFOLIO",
