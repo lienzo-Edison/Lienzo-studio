@@ -8,13 +8,13 @@ import { cookies } from "next/headers";
 import { defaultLocale } from "@/lib/i18n";
 
 const hostGrotesk = localFont({
-  src: "../public/Fonts/HostGrotesk-VariableFont_wght.woff2",
+  src: "../public/fonts/HostGrotesk-VariableFont_wght.woff2",
   variable: "--font-body",
   display: "swap",
 });
 
 const onlyGraphic = localFont({
-  src: "../public/Fonts/onlygraphic.woff2",
+  src: "../public/fonts/onlygraphic.woff2",
   variable: "--font-display",
   display: "swap",
 });
