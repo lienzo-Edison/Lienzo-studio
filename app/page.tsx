@@ -35,8 +35,8 @@ export default function Home() {
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       {/* Hero Section */}
-      <section className="px-6 pb-12 pt-24 md:px-10 md:pt-28">
-        <div className="mx-auto w-full max-w-6xl">
+      <section className="px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pt-28 2xl:px-12">
+        <div className="mx-auto w-full max-w-[104rem]">
           <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
             <div className="absolute inset-0">
               <ColorBends
@@ -64,12 +64,12 @@ export default function Home() {
                   alt={t.home.heroLogoAlt}
                   width={680}
                   height={220}
-                  className="w-[340px] opacity-85 sm:w-[460px] md:w-[620px] lg:w-[720px]"
+                  className="w-[340px] opacity-85 sm:w-[460px] md:w-[620px] lg:w-[720px] xl:w-[820px] 2xl:w-[900px]"
                   priority
                 />
               </div>
               <motion.p
-                className="max-w-3xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl"
+                className="max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}

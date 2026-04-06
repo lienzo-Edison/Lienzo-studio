@@ -20,8 +20,31 @@ const onlyGraphic = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lienzo.studio"),
   title: "Lienzo Studio",
-  description: "Digital marketing agency website",
+  description:
+    "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
+  openGraph: {
+    url: "https://lienzo.studio",
+    title: "Lienzo Studio",
+    description:
+      "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
+    images: [
+      {
+        url: "/logos/Logo circular-01.png",
+        width: 1200,
+        height: 1200,
+        alt: "Lienzo Studio circular logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lienzo Studio",
+    description:
+      "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
+    images: ["/logos/Logo circular-01.png"],
+  },
 };
 
 export default async function RootLayout({
