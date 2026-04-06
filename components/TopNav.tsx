@@ -23,7 +23,7 @@ export default function TopNav() {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 text-[9px] font-semibold uppercase tracking-[0.12em] sm:text-[10px] sm:tracking-[0.18em] md:px-8 md:py-5 md:text-sm md:tracking-[0.22em]">
         <div className="flex items-center shrink-0">
           <Image
-            src="/Logos/Lienzo-compacto-black.svg"
+            src="/logos/lienzo-compacto-black.svg"
             alt="Lienzo Studio logo"
             width={160}
             height={48}

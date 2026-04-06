@@ -68,7 +68,7 @@ export default function Home() {
             <div className="relative z-10 grid min-h-[60vh] grid-rows-[1fr_auto] px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
               <div className="pointer-events-none flex items-center justify-center sm:items-start sm:pt-8 md:pt-10 lg:items-center lg:pt-0">
                 <Image
-                  src="/Logos/Lienzo - completo-white.svg"
+                  src="/logos/lienzo-completo-white.svg"
                   alt={t.home.heroLogoAlt}
                   width={680}
                   height={220}
