@@ -91,6 +91,65 @@ export default function Contact() {
                 <p className="mt-2 text-lg font-medium text-black">{fullEmail}</p>
               )}
             </div>
+
+            <div>
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+                Social
+              </p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <a
+                  href="https://www.instagram.com/_lienzostudio/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-black/30 hover:text-black/80"
+                  aria-label="Lienzo Studio on Instagram"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="5"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.6" />
+                    <circle cx="17" cy="7" r="1.2" fill="currentColor" />
+                  </svg>
+                  Instagram
+                </a>
+                <a
+                  href="https://www.facebook.com/people/Lienzo-Studio/61588545936546/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-black/30 hover:text-black/80"
+                  aria-label="Lienzo Studio on Facebook"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M14 8.5V7.2c0-.9.5-1.4 1.6-1.4h1.4V3.2c-.7-.1-1.7-.2-2.8-.2-2.7 0-4.4 1.6-4.4 4.4v1.1H7v3h2.8V21h3.2v-9.5h2.7l.4-3H14Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  Facebook
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
