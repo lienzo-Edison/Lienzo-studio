@@ -19,10 +19,18 @@ export default function Home() {
 
   const teamMembers = useMemo(
     () =>
-      t.home.teamMembers.map((member) => ({
+      t.home.teamMembers.map((member, index) => ({
         name: member.name,
         role: member.role,
         bio: t.home.teamBio,
+        image:
+          index === 0
+            ? "/pfp/edy.png"
+            : index === 1
+              ? "/pfp/eduardo.png"
+              : index === 2
+                ? "/pfp/mich.png"
+                : null,
       })),
     [t.home],
   );
@@ -176,18 +184,20 @@ export default function Home() {
                 viewport={sectionViewport}
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
-                <div className="h-[180px] overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70">
-                  <Image
-                    src="/projects/sample-portfolio.jpg"
-                    alt={`${member.name} profile placeholder`}
-                    width={600}
-                    height={600}
-                    className="h-full w-full object-cover"
-                  />
+                <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70">
+                  {member.image ? (
+                    <Image
+                      src={member.image}
+                      alt={`${member.name} profile`}
+                      width={600}
+                      height={600}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : null}
                 </div>
-            <h3 className="mt-6 text-lg font-bold font-display text-black">
-              {member.name}
-            </h3>
+                <h3 className="mt-6 text-lg font-bold font-display text-black">
+                  {member.name}
+                </h3>
                 <p className="mt-1 text-sm text-black/55">{member.role}</p>
                 <p className="mt-4 text-sm leading-relaxed text-black/70">{member.bio}</p>
               </motion.article>
