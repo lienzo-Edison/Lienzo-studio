@@ -46,6 +46,9 @@ type Translations = {
   };
   portfolio: {
     title: string;
+    intro: string;
+    scrollHint: string;
+    moreComing: string;
     projectTitle: (index: number) => string;
     projectDescPrimary: string;
     projectDescSecondary: string;
@@ -150,6 +153,11 @@ export const translations: Record<Locale, Translations> = {
     },
     portfolio: {
       title: "PORTFOLIO",
+      intro:
+        "A focused selection of work we have shaped with our clients. Each project is built with intention, tailored to the story, and designed to perform across every touchpoint.",
+      scrollHint: "Scroll for more",
+      moreComing:
+        "More projects are on the way. Keep an eye out for upcoming launches, brand stories, and campaigns as our portfolio grows.",
       projectTitle: (index) =>
         index === 1
           ? "WicFix"
@@ -268,6 +276,11 @@ export const translations: Record<Locale, Translations> = {
     },
     portfolio: {
       title: "PORTAFOLIO",
+      intro:
+        "Una selección enfocada de trabajo que hemos desarrollado con nuestros clientes. Cada proyecto está creado con intención, adaptado a su historia y diseñado para rendir en cada punto de contacto.",
+      scrollHint: "Desliza para ver más",
+      moreComing:
+        "Más proyectos vienen en camino. Mantente pendiente de próximos lanzamientos, historias de marca y campañas mientras crece nuestro portafolio.",
       projectTitle: (index) =>
         index === 1
           ? "WicFix"

@@ -156,9 +156,7 @@ export default function Portfolio() {
           </div>
           <div className="mb-8 flex justify-center">
             <p className="max-w-3xl text-center text-sm leading-relaxed text-black/70">
-              A focused selection of work we have shaped with our clients. Each project is
-              built with intention, tailored to the story, and designed to perform across
-              every touchpoint.
+              {t.portfolio.intro}
             </p>
           </div>
           <div className="mb-10 flex justify-center">
@@ -168,7 +166,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-black/55"
             >
-              <span>Scroll for more</span>
+              <span>{t.portfolio.scrollHint}</span>
               <motion.span
                 aria-hidden="true"
                 animate={{ y: [0, 6, 0] }}
@@ -237,8 +235,7 @@ export default function Portfolio() {
 
           <div className="mt-10 flex justify-center">
             <p className="max-w-2xl text-center text-sm leading-relaxed text-black/70">
-              More projects are on the way. Keep an eye out for upcoming launches, brand
-              stories, and campaigns as our portfolio grows.
+              {t.portfolio.moreComing}
             </p>
           </div>
 
