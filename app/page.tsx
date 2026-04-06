@@ -25,11 +25,11 @@ export default function Home() {
         bio: t.home.teamBio,
         image:
           index === 0
-            ? "/pfp/edy.png"
+            ? "/pfp/edy.jpeg"
             : index === 1
-              ? "/pfp/eduardo.png"
+              ? "/pfp/eduardo.jpeg"
               : index === 2
-                ? "/pfp/mich.png"
+                ? "/pfp/mich.jpeg"
                 : null,
       })),
     [t.home],
