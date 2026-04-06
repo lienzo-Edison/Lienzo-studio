@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
-import Masonry, { type MasonryItem } from "@/components/Masonry";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 
@@ -13,8 +12,6 @@ type Project = {
   gallery: string[];
 };
 
-const masonryHeights = [420, 290, 560, 340, 470, 315, 510, 360, 445];
-
 export default function Portfolio() {
   const [openProject, setOpenProject] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,69 +21,57 @@ export default function Portfolio() {
   const t = getTranslations(language);
 
   const projects: Project[] = useMemo(
-    () =>
-      Array.from({ length: 9 }).map((_, i) => ({
-        cover:
-          i === 0
-            ? "/projects/P1/WicFix_1.jpg"
-            : i === 1
-              ? "/projects/P2/Mass_1.jpg"
-              : i === 2
-                ? "/projects/P3/Dulce_01.png"
-                : "/projects/sample-portfolio.jpg",
-        title: t.portfolio.projectTitle(i + 1),
-        description:
-          i === 0
-            ? t.portfolio.projectDescPrimary
-            : i === 1
-              ? t.portfolio.projectDescSecondary
-              : i === 2
-                ? t.portfolio.projectDescTertiary
-                : t.portfolio.projectDescOther,
-        gallery:
-          i === 0
-            ? [
-                "/projects/P1/WicFix_1.jpg",
-                "/projects/P1/WicFix_2.jpg",
-                "/projects/P1/WicFix_3.jpg",
-                "/projects/P1/WicFix_4.jpg",
-                "/projects/P1/WicFix_5.jpg",
-                "/projects/P1/WicFix_6.jpg",
-                "/projects/P1/WicFix_7.jpg",
-                "/projects/P1/WicFix_8.jpg",
-                "/projects/P1/WicFix_9.jpg",
-              ]
-            : i === 1
-              ? [
-                  "/projects/P2/Mass_1.jpg",
-                  "/projects/P2/Mass_2.jpg",
-                  "/projects/P2/Mass_3.jpg",
-                  "/projects/P2/Mass_4.jpg",
-                  "/projects/P2/Mass_5.jpg",
-                  "/projects/P2/Mass_6.jpg",
-                  "/projects/P2/Mass_7.jpg",
-                  "/projects/P2/Mass_8.jpg",
-                  "/projects/P2/Mass_9.jpg",
-                ]
-            : i === 2
-              ? [
-                  "/projects/P3/Dulce_01.png",
-                  "/projects/P3/Dulce_02.png",
-                  "/projects/P3/Dulce_03.png",
-                  "/projects/P3/Dulce_04.png",
-                  "/projects/P3/Dulce_05.png",
-                  "/projects/P3/Dulce_06.png",
-                  "/projects/P3/Dulce_07.png",
-                  "/projects/P3/Dulce_08.png",
-                  "/projects/P3/Dulce_09.png",
-                  "/projects/P3/Dulce_10.png",
-                ]
-              : [
-                  "/projects/sample-portfolio.jpg",
-                  "/projects/sample-portfolio.jpg",
-                  "/projects/sample-portfolio.jpg",
-                ],
-      })),
+    () => [
+      {
+        cover: "/projects/P1/WicFix_1.jpg",
+        title: t.portfolio.projectTitle(1),
+        description: t.portfolio.projectDescPrimary,
+        gallery: [
+          "/projects/P1/WicFix_1.jpg",
+          "/projects/P1/WicFix_2.jpg",
+          "/projects/P1/WicFix_3.jpg",
+          "/projects/P1/WicFix_4.jpg",
+          "/projects/P1/WicFix_5.jpg",
+          "/projects/P1/WicFix_6.jpg",
+          "/projects/P1/WicFix_7.jpg",
+          "/projects/P1/WicFix_8.jpg",
+          "/projects/P1/WicFix_9.jpg",
+        ],
+      },
+      {
+        cover: "/projects/P2/Mass_1.jpg",
+        title: t.portfolio.projectTitle(2),
+        description: t.portfolio.projectDescSecondary,
+        gallery: [
+          "/projects/P2/Mass_1.jpg",
+          "/projects/P2/Mass_2.jpg",
+          "/projects/P2/Mass_3.jpg",
+          "/projects/P2/Mass_4.jpg",
+          "/projects/P2/Mass_5.jpg",
+          "/projects/P2/Mass_6.jpg",
+          "/projects/P2/Mass_7.jpg",
+          "/projects/P2/Mass_8.jpg",
+          "/projects/P2/Mass_9.jpg",
+        ],
+      },
+      {
+        cover: "/projects/P3/Dulce_01.png",
+        title: t.portfolio.projectTitle(3),
+        description: t.portfolio.projectDescTertiary,
+        gallery: [
+          "/projects/P3/Dulce_01.png",
+          "/projects/P3/Dulce_02.png",
+          "/projects/P3/Dulce_03.png",
+          "/projects/P3/Dulce_04.png",
+          "/projects/P3/Dulce_05.png",
+          "/projects/P3/Dulce_06.png",
+          "/projects/P3/Dulce_07.png",
+          "/projects/P3/Dulce_08.png",
+          "/projects/P3/Dulce_09.png",
+          "/projects/P3/Dulce_10.png",
+        ],
+      },
+    ],
     [t.portfolio],
   );
 
@@ -110,19 +95,6 @@ export default function Portfolio() {
   };
 
   const selectedProject = openProject !== null ? projects[openProject] : null;
-  const masonryItems: MasonryItem[] = useMemo(
-    () =>
-      projects.map((project, idx) => ({
-        id: String(idx),
-        img: project.cover,
-        url: project.gallery.length ? "#" : undefined,
-        height: masonryHeights[idx % masonryHeights.length],
-        title: project.title,
-        description: project.description,
-        alt: t.masonry.projectImageAlt(idx + 1),
-      })),
-    [projects, t.masonry],
-  );
 
   useEffect(() => {
     openProjectRef.current = openProject;
@@ -176,29 +148,99 @@ export default function Portfolio() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.35 }}
       >
-        <div className="relative z-10 mt-32 mx-auto w-full px-2 sm:px-4">
+        <div className="relative z-10 mt-32 mx-auto w-full px-4 sm:px-6 lg:px-10">
           <div className="mb-14 flex justify-center">
             <h1 className="text-4xl font-bold font-display text-center text-black tracking-wide">
               {t.portfolio.title}
             </h1>
           </div>
+          <div className="mb-8 flex justify-center">
+            <p className="max-w-3xl text-center text-sm leading-relaxed text-black/70">
+              A focused selection of work we have shaped with our clients. Each project is
+              built with intention, tailored to the story, and designed to perform across
+              every touchpoint.
+            </p>
+          </div>
+          <div className="mb-10 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-black/55"
+            >
+              <span>Scroll for more</span>
+              <motion.span
+                aria-hidden="true"
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                className="text-base leading-none"
+              >
+                ↓
+              </motion.span>
+            </motion.div>
+          </div>
 
-          <section className="relative rounded-[28px] border border-black/10 bg-white p-2 sm:p-3 md:p-4">
-            <div className="relative z-10">
-              <Masonry
-                items={masonryItems}
-                ease="power3.out"
-                duration={0.6}
-                stagger={0.05}
-                animateFrom="random"
-                scaleOnHover
-                hoverScale={0.95}
-                blurToFocus
-                layoutIdPrefix="project-image"
-                onItemClick={(_, idx) => handleProjectTap(idx)}
-              />
-            </div>
+          <section className="relative rounded-[28px] border border-black/10 bg-white/95 p-5 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+            <motion.div
+              className="relative z-10 space-y-6 sm:space-y-8"
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+              }}
+            >
+              {projects.map((project, idx) => (
+                <motion.button
+                  key={project.title}
+                  type="button"
+                  onClick={() => handleProjectTap(idx)}
+                  className="group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white text-left transition hover:border-black/30"
+                  variants={{
+                    hidden: { opacity: 0, y: 18 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                  }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  <div className="relative w-full overflow-hidden bg-black">
+                    <motion.div
+                      layoutId={`project-image-${idx}`}
+                      className="relative w-full"
+                    >
+                      <Image
+                        src={project.cover}
+                        alt={project.title}
+                        width={1800}
+                        height={1000}
+                        sizes="(min-width: 1024px) 90vw, 100vw"
+                        className="h-auto w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                        priority={idx === 0}
+                      />
+                    </motion.div>
+                  </div>
+                  <div className="flex flex-col gap-2 px-6 py-5 sm:px-8 sm:py-6">
+                    <h2 className="text-2xl font-semibold tracking-tight text-black">
+                      {project.title}
+                    </h2>
+                    <p className="text-sm leading-relaxed text-black/70">
+                      {project.description}
+                    </p>
+                    <span className="text-xs uppercase tracking-[0.3em] text-black/50">
+                      View project
+                    </span>
+                  </div>
+                </motion.button>
+              ))}
+            </motion.div>
           </section>
+
+          <div className="mt-10 flex justify-center">
+            <p className="max-w-2xl text-center text-sm leading-relaxed text-black/70">
+              More projects are on the way. Keep an eye out for upcoming launches, brand
+              stories, and campaigns as our portfolio grows.
+            </p>
+          </div>
 
           <AnimatePresence>
             {selectedProject && openProject !== null && (

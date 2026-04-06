@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
     images: [
       {
-        url: "/logos/Logo circular-01.png",
+        url: "/logos/logo-circular-01.png",
         width: 1200,
         height: 1200,
         alt: "Lienzo Studio circular logo",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Lienzo Studio",
     description:
       "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
-    images: ["/logos/Logo circular-01.png"],
+    images: ["/logos/logo-circular-01.png"],
   },
 };
 
