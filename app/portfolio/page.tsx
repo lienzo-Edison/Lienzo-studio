@@ -91,6 +91,7 @@ export default function Portfolio() {
       closeProject();
       return;
     }
+    setMobileMenuOpen(false);
     setOpenProject(index);
   };
 
@@ -108,7 +109,6 @@ export default function Portfolio() {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    setMobileMenuOpen(false);
     window.addEventListener("keydown", onEscape);
     return () => {
       document.body.style.overflow = previousOverflow;

@@ -26,7 +26,6 @@ type Translations = {
     teamLabel: string;
     photoLabel: string;
     teamMembers: { name: string; role: string }[];
-    teamBio: string;
   };
   landing: {
     badge: string;
@@ -113,7 +112,6 @@ export const translations: Record<Locale, Translations> = {
         { name: "Michelle Portillo", role: "Brand Designer" },
         { name: "Reymundo Torres", role: "Brand Designer" },
       ],
-      teamBio: "Short profile description placeholder. Replace this with each member's bio.",
     },
     landing: {
       badge: "Ad Campaign",
@@ -236,7 +234,6 @@ export const translations: Record<Locale, Translations> = {
         { name: "Michelle Portillo", role: "Diseñadora de marca" },
         { name: "Reymundo Torres", role: "Diseñador de marca" },
       ],
-      teamBio: "Descripción breve de perfil. Reemplaza esto con la biografía de cada miembro.",
     },
     landing: {
       badge: "Campaña Publicitaria",

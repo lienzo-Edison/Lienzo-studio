@@ -1,0 +1,25 @@
+.cardSpotlight {
+  position: relative;
+  overflow: hidden;
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+  --spotlight-color: rgba(255, 255, 255, 0.25);
+}
+
+.cardSpotlight::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    220px circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.cardSpotlight:hover::before {
+  opacity: 1;
+}
