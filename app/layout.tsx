@@ -24,6 +24,15 @@ export const metadata: Metadata = {
   title: "Lienzo Studio",
   description:
     "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-32x32.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     url: "https://lienzo.studio",
     title: "Lienzo Studio",
@@ -59,7 +68,6 @@ export default async function RootLayout({
   return (
     <html lang={initialLanguage}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
