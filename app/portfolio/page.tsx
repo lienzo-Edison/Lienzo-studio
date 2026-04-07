@@ -143,19 +143,19 @@ export default function Portfolio() {
   return (
     <LayoutGroup>
       <motion.main
-        className="relative min-h-screen overflow-hidden bg-white p-6 text-black"
+        className="relative min-h-screen overflow-hidden bg-background p-6 text-foreground"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.35 }}
       >
         <div className="relative z-10 mt-32 mx-auto w-full px-4 sm:px-6 lg:px-10">
           <div className="mb-14 flex justify-center">
-            <h1 className="text-4xl font-bold font-display text-center text-black tracking-wide">
+            <h1 className="text-4xl font-bold font-display text-center text-foreground tracking-wide">
               {t.portfolio.title}
             </h1>
           </div>
           <div className="mb-8 flex justify-center">
-            <p className="max-w-3xl text-center text-sm leading-relaxed text-black/70">
+            <p className="max-w-3xl text-center text-sm leading-relaxed text-black/70 dark:text-white/70">
               {t.portfolio.intro}
             </p>
           </div>
@@ -164,7 +164,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-black/55"
+              className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-black/55 dark:text-white/55"
             >
               <span>{t.portfolio.scrollHint}</span>
               <motion.span
@@ -178,7 +178,7 @@ export default function Portfolio() {
             </motion.div>
           </div>
 
-          <section className="relative rounded-[28px] border border-black/10 bg-white/95 p-5 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+          <section className="relative rounded-[28px] border border-black/10 bg-white/95 p-5 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-white/5">
             <motion.div
               className="relative z-10 space-y-6 sm:space-y-8"
               initial="hidden"
@@ -193,7 +193,7 @@ export default function Portfolio() {
                   key={project.title}
                   type="button"
                   onClick={() => handleProjectTap(idx)}
-                  className="group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white text-left transition hover:border-black/30"
+                  className="group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white text-left transition hover:border-black/30 dark:border-white/10 dark:bg-[#151c24] dark:hover:border-white/30"
                   variants={{
                     hidden: { opacity: 0, y: 18 },
                     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
@@ -218,13 +218,13 @@ export default function Portfolio() {
                     </motion.div>
                   </div>
                   <div className="flex flex-col gap-2 px-6 py-5 sm:px-8 sm:py-6">
-                    <h2 className="text-2xl font-semibold tracking-tight text-black">
+                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                       {project.title}
                     </h2>
-                    <p className="text-sm leading-relaxed text-black/70">
+                    <p className="text-sm leading-relaxed text-black/70 dark:text-white/70">
                       {project.description}
                     </p>
-                    <span className="text-xs uppercase tracking-[0.3em] text-black/50">
+                    <span className="text-xs uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
                       View project
                     </span>
                   </div>
@@ -234,7 +234,7 @@ export default function Portfolio() {
           </section>
 
           <div className="mt-10 flex justify-center">
-            <p className="max-w-2xl text-center text-sm leading-relaxed text-black/70">
+            <p className="max-w-2xl text-center text-sm leading-relaxed text-black/70 dark:text-white/70">
               {t.portfolio.moreComing}
             </p>
           </div>

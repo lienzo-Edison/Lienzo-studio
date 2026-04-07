@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import TopNav from "@/components/TopNav";
+import CornerIcon from "@/components/CornerIcon";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { defaultLocale } from "@/lib/i18n";
@@ -66,8 +67,32 @@ export default async function RootLayout({
   const initialLanguage = langCookie === "es" || langCookie === "en" ? langCookie : defaultLocale;
 
   return (
-    <html lang={initialLanguage}>
+    <html lang={initialLanguage} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+  try {
+    const override = localStorage.getItem("theme-override");
+    const legacy = localStorage.getItem("theme");
+    if (!override && (legacy === "dark" || legacy === "light")) {
+      localStorage.setItem("theme-override", legacy);
+      localStorage.removeItem("theme");
+    }
+    const stored = localStorage.getItem("theme-override");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme =
+      stored === "dark" || stored === "light"
+        ? stored
+        : prefersDark
+          ? "dark"
+          : "light";
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch {}
+})();`,
+          }}
+        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
@@ -110,6 +135,7 @@ fbq('track', 'PageView');`,
           <PageTransitionProvider>
             <TopNav />
             <div className="pb-16 md:pb-0">{children}</div>
+            <CornerIcon />
           </PageTransitionProvider>
         </LanguageProvider>
       </body>

@@ -20,7 +20,7 @@ export default function LanguageToggle() {
 
   return (
     <div
-      className="flex items-center gap-1 rounded-full border border-white/20 bg-black/35 p-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 md:text-xs"
+      className="flex items-center gap-1 rounded-full border border-white/20 bg-black/35 p-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 md:text-xs dark:border-white/30 dark:bg-white/10 dark:text-white"
       role="group"
       aria-label={t.toggle.ariaLabel}
       onMouseEnter={() => setCollapsed(false)}
