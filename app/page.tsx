@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <motion.main
-      className="relative min-h-screen w-full overflow-x-hidden bg-white text-black"
+      className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -45,7 +45,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pt-28 2xl:px-12">
         <div className="mx-auto w-full max-w-[104rem]">
-          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)] dark:border-white/10">
             <div className="absolute inset-0">
               <ColorBends
                 className="h-full w-full"
@@ -68,11 +68,19 @@ export default function Home() {
             <div className="relative z-10 grid min-h-[60vh] grid-rows-[1fr_auto] px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
               <div className="pointer-events-none flex items-center justify-center sm:items-start sm:pt-8 md:pt-10 lg:items-center lg:pt-0">
                 <Image
-                  src="/logos/lienzo-completo-white.svg"
+                  src="/logos/logo-circular-02.svg"
                   alt={t.home.heroLogoAlt}
                   width={680}
-                  height={220}
-                  className="w-[340px] opacity-85 sm:w-[460px] md:w-[620px] lg:w-[720px] xl:w-[820px] 2xl:w-[900px]"
+                  height={680}
+                  className="w-[260px] opacity-85 sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[560px] dark:hidden"
+                  priority
+                />
+                <Image
+                  src="/logos/logo-circular-02.svg"
+                  alt={t.home.heroLogoAlt}
+                  width={680}
+                  height={680}
+                  className="hidden w-[260px] opacity-85 sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[560px] dark:block"
                   priority
                 />
               </div>
@@ -93,7 +101,7 @@ export default function Home() {
       <section className="relative px-6 pb-12 pt-6 md:pt-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-16 md:gap-20">
           <motion.article
-            className="flex flex-col gap-6 border-b border-black/15 pb-12 pt-2 md:flex-row md:items-center md:justify-between md:gap-12 md:pt-4"
+            className="flex flex-col gap-6 border-b border-black/15 pb-12 pt-2 md:flex-row md:items-center md:justify-between md:gap-12 md:pt-4 dark:border-white/15"
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
@@ -101,7 +109,7 @@ export default function Home() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <motion.h2
-              className="font-display font-bold uppercase text-3xl text-[#254566] md:text-4xl"
+              className="font-display font-bold uppercase text-3xl text-[#254566] md:text-4xl dark:text-[#8fb2d6]"
               variants={fadeUpVariants}
               initial="hidden"
               whileInView="visible"
@@ -111,7 +119,7 @@ export default function Home() {
               {t.home.whoTitle}
             </motion.h2>
             <motion.p
-              className="max-w-xl text-sm text-black/70 md:text-base"
+              className="max-w-xl text-sm text-black/70 md:text-base dark:text-white/70"
               variants={fadeUpVariants}
               initial="hidden"
               whileInView="visible"
@@ -123,7 +131,7 @@ export default function Home() {
           </motion.article>
 
           <motion.article
-            className="flex flex-col gap-6 border-b border-black/15 pb-12 md:flex-row md:items-center md:justify-between md:gap-12"
+            className="flex flex-col gap-6 border-b border-black/15 pb-12 md:flex-row md:items-center md:justify-between md:gap-12 dark:border-white/15"
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
@@ -131,7 +139,7 @@ export default function Home() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <motion.h2
-              className="font-display font-bold uppercase text-3xl text-[#a61b00] md:text-4xl"
+              className="font-display font-bold uppercase text-3xl text-[#a61b00] md:text-4xl dark:text-[#ff8f7a]"
               variants={fadeUpVariants}
               initial="hidden"
               whileInView="visible"
@@ -141,7 +149,7 @@ export default function Home() {
               {t.home.whatTitle}
             </motion.h2>
             <motion.p
-              className="max-w-xl text-sm text-black/70 md:text-base"
+              className="max-w-xl text-sm text-black/70 md:text-base dark:text-white/70"
               variants={fadeUpVariants}
               initial="hidden"
               whileInView="visible"
@@ -156,7 +164,7 @@ export default function Home() {
 
       {/* Team Section */}
       <section className="relative px-6 pb-20 pt-12">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-12">
+        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-12 dark:border-white/10 dark:bg-[#141a1f]">
           <motion.div
             className="text-center"
             variants={fadeUpVariants}
@@ -165,10 +173,10 @@ export default function Home() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="mt-3 font-display font-bold uppercase text-3xl text-black md:text-4xl">
+            <h2 className="mt-3 font-display font-bold uppercase text-3xl text-foreground md:text-4xl">
               {t.home.teamTitle}
             </h2>
-            <p className="mt-4 text-sm text-black/65 md:text-base">
+            <p className="mt-4 text-sm text-black/65 md:text-base dark:text-white/60">
               {t.home.teamSubtitle}
             </p>
           </motion.div>
@@ -183,8 +191,8 @@ export default function Home() {
                 viewport={sectionViewport}
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
-                <SpotlightCard className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
-                  <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70">
+                <SpotlightCard className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-[#151c24]">
+                  <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/5">
                     {member.image ? (
                       <Image
                         src={member.image}
@@ -195,10 +203,10 @@ export default function Home() {
                       />
                     ) : null}
                   </div>
-                  <h3 className="mt-6 text-lg font-bold font-display text-black">
+                  <h3 className="mt-6 text-lg font-bold font-display text-foreground">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-sm text-black/55">{member.role}</p>
+                  <p className="mt-1 text-sm text-black/55 dark:text-white/55">{member.role}</p>
                 </SpotlightCard>
               </motion.article>
             ))}

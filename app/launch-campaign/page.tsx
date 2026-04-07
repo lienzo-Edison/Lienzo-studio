@@ -22,14 +22,14 @@ export default function LaunchCampaignPage() {
 
   return (
     <motion.main
-      className="relative min-h-screen w-full overflow-x-hidden bg-white text-black"
+      className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
     >
       <section className="px-6 pb-10 pt-24 md:px-10 md:pt-28">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)] dark:border-white/10">
             <div className="absolute inset-0">
               <ColorBends
                 className="h-full w-full"
@@ -116,10 +116,10 @@ export default function LaunchCampaignPage() {
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h2 className="font-display text-3xl uppercase text-[#254566] md:text-4xl">
+            <h2 className="font-display text-3xl uppercase text-[#254566] md:text-4xl dark:text-[#8fb2d6]">
               {t.landing.servicesTitle}
             </h2>
-            <p className="max-w-2xl text-sm text-black/65 md:text-base">
+            <p className="max-w-2xl text-sm text-black/65 md:text-base dark:text-white/65">
               {t.landing.servicesIntro}
             </p>
           </motion.div>
@@ -128,20 +128,20 @@ export default function LaunchCampaignPage() {
             {services.map((service, idx) => (
               <motion.article
                 key={service.title}
-                className="rounded-[1.75rem] border border-black/10 bg-white p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] md:p-7"
+                className="rounded-[1.75rem] border border-black/10 bg-white p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)] md:p-7 dark:border-white/10 dark:bg-[#151c24]"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00]">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00] dark:text-[#ff8f7a]">
                   {t.landing.serviceLabel} {String(idx + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-4 text-xl font-display uppercase text-black md:text-2xl">
+                <h3 className="mt-4 text-xl font-display uppercase text-foreground md:text-2xl">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-black/70 md:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-black/70 md:text-base dark:text-white/70">
                   {service.body}
                 </p>
               </motion.article>
@@ -151,7 +151,7 @@ export default function LaunchCampaignPage() {
       </section>
 
       <section className="relative px-6 pb-20 pt-4 md:px-10">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[#f6f1e7] px-7 py-10 md:px-12 md:py-14">
+        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[#f6f1e7] px-7 py-10 md:px-12 md:py-14 dark:border-white/10 dark:bg-[#151c24]">
           <motion.div
             className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
             variants={fadeUpVariants}
@@ -161,19 +161,19 @@ export default function LaunchCampaignPage() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/60">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/60 dark:text-white/60">
                 {t.landing.offerEyebrow}
               </p>
-              <h2 className="mt-3 font-display text-3xl uppercase text-black md:text-4xl">
+              <h2 className="mt-3 font-display text-3xl uppercase text-foreground md:text-4xl">
                 {t.landing.offerTitle}
               </h2>
-              <p className="mt-4 text-sm text-black/70 md:text-base">
+              <p className="mt-4 text-sm text-black/70 md:text-base dark:text-white/70">
                 {t.landing.offerBody}
               </p>
             </div>
             <TransitionLink
               href="/"
-              className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:border-black/40 hover:bg-black hover:text-white"
+              className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:border-black/40 hover:bg-black hover:text-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/20"
             >
               {t.landing.secondaryCta}
             </TransitionLink>

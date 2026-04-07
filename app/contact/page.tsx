@@ -27,28 +27,28 @@ export default function Contact() {
 
   return (
     <motion.main
-      className="min-h-screen flex flex-col items-center justify-start bg-white text-black p-6"
-      initial={{ opacity: 0, backgroundColor: "#ffffff" }}
-      animate={{ opacity: 1, backgroundColor: "#ffffff" }}
+      className="min-h-screen flex flex-col items-center justify-start bg-background text-foreground p-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="mt-32 text-center max-w-xl">
         <h1 className="text-4xl font-bold font-display mb-6">
           {t.contact.title}
         </h1>
-        <p className="text-lg text-black/70 mb-8">
+        <p className="text-lg text-black/70 mb-8 dark:text-white/70">
           {t.contact.intro}
         </p>
 
-        <div className="bg-black/5 border border-black/10 rounded-lg p-6 text-left">
+        <div className="bg-black/5 border border-black/10 rounded-lg p-6 text-left dark:border-white/10 dark:bg-white/5">
           <div className="flex flex-col gap-4">
             <div>
-              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50 dark:text-white/50">
                 Phone
               </p>
               <a
                 href={`tel:${phoneNumber.replace(/[^+\\d]/g, "")}`}
-                className="mt-2 inline-block text-lg font-medium text-black hover:text-black/70"
+                className="mt-2 inline-block text-lg font-medium text-foreground hover:text-black/70 dark:hover:text-white/70"
                 onClick={() => trackContact("phone")}
               >
                 {phoneNumber}
@@ -56,14 +56,14 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50 dark:text-white/50">
                 WhatsApp
               </p>
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 inline-flex items-center justify-center rounded border border-black/15 bg-black/5 px-6 py-2 text-sm font-medium text-black transition hover:border-[#25d366] hover:text-black hover:shadow-[0_0_18px_rgba(37,211,102,0.55)]"
+                className="mt-3 inline-flex items-center justify-center rounded border border-black/15 bg-black/5 px-6 py-2 text-sm font-medium text-black transition hover:border-[#25d366] hover:text-black hover:shadow-[0_0_18px_rgba(37,211,102,0.55)] dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:text-white"
                 onClick={() => trackContact("whatsapp")}
               >
                 {t.contact.whatsappButton}
@@ -71,29 +71,31 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50 dark:text-white/50">
                 Email
               </p>
               {!revealed ? (
                 <>
-                  <p className="mt-2 text-sm text-black/60">{t.contact.preferEmail}</p>
+                  <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+                    {t.contact.preferEmail}
+                  </p>
                   <button
                     onClick={() => {
                       setRevealed(true);
                       trackContact("email_reveal");
                     }}
-                    className="mt-3 bg-black/5 hover:bg-black/10 border border-black/10 rounded px-5 py-2 text-sm transition"
+                    className="mt-3 bg-black/5 hover:bg-black/10 border border-black/10 rounded px-5 py-2 text-sm transition dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                   >
                     {t.contact.revealButton}
                   </button>
                 </>
               ) : (
-                <p className="mt-2 text-lg font-medium text-black">{fullEmail}</p>
+                <p className="mt-2 text-lg font-medium text-foreground">{fullEmail}</p>
               )}
             </div>
 
             <div>
-              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50">
+              <p className="text-xs font-display font-bold uppercase tracking-[0.28em] text-black/50 dark:text-white/50">
                 Social
               </p>
               <div className="mt-3 flex flex-wrap gap-3">
@@ -101,7 +103,7 @@ export default function Contact() {
                   href="https://www.instagram.com/_lienzostudio/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-black/30 hover:text-black/80"
+                  className="inline-flex items-center gap-2 rounded border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-black/30 hover:text-black/80 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:text-white/80"
                   aria-label="Lienzo Studio on Instagram"
                 >
                   <svg
@@ -130,7 +132,7 @@ export default function Contact() {
                   href="https://www.facebook.com/people/Lienzo-Studio/61588545936546/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-black/30 hover:text-black/80"
+                  className="inline-flex items-center gap-2 rounded border border-black/10 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-black/30 hover:text-black/80 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:text-white/80"
                   aria-label="Lienzo Studio on Facebook"
                 >
                   <svg
