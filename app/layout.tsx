@@ -7,6 +7,7 @@ import CornerIcon from "@/components/CornerIcon";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { defaultLocale } from "@/lib/i18n";
+import Script from "next/script";
 
 const hostGrotesk = localFont({
   src: "../public/fonts/HostGrotesk-VariableFont_wght.woff2",
@@ -69,7 +70,9 @@ export default async function RootLayout({
   return (
     <html lang={initialLanguage} suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="theme-strategy"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(() => {
   try {
@@ -93,11 +96,13 @@ export default async function RootLayout({
 })();`,
           }}
         />
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
-        ></script>
-        <script
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -106,7 +111,9 @@ gtag('js', new Date());
 gtag('config', 'G-0WNFWMW6KN');`,
           }}
         />
-        <script
+        <Script
+          id="facebook-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

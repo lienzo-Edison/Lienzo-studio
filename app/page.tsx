@@ -162,6 +162,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section className="relative px-6 pb-20 pt-12">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="mb-12 text-center"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+          >
+            <h2 className="font-display font-bold uppercase text-3xl text-foreground md:text-4xl">
+              {t.home.servicesTitle}
+            </h2>
+            <p className="mt-4 text-sm text-black/65 md:text-base dark:text-white/60">
+              {t.home.servicesSubtitle}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {t.home.services.map((service, idx) => (
+              <motion.article
+                key={service.title}
+                variants={fadeUpVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
+              >
+                <SpotlightCard className="h-full rounded-[2rem] border border-black/10 bg-white p-8 text-left shadow-[0_18px_40px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-[#151c24]">
+                  <h3 className="text-xl font-bold font-display text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-black/60 dark:text-white/60">
+                    {service.body}
+                  </p>
+                </SpotlightCard>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="relative px-6 pb-20 pt-12">
         <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-12 dark:border-white/10 dark:bg-[#141a1f]">

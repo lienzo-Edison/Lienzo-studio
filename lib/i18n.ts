@@ -101,6 +101,26 @@ export const translations: Record<Locale, Translations> = {
       whatTitle: "What We Do",
       whatBody:
         "We build brands and create marketing that performs.\nFrom identity design to advertising creatives, everything we deliver is made to attract, communicate, and convert.",
+      servicesTitle: "Our Services",
+      servicesSubtitle: "Strategic design and digital marketing built for impact.",
+      services: [
+        {
+          title: "Brand Identity & Strategy",
+          body: "We build comprehensive visual foundations that help your brand stand out and scale. From precision-crafted logo systems to complete brand guidelines, we ensure your identity is consistent, professional, and ready for any platform.",
+        },
+        {
+          title: "Social Media & Content Systems",
+          body: "A professional social media presence built on strategy rather than just posts. We provide custom-designed templates and high-quality content production tailored to your brand’s voice, helping you maintain a consistent and engaging connection with your audience.",
+        },
+        {
+          title: "Editorial & Marketing Design",
+          body: "High-impact visual materials designed to strengthen your brand’s communication. Whether it’s menus, brochures, or corporate collateral, we transform information into professional, high-quality designs that resonate with your clients.",
+        },
+        {
+          title: "Custom Illustration & Assets",
+          body: "Elevate your brand with unique, hand-crafted visual assets. We create custom illustrations, iconography, and brand characters that add a distinct and human touch to your identity, making your brand truly unforgettable.",
+        },
+      ],
       teamTitle: "Meet The Team",
       teamSubtitle:
         "A tight-knit team working across the U.S. and Mexico. We collaborate closely on every project, blending perspectives and craft to deliver focused, high-impact brand work.",
@@ -223,6 +243,26 @@ export const translations: Record<Locale, Translations> = {
       whatTitle: "Lo Que Hacemos",
       whatBody:
         "Construimos marcas y creamos marketing que funciona.\nDesde el diseño de identidad hasta creativos publicitarios, todo lo que entregamos está hecho para atraer, comunicar y convertir.",
+      servicesTitle: "Nuestros Servicios",
+      servicesSubtitle: "Diseño estratégico y marketing digital creado para impactar.",
+      services: [
+        {
+          title: "Identidad de Marca y Estrategia",
+          body: "Construimos bases visuales sólidas que ayudan a tu marca a destacar y escalar. Desde sistemas de logotipos diseñados con precisión hasta guías de marca completas, aseguramos que tu identidad sea profesional y esté lista para cualquier plataforma.",
+        },
+        {
+          title: "Redes Sociales y Sistemas de Contenido",
+          body: "Presencia profesional en redes sociales basada en estrategia. Ofrecemos plantillas personalizadas y producción de contenido de alta calidad adaptado a la voz de tu marca, ayudándote a mantener una conexión constante y atractiva con tu audiencia.",
+        },
+        {
+          title: "Diseño Editorial y de Marketing",
+          body: "Materiales visuales de alto impacto diseñados para fortalecer la comunicación de tu marca. Ya sean menús, folletos o papelería corporativa, transformamos la información en diseños profesionales de alta calidad que conectan con tus clientes.",
+        },
+        {
+          title: "Ilustración Personalizada y Activos",
+          body: "Eleva tu marca con activos visuales únicos hechos a mano. Creamos ilustraciones personalizadas, iconografía y personajes de marca que añaden un toque distintivo y humano a tu identidad, haciendo que tu marca sea inolvidable.",
+        },
+      ],
       teamTitle: "Conoce al Equipo",
       teamSubtitle:
         "Un equipo unido que trabaja entre Estados Unidos y México. Colaboramos de cerca en cada proyecto, combinando perspectivas y oficio para entregar trabajo de marca enfocado y de alto impacto.",
