@@ -21,6 +21,9 @@ type Translations = {
     whoBody: string;
     whatTitle: string;
     whatBody: string;
+    servicesTitle: string;
+    servicesSubtitle: string;
+    services: { title: string; body: string }[];
     teamTitle: string;
     teamSubtitle: string;
     teamLabel: string;
