@@ -80,6 +80,12 @@ type Translations = {
       preferEmail: string;
       whatsappButton: string;
     };
+    privacy: {
+      title: string;
+      lastUpdated: string;
+      sections: { title: string; content: string | string[] }[];
+      footerLink: string;
+    };
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -224,6 +230,59 @@ export const translations: Record<Locale, Translations> = {
       preferEmail: "Prefer email?",
       whatsappButton: "Message us on WhatsApp",
     },
+    privacy: {
+      title: "Privacy Policy",
+      lastUpdated: "Last updated: April 2026",
+      footerLink: "Privacy Policy",
+      sections: [
+        {
+          title: "1. Who We Are",
+          content: "Lienzo Studio is a branding and digital marketing agency registered in the state of Colorado, United States. We specialize in brand identity, social media content systems, editorial design, and custom graphic assets.\n\nFor any questions regarding this policy, you can contact us at: hello@lienzo.studio"
+        },
+        {
+          title: "2. Information We Collect",
+          content: [
+            "Through our contact forms and advertising campaigns, we only collect the following personal information:",
+            "— Full name",
+            "— Email address",
+            "— Phone number (when provided voluntarily)",
+            "We do not collect sensitive information such as financial data, passwords, or identity documents."
+          ]
+        },
+        {
+          title: "3. How We Use Your Information",
+          content: [
+            "The information we collect is used exclusively to:",
+            "— Respond to and follow up on your service request",
+            "— Schedule consultation calls or appointments",
+            "— Send you relevant information about our services, if requested",
+            "We do not use your information for purposes other than those mentioned without your prior consent."
+          ]
+        },
+        {
+          title: "4. Sharing Information with Third Parties",
+          content: "Lienzo Studio does not sell, rent, or share your personal information with third parties under any circumstances.\n\nYour information remains within our team and is treated with strict confidentiality."
+        },
+        {
+          title: "5. Data Retention",
+          content: "We keep your information only for as long as necessary to attend to your request or as long as there is an active working relationship between Lienzo Studio and your business. If you wish for us to delete your data, you can request it at any time."
+        },
+        {
+          title: "6. Your Rights",
+          content: [
+            "You have the right to request at any time:",
+            "— Access to the information we have about you",
+            "— Correction of incorrect data",
+            "— Deletion of your information from our records",
+            "To exercise any of these rights, write to us at hello@lienzo.studio and we will respond within a maximum of 5 business days."
+          ]
+        },
+        {
+          title: "7. Changes to This Policy",
+          content: "We may update this policy occasionally. Any changes will be posted on this page with the corresponding update date. We recommend you review it periodically."
+        }
+      ]
+    },
   },
   es: {
     nav: {
@@ -365,6 +424,59 @@ export const translations: Record<Locale, Translations> = {
       revealButton: "Mostrar correo",
       preferEmail: "¿Prefieres correo?",
       whatsappButton: "Escríbenos por WhatsApp",
+    },
+    privacy: {
+      title: "Política de Privacidad",
+      lastUpdated: "Última actualización: Abril 2026",
+      footerLink: "Política de Privacidad",
+      sections: [
+        {
+          title: "1. Quiénes somos",
+          content: "Lienzo Studio es una agencia de branding y marketing digital registrada en el estado de Colorado, Estados Unidos. Nos especializamos en identidad de marca, sistemas de contenido para redes sociales, diseño editorial y activos gráficos personalizados.\n\nPara cualquier pregunta relacionada con esta política, puedes contactarnos en: hello@lienzo.studio"
+        },
+        {
+          title: "2. Información que recopilamos",
+          content: [
+            "A través de nuestros formularios de contacto y campañas publicitarias, recopilamos únicamente la siguiente información personal:",
+            "— Nombre completo",
+            "— Correo electrónico",
+            "— Número de teléfono (cuando se proporciona voluntariamente)",
+            "No recopilamos información sensible como datos financieros, contraseñas ni documentos de identidad."
+          ]
+        },
+        {
+          title: "3. Cómo usamos tu información",
+          content: [
+            "La información que recopilamos se utiliza exclusivamente para:",
+            "— Responderte y dar seguimiento a tu solicitud de servicio",
+            "— Agendar llamadas o citas de consulta",
+            "— Enviarte información relevante sobre nuestros servicios, si así lo solicitaste",
+            "No utilizamos tu información para fines distintos a los mencionados sin tu consentimiento previo."
+          ]
+        },
+        {
+          title: "4. Compartir información con terceros",
+          content: "Lienzo Studio no vende, renta ni comparte tu información personal con terceros bajo ninguna circunstancia.\n\nTu información permanece dentro de nuestro equipo de trabajo y es tratada con estricta confidencialidad."
+        },
+        {
+          title: "5. Retención de datos",
+          content: "Conservamos tu información únicamente durante el tiempo necesario para atender tu solicitud o mientras exista una relación de trabajo activa entre Lienzo Studio y tu negocio. Si deseas que eliminemos tus datos, puedes solicitarlo en cualquier momento."
+        },
+        {
+          title: "6. Tus derechos",
+          content: [
+            "Tienes derecho a solicitar en cualquier momento:",
+            "— Acceso a la información que tenemos sobre ti",
+            "— Corrección de datos incorrectos",
+            "— Eliminación de tu información de nuestros registros",
+            "Para ejercer cualquiera de estos derechos, escríbenos a hello@lienzo.studio y responderemos en un plazo máximo de 5 días hábiles."
+          ]
+        },
+        {
+          title: "7. Cambios a esta política",
+          content: "Podemos actualizar esta política ocasionalmente. Cualquier cambio será publicado en esta misma página con la fecha de actualización correspondiente. Te recomendamos revisarla periódicamente."
+        }
+      ]
     },
   },
 };
