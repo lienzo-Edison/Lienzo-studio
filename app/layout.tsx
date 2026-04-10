@@ -11,7 +11,7 @@ import { defaultLocale } from "@/lib/i18n";
 import Script from "next/script";
 
 const hostGrotesk = localFont({
-  src: "../public/fonts/HostGrotesk-VariableFont_wght.woff2",
+  src: "../public/fonts/hostgrotesk.woff2",
   variable: "--font-body",
   display: "swap",
 });
