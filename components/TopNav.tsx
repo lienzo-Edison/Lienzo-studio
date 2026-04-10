@@ -47,7 +47,7 @@ export default function TopNav() {
           <div className="flex items-center shrink-0">
             <TransitionLink href="/">
               <Image
-                src="/logos/lieno-compacto-n.svg"
+                src="/logos/lienzo-compacto-n.svg"
                 alt="Lienzo Studio logo"
                 width={160}
                 height={48}
