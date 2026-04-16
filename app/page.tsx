@@ -19,19 +19,20 @@ export default function Home() {
   const t = getTranslations(language);
 
   const teamMembers = useMemo(
-    () =>
-      t.home.teamMembers.map((member, index) => ({
+    () => {
+      const memberImages: Record<string, string> = {
+        "Edison Carrillo": "/pfp/edy.jpeg",
+        "Eduardo Carrillo": "/pfp/eduardo.jpeg",
+        "Michelle Portillo": "/pfp/mich.jpeg",
+        "Reymundo Torres": "/pfp/rey.jpeg",
+      };
+
+      return t.home.teamMembers.map((member) => ({
         name: member.name,
         role: member.role,
-        image:
-          index === 0
-            ? "/pfp/edy.jpeg"
-            : index === 1
-              ? "/pfp/eduardo.jpeg"
-              : index === 2
-                ? "/pfp/mich.jpeg"
-                : null,
-      })),
+        image: memberImages[member.name] ?? null,
+      }));
+    },
     [t.home],
   );
 

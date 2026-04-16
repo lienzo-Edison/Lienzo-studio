@@ -71,6 +71,21 @@ export default function Portfolio() {
           "/projects/P3/Dulce_10.png",
         ],
       },
+      {
+        cover: "/projects/P4/revista_sma_1.jpg",
+        title: t.portfolio.projectTitle(4),
+        description: t.portfolio.projectDescQuaternary,
+        gallery: [
+          "/projects/P4/revista_sma_1.jpg",
+          "/projects/P4/revista_sma_2.jpg",
+          "/projects/P4/revista_sma_3.jpg",
+          "/projects/P4/revista_sma_4.jpg",
+          "/projects/P4/revista_sma_5.jpg",
+          "/projects/P4/revista_sma_6.jpg",
+          "/projects/P4/revista_sma_7.jpg",
+          "/projects/P4/revista_sma_8.jpg",
+        ],
+      },
     ],
     [t.portfolio],
   );

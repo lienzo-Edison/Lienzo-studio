@@ -55,6 +55,7 @@ type Translations = {
     projectDescPrimary: string;
     projectDescSecondary: string;
     projectDescTertiary: string;
+    projectDescQuaternary: string;
     projectDescOther: string;
     projectOverviewPrimary: string;
     projectOverviewOther: (index: number) => string;
@@ -192,6 +193,8 @@ export const translations: Record<Locale, Translations> = {
             ? "Mass Architecture"
             : index === 3
               ? "Dulce Michi"
+              : index === 4
+                ? "Revista San Miguel de Allende"
               : `Project ${index}`,
       projectDescPrimary:
         "Premium tech repair and maintenance in Durango, Mexico, with white-glove care and meticulous detail.",
@@ -199,6 +202,8 @@ export const translations: Record<Locale, Translations> = {
         "Mass Architecture brand redesign with refined positioning, crisp typography, and a premium architectural tone.",
       projectDescTertiary:
         "Dessert cafe serving cookies, cakes, and Japanese-French pastries with coffee and tea.",
+      projectDescQuaternary:
+        "Editorial design for Revista San Miguel de Allende, crafted to balance cultural character, readability, and a polished magazine feel.",
       projectDescOther: "Brief description of the project goes here.",
       projectOverviewPrimary:
         "Project 1 is a full-home design concept focused on balancing clean modern geometry with lived-in comfort. The goal was to create a layout that feels bright and calm while still supporting daily family routines.",
@@ -387,6 +392,8 @@ export const translations: Record<Locale, Translations> = {
             ? "Mass Architecture"
             : index === 3
               ? "Dulce Michi"
+              : index === 4
+                ? "Revista San Miguel de Allende"
               : `Proyecto ${index}`,
       projectDescPrimary:
         "Servicio premium de reparación y mantenimiento tecnológico en Durango, México, con atención tipo concierge y detalle impecable.",
@@ -394,6 +401,8 @@ export const translations: Record<Locale, Translations> = {
         "Rediseño de marca para Mass Architecture con posicionamiento refinado, tipografía precisa y un tono arquitectónico premium.",
       projectDescTertiary:
         "Cafetería de postres con galletas, pasteles y repostería japonesa-francesa, café y té.",
+      projectDescQuaternary:
+        "Diseño editorial para Revista San Miguel de Allende, creado para equilibrar carácter cultural, legibilidad y una presencia editorial pulida.",
       projectDescOther: "Descripción breve del proyecto aquí.",
       projectOverviewPrimary:
         "El Proyecto 1 es un concepto de diseño integral centrado en equilibrar geometría moderna y comodidad cotidiana. El objetivo fue crear un espacio luminoso y sereno que apoye las rutinas diarias de la familia.",
