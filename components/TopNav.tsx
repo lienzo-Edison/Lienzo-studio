@@ -16,6 +16,8 @@ export default function TopNav() {
   const { language } = useLanguage();
   const t = getTranslations(language);
 
+  const isLandingPage = pathname === "/longs-peak";
+
   const navItems = [
     { href: "/", label: t.nav.home },
     { href: "/portfolio", label: t.nav.portfolio },
@@ -82,10 +84,12 @@ export default function TopNav() {
           </div>
 
           {/* Desktop Toggles */}
-          <div className="hidden md:flex items-center gap-2">
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
+          {!isLandingPage && (
+            <div className="hidden md:flex items-center gap-2">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -170,22 +174,24 @@ export default function TopNav() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-8 border-t border-black/10 pt-8 dark:border-white/10">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-3">
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
-                        {language === "es" ? "Idioma" : "Language"}
-                      </span>
-                      <LanguageToggle />
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
-                        {language === "es" ? "Tema" : "Theme"}
-                      </span>
-                      <ThemeToggle />
+                {!isLandingPage && (
+                  <div className="flex flex-col gap-8 border-t border-black/10 pt-8 dark:border-white/10">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex flex-col gap-3">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+                          {language === "es" ? "Idioma" : "Language"}
+                        </span>
+                        <LanguageToggle />
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+                          {language === "es" ? "Tema" : "Theme"}
+                        </span>
+                        <ThemeToggle />
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.div>
           </div>

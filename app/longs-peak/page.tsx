@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import TransitionLink from "@/components/TransitionLink";
-import { useLanguage } from "@/components/LanguageProvider";
-import { getTranslations } from "@/lib/i18n";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -13,25 +11,57 @@ const fadeUpVariants = {
 
 const sectionViewport = { once: true, amount: 0.2 };
 
+const WHATSAPP = "https://wa.me/message/LVLY6STJJOM4K1";
+const EMAIL = "ventas@lienzo.studio";
+const PHONE = "+1 (720) 990-7795";
+
+const SERVICES = [
+  {
+    title: "Identidad de Marca y Estrategia",
+    body: "Desarrollamos identidades visuales profesionales que ayudan a tu negocio a destacar y mantenerse consistente en todos los canales.",
+    items: null,
+  },
+  {
+    title: "Branding y Contenido para Redes Sociales",
+    body: "Ayudamos a tu negocio a mantener una presencia consistente y profesional en redes sociales a través de estrategia, diseño y contenido optimizado.",
+    items: null,
+  },
+  {
+    title: "Diseño Editorial y de Marketing",
+    body: "Desarrollamos materiales visuales profesionales que fortalecen la comunicación de tu marca.",
+    items: ["Menús", "Flyers y pósters", "Brochures", "Catálogos", "Material corporativo"],
+  },
+  {
+    title: "Ilustración y Activos Gráficos",
+    body: "Creamos ilustraciones únicas y activos visuales a medida que ayudan a tu marca a destacar y diferenciarse.",
+    items: null,
+  },
+];
+
+const STEPS = [
+  {
+    title: "Platicamos",
+    body: "Te escuchamos. Entendemos en qué etapa está tu negocio, qué necesitas mostrar y quién es tu cliente ideal.",
+  },
+  {
+    title: "Diseñamos",
+    body: "Creamos las piezas visuales y el sistema de contenido que tu negocio necesita para verse completo y profesional.",
+  },
+  {
+    title: "Lo usas en todo",
+    body: "El sistema funciona en redes, anuncios, impresión y web. Tu negocio se ve fuerte en todos lados.",
+  },
+];
+
 export default function LongsPeakPage() {
-  const { language } = useLanguage();
-  const t = getTranslations(language);
-  const phoneNumber = "+1 (720) 990-7795";
-  const email = language === "es" ? "ventas@lienzo.studio" : "sales@lienzo.studio";
-  const whatsappLink = "https://wa.me/message/LVLY6STJJOM4K1";
-
-  const trackContact = (method: "phone" | "whatsapp" | "email" | "instagram" | "facebook") => {
+  const trackContact = (method: string) => {
     if (typeof window === "undefined") return;
-
-    const fbq = (window as typeof window & { fbq?: (...args: unknown[]) => void }).fbq;
-    if (typeof fbq === "function") {
-      fbq("track", "Contact", { method, source: "longs-peak" });
-    }
-
-    const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag;
-    if (typeof gtag === "function") {
-      gtag("event", "contact", { method, source: "longs-peak" });
-    }
+    const w = window as typeof window & {
+      fbq?: (...a: unknown[]) => void;
+      gtag?: (...a: unknown[]) => void;
+    };
+    w.fbq?.("track", "Contact", { method, source: "longs-peak" });
+    w.gtag?.("event", "contact", { method, source: "longs-peak" });
   };
 
   return (
@@ -41,109 +71,46 @@ export default function LongsPeakPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
     >
-      <section className="bg-[linear-gradient(180deg,#e9e1d3_0%,#f6f1e7_55%,#ffffff_100%)] px-6 pb-12 pt-24 md:px-10 md:pt-30 dark:bg-[linear-gradient(180deg,#161b20_0%,#111820_55%,#0f1418_100%)]">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-            <motion.div
-              className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#ece5d8] shadow-[0_28px_90px_rgba(0,0,0,0.14)] dark:border-white/10 dark:bg-[#151b21]"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut" }}
-            >
+      {/* ─── HERO ─── */}
+      <section className="px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pt-28 2xl:px-12">
+        <div className="mx-auto w-full max-w-[104rem]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)] dark:border-white/10">
+            {/* Background image */}
+            <div className="absolute inset-0">
               <Image
-                src="/campaigns/longs-peak/ad-1-pub.jpeg"
-                alt={t.landing.adImageAlt}
-                width={1600}
-                height={2000}
-                className="h-full w-full object-cover"
+                src="/longs-peak-bg.jpg"
+                alt=""
+                fill
+                className="object-cover object-center"
                 priority
               />
-            </motion.div>
+            </div>
 
-            <div className="relative">
-              <motion.div
-                className="mb-8"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-                <Image
-                  src="/Logos/Lienzo-compacto-black.svg"
-                  alt={t.home.heroLogoAlt}
-                  width={200}
-                  height={70}
-                  className="w-[120px] dark:hidden"
-                  priority
+            <div className="relative z-10 min-h-[60vh] md:min-h-[68vh]">
+              {/* Logo — top center */}
+              <div className="absolute inset-x-0 top-6 flex justify-center px-7 md:top-8 md:px-12">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logos/lienzo-compacto-n.svg"
+                  alt="Lienzo Studio"
+                  className="h-auto w-[55vw] max-w-[900px] opacity-90"
                 />
-                <Image
-                  src="/Logos/Lienzo - completo-white.svg"
-                  alt={t.home.heroLogoAlt}
-                  width={220}
-                  height={70}
-                  className="hidden w-[160px] dark:block"
-                  priority
-                />
-              </motion.div>
-
+              </div>
+              {/* Headline — bottom left */}
               <motion.p
-                className="text-xs font-semibold uppercase tracking-[0.32em] text-[#a61b00] dark:text-[#ff8f7a]"
+                className="absolute bottom-10 left-7 max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:bottom-14 md:left-12 md:text-5xl"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.04 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
               >
-                {t.landing.eyebrow}
+                Si llegaste aquí, la pregunta ya te tocó.
               </motion.p>
-              <motion.h1
-                className="mt-5 max-w-3xl text-balance font-display text-4xl uppercase leading-[0.95] text-[#163a62] sm:text-5xl md:text-6xl dark:text-[#d8e6f2]"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 }}
-              >
-                {t.landing.heroTitle}
-              </motion.h1>
-              <motion.p
-                className="mt-6 max-w-2xl text-base leading-relaxed text-black/72 md:text-lg dark:text-white/72"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.12 }}
-              >
-                {t.landing.heroBody}
-              </motion.p>
-
-              <motion.div
-                className="mt-10 flex flex-wrap items-center gap-4"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.16 }}
-              >
-                <a
-                  href={`mailto:${email}`}
-                  className="inline-flex items-center justify-center rounded-full border border-[#163a62]/15 bg-[#163a62] px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-[#1f4e83] dark:border-white/20 dark:bg-white dark:text-black dark:hover:bg-white/85"
-                  onClick={() => trackContact("email")}
-                >
-                  {t.landing.primaryCta}
-                </a>
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-black/15 bg-transparent px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition hover:border-black/35 hover:bg-black/5 dark:border-white/20 dark:hover:border-white/40 dark:hover:bg-white/8"
-                  onClick={() => trackContact("whatsapp")}
-                >
-                  {t.landing.contactWhatsappValue}
-                </a>
-                <TransitionLink
-                  href="/"
-                  className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-black transition hover:border-black/25 hover:bg-white dark:border-white/15 dark:bg-white/8 dark:text-white dark:hover:bg-white/14"
-                >
-                  {t.landing.homeCta}
-                </TransitionLink>
-              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ─── PROBLEM ─── */}
       <section className="px-6 pb-8 pt-2 md:px-10">
         <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[#0f1418] px-7 py-10 text-white shadow-[0_24px_70px_rgba(0,0,0,0.12)] dark:border-white/10 md:px-10">
           <motion.div
@@ -155,39 +122,56 @@ export default function LongsPeakPage() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/55">
-              {t.landing.problemEyebrow}
+              El problema
             </p>
             <h2 className="mt-4 font-display text-3xl uppercase text-white md:text-4xl">
-              {t.landing.problemTitle}
+              Existir no es suficiente.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/72 md:text-base">
-              {t.landing.problemIntro}
+              Millones de negocios en México tienen presencia en redes, en Google, en Maps. Pero la mayoría tiene{" "}
+              <span className="font-medium text-white">perfiles sin información, sin fotos, sin descripción, sin historia.</span>
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/72 md:text-base">
+              El cliente potencial llega, ve un perfil vacío, y se va. No porque tu negocio sea malo. Sino porque{" "}
+              <span className="font-medium text-[#ff8f7a]">nadie puede confiar en lo que no puede ver.</span>
             </p>
           </motion.div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {t.landing.painPoints.map((point, idx) => (
+            {[
+              {
+                label: "Sin información",
+                body: "La falta de datos crea desconfianza. Tu negocio se siente inactivo, cerrado, o peor: invisible.",
+              },
+              {
+                label: "Sin visuales",
+                body: "Sin imágenes ni identidad visual, tu negocio no comunica valor. Solo ocupa espacio en pantalla.",
+              },
+              {
+                label: "Sin estructura",
+                body: "Un perfil sin forma cierra la puerta a clientes potenciales antes de que siquiera te contacten.",
+              },
+            ].map((p, i) => (
               <motion.article
-                key={point}
+                key={p.label}
                 className="rounded-[1.5rem] border border-white/10 bg-white/5 p-6"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
-                transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#ff8f7a]">
-                  {t.landing.stepLabel} {String(idx + 1).padStart(2, "0")}
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-white/72 md:text-base">{point}</p>
+                <h3 className="font-display text-xl uppercase text-white">{p.label}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-white/72 md:text-base">{p.body}</p>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ─── WHO WE ARE ─── */}
       <section className="px-6 pb-8 pt-2 md:px-10">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[1.2fr_0.8fr]">
+        <div className="mx-auto max-w-6xl">
           <motion.article
             className="rounded-[1.9rem] border border-black/10 bg-white p-7 shadow-[0_18px_40px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-[#151c24]"
             variants={fadeUpVariants}
@@ -197,107 +181,79 @@ export default function LongsPeakPage() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00] dark:text-[#ff8f7a]">
-              {t.landing.introEyebrow}
+              Quiénes somos
             </p>
             <h2 className="mt-4 font-display text-3xl uppercase text-[#254566] dark:text-[#8fb2d6]">
-              {t.landing.introTitle}
+              Somos Lienzo Studio.
             </h2>
-            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-black/72 md:text-base dark:text-white/72">
-              {t.landing.introBody}
-            </p>
-          </motion.article>
-
-          <motion.article
-            className="rounded-[1.9rem] border border-black/10 bg-[#f6f1e7] p-7 shadow-[0_18px_40px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-[#111820]"
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            transition={{ duration: 0.55, ease: "easeOut", delay: 0.08 }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/55 dark:text-white/55">
-              {t.landing.whereEyebrow}
-            </p>
-            <h2 className="mt-4 font-display text-3xl uppercase text-foreground">
-              {t.landing.whereTitle}
-            </h2>
-            <p className="mt-5 text-sm leading-relaxed text-black/72 md:text-base dark:text-white/72">
-              {t.landing.whereBody}
+            <p className="mt-5 max-w-3xl text-sm leading-relaxed text-black/72 md:text-base dark:text-white/72">
+              Somos un estudio de branding y marketing que trabaja con negocios en México y Estados Unidos. Hablamos español, entendemos cómo funciona el mercado mexicano y adaptamos cada proyecto al tamaño y la etapa real de tu negocio.
             </p>
           </motion.article>
         </div>
       </section>
 
-      <section className="px-6 pb-8 pt-10 md:px-10">
-        <div className="mx-auto max-w-6xl">
-          <motion.div
-            className="max-w-3xl"
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00] dark:text-[#ff8f7a]">
-              {t.landing.whatEyebrow}
-            </p>
-            <h2 className="mt-4 font-display text-3xl uppercase text-[#254566] md:text-4xl dark:text-[#8fb2d6]">
-              {t.landing.whatTitle}
-            </h2>
-            <p className="mt-5 text-sm leading-relaxed text-black/68 md:text-base dark:text-white/68">
-              {t.landing.whatBody}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
+      {/* ─── SERVICES ─── */}
       <section className="px-6 pb-10 pt-8 md:px-10">
         <div className="mx-auto max-w-6xl">
           <motion.div
-            className="flex flex-col gap-4"
+            className="mb-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-end"
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/55 dark:text-white/55">
-              {t.landing.servicesEyebrow}
-            </p>
-            <h2 className="font-display text-3xl uppercase text-foreground md:text-4xl">
-              {t.landing.servicesTitle}
-            </h2>
-            <p className="max-w-2xl text-sm text-black/68 md:text-base dark:text-white/68">
-              {t.landing.servicesIntro}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00] dark:text-[#ff8f7a]">
+                La solución
+              </p>
+              <h2 className="mt-4 font-display text-3xl uppercase text-foreground md:text-4xl">
+                Tu perfil no tiene por qué estar vacío.
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-black/65 md:text-base dark:text-white/65">
+              Tenemos los servicios para construir, completar o fortalecer la presencia de tu negocio —
+              desde la identidad visual hasta el contenido que tus clientes ven cada día.
             </p>
           </motion.div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {t.landing.services.map((service, idx) => (
+          <div className="grid gap-6 md:grid-cols-2">
+            {SERVICES.map((s, i) => (
               <motion.article
-                key={service.title}
+                key={s.title}
                 className="group rounded-[1.85rem] border border-black/10 bg-white p-7 shadow-[0_18px_40px_rgba(0,0,0,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(0,0,0,0.12)] dark:border-white/10 dark:bg-[#151c24]"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
-                transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00] dark:text-[#ff8f7a]">
-                  {t.landing.serviceLabel} {String(idx + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-4 font-display text-2xl uppercase text-foreground">
-                  {service.title}
+                <h3 className="font-display text-2xl uppercase text-foreground">
+                  {s.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-black/70 md:text-base dark:text-white/70">
-                  {service.body}
+                  {s.body}
                 </p>
+                {s.items && (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {s.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-black/10 bg-black/[0.04] px-3 py-1 text-xs font-medium text-black/60 dark:border-white/10 dark:bg-white/5 dark:text-white/55"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </motion.article>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ─── PROCESS ─── */}
       <section className="px-6 pb-10 pt-10 md:px-10">
         <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[linear-gradient(135deg,#f6f1e7_0%,#ffffff_55%,#eef2f4_100%)] p-7 shadow-[0_22px_50px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-[linear-gradient(135deg,#111820_0%,#151c24_55%,#1b2631_100%)] md:p-12">
           <motion.div
@@ -309,35 +265,32 @@ export default function LongsPeakPage() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black/55 dark:text-white/55">
-              {t.landing.integrationEyebrow}
+              El proceso
             </p>
             <h2 className="mt-4 font-display text-3xl uppercase text-foreground md:text-4xl">
-              {t.landing.integrationTitle}
+              Así funciona.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-black/70 md:text-base dark:text-white/70">
-              {t.landing.integrationIntro}
+              Ya sea que estés empezando con un perfil vacío u ordenando lo que ya tienes, convertimos lo creativo en un sistema práctico que sí puedes usar con un alcance adecuado para tu negocio.
             </p>
           </motion.div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {t.landing.integrationSteps.map((step, idx) => (
+            {STEPS.map((s, i) => (
               <motion.article
-                key={step.title}
+                key={s.title}
                 className="rounded-[1.5rem] border border-black/10 bg-white/80 p-6 backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
-                transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#a61b00] dark:text-[#ff8f7a]">
-                  {t.landing.stepLabel} {String(idx + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-4 font-display text-2xl uppercase text-foreground">
-                  {step.title}
+                <h3 className="font-display text-2xl uppercase text-foreground">
+                  {s.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-black/70 dark:text-white/70">
-                  {step.body}
+                  {s.body}
                 </p>
               </motion.article>
             ))}
@@ -345,6 +298,7 @@ export default function LongsPeakPage() {
         </div>
       </section>
 
+      {/* ─── CTA / CONTACT ─── */}
       <section className="px-6 pb-22 pt-10 md:px-10">
         <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[#101417] px-7 py-10 text-white shadow-[0_28px_90px_rgba(0,0,0,0.2)] dark:border-white/10 md:px-12 md:py-14">
           <motion.div
@@ -356,19 +310,19 @@ export default function LongsPeakPage() {
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/55">
-              {t.landing.contactEyebrow}
+              Contacto
             </p>
             <h2 className="mt-4 font-display text-3xl uppercase md:text-4xl">
-              {t.landing.contactTitle}
+              Tu negocio merece verse completo.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/70 md:text-base">
-              {t.landing.contactIntro}
+              Escríbenos por el canal que te quede más fácil. Trabajamos con negocios en Colorado y en todo México, y adaptamos el alcance correcto a la etapa en la que estás hoy.
             </p>
           </motion.div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             <motion.a
-              href={`tel:${phoneNumber.replace(/[^\d+]/g, "")}`}
+              href={`tel:${PHONE.replace(/[^\d+]/g, "")}`}
               className="rounded-[1.4rem] border border-white/12 bg-white/5 p-6 transition hover:bg-white/8"
               variants={fadeUpVariants}
               initial="hidden"
@@ -378,13 +332,13 @@ export default function LongsPeakPage() {
               onClick={() => trackContact("phone")}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                {t.landing.contactPhoneLabel}
+                Teléfono
               </p>
-              <p className="mt-4 text-lg font-medium text-white">{phoneNumber}</p>
+              <p className="mt-4 text-lg font-medium text-white">{PHONE}</p>
             </motion.a>
 
             <motion.a
-              href={`mailto:${email}`}
+              href={`mailto:${EMAIL}`}
               className="rounded-[1.4rem] border border-white/12 bg-white/5 p-6 transition hover:bg-white/8"
               variants={fadeUpVariants}
               initial="hidden"
@@ -394,13 +348,13 @@ export default function LongsPeakPage() {
               onClick={() => trackContact("email")}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                {t.landing.contactEmailLabel}
+                Correo
               </p>
-              <p className="mt-4 text-lg font-medium text-white">{email}</p>
+              <p className="mt-4 text-lg font-medium text-white">{EMAIL}</p>
             </motion.a>
 
             <motion.a
-              href={whatsappLink}
+              href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
               className="rounded-[1.4rem] border border-white/12 bg-white/5 p-6 transition hover:bg-white/8"
@@ -412,9 +366,9 @@ export default function LongsPeakPage() {
               onClick={() => trackContact("whatsapp")}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                {t.landing.contactWhatsappLabel}
+                WhatsApp
               </p>
-              <p className="mt-4 text-lg font-medium text-white">{t.landing.contactWhatsappValue}</p>
+              <p className="mt-4 text-lg font-medium text-white">Iniciar chat</p>
             </motion.a>
 
             <motion.div
@@ -426,7 +380,7 @@ export default function LongsPeakPage() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
-                {t.landing.contactSocialLabel}
+                Redes
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
