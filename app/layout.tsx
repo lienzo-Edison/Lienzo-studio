@@ -70,7 +70,7 @@ export default async function RootLayout({
 
   return (
     <html lang={initialLanguage} suppressHydrationWarning>
-      <head>
+      <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
         <Script
           id="theme-strategy"
           strategy="beforeInteractive"
@@ -128,8 +128,6 @@ fbq('init', '3532162043624771');
 fbq('track', 'PageView');`,
           }}
         />
-      </head>
-      <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
         <noscript>
           <img
             height="1"
