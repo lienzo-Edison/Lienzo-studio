@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import TransitionLink from "@/components/TransitionLink";
@@ -54,6 +55,19 @@ const STEPS = [
 ];
 
 export default function LongsPeakPage() {
+  useEffect(() => {
+    const html = document.documentElement;
+    const wasDark = html.classList.contains("dark");
+    html.classList.remove("dark");
+    html.setAttribute("data-theme", "light");
+    return () => {
+      if (wasDark) {
+        html.classList.add("dark");
+        html.setAttribute("data-theme", "dark");
+      }
+    };
+  }, []);
+
   const trackContact = (method: string) => {
     if (typeof window === "undefined") return;
     const w = window as typeof window & {
@@ -87,7 +101,7 @@ export default function LongsPeakPage() {
             </div>
 
             <div className="relative z-10 min-h-[60vh] md:min-h-[68vh]">
-              {/* Logo — top center */}
+              {/* Logo - top center */}
               <div className="absolute inset-x-0 top-6 flex justify-center px-7 md:top-8 md:px-12">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -96,7 +110,7 @@ export default function LongsPeakPage() {
                   className="h-auto w-[55vw] max-w-[900px] opacity-90"
                 />
               </div>
-              {/* Headline — bottom left */}
+              {/* Headline - bottom left */}
               <motion.p
                 className="absolute bottom-10 left-7 max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:bottom-14 md:left-12 md:text-5xl"
                 initial={{ opacity: 0, y: 18 }}
@@ -213,7 +227,7 @@ export default function LongsPeakPage() {
               </h2>
             </div>
             <p className="text-sm leading-relaxed text-black/65 md:text-base dark:text-white/65">
-              Tenemos los servicios para construir, completar o fortalecer la presencia de tu negocio —
+              Tenemos los servicios para construir, completar o fortalecer la presencia de tu negocio:
               desde la identidad visual hasta el contenido que tus clientes ven cada día.
             </p>
           </motion.div>
@@ -318,6 +332,14 @@ export default function LongsPeakPage() {
             <p className="mt-5 text-sm leading-relaxed text-white/70 md:text-base">
               Escríbenos por el canal que te quede más fácil. Trabajamos con negocios en Colorado y en todo México, y adaptamos el alcance correcto a la etapa en la que estás hoy.
             </p>
+            <div className="mt-6 flex justify-center">
+              <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-5 py-3">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-[#4ade80]" />
+                <p className="text-sm font-medium text-white">
+                  Revisamos tu situación <span className="font-semibold text-[#4ade80]">sin costo y sin compromiso</span>.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
