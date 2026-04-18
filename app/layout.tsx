@@ -70,10 +70,8 @@ export default async function RootLayout({
 
   return (
     <html lang={initialLanguage} suppressHydrationWarning>
-      <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
-        <Script
-          id="theme-strategy"
-          strategy="beforeInteractive"
+      <head>
+        <script
           dangerouslySetInnerHTML={{
             __html: `(() => {
   try {
@@ -97,6 +95,8 @@ export default async function RootLayout({
 })();`,
           }}
         />
+      </head>
+      <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
           strategy="afterInteractive"
