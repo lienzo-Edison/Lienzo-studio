@@ -18,7 +18,6 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const modalScrollRef = useRef<HTMLElement | null>(null);
   const openProjectRef = useRef<number | null>(null);
-  const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const { language } = useLanguage();
   const t = getTranslations(language);
 
@@ -96,20 +95,6 @@ export default function Portfolio() {
     [t.portfolio],
   );
 
-  useEffect(() => {
-    const indices = Array.from({ length: projects.length }, (_, i) => i);
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-    setShuffledIndices(indices);
-  }, [projects.length]);
-
-  const displayProjects = useMemo(() => {
-    if (shuffledIndices.length !== projects.length) return projects;
-    return shuffledIndices.map((i) => projects[i]);
-  }, [shuffledIndices, projects]);
-
   const closeProject = () => {
     if (typeof window !== "undefined") {
       const state = window.history.state as { portfolioModal?: boolean } | null;
@@ -130,7 +115,7 @@ export default function Portfolio() {
     setOpenProject(index);
   };
 
-  const selectedProject = openProject !== null ? displayProjects[openProject] : null;
+  const selectedProject = openProject !== null ? projects[openProject] : null;
 
   useEffect(() => {
     openProjectRef.current = openProject;
@@ -215,7 +200,7 @@ export default function Portfolio() {
 
           <section className="relative rounded-[28px] border border-black/10 bg-white/95 p-5 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-white/5">
             <motion.div
-              key={shuffledIndices.join(",")}
+              key="projects"
               className="relative z-10 space-y-6 sm:space-y-8"
               initial="hidden"
               whileInView="show"
@@ -225,7 +210,7 @@ export default function Portfolio() {
                 show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
               }}
             >
-              {displayProjects.map((project, idx) => (
+              {projects.map((project, idx) => (
                 <motion.button
                   key={project.id}
                   type="button"

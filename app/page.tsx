@@ -208,7 +208,7 @@ export default function Home() {
 
       {/* Team Section */}
       <section className="relative px-6 pb-20 pt-12">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-12 dark:border-white/10 dark:bg-[#141a1f]">
+        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[linear-gradient(135deg,#f6f1e7_0%,#ffffff_55%,#eef2f4_100%)] p-8 md:p-12 dark:border-white/10 dark:bg-[linear-gradient(135deg,#111820_0%,#151c24_55%,#1b2631_100%)]">
           <motion.div
             className="text-center"
             variants={fadeUpVariants}
@@ -236,7 +236,7 @@ export default function Home() {
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
                 <SpotlightCard className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-[#151c24]">
-                  <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/5">
+                  <div className="relative z-[1] aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/5">
                     {member.image ? (
                       <Image
                         src={member.image}
