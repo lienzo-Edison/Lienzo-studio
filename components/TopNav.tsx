@@ -20,6 +20,7 @@ export default function TopNav() {
 
   const navItems = [
     { href: "/", label: t.nav.home },
+    { href: "/services", label: t.nav.services },
     { href: "/portfolio", label: t.nav.portfolio },
     { href: "/contact", label: t.nav.contact },
   ];

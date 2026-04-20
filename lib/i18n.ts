@@ -6,6 +6,7 @@ type Translations = {
   nav: {
     home: string;
     portfolio: string;
+    services: string;
     contact: string;
   };
   toggle: {
@@ -118,6 +119,7 @@ export const translations: Record<Locale, Translations> = {
     nav: {
       home: "Home",
       portfolio: "Portfolio",
+      services: "Services",
       contact: "Contact",
     },
     toggle: {
@@ -267,13 +269,13 @@ export const translations: Record<Locale, Translations> = {
                 ? "Revista San Miguel de Allende"
               : `Project ${index}`,
       projectDescPrimary:
-        "Premium tech repair and maintenance in Durango, Mexico, with white-glove care and meticulous detail.",
+        "Full brand identity and social media management for a tech services company in Durango, Mexico — built from scratch with a clean, professional aesthetic.",
       projectDescSecondary:
-        "Mass Architecture brand redesign with refined positioning, crisp typography, and a premium architectural tone.",
+        "Brand redesign for Mass Architecture — refined visual identity, updated typography system, and cohesive brand language for a professional architecture firm.",
       projectDescTertiary:
-        "Dessert cafe serving cookies, cakes, and Japanese-French pastries with coffee and tea.",
+        "Complete brand identity, product packaging mockups, and social media management for a dessert café specializing in Japanese-French pastries.",
       projectDescQuaternary:
-        "Editorial design for Revista San Miguel de Allende, crafted to balance cultural character, readability, and a polished magazine feel.",
+        "Full editorial design for Revista San Miguel de Allende — layout system, typography, and print-ready design for a cultural magazine, built entirely from scratch.",
       projectDescOther: "Brief description of the project goes here.",
       projectOverviewPrimary:
         "Project 1 is a full-home design concept focused on balancing clean modern geometry with lived-in comfort. The goal was to create a layout that feels bright and calm while still supporting daily family routines.",
@@ -363,6 +365,7 @@ export const translations: Record<Locale, Translations> = {
     nav: {
       home: "Inicio",
       portfolio: "Portafolio",
+      services: "Servicios",
       contact: "Contacto",
     },
     toggle: {
@@ -512,13 +515,13 @@ export const translations: Record<Locale, Translations> = {
                 ? "Revista San Miguel de Allende"
               : `Proyecto ${index}`,
       projectDescPrimary:
-        "Servicio premium de reparación y mantenimiento tecnológico en Durango, México, con atención tipo concierge y detalle impecable.",
+        "Diseño de identidad de marca y manejo de redes sociales para una empresa de servicio técnico en Durango, México — construido desde cero con estética profesional y limpia.",
       projectDescSecondary:
-        "Rediseño de marca para Mass Architecture con posicionamiento refinado, tipografía precisa y un tono arquitectónico premium.",
+        "Rediseño de marca para Mass Architecture — identidad visual refinada, sistema tipográfico actualizado y lenguaje de marca cohesivo para un despacho de arquitectura profesional.",
       projectDescTertiary:
-        "Cafetería de postres con galletas, pasteles y repostería japonesa-francesa, café y té.",
+        "Identidad de marca completa, mockups de empaque de producto y manejo de redes sociales para una cafetería de postres especializada en repostería japonesa-francesa.",
       projectDescQuaternary:
-        "Diseño editorial para Revista San Miguel de Allende, creado para equilibrar carácter cultural, legibilidad y una presencia editorial pulida.",
+        "Diseño editorial completo para Revista San Miguel de Allende — sistema de maquetación, selección tipográfica y diseño listo para impresión de una revista cultural, creado desde cero.",
       projectDescOther: "Descripción breve del proyecto aquí.",
       projectOverviewPrimary:
         "El Proyecto 1 es un concepto de diseño integral centrado en equilibrar geometría moderna y comodidad cotidiana. El objetivo fue crear un espacio luminoso y sereno que apoye las rutinas diarias de la familia.",
