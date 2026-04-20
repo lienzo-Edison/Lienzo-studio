@@ -23,13 +23,13 @@ export default function ServicesPage() {
           eyebrow: "What We Offer",
           title: "Services Built for Real Businesses",
           subtitle:
-            "Professional marketing and design for small and medium businesses in Northern Colorado and Mexico — at prices that actually make sense.",
+            "Professional marketing and design for small and medium businesses in Northern Colorado and Mexico, at prices that actually make sense.",
           cards: [
             {
               eyebrow: "Primary Service",
               title: "Social Media Management",
               description:
-                "Content creation, scheduling, and community management on Instagram and Facebook — handled end to end so you can focus on running your business.",
+                "Content creation, scheduling, and community management on Instagram and Facebook. Handled end to end so you can focus on running your business.",
               href: "/services/social-media-management",
               cta: "See plans →",
               accent: "red" as const,
@@ -38,7 +38,7 @@ export default function ServicesPage() {
               eyebrow: "Core Service",
               title: "Brand Identity & Strategy",
               description:
-                "Logo, color palette, typography, and brand guidelines — a complete visual identity that makes your business look professional on every platform.",
+                "Logo, color palette, typography, and brand guidelines. A complete visual identity that makes your business look professional on every platform.",
               href: "/services/brand-identity",
               cta: "See packages →",
               accent: "blue" as const,
@@ -65,7 +65,7 @@ export default function ServicesPage() {
           whyEyebrow: "Our Advantage",
           whyTitle: "Agency Quality Without the Agency Price",
           whyBody:
-            "Our team operates across Fort Lupton, Colorado and Durango, Mexico. That structure lets us deliver professional, strategy-led work at a fraction of what large Denver agencies charge — without cutting corners on quality.",
+            "Our team operates across Fort Lupton, Colorado and Durango, Mexico. That structure lets us deliver professional, strategy-led work at a fraction of what large Denver agencies charge, with no compromise on quality.",
           ctaTitle: "Not Sure Where to Start?",
           ctaBody:
             "Call us, message us on WhatsApp, or send an email. We'll ask a few questions and point you to the service that fits your business best.",
@@ -75,13 +75,13 @@ export default function ServicesPage() {
           eyebrow: "Lo Que Ofrecemos",
           title: "Servicios Para Negocios Reales",
           subtitle:
-            "Marketing y diseño profesional para pequeñas y medianas empresas en México y el norte de Colorado — a precios que realmente tienen sentido.",
+            "Marketing y diseño profesional para pequeñas y medianas empresas en México y el norte de Colorado, a precios que realmente tienen sentido.",
           cards: [
             {
               eyebrow: "Servicio Principal",
               title: "Manejo de Redes Sociales",
               description:
-                "Creación de contenido, programación y gestión de comunidad en Instagram y Facebook — de principio a fin para que tú puedas enfocarte en tu negocio.",
+                "Creación de contenido, programación y gestión de comunidad en Instagram y Facebook, de principio a fin, para que tú puedas enfocarte en tu negocio.",
               href: "/services/social-media-management",
               cta: "Ver planes →",
               accent: "red" as const,
@@ -90,7 +90,7 @@ export default function ServicesPage() {
               eyebrow: "Servicio Central",
               title: "Identidad de Marca y Estrategia",
               description:
-                "Logo, paleta de color, tipografía y guía de marca — una identidad visual completa que hace que tu negocio se vea profesional en cualquier plataforma.",
+                "Logo, paleta de color, tipografía y guía de marca. Una identidad visual completa que hace que tu negocio se vea profesional en cualquier plataforma.",
               href: "/services/brand-identity",
               cta: "Ver paquetes →",
               accent: "blue" as const,
@@ -117,7 +117,7 @@ export default function ServicesPage() {
           whyEyebrow: "Nuestra Ventaja",
           whyTitle: "Calidad de Agencia Sin el Precio de Agencia",
           whyBody:
-            "Nuestro equipo opera entre Fort Lupton, Colorado y Durango, México. Esa estructura nos permite entregar trabajo profesional y estratégico a una fracción de lo que cobran las grandes agencias — sin comprometer la calidad.",
+            "Nuestro equipo opera entre Fort Lupton, Colorado y Durango, México. Esa estructura nos permite entregar trabajo profesional y estratégico a una fracción de lo que cobran las grandes agencias, sin comprometer la calidad.",
           ctaTitle: "¿No Sabes Por Dónde Empezar?",
           ctaBody:
             "Llámanos, escríbenos por WhatsApp o mándanos un correo. Te haremos algunas preguntas y te indicamos el servicio que mejor se adapta a tu negocio.",

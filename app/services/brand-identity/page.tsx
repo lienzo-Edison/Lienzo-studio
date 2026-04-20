@@ -23,11 +23,11 @@ export default function BrandIdentityPage() {
           eyebrow: "Brand Identity & Strategy",
           title: "First Impressions That Actually Work",
           subtitle:
-            "From a single logo to a complete visual identity system — crafted for small and medium businesses in Northern Colorado and Mexico.",
+            "From a single logo to a complete visual identity system, crafted for small and medium businesses in Northern Colorado and Mexico.",
           intro:
-            "Your brand is more than a logo. It's the color your clients recognize, the font that feels like you, and the consistency that builds trust over time. We design identities from the ground up — professional, strategic, and ready to use across every platform, print material, and channel you operate on.",
+            "Your brand is more than a logo. It's the color your clients recognize, the font that feels like you, and the consistency that builds trust over time. We design identities from the ground up: professional, strategic, and ready to use across every platform, print material, and channel you operate on.",
           packagesTitle: "Choose Your Package",
-          packagesSubtitle: "Contact us for pricing — we'll walk you through the right fit for your business.",
+          packagesSubtitle: "Contact us for pricing and we'll walk you through the right fit for your business.",
           packages: [
             {
               name: "Basic",
@@ -92,11 +92,11 @@ export default function BrandIdentityPage() {
           whyItems: [
             {
               title: "Strategy-First Design",
-              body: "Every design decision is rooted in who your audience is, what they expect, and how your brand needs to communicate to earn their trust — not just what looks nice.",
+              body: "Every design decision is rooted in who your audience is, what they expect, and how your brand needs to communicate to earn their trust, not just what looks nice.",
             },
             {
               title: "Source Files, Always",
-              body: "Every package includes your final files in formats you can actually use. Your brand belongs to you — not us.",
+              body: "Every package includes your final files in formats you can actually use. Your brand belongs to you, not us.",
             },
             {
               title: "Affordable Without Compromise",
@@ -104,12 +104,12 @@ export default function BrandIdentityPage() {
             },
             {
               title: "Built for Any Industry",
-              body: "Bakeries, law firms, tech companies, construction, restaurants — we've designed for every type of business and we know how to capture what makes each one unique.",
+              body: "Bakeries, law firms, tech companies, construction, restaurants: we've designed for every type of business and we know how to capture what makes each one unique.",
             },
           ],
           ctaTitle: "Let's Build Your Brand",
           ctaBody:
-            "Tell us about your business — where you are, what you do, and what you need. We'll recommend the right package and answer every question.",
+            "Tell us about your business: where you are, what you do, and what you need. We'll recommend the right package and answer every question.",
           ctaButton: "Contact Us",
           backLabel: "← All Services",
         }
@@ -117,11 +117,11 @@ export default function BrandIdentityPage() {
           eyebrow: "Identidad de Marca y Estrategia",
           title: "Primeras Impresiones Que Sí Funcionan",
           subtitle:
-            "Desde un logo hasta un sistema de identidad visual completo — diseñado para pequeñas y medianas empresas en México y el norte de Colorado.",
+            "Desde un logo hasta un sistema de identidad visual completo, diseñado para pequeñas y medianas empresas en México y el norte de Colorado.",
           intro:
-            "Tu marca es más que un logo. Es el color que tus clientes reconocen, la tipografía que te representa y la consistencia que genera confianza con el tiempo. Diseñamos identidades desde cero — profesionales, estratégicas y listas para usar en cualquier plataforma, material impreso y canal en el que operas.",
+            "Tu marca es más que un logo. Es el color que tus clientes reconocen, la tipografía que te representa y la consistencia que genera confianza con el tiempo. Diseñamos identidades desde cero: profesionales, estratégicas y listas para usar en cualquier plataforma, material impreso y canal en el que operas.",
           packagesTitle: "Elige Tu Paquete",
-          packagesSubtitle: "Contáctanos para precios — te orientamos sobre cuál es el ideal para tu negocio.",
+          packagesSubtitle: "Contáctanos para precios y te orientamos sobre cuál es el ideal para tu negocio.",
           packages: [
             {
               name: "Básico",
@@ -186,11 +186,11 @@ export default function BrandIdentityPage() {
           whyItems: [
             {
               title: "Diseño Con Estrategia",
-              body: "Cada decisión de diseño parte de quién es tu audiencia, qué esperan y cómo tu marca necesita comunicarse para ganar su confianza — no solo de lo que se ve bien.",
+              body: "Cada decisión de diseño parte de quién es tu audiencia, qué esperan y cómo tu marca necesita comunicarse para ganar su confianza, no solo de lo que se ve bien.",
             },
             {
               title: "Archivos Finales, Siempre",
-              body: "Todos los paquetes incluyen tus archivos finales en formatos que puedes usar. Tu marca te pertenece a ti — no a nosotros.",
+              body: "Todos los paquetes incluyen tus archivos finales en formatos que puedes usar. Tu marca te pertenece a ti, no a nosotros.",
             },
             {
               title: "Accesible Sin Comprometer Calidad",
@@ -198,12 +198,12 @@ export default function BrandIdentityPage() {
             },
             {
               title: "Para Cualquier Industria",
-              body: "Panaderías, despachos, empresas tech, construcción, restaurantes — hemos diseñado para todo tipo de negocio y sabemos cómo capturar lo que hace especial a cada uno.",
+              body: "Panaderías, despachos, empresas tech, construcción, restaurantes: hemos diseñado para todo tipo de negocio y sabemos cómo capturar lo que hace especial a cada uno.",
             },
           ],
           ctaTitle: "Construyamos Tu Marca",
           ctaBody:
-            "Cuéntanos sobre tu negocio — dónde estás, qué haces y qué necesitas. Te recomendamos el paquete ideal y respondemos cada pregunta.",
+            "Cuéntanos sobre tu negocio: dónde estás, qué haces y qué necesitas. Te recomendamos el paquete ideal y respondemos cada pregunta.",
           ctaButton: "Contáctanos",
           backLabel: "← Todos los Servicios",
         };

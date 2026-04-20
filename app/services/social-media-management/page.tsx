@@ -23,11 +23,11 @@ export default function SocialMediaPage() {
           eyebrow: "Social Media Management",
           title: "Your Business, Showing Up Every Day",
           subtitle:
-            "Professional content, consistent posting, and community engagement — fully handled for small businesses in Northern Colorado and Mexico.",
+            "Professional content, consistent posting, and community engagement. Fully handled for small businesses in Northern Colorado and Mexico.",
           intro:
-            "Managing social media takes time you don't have. We handle strategy, content creation, scheduling, and audience engagement so your brand stays visible and professional on Instagram and Facebook every single day — while you focus on running your business.",
+            "Managing social media takes time you don't have. We handle strategy, content creation, scheduling, and audience engagement so your brand stays visible and professional on Instagram and Facebook every single day, while you focus on running your business.",
           plansTitle: "Monthly Plans",
-          plansSubtitle: "No contracts. Contact us for pricing — we'll find the right fit for your business.",
+          plansSubtitle: "No contracts. Contact us for pricing and we'll find the right fit for your business.",
           plans: [
             {
               name: "Starter",
@@ -75,11 +75,11 @@ export default function SocialMediaPage() {
           whyItems: [
             {
               title: "Bilingual Team",
-              body: "We work in English and Spanish — the right partner for businesses serving diverse communities across Colorado and Mexico.",
+              body: "We work in English and Spanish, making us the right partner for businesses serving diverse communities across Colorado and Mexico.",
             },
             {
               title: "Local to Fort Lupton, CO",
-              body: "We're in your market. We understand Northern Colorado — Fort Lupton, Greeley, Longmont, Brighton — and we create content that actually speaks to your local audience.",
+              body: "We're in your market. We understand Northern Colorado (Fort Lupton, Greeley, Longmont, Brighton) and we create content that actually speaks to your local audience.",
             },
             {
               title: "Agency Quality, Accessible Price",
@@ -87,7 +87,7 @@ export default function SocialMediaPage() {
             },
             {
               title: "Any Industry",
-              body: "Restaurants, retail, real estate, construction, healthcare — we've done it all. We adapt our strategy and content style to what works for your specific market.",
+              body: "Restaurants, retail, real estate, construction, healthcare: we've done it all. We adapt our strategy and content style to what works for your specific market.",
             },
           ],
           ctaTitle: "Ready to Get Social Media Off Your Plate?",
@@ -100,11 +100,11 @@ export default function SocialMediaPage() {
           eyebrow: "Manejo de Redes Sociales",
           title: "Tu Negocio, Presente Todos Los Días",
           subtitle:
-            "Contenido profesional, publicaciones consistentes y gestión de comunidad — completamente a cargo de nosotros para negocios en México y el norte de Colorado.",
+            "Contenido profesional, publicaciones consistentes y gestión de comunidad, completamente a cargo de nosotros para negocios en México y el norte de Colorado.",
           intro:
-            "Gestionar redes sociales toma tiempo que no tienes. Nosotros nos encargamos de la estrategia, creación de contenido, programación y atención a tu comunidad para que tu marca se mantenga visible y profesional en Instagram y Facebook todos los días — mientras tú te concentras en tu negocio.",
+            "Gestionar redes sociales toma tiempo que no tienes. Nosotros nos encargamos de la estrategia, creación de contenido, programación y atención a tu comunidad para que tu marca se mantenga visible y profesional en Instagram y Facebook todos los días, mientras tú te concentras en tu negocio.",
           plansTitle: "Planes Mensuales",
-          plansSubtitle: "Sin contratos. Contáctanos para precios — encontramos el plan ideal para tu negocio.",
+          plansSubtitle: "Sin contratos. Contáctanos para precios y encontramos el plan ideal para tu negocio.",
           plans: [
             {
               name: "Starter",
@@ -152,7 +152,7 @@ export default function SocialMediaPage() {
           whyItems: [
             {
               title: "Equipo Bilingüe",
-              body: "Trabajamos en inglés y español — el socio ideal para negocios que atienden comunidades diversas en México y Colorado.",
+              body: "Trabajamos en inglés y español, el socio ideal para negocios que atienden comunidades diversas en México y Colorado.",
             },
             {
               title: "Con Base en Durango, México",
@@ -160,11 +160,11 @@ export default function SocialMediaPage() {
             },
             {
               title: "Calidad de Agencia, Precio Accesible",
-              body: "Ofrecemos el mismo nivel de calidad que las grandes agencias a precios que los pequeños y medianos negocios pueden pagar — sin comprometer resultados.",
+              body: "Ofrecemos el mismo nivel de calidad que las grandes agencias a precios que los pequeños y medianos negocios pueden pagar, sin comprometer resultados.",
             },
             {
               title: "Cualquier Industria",
-              body: "Restaurantes, comercio, bienes raíces, construcción, salud — lo hemos hecho todo. Adaptamos estrategia y estilo de contenido a lo que funciona para tu negocio específico.",
+              body: "Restaurantes, comercio, bienes raíces, construcción, salud: lo hemos hecho todo. Adaptamos estrategia y estilo de contenido a lo que funciona para tu negocio específico.",
             },
           ],
           ctaTitle: "¿Listo Para Delegar Tus Redes Sociales?",
