@@ -4,13 +4,14 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import TopNav from "@/components/TopNav";
 import CornerIcon from "@/components/CornerIcon";
+import FooterLink from "@/components/FooterLink";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { defaultLocale } from "@/lib/i18n";
 import Script from "next/script";
 
 const hostGrotesk = localFont({
-  src: "../public/fonts/HostGrotesk-VariableFont_wght.woff2",
+  src: "../public/fonts/hostgrotesk.woff2",
   variable: "--font-body",
   display: "swap",
 });
@@ -23,9 +24,23 @@ const onlyGraphic = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lienzo.studio"),
-  title: "Lienzo Studio",
+  title: {
+    default: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
+    template: "%s | Lienzo Studio",
+  },
   description:
-    "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
+    "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Fort Lupton-based agency with affordable, results-driven marketing.",
+  keywords: [
+    "social media management Northern Colorado",
+    "social media agency Fort Lupton CO",
+    "paid ads agency Colorado",
+    "digital marketing Northern Colorado",
+    "brand identity Colorado",
+    "logo design Northern Colorado",
+    "marketing agency Greeley CO",
+    "agencia de redes sociales Durango México",
+    "manejo de redes sociales México",
+  ],
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -37,24 +52,24 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     url: "https://lienzo.studio",
-    title: "Lienzo Studio",
+    title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
-      "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
+      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
     images: [
       {
-        url: "/logos/logo-circular-01.png",
+        url: "/android-chrome-512x512.png",
         width: 1200,
         height: 1200,
-        alt: "Lienzo Studio circular logo",
+        alt: "Lienzo Studio logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lienzo Studio",
+    title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
-      "Creativity that crosses every border. Lienzo Studio is a digital marketing and graphic design agency helping brands communicate clearly, grow consistently, and stand out across every platform.",
-    images: ["/logos/logo-circular-01.png"],
+      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
+    images: ["/android-chrome-512x512.png"],
   },
 };
 
@@ -70,9 +85,53 @@ export default async function RootLayout({
   return (
     <html lang={initialLanguage} suppressHydrationWarning>
       <head>
-        <Script
-          id="theme-strategy"
-          strategy="beforeInteractive"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Lienzo Studio",
+              "description": "Social media management, paid advertising, and brand identity agency serving Northern Colorado and Mexico.",
+              "url": "https://lienzo.studio",
+              "telephone": "+17209907795",
+              "email": "sales@lienzo.studio",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Fort Lupton",
+                "addressRegion": "CO",
+                "addressCountry": "US",
+              },
+              "areaServed": [
+                {
+                  "@type": "State",
+                  "name": "Colorado",
+                  "containedInPlace": { "@type": "Country", "name": "United States" },
+                },
+                {
+                  "@type": "Country",
+                  "name": "Mexico",
+                },
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Marketing Services",
+                "itemListElement": [
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Advertising (Google & Meta Ads)" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity & Logo Design" } },
+                ],
+              },
+              "openingHours": "Mo-Su 00:00-23:59",
+              "priceRange": "$$",
+              "sameAs": [
+                "https://www.instagram.com/_lienzostudio/",
+                "https://www.facebook.com/people/Lienzo-Studio/61588545936546/",
+              ],
+            }),
+          }}
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `(() => {
   try {
@@ -96,6 +155,8 @@ export default async function RootLayout({
 })();`,
           }}
         />
+      </head>
+      <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
           strategy="afterInteractive"
@@ -127,9 +188,8 @@ fbq('init', '3532162043624771');
 fbq('track', 'PageView');`,
           }}
         />
-      </head>
-      <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"
@@ -142,6 +202,7 @@ fbq('track', 'PageView');`,
           <PageTransitionProvider>
             <TopNav />
             <div className="pb-16 md:pb-0">{children}</div>
+            <FooterLink />
             <CornerIcon />
           </PageTransitionProvider>
         </LanguageProvider>

@@ -6,6 +6,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 
 type Project = {
+  id: string;
   cover: string;
   title: string;
   description: string;
@@ -23,6 +24,7 @@ export default function Portfolio() {
   const projects: Project[] = useMemo(
     () => [
       {
+        id: "wicfix",
         cover: "/projects/P1/WicFix_1.jpg",
         title: t.portfolio.projectTitle(1),
         description: t.portfolio.projectDescPrimary,
@@ -39,6 +41,7 @@ export default function Portfolio() {
         ],
       },
       {
+        id: "mass",
         cover: "/projects/P2/Mass_1.jpg",
         title: t.portfolio.projectTitle(2),
         description: t.portfolio.projectDescSecondary,
@@ -55,6 +58,7 @@ export default function Portfolio() {
         ],
       },
       {
+        id: "dulcemichi",
         cover: "/projects/P3/Dulce_01.png",
         title: t.portfolio.projectTitle(3),
         description: t.portfolio.projectDescTertiary,
@@ -69,6 +73,22 @@ export default function Portfolio() {
           "/projects/P3/Dulce_08.png",
           "/projects/P3/Dulce_09.png",
           "/projects/P3/Dulce_10.png",
+        ],
+      },
+      {
+        id: "revista",
+        cover: "/projects/P4/revista_sma_1.jpg",
+        title: t.portfolio.projectTitle(4),
+        description: t.portfolio.projectDescQuaternary,
+        gallery: [
+          "/projects/P4/revista_sma_1.jpg",
+          "/projects/P4/revista_sma_2.jpg",
+          "/projects/P4/revista_sma_3.jpg",
+          "/projects/P4/revista_sma_4.jpg",
+          "/projects/P4/revista_sma_5.jpg",
+          "/projects/P4/revista_sma_6.jpg",
+          "/projects/P4/revista_sma_7.jpg",
+          "/projects/P4/revista_sma_8.jpg",
         ],
       },
     ],
@@ -180,30 +200,32 @@ export default function Portfolio() {
 
           <section className="relative rounded-[28px] border border-black/10 bg-white/95 p-5 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-white/5">
             <motion.div
+              key="projects"
               className="relative z-10 space-y-6 sm:space-y-8"
               initial="hidden"
-              animate="show"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
               variants={{
                 hidden: {},
-                show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+                show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
               }}
             >
               {projects.map((project, idx) => (
                 <motion.button
-                  key={project.title}
+                  key={project.id}
                   type="button"
                   onClick={() => handleProjectTap(idx)}
                   className="group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white text-left transition hover:border-black/30 dark:border-white/10 dark:bg-[#151c24] dark:hover:border-white/30"
                   variants={{
-                    hidden: { opacity: 0, y: 18 },
-                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
                   }}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.99 }}
+                  whileHover={{ y: -4 }}
+                  whileTap={{ scale: 0.995 }}
                 >
                   <div className="relative w-full overflow-hidden bg-black">
                     <motion.div
-                      layoutId={`project-image-${idx}`}
+                      layoutId={`project-image-${project.id}`}
                       className="relative w-full"
                     >
                       <Image
@@ -225,7 +247,7 @@ export default function Portfolio() {
                       {project.description}
                     </p>
                     <span className="text-xs uppercase tracking-[0.3em] text-black/50 dark:text-white/50">
-                      View project
+                      {t.portfolio.viewProject}
                     </span>
                   </div>
                 </motion.button>
@@ -312,7 +334,7 @@ export default function Portfolio() {
                     {selectedProject.gallery.map((img, imgIndex) => (
                       <motion.div
                         key={`${img}-${imgIndex}`}
-                        layoutId={imgIndex === 0 ? `project-image-${openProject}` : undefined}
+                        layoutId={imgIndex === 0 ? `project-image-${selectedProject.id}` : undefined}
                         className="relative w-full overflow-hidden bg-black"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}

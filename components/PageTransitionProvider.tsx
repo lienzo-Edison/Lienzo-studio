@@ -59,16 +59,12 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
       return;
     }
 
-    const revealTimer = setTimeout(() => {
-      setPhase("revealing");
-      setPendingPath(null);
-      resetTimerRef.current = setTimeout(() => {
-        setPhase("idle");
-        resetTimerRef.current = null;
-      }, TRANSITION_DURATION_MS);
-    }, 0);
-
-    return () => clearTimeout(revealTimer);
+    setPhase("revealing");
+    setPendingPath(null);
+    resetTimerRef.current = setTimeout(() => {
+      setPhase("idle");
+      resetTimerRef.current = null;
+    }, TRANSITION_DURATION_MS);
   }, [pathname, pendingPath, phase]);
 
   const value = useMemo<PageTransitionContextValue>(() => ({ navigate }), [navigate]);

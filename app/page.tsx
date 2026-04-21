@@ -6,6 +6,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 import ColorBends from "@/components/ColorBends";
 import SpotlightCard from "@/components/SpotlightCard";
+import TransitionLink from "@/components/TransitionLink";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -19,19 +20,20 @@ export default function Home() {
   const t = getTranslations(language);
 
   const teamMembers = useMemo(
-    () =>
-      t.home.teamMembers.map((member, index) => ({
+    () => {
+      const memberImages: Record<string, string> = {
+        "Edison Carrillo": "/pfp/edy.jpeg",
+        "Eduardo Carrillo": "/pfp/eduardo.jpeg",
+        "Michelle Portillo": "/pfp/mich.jpeg",
+        "Reymundo Torres": "/pfp/rey.jpeg",
+      };
+
+      return t.home.teamMembers.map((member) => ({
         name: member.name,
         role: member.role,
-        image:
-          index === 0
-            ? "/pfp/edy.jpeg"
-            : index === 1
-              ? "/pfp/eduardo.jpeg"
-              : index === 2
-                ? "/pfp/mich.jpeg"
-                : null,
-      })),
+        image: memberImages[member.name] ?? null,
+      }));
+    },
     [t.home],
   );
 
@@ -162,52 +164,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Locations Teaser Section */}
       <section className="relative px-6 pb-20 pt-12">
         <div className="mx-auto max-w-6xl">
-          <motion.div
-            className="mb-12 text-center"
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-          >
-            <h2 className="font-display font-bold uppercase text-3xl text-foreground md:text-4xl">
-              {t.home.servicesTitle}
-            </h2>
-            <p className="mt-4 text-sm text-black/65 md:text-base dark:text-white/60">
-              {t.home.servicesSubtitle}
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-            {t.home.services.map((service, idx) => (
-              <motion.article
-                key={service.title}
+          <SpotlightCard className="overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-[#151c24]">
+            <div className="flex flex-col gap-10 p-8 md:flex-row md:items-center md:gap-16 md:p-12">
+              <motion.div
+                className="flex-1"
                 variants={fadeUpVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
-                transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
+                transition={{ duration: 0.55, ease: "easeOut" }}
               >
-                <SpotlightCard className="h-full rounded-[2rem] border border-black/10 bg-white p-8 text-left shadow-[0_18px_40px_rgba(0,0,0,0.06)] dark:border-white/10 dark:bg-[#151c24]">
-                  <h3 className="text-xl font-bold font-display text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-black/60 dark:text-white/60">
-                    {service.body}
-                  </p>
-                </SpotlightCard>
-              </motion.article>
-            ))}
-          </div>
+                <p className="mb-3 text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a]">
+                  {t.home.locationsEyebrow}
+                </p>
+                <h2 className="font-display font-bold uppercase text-3xl text-foreground md:text-4xl">
+                  {t.home.locationsTitle}
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-black/65 md:text-base dark:text-white/60">
+                  {t.home.locationsBody}
+                </p>
+                <motion.div
+                  variants={fadeUpVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={sectionViewport}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                  className="mt-8"
+                >
+                  <TransitionLink
+                    href="/locations"
+                    className="inline-flex items-center justify-center rounded-full bg-[#a61b00] px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#c02200]"
+                  >
+                    {t.home.locationsCta}
+                  </TransitionLink>
+                </motion.div>
+              </motion.div>
+
+            </div>
+          </SpotlightCard>
         </div>
       </section>
 
       {/* Team Section */}
       <section className="relative px-6 pb-20 pt-12">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-white p-8 md:p-12 dark:border-white/10 dark:bg-[#141a1f]">
+        <div className="mx-auto max-w-6xl rounded-[2rem] border border-black/10 bg-[linear-gradient(135deg,#f6f1e7_0%,#ffffff_55%,#eef2f4_100%)] p-8 md:p-12 dark:border-white/10 dark:bg-[linear-gradient(135deg,#111820_0%,#151c24_55%,#1b2631_100%)]">
           <motion.div
             className="text-center"
             variants={fadeUpVariants}
@@ -235,7 +238,7 @@ export default function Home() {
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.08 }}
               >
                 <SpotlightCard className="rounded-[1.6rem] border border-black/10 bg-white p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-[#151c24]">
-                  <div className="aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/5">
+                  <div className="relative z-[1] aspect-square w-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/5">
                     {member.image ? (
                       <Image
                         src={member.image}
