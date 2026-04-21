@@ -32,7 +32,7 @@ export default function CrossBorderLines() {
           </linearGradient>
         </defs>
 
-        {/* Path definitions — invisible, referenced by animateMotion */}
+        {/* Path definitions - invisible, referenced by animateMotion */}
         <path id="cbg-pl" d="M 120 36 C 44 82, 44 132, 120 174" />
         <path id="cbg-pc" d="M 120 36 C 92 88, 148 122, 120 174" />
         <path id="cbg-pr" d="M 120 36 C 196 82, 196 132, 120 174" />
@@ -84,7 +84,7 @@ export default function CrossBorderLines() {
           MEXICO
         </text>
 
-        {/* Animated dots — CO → MX (downward) */}
+        {/* Animated dots - CO to MX (downward) */}
         <circle r="3.5" fill="#a61b00" filter="url(#cbg-glow-sm)">
           <animateMotion dur="2.6s" repeatCount="indefinite" begin="0s" calcMode="linear">
             <mpath href="#cbg-pl" />
@@ -101,7 +101,7 @@ export default function CrossBorderLines() {
           </animateMotion>
         </circle>
 
-        {/* Animated dots — MX → CO (upward) */}
+        {/* Animated dots - MX to CO (upward) */}
         <circle r="3.5" fill="#254566" filter="url(#cbg-glow-sm)">
           <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
             <mpath href="#cbg-pr" />

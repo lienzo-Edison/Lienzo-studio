@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 const STORAGE_KEY = "theme-override";
 const LEGACY_KEY = "theme";
+const THEME_EVENT = "themechange";
 
 type Theme = "light" | "dark";
 type Mode = "system" | Theme;
@@ -27,57 +28,72 @@ const getStoredOverride = (): Mode | null => {
 };
 
 const resolveInitialMode = (): Mode => {
-  if (typeof document !== "undefined" && document.documentElement.classList.contains("dark")) {
-    return "dark";
-  }
   const override = getStoredOverride();
   if (override) return override;
   return "system";
 };
 
+const syncDocumentTheme = (theme: Theme) => {
+  if (typeof document === "undefined") return;
+  document.documentElement.classList.toggle("dark", theme === "dark");
+  document.documentElement.setAttribute("data-theme", theme);
+};
+
+const getThemeSnapshot = () => {
+  const mode = resolveInitialMode();
+  const theme = mode === "system" ? getSystemTheme() : mode;
+  return `${mode}:${theme}` as const;
+};
+
+const getServerThemeSnapshot = () => "system:light" as const;
+
+const subscribeToTheme = (onStoreChange: () => void) => {
+  if (typeof window === "undefined") return () => {};
+
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const onChange = () => {
+    const snapshot = getThemeSnapshot();
+    const [, theme] = snapshot.split(":") as [Mode, Theme];
+    syncDocumentTheme(theme);
+    onStoreChange();
+  };
+
+  media.addEventListener("change", onChange);
+  window.addEventListener("storage", onChange);
+  window.addEventListener(THEME_EVENT, onChange);
+
+  return () => {
+    media.removeEventListener("change", onChange);
+    window.removeEventListener("storage", onChange);
+    window.removeEventListener(THEME_EVENT, onChange);
+  };
+};
+
 export default function ThemeToggle() {
-  const [mode, setMode] = useState<Mode>("system");
-  const [theme, setTheme] = useState<Theme>("light");
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const initialMode = resolveInitialMode();
-    setMode(initialMode);
-    const initialTheme = initialMode === "system" ? getSystemTheme() : initialMode;
-    setTheme(initialTheme);
-  }, []);
+  const snapshot = useSyncExternalStore(
+    subscribeToTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot,
+  );
+  const [mode, theme] = snapshot.split(":") as [Mode, Theme];
 
   const applyMode = (next: Mode, persistOverride = false) => {
-    setMode(next);
     const resolved = next === "system" ? getSystemTheme() : next;
-    setTheme(resolved);
-    if (typeof document !== "undefined") {
-      document.documentElement.classList.toggle("dark", resolved === "dark");
-      document.documentElement.setAttribute("data-theme", resolved);
-    }
+    syncDocumentTheme(resolved);
     if (typeof window !== "undefined") {
       if (persistOverride) {
         window.localStorage.setItem(STORAGE_KEY, next);
       } else {
         window.localStorage.removeItem(STORAGE_KEY);
       }
+      window.dispatchEvent(new Event(THEME_EVENT));
     }
   };
 
   const isDark = theme === "dark";
   const modeLabel = mode === "system" ? "System" : mode === "dark" ? "Dark" : "Light";
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      if (mode !== "system") return;
-      applyMode("system", true);
-    };
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, [mode]);
 
   useEffect(() => {
     if (!open) return;

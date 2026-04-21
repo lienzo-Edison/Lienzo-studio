@@ -277,7 +277,7 @@ export const cities: CityData[] = [
       heroTitle: "Social Media Management in Broomfield, CO",
       heroSubtitle:
         "Professional social media management and branding for small and medium businesses in Broomfield. Content that performs, handled end to end.",
-      localContextTitle: "Broomfield Sits at the Intersection of Denver and Boulder — Two of Colorado's Biggest Markets.",
+      localContextTitle: "Broomfield Sits at the Intersection of Denver and Boulder, Two of Colorado's Biggest Markets.",
       localContext:
         "Broomfield's unique location between Denver and Boulder gives local businesses access to two of the most affluent and active consumer markets in the state. But that proximity also means competition from larger businesses in both cities. A strong social media presence helps Broomfield businesses compete on equal footing and capture the local audience before they look elsewhere.",
       proximityNote: "Based in Fort Lupton, 28 miles from Broomfield. We serve the full Front Range corridor.",

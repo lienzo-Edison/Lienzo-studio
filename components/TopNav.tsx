@@ -11,10 +11,11 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TopNav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openPathname, setOpenPathname] = useState<string | null>(null);
   const pathname = usePathname();
   const { language } = useLanguage();
   const t = getTranslations(language);
+  const isOpen = openPathname === pathname;
 
   const isLandingPage = pathname === "/longs-peak";
 
@@ -24,11 +25,6 @@ export default function TopNav() {
     { href: "/portfolio", label: t.nav.portfolio },
     { href: "/contact", label: t.nav.contact },
   ];
-
-  // Close menu when pathname changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   // Lock scroll when menu is open
   useEffect(() => {
@@ -94,7 +90,7 @@ export default function TopNav() {
 
           {/* Mobile Menu Toggle */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setOpenPathname((current) => (current === pathname ? null : pathname))}
             className="flex h-10 w-10 items-center justify-center rounded-full md:hidden"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -128,7 +124,7 @@ export default function TopNav() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
+              onClick={() => setOpenPathname(null)}
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
             
@@ -151,7 +147,7 @@ export default function TopNav() {
                       Menu
                     </p>
                     <button 
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => setOpenPathname(null)}
                       className="text-xs uppercase tracking-widest text-black/60 dark:text-white/60"
                     >
                       {language === "es" ? "Cerrar" : "Close"}

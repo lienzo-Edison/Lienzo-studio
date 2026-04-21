@@ -5,7 +5,6 @@ import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import TopNav from "@/components/TopNav";
 import CornerIcon from "@/components/CornerIcon";
 import FooterLink from "@/components/FooterLink";
-import PageKey from "@/components/PageKey";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { defaultLocale } from "@/lib/i18n";
@@ -26,7 +25,7 @@ const onlyGraphic = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lienzo.studio"),
   title: {
-    default: "Lienzo Studio | Social Media Management & Marketing Agency — Northern Colorado",
+    default: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     template: "%s | Lienzo Studio",
   },
   description:
@@ -53,7 +52,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     url: "https://lienzo.studio",
-    title: "Lienzo Studio | Social Media Management & Marketing Agency — Northern Colorado",
+    title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
       "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
     images: [
@@ -67,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lienzo Studio | Social Media Management & Marketing Agency — Northern Colorado",
+    title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
       "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
     images: ["/android-chrome-512x512.png"],
@@ -202,7 +201,7 @@ fbq('track', 'PageView');`,
         <LanguageProvider initialLanguage={initialLanguage}>
           <PageTransitionProvider>
             <TopNav />
-            <PageKey className="pb-16 md:pb-0">{children}</PageKey>
+            <div className="pb-16 md:pb-0">{children}</div>
             <FooterLink />
             <CornerIcon />
           </PageTransitionProvider>

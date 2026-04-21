@@ -22,9 +22,10 @@ type Translations = {
     whoBody: string;
     whatTitle: string;
     whatBody: string;
-    servicesTitle: string;
-    servicesSubtitle: string;
-    services: { title: string; body: string }[];
+    locationsEyebrow: string;
+    locationsTitle: string;
+    locationsBody: string;
+    locationsCta: string;
     teamTitle: string;
     teamSubtitle: string;
     teamLabel: string;
@@ -137,26 +138,11 @@ export const translations: Record<Locale, Translations> = {
       whatTitle: "What We Do",
       whatBody:
         "We build brands and create marketing that performs.\nFrom identity design to advertising creatives, everything we deliver is made to attract, communicate, and convert.",
-      servicesTitle: "Our Services",
-      servicesSubtitle: "Strategic design and digital marketing built for impact.",
-      services: [
-        {
-          title: "Brand Identity & Strategy",
-          body: "We build comprehensive visual foundations that help your brand stand out and scale. From precision-crafted logo systems to complete brand guidelines, we ensure your identity is consistent, professional, and ready for any platform.",
-        },
-        {
-          title: "Social Media & Content Systems",
-          body: "A professional social media presence built on strategy rather than just posts. We provide custom-designed templates and high-quality content production tailored to your brand’s voice, helping you maintain a consistent and engaging connection with your audience.",
-        },
-        {
-          title: "Editorial & Marketing Design",
-          body: "High-impact visual materials designed to strengthen your brand’s communication. Whether it’s menus, brochures, or corporate collateral, we transform information into professional, high-quality designs that resonate with your clients.",
-        },
-        {
-          title: "Custom Illustration & Assets",
-          body: "Elevate your brand with unique, hand-crafted visual assets. We create custom illustrations, iconography, and brand characters that add a distinct and human touch to your identity, making your brand truly unforgettable.",
-        },
-      ],
+      locationsEyebrow: "Where We Work",
+      locationsTitle: "From Mexico to the Front Range",
+      locationsBody:
+        "We built our foundation working with businesses in Durango, Mexico, developing deep experience in brand, design, and content creation. Based in Fort Lupton, CO, we are now bringing that same quality and approach to small and medium businesses across the Front Range and the Denver metro.",
+      locationsCta: "See All Locations",
       teamTitle: "Meet The Team",
       teamSubtitle:
         "A tight-knit team working across the U.S. and Mexico. We collaborate closely on every project, blending perspectives and craft to deliver focused, high-impact brand work.",
@@ -269,13 +255,13 @@ export const translations: Record<Locale, Translations> = {
                 ? "Revista San Miguel de Allende"
               : `Project ${index}`,
       projectDescPrimary:
-        "Full brand identity and social media management for a tech services company in Durango, Mexico — built from scratch with a clean, professional aesthetic.",
+        "Full brand identity and social media management for a tech services company in Durango, Mexico, built from scratch with a clean, professional aesthetic.",
       projectDescSecondary:
-        "Brand redesign for Mass Architecture — refined visual identity, updated typography system, and cohesive brand language for a professional architecture firm.",
+        "Brand redesign for Mass Architecture, with a refined visual identity, updated typography system, and cohesive brand language for a professional architecture firm.",
       projectDescTertiary:
         "Complete brand identity, product packaging mockups, and social media management for a dessert café specializing in Japanese-French pastries.",
       projectDescQuaternary:
-        "Full editorial design for Revista San Miguel de Allende — layout system, typography, and print-ready design for a cultural magazine, built entirely from scratch.",
+        "Full editorial design for Revista San Miguel de Allende, including the layout system, typography, and print-ready design for a cultural magazine built entirely from scratch.",
       projectDescOther: "Brief description of the project goes here.",
       projectOverviewPrimary:
         "Project 1 is a full-home design concept focused on balancing clean modern geometry with lived-in comfort. The goal was to create a layout that feels bright and calm while still supporting daily family routines.",
@@ -320,9 +306,9 @@ export const translations: Record<Locale, Translations> = {
           title: "2. Information We Collect",
           content: [
             "Through our contact forms and advertising campaigns, we only collect the following personal information:",
-            "— Full name",
-            "— Email address",
-            "— Phone number (when provided voluntarily)",
+            "- Full name",
+            "- Email address",
+            "- Phone number (when provided voluntarily)",
             "We do not collect sensitive information such as financial data, passwords, or identity documents."
           ]
         },
@@ -330,9 +316,9 @@ export const translations: Record<Locale, Translations> = {
           title: "3. How We Use Your Information",
           content: [
             "The information we collect is used exclusively to:",
-            "— Respond to and follow up on your service request",
-            "— Schedule consultation calls or appointments",
-            "— Send you relevant information about our services, if requested",
+            "- Respond to and follow up on your service request",
+            "- Schedule consultation calls or appointments",
+            "- Send you relevant information about our services, if requested",
             "We do not use your information for purposes other than those mentioned without your prior consent."
           ]
         },
@@ -348,9 +334,9 @@ export const translations: Record<Locale, Translations> = {
           title: "6. Your Rights",
           content: [
             "You have the right to request at any time:",
-            "— Access to the information we have about you",
-            "— Correction of incorrect data",
-            "— Deletion of your information from our records",
+            "- Access to the information we have about you",
+            "- Correction of incorrect data",
+            "- Deletion of your information from our records",
             "To exercise any of these rights, write to us at hello@lienzo.studio and we will respond within a maximum of 5 business days."
           ]
         },
@@ -383,26 +369,11 @@ export const translations: Record<Locale, Translations> = {
       whatTitle: "Lo Que Hacemos",
       whatBody:
         "Construimos marcas y creamos marketing que funciona.\nDesde el diseño de identidad hasta creativos publicitarios, todo lo que entregamos está hecho para atraer, comunicar y convertir.",
-      servicesTitle: "Nuestros Servicios",
-      servicesSubtitle: "Diseño estratégico y marketing digital creado para impactar.",
-      services: [
-        {
-          title: "Identidad de Marca y Estrategia",
-          body: "Construimos bases visuales sólidas que ayudan a tu marca a destacar y escalar. Desde sistemas de logotipos diseñados con precisión hasta guías de marca completas, aseguramos que tu identidad sea profesional y esté lista para cualquier plataforma.",
-        },
-        {
-          title: "Redes Sociales y Sistemas de Contenido",
-          body: "Presencia profesional en redes sociales basada en estrategia. Ofrecemos plantillas personalizadas y producción de contenido de alta calidad adaptado a la voz de tu marca, ayudándote a mantener una conexión constante y atractiva con tu audiencia.",
-        },
-        {
-          title: "Diseño Editorial y de Marketing",
-          body: "Materiales visuales de alto impacto diseñados para fortalecer la comunicación de tu marca. Ya sean menús, folletos o papelería corporativa, transformamos la información en diseños profesionales de alta calidad que conectan con tus clientes.",
-        },
-        {
-          title: "Ilustración Personalizada y Activos",
-          body: "Eleva tu marca con activos visuales únicos hechos a mano. Creamos ilustraciones personalizadas, iconografía y personajes de marca que añaden un toque distintivo y humano a tu identidad, haciendo que tu marca sea inolvidable.",
-        },
-      ],
+      locationsEyebrow: "Dónde Trabajamos",
+      locationsTitle: "De México al Front Range",
+      locationsBody:
+        "Construimos nuestra base trabajando con negocios en Durango, México, desarrollando experiencia profunda en marca, diseño y creación de contenido. Con base en Fort Lupton, CO, ahora llevamos esa misma calidad y enfoque a pequeñas y medianas empresas en el Front Range y el metro de Denver.",
+      locationsCta: "Ver Todas las Ciudades",
       teamTitle: "Conoce al Equipo",
       teamSubtitle:
         "Un equipo unido que trabaja entre Estados Unidos y México. Colaboramos de cerca en cada proyecto, combinando perspectivas y oficio para entregar trabajo de marca enfocado y de alto impacto.",
@@ -515,13 +486,13 @@ export const translations: Record<Locale, Translations> = {
                 ? "Revista San Miguel de Allende"
               : `Proyecto ${index}`,
       projectDescPrimary:
-        "Diseño de identidad de marca y manejo de redes sociales para una empresa de servicio técnico en Durango, México — construido desde cero con estética profesional y limpia.",
+        "Diseño de identidad de marca y manejo de redes sociales para una empresa de servicio técnico en Durango, México, construido desde cero con estética profesional y limpia.",
       projectDescSecondary:
-        "Rediseño de marca para Mass Architecture — identidad visual refinada, sistema tipográfico actualizado y lenguaje de marca cohesivo para un despacho de arquitectura profesional.",
+        "Rediseño de marca para Mass Architecture, con identidad visual refinada, sistema tipográfico actualizado y lenguaje de marca cohesivo para un despacho de arquitectura profesional.",
       projectDescTertiary:
         "Identidad de marca completa, mockups de empaque de producto y manejo de redes sociales para una cafetería de postres especializada en repostería japonesa-francesa.",
       projectDescQuaternary:
-        "Diseño editorial completo para Revista San Miguel de Allende — sistema de maquetación, selección tipográfica y diseño listo para impresión de una revista cultural, creado desde cero.",
+        "Diseño editorial completo para Revista San Miguel de Allende, con sistema de maquetación, selección tipográfica y diseño listo para impresión de una revista cultural creada desde cero.",
       projectDescOther: "Descripción breve del proyecto aquí.",
       projectOverviewPrimary:
         "El Proyecto 1 es un concepto de diseño integral centrado en equilibrar geometría moderna y comodidad cotidiana. El objetivo fue crear un espacio luminoso y sereno que apoye las rutinas diarias de la familia.",
@@ -566,9 +537,9 @@ export const translations: Record<Locale, Translations> = {
           title: "2. Información que recopilamos",
           content: [
             "A través de nuestros formularios de contacto y campañas publicitarias, recopilamos únicamente la siguiente información personal:",
-            "— Nombre completo",
-            "— Correo electrónico",
-            "— Número de teléfono (cuando se proporciona voluntariamente)",
+            "- Nombre completo",
+            "- Correo electrónico",
+            "- Número de teléfono (cuando se proporciona voluntariamente)",
             "No recopilamos información sensible como datos financieros, contraseñas ni documentos de identidad."
           ]
         },
@@ -576,9 +547,9 @@ export const translations: Record<Locale, Translations> = {
           title: "3. Cómo usamos tu información",
           content: [
             "La información que recopilamos se utiliza exclusivamente para:",
-            "— Responderte y dar seguimiento a tu solicitud de servicio",
-            "— Agendar llamadas o citas de consulta",
-            "— Enviarte información relevante sobre nuestros servicios, si así lo solicitaste",
+            "- Responderte y dar seguimiento a tu solicitud de servicio",
+            "- Agendar llamadas o citas de consulta",
+            "- Enviarte información relevante sobre nuestros servicios, si así lo solicitaste",
             "No utilizamos tu información para fines distintos a los mencionados sin tu consentimiento previo."
           ]
         },
@@ -594,9 +565,9 @@ export const translations: Record<Locale, Translations> = {
           title: "6. Tus derechos",
           content: [
             "Tienes derecho a solicitar en cualquier momento:",
-            "— Acceso a la información que tenemos sobre ti",
-            "— Corrección de datos incorrectos",
-            "— Eliminación de tu información de nuestros registros",
+            "- Acceso a la información que tenemos sobre ti",
+            "- Corrección de datos incorrectos",
+            "- Eliminación de tu información de nuestros registros",
             "Para ejercer cualquiera de estos derechos, escríbenos a hello@lienzo.studio y responderemos en un plazo máximo de 5 días hábiles."
           ]
         },

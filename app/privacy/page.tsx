@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
                   {section.content.map((paragraph, pIdx) => (
                     <p 
                       key={pIdx} 
-                      className={`text-base leading-relaxed text-black/70 dark:text-white/70 ${paragraph.startsWith("—") ? "pl-4" : ""}`}
+                      className={`text-base leading-relaxed text-black/70 dark:text-white/70 ${paragraph.startsWith("-") ? "pl-4" : ""}`}
                     >
                       {paragraph}
                     </p>

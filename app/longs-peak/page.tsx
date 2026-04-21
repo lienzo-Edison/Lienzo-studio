@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TransitionLink from "@/components/TransitionLink";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 24 },

@@ -12,11 +12,6 @@ type PageTransitionContextValue = {
 
 const TRANSITION_DURATION_SECONDS = 0.4;
 const TRANSITION_DURATION_MS = TRANSITION_DURATION_SECONDS * 1000;
-// How long to hold the opaque overlay after the new page's pathname is
-// detected, before starting the reveal fade.  This gives React time to
-// commit the new page's DOM and let Framer Motion's IntersectionObservers
-// fire so that whileInView animations start *before* the overlay lifts.
-const REVEAL_HOLD_MS = 80;
 
 const PageTransitionContext = createContext<PageTransitionContextValue | null>(null);
 
@@ -64,16 +59,12 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
       return;
     }
 
-    const revealTimer = setTimeout(() => {
-      setPhase("revealing");
-      setPendingPath(null);
-      resetTimerRef.current = setTimeout(() => {
-        setPhase("idle");
-        resetTimerRef.current = null;
-      }, TRANSITION_DURATION_MS);
-    }, REVEAL_HOLD_MS);
-
-    return () => clearTimeout(revealTimer);
+    setPhase("revealing");
+    setPendingPath(null);
+    resetTimerRef.current = setTimeout(() => {
+      setPhase("idle");
+      resetTimerRef.current = null;
+    }, TRANSITION_DURATION_MS);
   }, [pathname, pendingPath, phase]);
 
   const value = useMemo<PageTransitionContextValue>(() => ({ navigate }), [navigate]);

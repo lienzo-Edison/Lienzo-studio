@@ -31,7 +31,7 @@ export const mexicoRegions: MexicoRegionData[] = [
       heroTitle: "Social Media & Branding for Businesses in Durango, Mexico",
       heroSubtitle:
         "Lienzo Studio was built in Durango. We know this market, we know this community, and we bring the same professional quality to local businesses here that we deliver to clients in Colorado.",
-      localContextTitle: "Durango Is Where Lienzo Was Born — and Where We Still Have Deep Roots.",
+      localContextTitle: "Durango Is Where Lienzo Was Born, and Where We Still Have Deep Roots.",
       localContext:
         "Durango's business scene is growing, from restaurants and retail in the historic city center to service businesses and contractors throughout the state. Competition for local customers is real, and social media is increasingly how people decide where to spend. A professional, consistent presence on Instagram and Facebook signals credibility and keeps your business visible to the community that's already looking for what you offer.",
       proximityNote: "Durango is our creative home base. We have direct experience serving businesses throughout the city and state.",
@@ -43,7 +43,7 @@ export const mexicoRegions: MexicoRegionData[] = [
       heroTitle: "Redes Sociales y Branding para Negocios en Durango, México",
       heroSubtitle:
         "Lienzo Studio nació en Durango. Conocemos este mercado, conocemos esta comunidad, y llevamos la misma calidad profesional a los negocios locales aquí que entregamos a clientes en Colorado.",
-      localContextTitle: "Durango Es Donde Nació Lienzo — y Donde Seguimos Teniendo Raíces Profundas.",
+      localContextTitle: "Durango Es Donde Nació Lienzo, y Donde Seguimos Teniendo Raíces Profundas.",
       localContext:
         "El mundo empresarial de Durango está creciendo, desde restaurantes y comercio en el centro histórico hasta negocios de servicios y contratistas en todo el estado. La competencia por clientes locales es real, y las redes sociales son cada vez más la forma en que las personas deciden dónde gastar. Una presencia profesional y consistente en Instagram y Facebook genera credibilidad y mantiene tu negocio visible para la comunidad que ya busca lo que ofreces.",
       proximityNote: "Durango es nuestra base creativa. Tenemos experiencia directa sirviendo a negocios en toda la ciudad y el estado.",
@@ -85,7 +85,7 @@ export const mexicoRegions: MexicoRegionData[] = [
       heroTitle: "Social Media & Branding for Businesses in Sinaloa, Mexico",
       heroSubtitle:
         "Professional content and brand identity for small and medium businesses in Sinaloa. Strategy-led social media managed for you, so you can focus on running your business.",
-      localContextTitle: "Sinaloa Has a Thriving Business Community — and Social Media Is How Customers Find You.",
+      localContextTitle: "Sinaloa Has a Thriving Business Community, and Social Media Is How Customers Find You.",
       localContext:
         "From the port city of Mazatlán to the commercial hubs of Culiacán and Los Mochis, Sinaloa is a state with diverse economic activity and a competitive local market. Tourism, agriculture, seafood, and retail all drive foot traffic and spending decisions. For most of those categories, Instagram and Facebook are where customers are researching before they commit. A professional, consistent social media presence puts your business in that conversation every day.",
       proximityNote: "Based in Durango, we serve Sinaloa businesses with the same bilingual team and design standards we apply across all markets.",
@@ -97,7 +97,7 @@ export const mexicoRegions: MexicoRegionData[] = [
       heroTitle: "Redes Sociales y Branding para Negocios en Sinaloa, México",
       heroSubtitle:
         "Contenido profesional e identidad de marca para pequeñas y medianas empresas en Sinaloa. Redes sociales con estrategia a cargo de nosotros, para que tú te enfoques en tu negocio.",
-      localContextTitle: "Sinaloa Tiene Una Comunidad Empresarial Vibrante — y Las Redes Sociales Son Como Los Clientes Te Encuentran.",
+      localContextTitle: "Sinaloa Tiene Una Comunidad Empresarial Vibrante, y Las Redes Sociales Son Como Los Clientes Te Encuentran.",
       localContext:
         "Desde la ciudad portuaria de Mazatlán hasta los centros comerciales de Culiacán y Los Mochis, Sinaloa es un estado con actividad económica diversa y un mercado local competitivo. El turismo, la agricultura, los mariscos y el comercio impulsan el tráfico y las decisiones de compra. Para la mayoría de esas categorías, Instagram y Facebook son donde los clientes investigan antes de comprometerse. Una presencia profesional y consistente en redes sociales pone a tu negocio en esa conversación todos los días.",
       proximityNote: "Con base en Durango, servimos negocios en Sinaloa con el mismo equipo bilingüe y estándares de diseño que aplicamos en todos los mercados.",
@@ -139,9 +139,9 @@ export const mexicoRegions: MexicoRegionData[] = [
       heroTitle: "Social Media & Branding for Businesses in Sonora, Mexico",
       heroSubtitle:
         "Professional social media management and branding for small and medium businesses in Sonora. Content that performs, handled end to end.",
-      localContextTitle: "Sonora's Economy Is One of the Strongest in Northern Mexico — and Competition Is Real.",
+      localContextTitle: "Sonora's Economy Is One of the Strongest in Northern Mexico, and Competition Is Real.",
       localContext:
-        "With major cities like Hermosillo, Nogales, and Ciudad Obregón, Sonora has one of the most active economies in northern Mexico. Manufacturing, agriculture, tourism, and retail all contribute to a diverse and competitive market. Local businesses that show up professionally on social media build credibility and capture customers before competitors do. A consistent, strategy-led presence on Instagram and Facebook is no longer optional — it's expected.",
+        "With major cities like Hermosillo, Nogales, and Ciudad Obregón, Sonora has one of the most active economies in northern Mexico. Manufacturing, agriculture, tourism, and retail all contribute to a diverse and competitive market. Local businesses that show up professionally on social media build credibility and capture customers before competitors do. A consistent, strategy-led presence on Instagram and Facebook is no longer optional. It's expected.",
       proximityNote: "Based in Durango and Fort Lupton, CO. We serve businesses throughout northern Mexico with the same bilingual team and professional standards.",
       metaTitle: "Social Media Management in Sonora, Mexico | Lienzo Studio",
       metaDescription:
@@ -151,9 +151,9 @@ export const mexicoRegions: MexicoRegionData[] = [
       heroTitle: "Redes Sociales y Branding para Negocios en Sonora, México",
       heroSubtitle:
         "Manejo profesional de redes sociales y branding para pequeñas y medianas empresas en Sonora. Contenido que funciona, a cargo de nosotros.",
-      localContextTitle: "La Economía de Sonora Es Una de las Más Fuertes del Norte de México — y la Competencia Es Real.",
+      localContextTitle: "La Economía de Sonora Es Una de las Más Fuertes del Norte de México, y la Competencia Es Real.",
       localContext:
-        "Con ciudades importantes como Hermosillo, Nogales y Ciudad Obregón, Sonora tiene una de las economías más activas del norte de México. La manufactura, la agricultura, el turismo y el comercio contribuyen a un mercado diverso y competitivo. Los negocios locales que aparecen profesionalmente en redes sociales generan credibilidad y captan clientes antes que la competencia. Una presencia consistente y estratégica en Instagram y Facebook ya no es opcional — es lo que se espera.",
+        "Con ciudades importantes como Hermosillo, Nogales y Ciudad Obregón, Sonora tiene una de las economías más activas del norte de México. La manufactura, la agricultura, el turismo y el comercio contribuyen a un mercado diverso y competitivo. Los negocios locales que aparecen profesionalmente en redes sociales generan credibilidad y captan clientes antes que la competencia. Una presencia consistente y estratégica en Instagram y Facebook ya no es opcional. Es lo que se espera.",
       proximityNote: "Con base en Durango y Fort Lupton, CO. Servimos negocios en todo el norte de México con el mismo equipo bilingüe y estándares profesionales.",
     },
   },

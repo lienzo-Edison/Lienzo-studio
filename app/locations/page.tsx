@@ -111,7 +111,7 @@ export default function LocationsPage() {
         </motion.div>
       </section>
 
-      {/* US — Colorado section */}
+      {/* US - Colorado section */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-5xl">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={vp}>
@@ -128,7 +128,7 @@ export default function LocationsPage() {
               {c.usSectionSubtitle}
             </motion.p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Fort Lupton — HQ card */}
+              {/* Fort Lupton - HQ card */}
               <motion.div variants={fadeUp}>
                 <div className="rounded-2xl border border-[#254566]/30 bg-[#254566]/[0.04] p-5 dark:border-[#8fb2d6]/25 dark:bg-[#8fb2d6]/[0.04]">
                   <div className="flex items-start justify-between gap-2 mb-2">
@@ -174,7 +174,7 @@ export default function LocationsPage() {
         <div className="border-t border-black/8 dark:border-white/8" />
       </div>
 
-      {/* Mexico — Durango section */}
+      {/* Mexico - Durango section */}
       <section className="px-6 py-20">
         <div className="mx-auto max-w-5xl">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={vp}>
