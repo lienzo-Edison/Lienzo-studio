@@ -5,6 +5,7 @@ import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import TopNav from "@/components/TopNav";
 import CornerIcon from "@/components/CornerIcon";
 import FooterLink from "@/components/FooterLink";
+import PageKey from "@/components/PageKey";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { defaultLocale } from "@/lib/i18n";
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
       "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
     images: [
       {
-        url: "/logos/logo-circular-01.png",
+        url: "/android-chrome-512x512.png",
         width: 1200,
         height: 1200,
         alt: "Lienzo Studio logo",
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     title: "Lienzo Studio | Social Media Management & Marketing Agency — Northern Colorado",
     description:
       "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
-    images: ["/logos/logo-circular-01.png"],
+    images: ["/android-chrome-512x512.png"],
   },
 };
 
@@ -189,6 +190,7 @@ fbq('track', 'PageView');`,
           }}
         />
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"
@@ -200,7 +202,7 @@ fbq('track', 'PageView');`,
         <LanguageProvider initialLanguage={initialLanguage}>
           <PageTransitionProvider>
             <TopNav />
-            <div className="pb-16 md:pb-0">{children}</div>
+            <PageKey className="pb-16 md:pb-0">{children}</PageKey>
             <FooterLink />
             <CornerIcon />
           </PageTransitionProvider>

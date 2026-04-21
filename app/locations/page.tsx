@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import TransitionLink from "@/components/TransitionLink";
 import { cities } from "@/lib/cities";
+import { mexicoRegions } from "@/lib/mexicoRegions";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -14,6 +15,8 @@ const stagger = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
+const vp = { once: true, amount: 0.05 };
+
 export default function LocationsPage() {
   const { language } = useLanguage();
 
@@ -21,48 +24,64 @@ export default function LocationsPage() {
     language === "en"
       ? {
           eyebrow: "Where We Work",
-          title: "Serving Northern Colorado & the Denver Metro",
+          title: "Colorado & Mexico",
           subtitle:
-            "We work with small and medium businesses across the Front Range. Based in Fort Lupton, CO, we know this market and we create content that speaks to the communities you serve.",
-          browseTitle: "Browse by City",
-          browseSubtitle: "Select a city to see how we can help businesses in your area.",
+            "Our work spans two markets. Rooted in Durango, Mexico and based in Fort Lupton, CO, we bring the same quality and approach to businesses across the Front Range and throughout Northern Mexico.",
+
+          usSectionEyebrow: "United States",
+          usSectionTitle: "Colorado: The Front Range",
+          usSectionSubtitle: "We serve small and medium businesses across Northern Colorado and the Denver metro. Select a city to see how we can help.",
           distanceLabel: "miles from Fort Lupton",
-          countyLabel: "County",
           viewCity: "View →",
-          whyTitle: "Local Knowledge. Professional Results.",
+
+          mxSectionEyebrow: "Mexico",
+          mxSectionTitle: "Durango & Northern Mexico",
+          mxSectionSubtitle: "This is where Lienzo was built. We have deep experience working with businesses in Durango and are open to working with clients throughout the surrounding northern states.",
+          hqLabel: "Headquarters",
+          homeBaseLabel: "Creative Roots",
+          expandingLabel: "Serving This Region",
+
+          whyTitle: "Two Markets. One Standard.",
           whyBody:
-            "Big agencies don't know your market. We're based in Fort Lupton, we serve the Front Range daily, and we understand what resonates with customers in Northern Colorado and the northern Denver suburbs. That local knowledge, combined with a skilled bilingual team and affordable pricing, is what sets Lienzo apart.",
-          ctaTitle: "Don't See Your City?",
+            "Whether you are in Fort Collins or Culiacan, you get the same bilingual team, the same design quality, and the same commitment to results. We built our experience in Mexico and are applying that same foundation to grow businesses here in Colorado.",
+
+          ctaTitle: "Not Seeing Your Area?",
           ctaBody:
-            "We're not limited to the cities listed here. If your business is within reach of Northern Colorado or the Denver metro, reach out and let's talk.",
+            "We are not limited to what is listed here. If your business is in Northern Colorado, the Denver metro, or anywhere in Northern Mexico, reach out and let's talk.",
           ctaButton: "Contact Us",
         }
       : {
           eyebrow: "Dónde Trabajamos",
-          title: "Servicio en el Norte de Colorado y el Metro de Denver",
+          title: "Colorado y México",
           subtitle:
-            "Trabajamos con pequeñas y medianas empresas en todo el Front Range. Con base en Fort Lupton, CO, conocemos este mercado y creamos contenido que habla a las comunidades a las que sirves.",
-          browseTitle: "Explorar por Ciudad",
-          browseSubtitle: "Selecciona una ciudad para ver cómo podemos ayudar a negocios en tu área.",
+            "Nuestro trabajo abarca dos mercados. Con raíces en Durango, México y base en Fort Lupton, CO, llevamos la misma calidad y enfoque a negocios en el Front Range y en todo el norte de México.",
+
+          usSectionEyebrow: "Estados Unidos",
+          usSectionTitle: "Colorado: El Front Range",
+          usSectionSubtitle: "Servimos a pequeñas y medianas empresas en el norte de Colorado y el metro de Denver. Selecciona una ciudad para ver cómo podemos ayudar.",
           distanceLabel: "millas de Fort Lupton",
-          countyLabel: "Condado",
           viewCity: "Ver →",
-          whyTitle: "Conocimiento Local. Resultados Profesionales.",
+
+          mxSectionEyebrow: "México",
+          mxSectionTitle: "Durango y el Norte de México",
+          mxSectionSubtitle: "Aquí es donde nació Lienzo. Tenemos amplia experiencia trabajando con negocios en Durango y estamos abiertos a trabajar con clientes en los estados del norte que nos rodean.",
+          hqLabel: "Sede Principal",
+          homeBaseLabel: "Raíces Creativas",
+          expandingLabel: "Sirviendo Esta Región",
+
+          whyTitle: "Dos Mercados. Un Estándar.",
           whyBody:
-            "Las grandes agencias no conocen tu mercado. Estamos ubicados en Fort Lupton, servimos el Front Range diariamente y entendemos lo que resuena con los clientes en el norte de Colorado y los suburbios norte de Denver. Ese conocimiento local, combinado con un equipo bilingüe y precios accesibles, es lo que distingue a Lienzo.",
-          ctaTitle: "¿No Ves Tu Ciudad?",
+            "Ya sea que estés en Fort Collins o en Culiacán, tienes el mismo equipo bilingüe, la misma calidad de diseño y el mismo compromiso con los resultados. Construimos nuestra experiencia en México y aplicamos esa misma base para hacer crecer negocios aquí en Colorado.",
+
+          ctaTitle: "¿No Ves Tu Área?",
           ctaBody:
-            "No estamos limitados a las ciudades que aparecen aquí. Si tu negocio está en el norte de Colorado o el metro de Denver, contáctanos y platicamos.",
+            "No estamos limitados a lo que aparece aquí. Si tu negocio está en el norte de Colorado, el metro de Denver o en cualquier parte del norte de México, contáctanos y platicamos.",
           ctaButton: "Contáctanos",
         };
 
   return (
-    <motion.main
-      className="min-h-screen bg-background text-foreground"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <main className="min-h-screen bg-background text-foreground">
+
       {/* Hero */}
       <section className="mt-32 px-6 pb-16 text-center">
         <motion.div
@@ -92,28 +111,39 @@ export default function LocationsPage() {
         </motion.div>
       </section>
 
-      {/* City grid */}
+      {/* US — Colorado section */}
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-5xl">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.05 }}
-          >
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-2xl font-bold tracking-tight mb-2"
-            >
-              {c.browseTitle}
-            </motion.h2>
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={vp}>
             <motion.p
               variants={fadeUp}
-              className="text-sm text-black/55 dark:text-white/55 mb-10"
+              className="text-xs font-display font-bold uppercase tracking-[0.3em] text-[#254566] dark:text-[#8fb2d6] mb-3"
             >
-              {c.browseSubtitle}
+              {c.usSectionEyebrow}
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="font-display text-2xl font-bold tracking-tight mb-2">
+              {c.usSectionTitle}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-sm text-black/55 dark:text-white/55 mb-10">
+              {c.usSectionSubtitle}
             </motion.p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Fort Lupton — HQ card */}
+              <motion.div variants={fadeUp}>
+                <div className="rounded-2xl border border-[#254566]/30 bg-[#254566]/[0.04] p-5 dark:border-[#8fb2d6]/25 dark:bg-[#8fb2d6]/[0.04]">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="font-display text-lg font-bold tracking-tight">
+                      Fort Lupton, CO
+                    </h3>
+                    <span className="shrink-0 rounded-full bg-[#254566]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#254566] dark:bg-[#8fb2d6]/10 dark:text-[#8fb2d6]">
+                      {c.hqLabel}
+                    </span>
+                  </div>
+                  <p className="text-xs text-black/45 dark:text-white/45">Weld County</p>
+                  <p className="text-xs text-black/30 dark:text-white/30 mt-0.5">Colorado, US</p>
+                </div>
+              </motion.div>
+
               {cities.map((city) => (
                 <motion.div key={city.slug} variants={fadeUp}>
                   <TransitionLink href={`/locations/${city.slug}`}>
@@ -122,13 +152,11 @@ export default function LocationsPage() {
                         <h3 className="font-display text-lg font-bold tracking-tight group-hover:text-[#a61b00] dark:group-hover:text-[#ff8f7a] transition-colors">
                           {city.name}, {city.state}
                         </h3>
-                        <span className="text-sm text-[#a61b00] dark:text-[#ff8f7a] opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-sm text-[#a61b00] dark:text-[#ff8f7a] opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                           {c.viewCity}
                         </span>
                       </div>
-                      <p className="text-xs text-black/50 dark:text-white/50 mb-1">
-                        {city.county}
-                      </p>
+                      <p className="text-xs text-black/50 dark:text-white/50 mb-1">{city.county}</p>
                       <p className="text-xs text-black/40 dark:text-white/40">
                         {city.distanceMiles} {c.distanceLabel}
                       </p>
@@ -141,14 +169,74 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Why local */}
+      {/* Divider */}
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="border-t border-black/8 dark:border-white/8" />
+      </div>
+
+      {/* Mexico — Durango section */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-5xl">
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={vp}>
+            <motion.p
+              variants={fadeUp}
+              className="text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a] mb-3"
+            >
+              {c.mxSectionEyebrow}
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="font-display text-2xl font-bold tracking-tight mb-2">
+              {c.mxSectionTitle}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-sm text-black/55 dark:text-white/55 mb-10 max-w-2xl">
+              {c.mxSectionSubtitle}
+            </motion.p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {mexicoRegions.map((region) => (
+                <motion.div key={region.slug} variants={fadeUp}>
+                  <TransitionLink href={`/locations/${region.slug}`}>
+                    <div
+                      className={`group rounded-2xl border p-5 transition hover:shadow-sm ${
+                        region.homeBase
+                          ? "border-[#a61b00]/30 bg-[#a61b00]/[0.04] hover:border-[#a61b00]/50 dark:border-[#ff8f7a]/25 dark:bg-[#ff8f7a]/[0.04] dark:hover:border-[#ff8f7a]/40"
+                          : "border-black/10 bg-white hover:border-[#a61b00]/40 dark:border-white/10 dark:bg-white/5 dark:hover:border-[#ff8f7a]/30"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h3 className="font-display text-lg font-bold tracking-tight group-hover:text-[#a61b00] dark:group-hover:text-[#ff8f7a] transition-colors">
+                          {region.state}
+                        </h3>
+                        <div className="flex items-center gap-2 shrink-0">
+                          {region.homeBase && (
+                            <span className="rounded-full bg-[#a61b00]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#a61b00] dark:bg-[#ff8f7a]/10 dark:text-[#ff8f7a]">
+                              {c.homeBaseLabel}
+                            </span>
+                          )}
+                          <span className="text-sm text-[#a61b00] dark:text-[#ff8f7a] opacity-0 group-hover:opacity-100 transition-opacity">
+                            {c.viewCity}
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-xs text-black/45 dark:text-white/45">
+                        {region.homeBase ? c.homeBaseLabel : c.expandingLabel}
+                      </p>
+                      <p className="text-xs text-black/30 dark:text-white/30 mt-0.5">México</p>
+                    </div>
+                  </TransitionLink>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why */}
       <section className="px-6 py-16 bg-black/[0.03] dark:bg-white/[0.03] border-y border-black/5 dark:border-white/5">
         <motion.div
           className="mx-auto max-w-3xl text-center"
           variants={stagger}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={vp}
         >
           <motion.h2
             variants={fadeUp}
@@ -156,10 +244,7 @@ export default function LocationsPage() {
           >
             {c.whyTitle}
           </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="text-base text-black/65 dark:text-white/65 leading-relaxed"
-          >
+          <motion.p variants={fadeUp} className="text-base text-black/65 dark:text-white/65 leading-relaxed">
             {c.whyBody}
           </motion.p>
         </motion.div>
@@ -172,7 +257,7 @@ export default function LocationsPage() {
           variants={stagger}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={vp}
         >
           <motion.h2
             variants={fadeUp}
@@ -180,10 +265,7 @@ export default function LocationsPage() {
           >
             {c.ctaTitle}
           </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="text-base text-black/65 dark:text-white/65 leading-relaxed mb-8"
-          >
+          <motion.p variants={fadeUp} className="text-base text-black/65 dark:text-white/65 leading-relaxed mb-8">
             {c.ctaBody}
           </motion.p>
           <motion.div variants={fadeUp}>
@@ -196,6 +278,6 @@ export default function LocationsPage() {
           </motion.div>
         </motion.div>
       </section>
-    </motion.main>
+    </main>
   );
 }

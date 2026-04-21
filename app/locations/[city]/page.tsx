@@ -6,6 +6,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import TransitionLink from "@/components/TransitionLink";
 import SpotlightCard from "@/components/SpotlightCard";
 import { getCityBySlug } from "@/lib/cities";
+import { getMexicoRegionBySlug } from "@/lib/mexicoRegions";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -19,20 +20,37 @@ const stagger = {
 
 export default function CityPage() {
   const params = useParams();
-  const citySlug = typeof params.city === "string" ? params.city : "";
-  const city = getCityBySlug(citySlug);
+  const slug = typeof params.city === "string" ? params.city : "";
   const { language } = useLanguage();
 
-  if (!city) notFound();
+  const city = getCityBySlug(slug);
+  const region = !city ? getMexicoRegionBySlug(slug) : undefined;
 
-  const t = language === "en" ? city.en : city.es;
+  if (!city && !region) notFound();
+
+  const isMexico = !!region;
+
+  // Unified translation object
+  const t = city
+    ? language === "en"
+      ? city.en
+      : city.es
+    : language === "en"
+    ? region!.en
+    : region!.es;
+
+  const nearby = city ? city.nearby : region!.nearby;
+  const locationName = city ? city.name : region!.state;
+  const locationStateOrCountry = city ? city.state : "Mexico";
 
   const shared =
     language === "en"
       ? {
-          eyebrow: `Serving ${city.name}, ${city.state}`,
+          eyebrow: isMexico
+            ? `Serving ${locationName}, Mexico`
+            : `Serving ${locationName}, ${locationStateOrCountry}`,
           servicesTitle: "What We Offer",
-          servicesSubtitle: `Everything your ${city.name} business needs to grow online.`,
+          servicesSubtitle: `Everything your ${locationName} business needs to grow online.`,
           serviceCards: [
             {
               eyebrow: "Primary Service",
@@ -53,38 +71,65 @@ export default function CityPage() {
               accent: "blue" as const,
             },
           ],
-          whyTitle: "Why Northern Colorado Businesses Choose Lienzo",
-          whyItems: [
-            {
-              title: "Bilingual Team",
-              body: "We work in English and Spanish, making us the right partner for any business and any community in Colorado.",
-            },
-            {
-              title: `Local to ${city.name}`,
-              body: `${t.proximityNote}`,
-            },
-            {
-              title: "Agency Quality, Accessible Price",
-              body: "Our team structure lets us deliver professional, strategy-led work at a fraction of what large Denver agencies charge.",
-            },
-            {
-              title: "Any Industry",
-              body: "Restaurants, retail, real estate, construction, healthcare: we've worked across every industry and we know how to make content that performs.",
-            },
-          ],
-          nearbyTitle: `We Also Serve`,
-          nearbyIntro: `In addition to ${city.name}, we work with businesses across Northern Colorado.`,
-          ctaTitle: `Ready to Grow Your ${city.name} Business?`,
-          ctaBody:
-            "Call us, message us on WhatsApp, or send an email. We'll talk through your business and tell you exactly what makes sense.",
+          whyTitle: isMexico
+            ? "Why Businesses in Northern Mexico Choose Lienzo"
+            : "Why Northern Colorado Businesses Choose Lienzo",
+          whyItems: isMexico
+            ? [
+                {
+                  title: "Rooted in Durango",
+                  body: "Lienzo was built in Durango. We understand northern Mexico's business culture, market dynamics, and what resonates with local audiences.",
+                },
+                {
+                  title: `Experience in ${locationName}`,
+                  body: `${t.proximityNote}`,
+                },
+                {
+                  title: "Bilingual Team",
+                  body: "We work in Spanish and English, which means seamless communication with your team and content that fits your audience perfectly.",
+                },
+                {
+                  title: "Any Industry",
+                  body: "Restaurants, retail, hospitality, construction, professional services: we've built content strategies across every category.",
+                },
+              ]
+            : [
+                {
+                  title: "Bilingual Team",
+                  body: "We work in English and Spanish, making us the right partner for any business and any community in Colorado.",
+                },
+                {
+                  title: `Local to ${locationName}`,
+                  body: `${t.proximityNote}`,
+                },
+                {
+                  title: "Agency Quality, Accessible Price",
+                  body: "Our team structure lets us deliver professional, strategy-led work at a fraction of what large Denver agencies charge.",
+                },
+                {
+                  title: "Any Industry",
+                  body: "Restaurants, retail, real estate, construction, healthcare: we've worked across every industry and we know how to make content that performs.",
+                },
+              ],
+          nearbyTitle: isMexico ? "We Also Serve" : "We Also Serve",
+          nearbyIntro: isMexico
+            ? `In addition to ${locationName}, we work with businesses throughout Northern Mexico.`
+            : `In addition to ${locationName}, we work with businesses across Northern Colorado.`,
+          nearbyLabel: isMexico ? "Mexico" : "CO",
+          ctaTitle: `Ready to Grow Your ${locationName} Business?`,
+          ctaBody: isMexico
+            ? "Message us on WhatsApp or send an email. We'll talk through your business and tell you exactly what makes sense."
+            : "Call us, message us on WhatsApp, or send an email. We'll talk through your business and tell you exactly what makes sense.",
           ctaButton: "Contact Us",
           backLabel: "← All Locations",
           viewAll: "View all locations",
         }
       : {
-          eyebrow: `Servicio en ${city.name}, ${city.state}`,
+          eyebrow: isMexico
+            ? `Servicio en ${locationName}, México`
+            : `Servicio en ${locationName}, ${locationStateOrCountry}`,
           servicesTitle: "Lo Que Ofrecemos",
-          servicesSubtitle: `Todo lo que tu negocio en ${city.name} necesita para crecer en línea.`,
+          servicesSubtitle: `Todo lo que tu negocio en ${locationName} necesita para crecer en línea.`,
           serviceCards: [
             {
               eyebrow: "Servicio Principal",
@@ -105,33 +150,58 @@ export default function CityPage() {
               accent: "blue" as const,
             },
           ],
-          whyTitle: "Por Qué Negocios En El Norte de Colorado Eligen Lienzo",
-          whyItems: [
-            {
-              title: "Equipo Bilingüe",
-              body: "Trabajamos en inglés y español, el socio ideal para cualquier negocio y comunidad en Colorado.",
-            },
-            {
-              title: `Cerca de ${city.name}`,
-              body: `${t.proximityNote}`,
-            },
-            {
-              title: "Calidad de Agencia, Precio Accesible",
-              body: "Nuestra estructura de equipo nos permite entregar trabajo profesional y estratégico a una fracción de lo que cobran las grandes agencias.",
-            },
-            {
-              title: "Cualquier Industria",
-              body: "Restaurantes, comercio, bienes raíces, construcción, salud: hemos trabajado en todas las industrias y sabemos cómo crear contenido que funciona.",
-            },
-          ],
+          whyTitle: isMexico
+            ? "Por Qué Negocios en el Norte de México Eligen Lienzo"
+            : "Por Qué Negocios En El Norte de Colorado Eligen Lienzo",
+          whyItems: isMexico
+            ? [
+                {
+                  title: "Con Raíces en Durango",
+                  body: "Lienzo nació en Durango. Entendemos la cultura empresarial del norte de México, la dinámica del mercado y lo que resuena con las audiencias locales.",
+                },
+                {
+                  title: `Experiencia en ${locationName}`,
+                  body: `${t.proximityNote}`,
+                },
+                {
+                  title: "Equipo Bilingüe",
+                  body: "Trabajamos en español e inglés, lo que significa comunicación fluida con tu equipo y contenido que encaja perfectamente con tu audiencia.",
+                },
+                {
+                  title: "Cualquier Industria",
+                  body: "Restaurantes, comercio, hospitalidad, construcción, servicios profesionales: hemos desarrollado estrategias de contenido en todas las categorías.",
+                },
+              ]
+            : [
+                {
+                  title: "Equipo Bilingüe",
+                  body: "Trabajamos en inglés y español, el socio ideal para cualquier negocio y comunidad en Colorado.",
+                },
+                {
+                  title: `Cerca de ${locationName}`,
+                  body: `${t.proximityNote}`,
+                },
+                {
+                  title: "Calidad de Agencia, Precio Accesible",
+                  body: "Nuestra estructura de equipo nos permite entregar trabajo profesional y estratégico a una fracción de lo que cobran las grandes agencias.",
+                },
+                {
+                  title: "Cualquier Industria",
+                  body: "Restaurantes, comercio, bienes raíces, construcción, salud: hemos trabajado en todas las industrias y sabemos cómo crear contenido que funciona.",
+                },
+              ],
           nearbyTitle: "También Servimos",
-          nearbyIntro: `Además de ${city.name}, trabajamos con negocios en todo el norte de Colorado.`,
-          ctaTitle: `¿Listo Para Hacer Crecer Tu Negocio en ${city.name}?`,
-          ctaBody:
-            "Llámanos, escríbenos por WhatsApp o mándanos un correo. Platicamos sobre tu negocio y te decimos exactamente qué tiene sentido.",
+          nearbyIntro: isMexico
+            ? `Además de ${locationName}, trabajamos con negocios en todo el norte de México.`
+            : `Además de ${locationName}, trabajamos con negocios en todo el norte de Colorado.`,
+          nearbyLabel: isMexico ? "México" : "CO",
+          ctaTitle: `¿Listo Para Hacer Crecer Tu Negocio en ${locationName}?`,
+          ctaBody: isMexico
+            ? "Escríbenos por WhatsApp o mándanos un correo. Platicamos sobre tu negocio y te decimos exactamente qué tiene sentido."
+            : "Llámanos, escríbenos por WhatsApp o mándanos un correo. Platicamos sobre tu negocio y te decimos exactamente qué tiene sentido.",
           ctaButton: "Contáctanos",
-          backLabel: "← Todas las Ciudades",
-          viewAll: "Ver todas las ciudades",
+          backLabel: "← Todas las Ubicaciones",
+          viewAll: "Ver todas las ubicaciones",
         };
 
   return (
@@ -159,7 +229,11 @@ export default function CityPage() {
           </motion.div>
           <motion.p
             variants={fadeUp}
-            className="text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a] mb-4"
+            className={`text-xs font-display font-bold uppercase tracking-[0.3em] mb-4 ${
+              isMexico
+                ? "text-[#a61b00] dark:text-[#ff8f7a]"
+                : "text-[#a61b00] dark:text-[#ff8f7a]"
+            }`}
           >
             {shared.eyebrow}
           </motion.p>
@@ -209,7 +283,9 @@ export default function CityPage() {
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="text-base leading-relaxed text-black/70 dark:text-white/70 border-l-2 border-[#a61b00] pl-5"
+              className={`text-base leading-relaxed text-black/70 dark:text-white/70 border-l-2 pl-5 ${
+                isMexico ? "border-[#a61b00]" : "border-[#a61b00]"
+              }`}
             >
               {t.localContext}
             </motion.p>
@@ -302,7 +378,11 @@ export default function CityPage() {
                 <motion.div key={item.title} variants={fadeUp}>
                   <SpotlightCard
                     className="h-full rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-white/5"
-                    spotlightColor="rgba(37, 69, 102, 0.10)"
+                    spotlightColor={
+                      isMexico
+                        ? "rgba(166, 27, 0, 0.10)"
+                        : "rgba(37, 69, 102, 0.10)"
+                    }
                   >
                     <h3 className="font-display text-lg font-bold tracking-tight mb-2">{item.title}</h3>
                     <p className="text-sm leading-relaxed text-black/65 dark:text-white/65">{item.body}</p>
@@ -314,7 +394,7 @@ export default function CityPage() {
         </div>
       </section>
 
-      {/* Nearby cities */}
+      {/* Nearby cities / regions */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl">
           <motion.div
@@ -336,12 +416,12 @@ export default function CityPage() {
               {shared.nearbyIntro}
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-              {city.nearby.map((nearbyCity) => (
+              {nearby.map((place) => (
                 <span
-                  key={nearbyCity}
+                  key={place}
                   className="rounded-full border border-black/10 dark:border-white/10 px-4 py-1.5 text-sm text-black/60 dark:text-white/60"
                 >
-                  {nearbyCity}, CO
+                  {place}, {shared.nearbyLabel}
                 </span>
               ))}
               <TransitionLink
