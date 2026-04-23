@@ -1,6 +1,37 @@
 export type Locale = "en" | "es";
 
 export const defaultLocale: Locale = "en";
+export const supportedLocales = ["en", "es"] as const;
+
+export function isLocale(value: string | undefined): value is Locale {
+  return supportedLocales.some((locale) => locale === value);
+}
+
+export function getLocaleFromAcceptLanguage(acceptLanguage: string | null): Locale {
+  if (!acceptLanguage) return defaultLocale;
+
+  const preferredLocale = acceptLanguage
+    .split(",")
+    .map((part) => {
+      const [tag = "", ...params] = part.trim().split(";");
+      const qualityParam = params.find((param) => param.trim().startsWith("q="));
+      const quality = qualityParam ? Number.parseFloat(qualityParam.split("=")[1] ?? "0") : 1;
+
+      return {
+        tag: tag.toLowerCase(),
+        quality: Number.isFinite(quality) ? quality : 0,
+      };
+    })
+    .filter(({ tag, quality }) => tag && quality > 0)
+    .sort((a, b) => b.quality - a.quality)
+    .find(({ tag }) => {
+      const baseTag = tag.split("-")[0];
+      return isLocale(baseTag);
+    });
+
+  const baseTag = preferredLocale?.tag.split("-")[0];
+  return isLocale(baseTag) ? baseTag : defaultLocale;
+}
 
 type Translations = {
   nav: {
@@ -151,7 +182,7 @@ export const translations: Record<Locale, Translations> = {
       teamMembers: [
         { name: "Edison Carrillo", role: "Founder & Director" },
         { name: "Eduardo Carrillo", role: "Brand Designer" },
-        { name: "Michelle Portillo", role: "Brand Designer" },
+        { name: "Michelle Portillo", role: "Graphic and Editorial Designer" },
         { name: "Reymundo Torres", role: "Brand Designer" },
       ],
     },
@@ -382,7 +413,7 @@ export const translations: Record<Locale, Translations> = {
       teamMembers: [
         { name: "Edison Carrillo", role: "Fundador y director" },
         { name: "Eduardo Carrillo", role: "Diseñador de marca" },
-        { name: "Michelle Portillo", role: "Diseñadora de marca" },
+        { name: "Michelle Portillo", role: "Diseñadora grafica y Editorial" },
         { name: "Reymundo Torres", role: "Diseñador de marca" },
       ],
     },
