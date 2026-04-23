@@ -6,8 +6,8 @@ import TopNav from "@/components/TopNav";
 import CornerIcon from "@/components/CornerIcon";
 import FooterLink from "@/components/FooterLink";
 import "./globals.css";
-import { cookies } from "next/headers";
-import { defaultLocale } from "@/lib/i18n";
+import { cookies, headers } from "next/headers";
+import { getLocaleFromAcceptLanguage, isLocale } from "@/lib/i18n";
 import Script from "next/script";
 
 const hostGrotesk = localFont({
@@ -79,8 +79,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
+  const headerStore = await headers();
   const langCookie = cookieStore.get("lang")?.value;
-  const initialLanguage = langCookie === "es" || langCookie === "en" ? langCookie : defaultLocale;
+  const initialLanguage = isLocale(langCookie)
+    ? langCookie
+    : getLocaleFromAcceptLanguage(headerStore.get("accept-language"));
 
   return (
     <html lang={initialLanguage} suppressHydrationWarning>
