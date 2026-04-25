@@ -164,6 +164,113 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Audience Segments Section */}
+      <section className="relative px-6 pb-12 pt-2 md:pt-4">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="mb-12"
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+          >
+            <h2 className="font-display font-bold uppercase text-3xl text-foreground md:text-4xl">
+              {t.home.audiencesTitle}
+            </h2>
+            <p className="mt-3 max-w-xl text-sm text-black/60 md:text-base dark:text-white/60">
+              {t.home.audiencesIntro}
+            </p>
+          </motion.div>
+
+          <div className="flex flex-col divide-y divide-black/10 dark:divide-white/10">
+            {t.home.audiences.map((audience, idx) => {
+              const eyebrowClass =
+                idx === 0
+                  ? "text-[#254566] dark:text-[#8fb2d6]"
+                  : idx === 1
+                    ? "text-[#a61b00] dark:text-[#ff8f7a]"
+                    : "text-[#2b3425] dark:text-[#8db08a]";
+              const ctaClass =
+                idx === 0
+                  ? "border-[#254566] text-[#254566] hover:bg-[#254566] hover:text-white dark:border-[#8fb2d6] dark:text-[#8fb2d6] dark:hover:bg-[#8fb2d6] dark:hover:text-[#111820]"
+                  : idx === 1
+                    ? "border-[#a61b00] text-[#a61b00] hover:bg-[#a61b00] hover:text-white dark:border-[#ff8f7a] dark:text-[#ff8f7a] dark:hover:bg-[#ff8f7a] dark:hover:text-[#111820]"
+                    : "border-[#2b3425] text-[#2b3425] hover:bg-[#2b3425] hover:text-white dark:border-[#8db08a] dark:text-[#8db08a] dark:hover:bg-[#8db08a] dark:hover:text-[#111820]";
+
+              const audienceImage =
+                idx === 0
+                  ? { src: "/projects/P3/Dulce_03.png", alt: "Dulce Michi brand storefront", credit: null }
+                  : idx === 1
+                    ? {
+                        src: "/happy-small-business-owner-plant-shop.jpg",
+                        alt: "Small business owner in plant shop",
+                        credit: {
+                          href: "https://www.freepik.com/free-photo/happy-small-business-owner-plant-shop_17829647.htm",
+                          label: "Image by rawpixel.com on Freepik",
+                        },
+                      }
+                    : { src: "/projects/P4/revista_sma_4.jpg", alt: "Revista San Miguel de Allende editorial design", credit: null };
+
+              return (
+                <motion.article
+                  key={audience.eyebrow}
+                  className="flex flex-col gap-8 py-12 md:flex-row md:items-center md:gap-16"
+                  variants={fadeUpVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={sectionViewport}
+                  transition={{ duration: 0.55, ease: "easeOut", delay: idx * 0.08 }}
+                >
+                  <div className="flex flex-1 flex-col gap-5">
+                    <p className={`text-xs font-display font-bold uppercase tracking-[0.28em] ${eyebrowClass}`}>
+                      {audience.eyebrow}
+                    </p>
+                    <h3 className="font-display font-bold uppercase text-2xl text-foreground md:text-3xl">
+                      {audience.headline}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-black/65 md:text-base dark:text-white/60">
+                      {audience.body}
+                    </p>
+                    <TransitionLink
+                      href="/services"
+                      className={`inline-flex w-fit items-center justify-center rounded-full border px-7 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] transition ${ctaClass}`}
+                    >
+                      {audience.cta}
+                    </TransitionLink>
+                  </div>
+
+                  {audienceImage && (
+                    <div className="relative w-full overflow-hidden rounded-2xl md:w-[44%]">
+                      <div className="group relative h-64 md:h-80">
+                        <Image
+                          src={audienceImage.src}
+                          alt={audienceImage.alt}
+                          fill
+                          className="object-cover object-center"
+                        />
+                        {audienceImage.credit && (
+                          <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-3 py-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                            <a
+                              href={audienceImage.credit.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[10px] text-white/70 transition-colors hover:text-white"
+                            >
+                              {audienceImage.credit.label}
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </motion.article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Locations Teaser Section */}
       <section className="relative px-6 pb-20 pt-12">
         <div className="mx-auto max-w-6xl">

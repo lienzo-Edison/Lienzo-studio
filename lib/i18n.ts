@@ -62,6 +62,14 @@ type Translations = {
     teamLabel: string;
     photoLabel: string;
     teamMembers: { name: string; role: string }[];
+    audiencesTitle: string;
+    audiencesIntro: string;
+    audiences: {
+      eyebrow: string;
+      headline: string;
+      body: string;
+      cta: string;
+    }[];
   };
   landing: {
     adImageAlt: string;
@@ -184,6 +192,29 @@ export const translations: Record<Locale, Translations> = {
         { name: "Eduardo Carrillo", role: "Brand Designer" },
         { name: "Michelle Portillo", role: "Graphic and Editorial Designer" },
         { name: "Reymundo Torres", role: "Brand Designer" },
+      ],
+      audiencesTitle: "Built for Your Market",
+      audiencesIntro:
+        "We work with specific businesses in specific places. Whoever you are, we already know the challenges you're facing.",
+      audiences: [
+        {
+          eyebrow: "Mexican-Owned Businesses · U.S.",
+          headline: "Your business is legit. Now your brand should look like it.",
+          body: "You've built something real, but without a consistent visual identity, customers who expect professionalism may not see it. We build complete brand identities through a bilingual, culturally fluent process that feels native, not translated.",
+          cta: "See Brand Identity",
+        },
+        {
+          eyebrow: "Local Businesses · Colorado",
+          headline: "You run the business. We'll make sure people find it.",
+          body: "You have customers walking in the door, but zero social media presence means you're invisible to everyone else in the community. Our monthly social media plans handle content, strategy, and posting, so you stay visible without stepping away from the counter.",
+          cta: "See Social Media Plans",
+        },
+        {
+          eyebrow: "Entrepreneurs · Northern Mexico",
+          headline: "Professional brand. Real price. Made by people who know the market.",
+          body: "You're serious about your business, but big-city agency rates aren't realistic and remote studios don't know your market. We offer professional brand identity packages at accessible pricing, built by a team with real roots in northern Mexican business culture.",
+          cta: "See Brand Packages",
+        },
       ],
     },
     landing: {
@@ -415,6 +446,29 @@ export const translations: Record<Locale, Translations> = {
         { name: "Eduardo Carrillo", role: "Diseñador de marca" },
         { name: "Michelle Portillo", role: "Diseñadora grafica y Editorial" },
         { name: "Reymundo Torres", role: "Diseñador de marca" },
+      ],
+      audiencesTitle: "Hecho para tu mercado",
+      audiencesIntro:
+        "Trabajamos con negocios específicos en lugares específicos. Quien seas tú, ya conocemos los retos que enfrentas.",
+      audiences: [
+        {
+          eyebrow: "Negocios mexicanos · EE.UU.",
+          headline: "Tu negocio es legítimo. Ya es hora de que tu marca lo refleje.",
+          body: "Construiste algo real, pero sin una identidad visual consistente, los clientes que esperan profesionalismo quizás no lo ven. Construimos identidades de marca completas en un proceso bilingüe y culturalmente cercano que se siente natural, no traducido.",
+          cta: "Ver identidad de marca",
+        },
+        {
+          eyebrow: "Negocios locales · Colorado",
+          headline: "Tú llevas el negocio. Nosotros hacemos que la gente te encuentre.",
+          body: "Tienes clientes entrando por la puerta, pero sin presencia en redes eres invisible para todos los demás en la comunidad. Nuestros planes mensuales se encargan del contenido, la estrategia y la publicación para que sigas visible sin alejarte de tu negocio.",
+          cta: "Ver planes de redes sociales",
+        },
+        {
+          eyebrow: "Emprendedores · Norte de México",
+          headline: "Marca profesional, precio real, hecho por los de aquí.",
+          body: "Vas en serio con tu negocio, pero las tarifas de las agencias de ciudad grande no son una opción y los estudios remotos no conocen tu mercado. Ofrecemos paquetes de identidad de marca a precios accesibles, creados por un equipo con raíces reales en la cultura empresarial del norte de México.",
+          cta: "Ver paquetes de marca",
+        },
       ],
     },
     landing: {
