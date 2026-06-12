@@ -103,8 +103,8 @@ export default function CityPage() {
                   body: `${t.proximityNote}`,
                 },
                 {
-                  title: "Agency Quality, Accessible Price",
-                  body: "Our team structure lets us deliver professional, strategy-led work at a fraction of what large Denver agencies charge.",
+                  title: "Professional, Strategy-Led Work",
+                  body: "Our team combines local perspective, bilingual collaboration, and professional creative direction around your business goals.",
                 },
                 {
                   title: "Any Industry",
@@ -182,8 +182,8 @@ export default function CityPage() {
                   body: `${t.proximityNote}`,
                 },
                 {
-                  title: "Calidad de Agencia, Precio Accesible",
-                  body: "Nuestra estructura de equipo nos permite entregar trabajo profesional y estratégico a una fracción de lo que cobran las grandes agencias.",
+                  title: "Trabajo Profesional y Estratégico",
+                  body: "Nuestro equipo combina perspectiva local, colaboración bilingüe y dirección creativa profesional alrededor de los objetivos de tu negocio.",
                 },
                 {
                   title: "Cualquier Industria",

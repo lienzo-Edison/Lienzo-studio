@@ -6,7 +6,14 @@ import SpotlightCard from "@/components/SpotlightCard";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  },
 };
 
 const stagger = {
@@ -20,157 +27,143 @@ export default function SocialMediaPage() {
   const c =
     language === "en"
       ? {
-          eyebrow: "Social Media Management",
-          title: "Your Business, Showing Up Every Day",
+          eyebrow: "Social Media Content System",
+          title: "A More Professional, Consistent Social Presence",
           subtitle:
-            "Professional content, consistent posting, and community engagement. Fully handled for small businesses in Northern Colorado and Mexico.",
+            "Strategic visual content designed to communicate clearly, build trust, and keep your audience connected to your business.",
           intro:
-            "Managing social media takes time you don't have. We handle strategy, content creation, scheduling, and audience engagement so your brand stays visible and professional on Instagram and Facebook every single day, while you focus on running your business.",
-          plansTitle: "Monthly Plans",
-          plansSubtitle: "No contracts. Contact us for pricing and we'll find the right fit for your business.",
-          plans: [
-            {
-              name: "Starter",
-              posts: "16 posts / month",
-              description: "Perfect for businesses just starting their social media presence.",
-              features: ["4 static posts", "4 reels or short videos", "8 stories"],
-            },
-            {
-              name: "Growth",
-              posts: "22 posts / month",
-              description: "For brands ready to post more consistently and grow their audience.",
-              features: ["8 static posts", "6 reels or short videos", "8 stories"],
-            },
-            {
-              name: "Premium",
-              posts: "35 posts / month",
-              description: "Maximum presence for businesses that want to lead their market.",
-              features: ["13 static posts", "10 reels or short videos", "12 stories"],
-            },
+            "Every business has different goals. Our social media services are customized according to posting frequency, content type, visual style, business stage, and creative needs.",
+          setupTitle: "Initial Setup",
+          setupDescription:
+            "Ideal for businesses that want to manage their own social media but need a clearer, more professional visual and strategic foundation that is easy to maintain.",
+          setupIncludesTitle: "We build your foundation with:",
+          setupIncludes: [
+            "Content strategy",
+            "Custom templates",
+            "Visual guide",
+            "Sample content calendar",
+            "Creative direction aligned with your brand",
           ],
-          allIncludedTitle: "Every Plan Includes",
+          monthlyTitle: "Monthly Social Media Content",
+          monthlyDescription:
+            "Monthly content designed to keep your brand active, professional, and consistent. The scope is tailored to the amount and type of content your business needs.",
+          monthlyIncludesTitle: "Your customized content system can include:",
+          monthlyIncludes: [
+            "Static posts",
+            "Carousels",
+            "Reels or short videos",
+            "Stories",
+            "Monthly content planning",
+            "Visual design",
+            "Post scheduling",
+            "Profile and cover photo updates",
+            "Target audience identification",
+            "Social media account creation, if needed",
+          ],
+          allIncludedTitle: "The Monthly Service Includes",
+          allIncludedDescription:
+            "Before we begin, we define the right scope for your rhythm, goals, and capacity for growth so the content has a clear direction and professional execution.",
           allIncluded: [
-            "Monthly content production",
+            "Monthly content capture",
             "Content strategy and planning",
             "Post scheduling",
             "Quarterly profile and cover photo updates",
             "Target audience identification",
-            "Social media account creation (if needed)",
+            "Account creation, if needed",
           ],
-          setupTitle: "Need a Foundation First?",
-          setupDescription:
-            "Our Initial Setup is ideal for businesses that want to manage their own social media but need a professional starting point.",
-          setupIncludes: [
-            "Custom content strategy",
-            "Branded post templates",
-            "Visual design guidelines",
-            "Sample content calendar",
-          ],
-          addonsTitle: "Add-Ons Available",
-          addons: [
-            "4 extra static posts",
-            "4 extra video posts (vertical format)",
-          ],
-          whyTitle: "Why Northern Colorado Businesses Choose Lienzo",
+          whyTitle: "Why Businesses Choose Lienzo",
           whyItems: [
             {
-              title: "Bilingual Team",
-              body: "We work in English and Spanish, making us the right partner for businesses serving diverse communities across Colorado and Mexico.",
+              title: "Customized Scope",
+              body: "Frequency and content mix are defined around your real goals and resources, rather than a preset number of posts.",
             },
             {
-              title: "Local to Fort Lupton, CO",
-              body: "We're in your market. We understand Northern Colorado (Fort Lupton, Greeley, Longmont, Brighton) and we create content that actually speaks to your local audience.",
+              title: "Strategy and Execution Together",
+              body: "Planning, creative direction, design, content capture, and scheduling work as one connected system.",
             },
             {
-              title: "Agency Quality, Accessible Price",
-              body: "Denver agencies charge $2,000–$5,000/month for social media. Our team structure in Mexico lets us deliver the same quality at a price that works for small businesses.",
+              title: "Aligned With Your Brand",
+              body: "Every piece follows a visual direction designed to make your presence feel recognizable, consistent, and professional.",
             },
             {
-              title: "Any Industry",
-              body: "Restaurants, retail, real estate, construction, healthcare: we've done it all. We adapt our strategy and content style to what works for your specific market.",
+              title: "Built to Grow With You",
+              body: "The service adapts as your business, audience, and content needs evolve over time.",
             },
           ],
-          ctaTitle: "Ready to Get Social Media Off Your Plate?",
+          ctaTitle: "Ready for a Clearer Content System?",
           ctaBody:
-            "Call us, send a WhatsApp, or email us. We'll talk through your business and tell you exactly what plan makes sense.",
-          ctaButton: "Contact Us",
+            "Tell us about your business, current social presence, and goals. We’ll recommend the right starting point and prepare a personalized scope.",
+          ctaButton: "Request a Proposal",
           backLabel: "← All Services",
         }
       : {
-          eyebrow: "Manejo de Redes Sociales",
-          title: "Tu Negocio, Presente Todos Los Días",
+          eyebrow: "Sistema de Contenido para Redes Sociales",
+          title: "Una Presencia Más Profesional y Consistente",
           subtitle:
-            "Contenido profesional, publicaciones consistentes y gestión de comunidad, completamente a cargo de nosotros para negocios en México y el norte de Colorado.",
+            "Contenido visual estratégico para comunicar mejor, generar confianza y mantener activa la relación con tu audiencia.",
           intro:
-            "Gestionar redes sociales toma tiempo que no tienes. Nosotros nos encargamos de la estrategia, creación de contenido, programación y atención a tu comunidad para que tu marca se mantenga visible y profesional en Instagram y Facebook todos los días, mientras tú te concentras en tu negocio.",
-          plansTitle: "Planes Mensuales",
-          plansSubtitle: "Sin contratos. Contáctanos para precios y encontramos el plan ideal para tu negocio.",
-          plans: [
-            {
-              name: "Starter",
-              posts: "16 publicaciones / mes",
-              description: "Ideal para negocios que comienzan su presencia en redes sociales.",
-              features: ["4 posts estáticos", "4 reels o videos cortos", "8 historias"],
-            },
-            {
-              name: "Growth",
-              posts: "22 publicaciones / mes",
-              description: "Para marcas listas para publicar con más consistencia y crecer su audiencia.",
-              features: ["8 posts estáticos", "6 reels o videos cortos", "8 historias"],
-            },
-            {
-              name: "Premium",
-              posts: "35 publicaciones / mes",
-              description: "Máxima presencia para negocios que quieren liderar su mercado.",
-              features: ["13 posts estáticos", "10 reels o videos cortos", "12 historias"],
-            },
+            "Cada negocio tiene objetivos diferentes. Nuestros servicios de redes sociales se personalizan según la frecuencia de publicación, tipo de contenido, estilo visual, etapa del negocio y necesidades creativas.",
+          setupTitle: "Configuración Inicial",
+          setupDescription:
+            "Ideal para negocios que quieren administrar sus propias redes sociales, pero necesitan una base visual y estratégica más clara, profesional y fácil de mantener.",
+          setupIncludesTitle: "Creamos tu base con:",
+          setupIncludes: [
+            "Estrategia de contenido",
+            "Plantillas personalizadas",
+            "Guía visual",
+            "Calendario de contenido de muestra",
+            "Dirección creativa alineada a la marca",
           ],
-          allIncludedTitle: "Todos los Planes Incluyen",
+          monthlyTitle: "Contenido Mensual para Redes Sociales",
+          monthlyDescription:
+            "Contenido mensual diseñado para mantener tu marca activa, profesional y consistente. El alcance se adapta a la cantidad y tipo de contenido que necesita tu negocio.",
+          monthlyIncludesTitle: "Tu sistema de contenido personalizado puede incluir:",
+          monthlyIncludes: [
+            "Posts estáticos",
+            "Carruseles",
+            "Reels o videos cortos",
+            "Historias",
+            "Planeación mensual de contenido",
+            "Diseño visual",
+            "Programación de publicaciones",
+            "Actualizaciones de foto de perfil y portada",
+            "Identificación de audiencia objetivo",
+            "Creación de cuentas de redes sociales, si es necesario",
+          ],
+          allIncludedTitle: "El Servicio Mensual Incluye",
+          allIncludedDescription:
+            "Antes de iniciar, definimos el alcance ideal para el ritmo, objetivos y capacidad de crecimiento de tu negocio, asegurando una dirección clara y una ejecución profesional.",
           allIncluded: [
-            "Producción mensual de contenido",
-            "Estrategia y planeación de contenido",
+            "Toma de contenido mensual",
+            "Estrategia y planificación de contenido",
             "Programación de publicaciones",
             "Actualización trimestral de foto de perfil y portada",
             "Identificación de audiencia objetivo",
-            "Creación de cuenta en redes sociales (si se necesita)",
+            "Creación de cuentas, si es necesario",
           ],
-          setupTitle: "¿Necesitas una Base Primero?",
-          setupDescription:
-            "Nuestra Configuración Inicial es ideal para negocios que quieren manejar sus propias redes sociales pero necesitan un punto de partida profesional.",
-          setupIncludes: [
-            "Estrategia de contenido personalizada",
-            "Plantillas de publicación con tu marca",
-            "Guía de diseño visual",
-            "Calendario de contenido de muestra",
-          ],
-          addonsTitle: "Extras Disponibles",
-          addons: [
-            "4 publicaciones estáticas adicionales",
-            "4 publicaciones en video adicionales (formato vertical)",
-          ],
-          whyTitle: "Por Qué Negocios En México Eligen Lienzo",
+          whyTitle: "Por Qué Los Negocios Eligen Lienzo",
           whyItems: [
             {
-              title: "Equipo Bilingüe",
-              body: "Trabajamos en inglés y español, el socio ideal para negocios que atienden comunidades diversas en México y Colorado.",
+              title: "Alcance Personalizado",
+              body: "Definimos la frecuencia y mezcla de contenido según tus objetivos y recursos reales, no por una cantidad predeterminada de publicaciones.",
             },
             {
-              title: "Con Base en Durango, México",
-              body: "Somos locales. Entendemos el mercado mexicano y creamos contenido que habla directamente a tu audiencia, sin importar la ciudad.",
+              title: "Estrategia y Ejecución Unidas",
+              body: "Planeación, dirección creativa, diseño, toma de contenido y programación funcionan como un solo sistema.",
             },
             {
-              title: "Calidad de Agencia, Precio Accesible",
-              body: "Ofrecemos el mismo nivel de calidad que las grandes agencias a precios que los pequeños y medianos negocios pueden pagar, sin comprometer resultados.",
+              title: "Alineado Con Tu Marca",
+              body: "Cada pieza sigue una dirección visual para que tu presencia se sienta reconocible, consistente y profesional.",
             },
             {
-              title: "Cualquier Industria",
-              body: "Restaurantes, comercio, bienes raíces, construcción, salud: lo hemos hecho todo. Adaptamos estrategia y estilo de contenido a lo que funciona para tu negocio específico.",
+              title: "Preparado Para Crecer Contigo",
+              body: "El servicio se adapta conforme evolucionan tu negocio, audiencia y necesidades de contenido.",
             },
           ],
-          ctaTitle: "¿Listo Para Delegar Tus Redes Sociales?",
+          ctaTitle: "¿Listo Para Tener un Sistema de Contenido Más Claro?",
           ctaBody:
-            "Llámanos, mándanos un WhatsApp o un correo. Platicamos sobre tu negocio y te decimos exactamente qué plan tiene sentido para ti.",
-          ctaButton: "Contáctanos",
+            "Cuéntanos sobre tu negocio, tu presencia actual y tus objetivos. Te recomendaremos el mejor punto de partida y prepararemos un alcance personalizado.",
+          ctaButton: "Solicitar Propuesta",
           backLabel: "← Todos los Servicios",
         };
 
@@ -181,7 +174,6 @@ export default function SocialMediaPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Hero */}
       <section className="mt-32 px-6 pb-16">
         <motion.div
           className="mx-auto max-w-3xl"
@@ -192,26 +184,26 @@ export default function SocialMediaPage() {
           <motion.div variants={fadeUp} className="mb-6">
             <TransitionLink
               href="/services"
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45 dark:text-white/45 hover:text-black/70 dark:hover:text-white/70 transition-colors"
+              className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45 transition-colors hover:text-black/70 dark:text-white/45 dark:hover:text-white/70"
             >
               {c.backLabel}
             </TransitionLink>
           </motion.div>
           <motion.p
             variants={fadeUp}
-            className="text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a] mb-4"
+            className="mb-4 text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a]"
           >
             {c.eyebrow}
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl mb-6"
+            className="mb-6 font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
           >
             {c.title}
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="text-lg text-black/65 dark:text-white/65 leading-relaxed max-w-2xl mb-8"
+            className="mb-8 max-w-2xl text-lg leading-relaxed text-black/65 dark:text-white/65"
           >
             {c.subtitle}
           </motion.p>
@@ -226,11 +218,10 @@ export default function SocialMediaPage() {
         </motion.div>
       </section>
 
-      {/* Intro */}
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-3xl">
           <motion.p
-            className="text-base leading-relaxed text-black/70 dark:text-white/70 border-l-2 border-[#a61b00] pl-5"
+            className="border-l-2 border-[#a61b00] pl-5 text-base leading-relaxed text-black/70 dark:text-white/70"
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -241,180 +232,127 @@ export default function SocialMediaPage() {
         </div>
       </section>
 
-      {/* Plans */}
       <section className="px-6 pb-20">
-        <div className="mx-auto max-w-5xl">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-3xl font-bold tracking-tight mb-2"
-            >
-              {c.plansTitle}
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="text-sm text-black/55 dark:text-white/55 mb-10"
-            >
-              {c.plansSubtitle}
-            </motion.p>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {c.plans.map((plan) => (
-                <motion.div key={plan.name} variants={fadeUp}>
-                  <SpotlightCard
-                    className="h-full rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-white/5"
-                    spotlightColor="rgba(166, 27, 0, 0.10)"
-                  >
-                    <p className="font-display text-xl font-bold tracking-tight mb-1">{plan.name}</p>
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a61b00] dark:text-[#ff8f7a] mb-3">
-                      {plan.posts}
-                    </p>
-                    <p className="text-sm text-black/60 dark:text-white/60 mb-5 leading-relaxed">
-                      {plan.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-sm">
-                          <span className="mt-0.5 text-[#a61b00] dark:text-[#ff8f7a] font-bold leading-none">✓</span>
-                          <span className="text-black/75 dark:text-white/75">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-6 pt-5 border-t border-black/8 dark:border-white/8">
-                      <TransitionLink
-                        href="/contact"
-                        className="text-sm font-semibold text-[#a61b00] dark:text-[#ff8f7a] hover:text-[#c02200] dark:hover:text-[#ffb09a] transition-colors"
-                      >
-                        {c.ctaButton} →
-                      </TransitionLink>
-                    </div>
-                  </SpotlightCard>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+        <motion.div
+          className="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {[
+            {
+              title: c.setupTitle,
+              description: c.setupDescription,
+              includesTitle: c.setupIncludesTitle,
+              includes: c.setupIncludes,
+            },
+            {
+              title: c.monthlyTitle,
+              description: c.monthlyDescription,
+              includesTitle: c.monthlyIncludesTitle,
+              includes: c.monthlyIncludes,
+            },
+          ].map((service) => (
+            <motion.div key={service.title} variants={fadeUp}>
+              <SpotlightCard
+                className="h-full rounded-2xl border border-black/10 bg-white p-7 dark:border-white/10 dark:bg-white/5"
+                spotlightColor="rgba(166, 27, 0, 0.10)"
+              >
+                <h2 className="mb-3 font-display text-2xl font-bold tracking-tight">
+                  {service.title}
+                </h2>
+                <p className="mb-6 text-sm leading-relaxed text-black/65 dark:text-white/65">
+                  {service.description}
+                </p>
+                <p className="mb-3 text-sm font-semibold">{service.includesTitle}</p>
+                <ul className="space-y-2">
+                  {service.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm">
+                      <span className="mt-0.5 font-bold leading-none text-[#a61b00] dark:text-[#ff8f7a]">
+                        ✓
+                      </span>
+                      <span className="text-black/75 dark:text-white/75">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </SpotlightCard>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
-      {/* All Included + Add-ons */}
-      <section className="px-6 py-16 bg-black/[0.03] dark:bg-white/[0.03] border-y border-black/5 dark:border-white/5">
-        <div className="mx-auto max-w-5xl grid grid-cols-1 gap-10 md:grid-cols-3">
-          {/* All plans include */}
-          <motion.div
-            className="md:col-span-2"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+      <section className="border-y border-black/5 bg-black/[0.03] px-6 py-16 dark:border-white/5 dark:bg-white/[0.03]">
+        <motion.div
+          className="mx-auto max-w-5xl"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="mb-3 font-display text-3xl font-bold tracking-tight"
           >
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-xl font-bold tracking-tight mb-5"
-            >
-              {c.allIncludedTitle}
-            </motion.h2>
-            <ul className="space-y-3">
-              {c.allIncluded.map((item) => (
-                <motion.li key={item} variants={fadeUp} className="flex items-start gap-3 text-sm">
-                  <span className="mt-0.5 text-[#254566] dark:text-[#8fb2d6] font-bold leading-none">✓</span>
-                  <span className="text-black/75 dark:text-white/75">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Add-ons */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            {c.allIncludedTitle}
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="mb-8 max-w-3xl text-sm leading-relaxed text-black/65 dark:text-white/65"
           >
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-xl font-bold tracking-tight mb-5"
-            >
-              {c.addonsTitle}
-            </motion.h2>
-            <ul className="space-y-3">
-              {c.addons.map((item) => (
-                <motion.li key={item} variants={fadeUp} className="flex items-start gap-3 text-sm">
-                  <span className="mt-0.5 text-[#a61b00] dark:text-[#ff8f7a] font-bold leading-none">+</span>
-                  <span className="text-black/75 dark:text-white/75">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+            {c.allIncludedDescription}
+          </motion.p>
+          <motion.ul
+            variants={fadeUp}
+            className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2"
+          >
+            {c.allIncluded.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm">
+                <span className="mt-0.5 font-bold leading-none text-[#254566] dark:text-[#8fb2d6]">
+                  ✓
+                </span>
+                <span className="text-black/75 dark:text-white/75">{item}</span>
+              </li>
+            ))}
+          </motion.ul>
+        </motion.div>
       </section>
 
-      {/* Initial Setup */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-5xl">
-          <motion.div
-            className="rounded-2xl border border-black/10 bg-white p-8 dark:border-white/10 dark:bg-white/5 md:p-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+      <section className="px-6 py-20">
+        <motion.div
+          className="mx-auto max-w-5xl"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="mb-8 font-display text-3xl font-bold tracking-tight md:text-4xl"
           >
-            <p className="text-xs font-display font-bold uppercase tracking-[0.3em] text-[#254566] dark:text-[#8fb2d6] mb-3">
-              {language === "en" ? "Also Available" : "También Disponible"}
-            </p>
-            <h2 className="font-display text-2xl font-bold tracking-tight mb-3">{c.setupTitle}</h2>
-            <p className="text-sm text-black/65 dark:text-white/65 leading-relaxed mb-6 max-w-xl">
-              {c.setupDescription}
-            </p>
-            <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {c.setupIncludes.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm">
-                  <span className="mt-0.5 text-[#254566] dark:text-[#8fb2d6] font-bold leading-none">✓</span>
-                  <span className="text-black/75 dark:text-white/75">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+            {c.whyTitle}
+          </motion.h2>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {c.whyItems.map((item) => (
+              <motion.div key={item.title} variants={fadeUp}>
+                <SpotlightCard
+                  className="h-full rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-white/5"
+                  spotlightColor="rgba(166, 27, 0, 0.10)"
+                >
+                  <h3 className="mb-2 font-display text-lg font-bold tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-black/65 dark:text-white/65">
+                    {item.body}
+                  </p>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      {/* Why Lienzo */}
-      <section className="px-6 pb-20">
-        <div className="mx-auto max-w-5xl">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-3xl font-bold tracking-tight mb-8 md:text-4xl"
-            >
-              {c.whyTitle}
-            </motion.h2>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {c.whyItems.map((item) => (
-                <motion.div key={item.title} variants={fadeUp}>
-                  <SpotlightCard
-                    className="h-full rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-white/5"
-                    spotlightColor="rgba(37, 69, 102, 0.10)"
-                  >
-                    <h3 className="font-display text-lg font-bold tracking-tight mb-2">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-black/65 dark:text-white/65">{item.body}</p>
-                  </SpotlightCard>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="px-6 py-20 bg-black/[0.03] dark:bg-white/[0.03] border-t border-black/5 dark:border-white/5 text-center">
+      <section className="border-t border-black/5 bg-black/[0.03] px-6 py-20 text-center dark:border-white/5 dark:bg-white/[0.03]">
         <motion.div
           className="mx-auto max-w-xl"
           variants={stagger}
@@ -424,13 +362,13 @@ export default function SocialMediaPage() {
         >
           <motion.h2
             variants={fadeUp}
-            className="font-display text-3xl font-bold tracking-tight md:text-4xl mb-4"
+            className="mb-4 font-display text-3xl font-bold tracking-tight md:text-4xl"
           >
             {c.ctaTitle}
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="text-base text-black/65 dark:text-white/65 leading-relaxed mb-8"
+            className="mb-8 text-base leading-relaxed text-black/65 dark:text-white/65"
           >
             {c.ctaBody}
           </motion.p>

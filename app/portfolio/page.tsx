@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 
@@ -161,13 +161,12 @@ export default function Portfolio() {
   }, [openProject]);
 
   return (
-    <LayoutGroup>
-      <motion.main
-        className="relative min-h-screen overflow-hidden bg-background p-6 text-foreground"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.35 }}
-      >
+    <motion.main
+      className="relative min-h-screen overflow-hidden bg-background p-6 text-foreground"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.35 }}
+    >
         <div className="relative z-10 mt-32 mx-auto w-full px-4 sm:px-6 lg:px-10">
           <div className="mb-14 flex justify-center">
             <h1 className="text-4xl font-bold font-display text-center text-foreground tracking-wide">
@@ -215,7 +214,7 @@ export default function Portfolio() {
                   key={project.id}
                   type="button"
                   onClick={() => handleProjectTap(idx)}
-                  className="group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white text-left transition hover:border-black/30 dark:border-white/10 dark:bg-[#151c24] dark:hover:border-white/30"
+                  className="group relative flex w-full flex-col overflow-hidden rounded-[24px] border border-black/10 bg-white text-left transition [content-visibility:auto] [contain-intrinsic-size:auto_700px] hover:border-black/30 dark:border-white/10 dark:bg-[#151c24] dark:hover:border-white/30"
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
@@ -224,20 +223,18 @@ export default function Portfolio() {
                   whileTap={{ scale: 0.995 }}
                 >
                   <div className="relative w-full overflow-hidden bg-black">
-                    <motion.div
-                      layoutId={`project-image-${project.id}`}
-                      className="relative w-full"
-                    >
+                    <div className="relative w-full">
                       <Image
                         src={project.cover}
                         alt={project.title}
                         width={1800}
                         height={1000}
-                        sizes="(min-width: 1024px) 90vw, 100vw"
+                        sizes="(min-width: 1280px) 1150px, (min-width: 640px) calc(100vw - 7rem), calc(100vw - 4.5rem)"
+                        decoding="async"
                         className="h-auto w-full object-cover transition duration-500 group-hover:scale-[1.02]"
                         priority={idx === 0}
                       />
-                    </motion.div>
+                    </div>
                   </div>
                   <div className="flex flex-col gap-2 px-6 py-5 sm:px-8 sm:py-6">
                     <h2 className="text-2xl font-semibold tracking-tight text-foreground">
@@ -332,13 +329,9 @@ export default function Portfolio() {
 
                   <div className="mt-16 space-y-0 pb-0">
                     {selectedProject.gallery.map((img, imgIndex) => (
-                      <motion.div
+                      <div
                         key={`${img}-${imgIndex}`}
-                        layoutId={imgIndex === 0 ? `project-image-${selectedProject.id}` : undefined}
-                        className="relative w-full overflow-hidden bg-black"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: imgIndex * 0.05 }}
+                        className="relative w-full overflow-hidden bg-black [content-visibility:auto] [contain-intrinsic-size:auto_56.25vw]"
                       >
                         <Image
                           src={img}
@@ -346,10 +339,12 @@ export default function Portfolio() {
                           width={1920}
                           height={1080}
                           sizes="100vw"
+                          loading={imgIndex === 0 ? "eager" : "lazy"}
+                          decoding="async"
                           priority={imgIndex === 0}
                           className="h-auto w-full object-contain"
                         />
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </motion.section>
@@ -357,7 +352,6 @@ export default function Portfolio() {
             )}
           </AnimatePresence>
         </div>
-      </motion.main>
-    </LayoutGroup>
+    </motion.main>
   );
 }

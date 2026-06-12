@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Social Media Management",
   description:
-    "Professional social media management for small and medium businesses in Northern Colorado and Mexico. Content creation, posting, and community management on Instagram and Facebook, fully handled for you. Based in Fort Lupton, CO.",
+    "Customized social media content systems for small and medium businesses in Northern Colorado and Mexico. Strategy, content creation, visual design, and scheduling tailored to your goals.",
   openGraph: {
     title: "Social Media Management | Lienzo Studio | Northern Colorado",
     description:
-      "We manage your Instagram and Facebook so you don't have to. Content strategy, creation, scheduling, and engagement for businesses in Greeley, Longmont, Brighton, Fort Lupton, and across Mexico.",
+      "Customized content strategy, creation, visual design, and scheduling for businesses in Northern Colorado and Mexico. Contact us for a tailored proposal.",
   },
 };
 
