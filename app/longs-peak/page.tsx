@@ -335,7 +335,7 @@ export default function LongsPeakPage() {
               <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/8 px-5 py-3">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-[#4ade80]" />
                 <p className="text-sm font-medium text-white">
-                  Revisamos tu situación <span className="font-semibold text-[#4ade80]">sin costo y sin compromiso</span>.
+                  Revisamos tu situación <span className="font-semibold text-[#4ade80]">de forma clara y sin compromiso</span>.
                 </p>
               </div>
             </div>

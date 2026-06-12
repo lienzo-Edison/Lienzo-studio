@@ -57,7 +57,7 @@ export const mexicoRegions: MexicoRegionData[] = [
     en: {
       heroTitle: "Social Media & Branding for Businesses in Chihuahua, Mexico",
       heroSubtitle:
-        "Professional content, brand identity, and community management for small and medium businesses in Chihuahua. Bilingual team, strategy-led work, accessible pricing.",
+        "Professional content, brand identity, and community management for small and medium businesses in Chihuahua. Bilingual team with a strategy-led approach.",
       localContextTitle: "Chihuahua Is One of Mexico's Most Dynamic Business States.",
       localContext:
         "From the manufacturing corridors of Ciudad Juárez to the growing commercial districts of the capital, Chihuahua's economy is diverse and competitive. Businesses here face real competition for customer attention, and social media is a primary channel for discovery and trust-building. A professional, consistent presence on Instagram and Facebook helps your Chihuahua business stand out in a crowded market.",
@@ -69,7 +69,7 @@ export const mexicoRegions: MexicoRegionData[] = [
     es: {
       heroTitle: "Redes Sociales y Branding para Negocios en Chihuahua, México",
       heroSubtitle:
-        "Contenido profesional, identidad de marca y gestión de comunidad para pequeñas y medianas empresas en Chihuahua. Equipo bilingüe, trabajo estratégico, precios accesibles.",
+        "Contenido profesional, identidad de marca y gestión de comunidad para pequeñas y medianas empresas en Chihuahua. Equipo bilingüe con enfoque estratégico.",
       localContextTitle: "Chihuahua Es Uno de los Estados Más Dinámicos de México en Términos Empresariales.",
       localContext:
         "Desde los corredores industriales de Ciudad Juárez hasta los crecientes distritos comerciales de la capital, la economía de Chihuahua es diversa y competitiva. Los negocios aquí enfrentan una competencia real por la atención del cliente, y las redes sociales son un canal principal para el descubrimiento y la generación de confianza. Una presencia profesional y consistente en Instagram y Facebook ayuda a tu negocio en Chihuahua a destacar en un mercado concurrido.",
@@ -111,7 +111,7 @@ export const mexicoRegions: MexicoRegionData[] = [
     en: {
       heroTitle: "Social Media & Branding for Businesses in Zacatecas, Mexico",
       heroSubtitle:
-        "Professional content, brand identity, and community management for businesses in Zacatecas. Bilingual team, strategy-first approach, accessible pricing.",
+        "Professional content, brand identity, and community management for businesses in Zacatecas. Bilingual team with a strategy-first approach.",
       localContextTitle: "Zacatecas Is a Growing Market Where Professional Branding Makes a Difference.",
       localContext:
         "Zacatecas has a proud commercial tradition and a growing small business community. From historic city-center businesses to service providers throughout the state, local entrepreneurs are increasingly competing online. Customers in Zacatecas use social media to discover and evaluate businesses before making decisions. A professional, consistent presence helps you capture that audience and build the trust that converts discovery into loyalty.",
@@ -123,7 +123,7 @@ export const mexicoRegions: MexicoRegionData[] = [
     es: {
       heroTitle: "Redes Sociales y Branding para Negocios en Zacatecas, México",
       heroSubtitle:
-        "Contenido profesional, identidad de marca y gestión de comunidad para negocios en Zacatecas. Equipo bilingüe, enfoque estratégico, precios accesibles.",
+        "Contenido profesional, identidad de marca y gestión de comunidad para negocios en Zacatecas. Equipo bilingüe con enfoque estratégico.",
       localContextTitle: "Zacatecas Es Un Mercado en Crecimiento Donde el Branding Profesional Marca la Diferencia.",
       localContext:
         "Zacatecas tiene una orgullosa tradición comercial y una comunidad de pequeños negocios en crecimiento. Desde negocios en el centro histórico hasta proveedores de servicios en todo el estado, los emprendedores locales compiten cada vez más en línea. Los clientes en Zacatecas usan las redes sociales para descubrir y evaluar negocios antes de tomar decisiones. Una presencia profesional y consistente te ayuda a captar esa audiencia y construir la confianza que convierte el descubrimiento en lealtad.",

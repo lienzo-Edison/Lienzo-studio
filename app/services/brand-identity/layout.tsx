@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Brand Identity & Logo Design | Lienzo Studio | Northern Colorado",
     description:
-      "Logo design, color palettes, typography, and full brand systems for businesses in Greeley, Longmont, Brighton, Fort Lupton, CO and across Mexico. Affordable packages starting with the basics.",
+      "Customized logo design, color palettes, typography, visual direction, and brand applications for businesses in Northern Colorado and Mexico. Contact us for a tailored proposal.",
   },
 };
 

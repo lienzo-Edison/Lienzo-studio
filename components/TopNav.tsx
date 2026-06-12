@@ -178,7 +178,7 @@ export default function TopNav() {
                         <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
                           {language === "es" ? "Idioma" : "Language"}
                         </span>
-                        <LanguageToggle />
+                        <LanguageToggle compact />
                       </div>
                       <div className="flex flex-col gap-3">
                         <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">

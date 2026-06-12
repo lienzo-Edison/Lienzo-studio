@@ -36,7 +36,7 @@ export const cities: CityData[] = [
     en: {
       heroTitle: "Social Media Management in Greeley, CO",
       heroSubtitle:
-        "Professional content and community management for small and medium businesses in Greeley and Weld County. Local team, agency quality, accessible price.",
+        "Professional content and community management for small and medium businesses in Greeley and Weld County. Local team with a strategy-led approach.",
       localContextTitle: "Greeley Businesses Are Growing. Your Social Media Should Be Too.",
       localContext:
         "Greeley is one of the fastest-growing cities on the Front Range. With a strong economy anchored by agriculture, healthcare, oil and gas, and the University of Northern Colorado, competition for local customers is real. A consistent, professional social media presence puts your business in front of the Greeley community every day, without you having to manage it.",
@@ -48,7 +48,7 @@ export const cities: CityData[] = [
     es: {
       heroTitle: "Manejo de Redes Sociales en Greeley, CO",
       heroSubtitle:
-        "Contenido profesional y gestión de comunidad para pequeñas y medianas empresas en Greeley y el condado de Weld. Equipo local, calidad de agencia, precio accesible.",
+        "Contenido profesional y gestión de comunidad para pequeñas y medianas empresas en Greeley y el condado de Weld. Equipo local con enfoque estratégico.",
       localContextTitle: "Los Negocios en Greeley Están Creciendo. Tus Redes Sociales También Deberían.",
       localContext:
         "Greeley es una de las ciudades de más rápido crecimiento en el Front Range. Con una economía fuerte anclada en la agricultura, la salud, el petróleo y gas, y la Universidad de Northern Colorado, la competencia por clientes locales es real. Una presencia profesional y consistente en redes sociales pone a tu negocio frente a la comunidad de Greeley todos los días, sin que tú tengas que administrarlo.",
@@ -246,7 +246,7 @@ export const cities: CityData[] = [
     en: {
       heroTitle: "Social Media Management in Northglenn, CO",
       heroSubtitle:
-        "Professional social media and brand identity for small businesses in Northglenn. Local agency, strategy-first approach, accessible pricing.",
+        "Professional social media and brand identity for small businesses in Northglenn. Local agency with a strategy-first approach.",
       localContextTitle: "Northglenn Businesses Have a Built-In Local Audience Ready to Engage.",
       localContext:
         "Northglenn is a close-knit community with a loyal local customer base. Residents actively support local businesses, but only the ones they can find and trust online. A professional, consistent social media presence builds that trust and keeps your business visible to the Northglenn community every week, without requiring your time to manage it.",
@@ -258,7 +258,7 @@ export const cities: CityData[] = [
     es: {
       heroTitle: "Manejo de Redes Sociales en Northglenn, CO",
       heroSubtitle:
-        "Redes sociales profesionales e identidad de marca para pequeñas empresas en Northglenn. Agencia local, enfoque estratégico, precios accesibles.",
+        "Redes sociales profesionales e identidad de marca para pequeñas empresas en Northglenn. Agencia local con enfoque estratégico.",
       localContextTitle: "Los Negocios en Northglenn Tienen Una Audiencia Local Lista Para Conectar.",
       localContext:
         "Northglenn es una comunidad unida con una base de clientes locales leales. Los residentes apoyan activamente a los negocios locales, pero solo a los que pueden encontrar y en los que confían en línea. Una presencia profesional y consistente en redes sociales construye esa confianza y mantiene tu negocio visible para la comunidad de Northglenn.",

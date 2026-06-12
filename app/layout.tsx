@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Lienzo Studio",
   },
   description:
-    "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Fort Lupton-based agency with affordable, results-driven marketing.",
+    "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Fort Lupton-based agency with strategy-led marketing.",
   keywords: [
     "social media management Northern Colorado",
     "social media agency Fort Lupton CO",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: "https://lienzo.studio",
     title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
-      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
+      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Strategy-led agency based in Fort Lupton, CO.",
     images: [
       {
         url: "/android-chrome-512x512.png",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
-      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Affordable agency based in Fort Lupton, CO.",
+      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Strategy-led agency based in Fort Lupton, CO.",
     images: ["/android-chrome-512x512.png"],
   },
 };
@@ -126,7 +126,6 @@ export default async function RootLayout({
                 ],
               },
               "openingHours": "Mo-Su 00:00-23:59",
-              "priceRange": "$$",
               "sameAs": [
                 "https://www.instagram.com/_lienzostudio/",
                 "https://www.facebook.com/people/Lienzo-Studio/61588545936546/",
