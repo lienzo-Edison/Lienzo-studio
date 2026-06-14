@@ -5,6 +5,7 @@ import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import TopNav from "@/components/TopNav";
 import CornerIcon from "@/components/CornerIcon";
 import FooterLink from "@/components/FooterLink";
+import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 import { cookies, headers } from "next/headers";
 import { getLocaleFromAcceptLanguage, isLocale } from "@/lib/i18n";
@@ -215,7 +216,10 @@ fbq('track', 'PageView');`,
         <LanguageProvider initialLanguage={initialLanguage}>
           <PageTransitionProvider>
             <TopNav />
-            <div className="pb-16 md:pb-0">{children}</div>
+            <div>
+              {children}
+              <SiteFooter />
+            </div>
             <FooterLink />
             <CornerIcon />
           </PageTransitionProvider>
