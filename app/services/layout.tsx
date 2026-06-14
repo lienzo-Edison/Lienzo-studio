@@ -1,13 +1,35 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Digital Marketing Services for Small Businesses",
   description:
-    "Social media management, brand identity, editorial design, and more. Marketing services for small and medium businesses in Northern Colorado and Mexico. Based in Fort Lupton, CO.",
+    "Explore bilingual social media management, brand identity, content creation, graphic design, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
+  keywords: [
+    "digital marketing services for small businesses",
+    "social media management Colorado",
+    "brand identity for small businesses",
+    "content creation services",
+    "graphic design services",
+    "website design for small businesses",
+    "local SEO services Colorado",
+    "Google Business Profile optimization",
+    "bilingual marketing agency",
+    "marketing services Mexico",
+  ],
+  alternates: {
+    canonical: "/services",
+  },
   openGraph: {
-    title: "Services | Lienzo Studio | Marketing Agency Fort Lupton, CO",
+    url: "/services",
+    title: "Digital Marketing Services for Small Businesses | Lienzo Studio",
     description:
-      "Explore Lienzo Studio's full range of services: social media management, paid ads, brand identity, and editorial design for businesses in Northern Colorado and Mexico.",
+      "Branding, social media, content, graphic design, website design, and local SEO from a bilingual studio serving Colorado, Mexico, and LATAM.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing Services for Small Businesses | Lienzo Studio",
+    description:
+      "Bilingual branding, social media, content, website design, graphic design, and local SEO for small businesses.",
   },
 };
 
