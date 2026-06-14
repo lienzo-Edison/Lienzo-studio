@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Lienzo Studio",
   },
   description:
-    "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Fort Lupton-based agency with strategy-led marketing.",
+    "Bilingual branding, social media management, content creation, graphic design, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
   keywords: [
     "social media management Northern Colorado",
     "social media agency Fort Lupton CO",
@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     "digital marketing Northern Colorado",
     "brand identity Colorado",
     "logo design Northern Colorado",
+    "content creation Colorado",
+    "website design for small businesses",
+    "local SEO Colorado",
+    "Google Business Profile optimization",
+    "bilingual marketing support",
     "marketing agency Greeley CO",
     "agencia de redes sociales Durango México",
     "manejo de redes sociales México",
@@ -54,7 +59,7 @@ export const metadata: Metadata = {
     url: "https://lienzo.studio",
     title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
-      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Strategy-led agency based in Fort Lupton, CO.",
+      "Bilingual branding, social media management, content creation, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
     images: [
       {
         url: "/android-chrome-512x512.png",
@@ -68,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
     description:
-      "Social media management, paid ads, and brand identity for small and medium businesses in Northern Colorado and Mexico. Strategy-led agency based in Fort Lupton, CO.",
+      "Bilingual branding, social media management, content creation, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
     images: ["/android-chrome-512x512.png"],
   },
 };
@@ -95,7 +100,7 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Lienzo Studio",
-              "description": "Social media management, paid advertising, and brand identity agency serving Northern Colorado and Mexico.",
+              "description": "Bilingual digital marketing studio providing branding, social media management, content creation, graphic design, website design, and local SEO for small businesses.",
               "url": "https://lienzo.studio",
               "telephone": "+17209907795",
               "email": "sales@lienzo.studio",
@@ -115,14 +120,21 @@ export default async function RootLayout({
                   "@type": "Country",
                   "name": "Mexico",
                 },
+                {
+                  "@type": "Place",
+                  "name": "Latin America",
+                },
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Marketing Services",
                 "itemListElement": [
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Advertising (Google & Meta Ads)" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity & Logo Design" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Graphic Design" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO and Google Business Profile Optimization" } },
                 ],
               },
               "openingHours": "Mo-Su 00:00-23:59",

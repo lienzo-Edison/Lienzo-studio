@@ -7,6 +7,7 @@ import { getTranslations } from "@/lib/i18n";
 import ColorBends from "@/components/ColorBends";
 import SpotlightCard from "@/components/SpotlightCard";
 import TransitionLink from "@/components/TransitionLink";
+import ServicesSection from "@/components/ServicesSection";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -163,6 +164,8 @@ export default function Home() {
           </motion.article>
         </div>
       </section>
+
+      <ServicesSection />
 
       {/* Audience Segments Section */}
       <section className="relative px-6 pb-12 pt-2 md:pt-4">
