@@ -184,7 +184,7 @@ export default function TopNav() {
                         <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
                           {language === "es" ? "Tema" : "Theme"}
                         </span>
-                        <ThemeToggle />
+                        <ThemeToggle menuPlacement="top" />
                       </div>
                     </div>
                   </div>

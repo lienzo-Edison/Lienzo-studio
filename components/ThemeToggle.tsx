@@ -8,6 +8,11 @@ const THEME_EVENT = "themechange";
 
 type Theme = "light" | "dark";
 type Mode = "system" | Theme;
+type MenuPlacement = "bottom" | "top";
+
+type ThemeToggleProps = {
+  menuPlacement?: MenuPlacement;
+};
 
 const getSystemTheme = () =>
   typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -69,7 +74,7 @@ const subscribeToTheme = (onStoreChange: () => void) => {
   };
 };
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ menuPlacement = "bottom" }: ThemeToggleProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const snapshot = useSyncExternalStore(
@@ -77,7 +82,7 @@ export default function ThemeToggle() {
     getThemeSnapshot,
     getServerThemeSnapshot,
   );
-  const [mode, theme] = snapshot.split(":") as [Mode, Theme];
+  const [mode] = snapshot.split(":") as [Mode, Theme];
 
   const applyMode = (next: Mode, persistOverride = false) => {
     const resolved = next === "system" ? getSystemTheme() : next;
@@ -92,8 +97,9 @@ export default function ThemeToggle() {
     }
   };
 
-  const isDark = theme === "dark";
   const modeLabel = mode === "system" ? "System" : mode === "dark" ? "Dark" : "Light";
+  const menuPositionClass =
+    menuPlacement === "top" ? "bottom-full mb-2" : "top-full mt-2";
 
   useEffect(() => {
     if (!open) return;
@@ -120,8 +126,8 @@ export default function ThemeToggle() {
       >
         {mode === "system" ? (
           <svg
-            width="16"
-            height="16"
+            width="17"
+            height="17"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -129,80 +135,40 @@ export default function ThemeToggle() {
             className="text-current"
           >
             <path
-              d="M6.5 7.5h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"
+              d="M5.25 6.75h13.5a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8a1.5 1.5 0 0 1 1.5-1.5Z"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="1.7"
+              strokeLinejoin="round"
             />
             <path
-              d="M9 17.5v2h6v-2"
+              d="M9 20.25h6M12 17.75v2.5"
               stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M6.2 10.2c1.2-1.2 3.4-1.2 4.6 0"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M13.2 10.2c1.2-1.2 3.4-1.2 4.6 0"
-              stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="1.7"
               strokeLinecap="round"
             />
           </svg>
-        ) : isDark ? (
+        ) : mode === "light" ? (
           <svg
-            width="16"
-            height="16"
+            width="17"
+            height="17"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             className="text-current"
           >
+            <circle cx="12" cy="12" r="4.25" stroke="currentColor" strokeWidth="1.8" />
             <path
-              d="M12 3.25c.5 0 .9.4.9.9v2.1a.9.9 0 1 1-1.8 0v-2.1c0-.5.4-.9.9-.9Z"
-              fill="currentColor"
-            />
-            <path
-              d="M12 17.65a5.65 5.65 0 1 1 0-11.3 5.65 5.65 0 0 1 0 11.3Zm0-1.8a3.85 3.85 0 1 0 0-7.7 3.85 3.85 0 0 0 0 7.7Z"
-              fill="currentColor"
-            />
-            <path
-              d="M12 18.85c.5 0 .9.4.9.9v2.1a.9.9 0 1 1-1.8 0v-2.1c0-.5.4-.9.9-.9Z"
-              fill="currentColor"
-            />
-            <path
-              d="M5.2 6.5a.9.9 0 0 1 1.27 0l1.49 1.49a.9.9 0 0 1-1.27 1.27L5.2 7.77a.9.9 0 0 1 0-1.27Z"
-              fill="currentColor"
-            />
-            <path
-              d="M16.04 16.04a.9.9 0 0 1 1.27 0l1.49 1.49a.9.9 0 0 1-1.27 1.27l-1.49-1.49a.9.9 0 0 1 0-1.27Z"
-              fill="currentColor"
-            />
-            <path
-              d="M3.25 12c0-.5.4-.9.9-.9h2.1a.9.9 0 1 1 0 1.8h-2.1c-.5 0-.9-.4-.9-.9Z"
-              fill="currentColor"
-            />
-            <path
-              d="M18.85 12c0-.5.4-.9.9-.9h2.1a.9.9 0 1 1 0 1.8h-2.1c-.5 0-.9-.4-.9-.9Z"
-              fill="currentColor"
-            />
-            <path
-              d="M5.2 17.5a.9.9 0 0 1 1.27 0l1.49 1.49a.9.9 0 0 1-1.27 1.27L5.2 18.77a.9.9 0 0 1 0-1.27Z"
-              fill="currentColor"
-            />
-            <path
-              d="M16.04 7.96a.9.9 0 0 1 1.27 0l1.49 1.49a.9.9 0 0 1-1.27 1.27l-1.49-1.49a.9.9 0 0 1 0-1.27Z"
-              fill="currentColor"
+              d="M12 2.75v2.2M12 19.05v2.2M21.25 12h-2.2M4.95 12h-2.2M18.55 5.45l-1.55 1.55M7 17l-1.55 1.55M18.55 18.55 17 17M7 7 5.45 5.45"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
             />
           </svg>
         ) : (
           <svg
-            width="16"
-            height="16"
+            width="17"
+            height="17"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -210,8 +176,11 @@ export default function ThemeToggle() {
             className="text-current"
           >
             <path
-              d="M14.8 3.6a.9.9 0 0 1 .92 1.2A7.2 7.2 0 0 0 20 12a7.2 7.2 0 0 0-7.2 7.2.9.9 0 0 1-1.2.92A9.4 9.4 0 1 1 14.8 3.6Zm-2.4 2.2a7.6 7.6 0 1 0 6.9 11.3 9 9 0 0 1-6.9-11.3Z"
-              fill="currentColor"
+              d="M20.25 15.35A8.35 8.35 0 0 1 8.65 3.75a7 7 0 1 0 11.6 11.6Z"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         )}
@@ -220,7 +189,7 @@ export default function ThemeToggle() {
         <div
           role="menu"
           aria-label="Theme options"
-          className="absolute right-0 mt-2 w-36 rounded-2xl border border-black/10 bg-[#f6f1e7]/95 p-1 text-xs uppercase tracking-[0.2em] text-black shadow-[0_16px_40px_rgba(0,0,0,0.12)] backdrop-blur dark:border-white/15 dark:bg-[#151c24]/95 dark:text-[#f6f1e7]"
+          className={`absolute right-0 z-10 w-36 rounded-2xl border border-black/10 bg-[#f6f1e7]/95 p-1 text-xs uppercase tracking-[0.2em] text-black shadow-[0_16px_40px_rgba(0,0,0,0.12)] backdrop-blur dark:border-white/15 dark:bg-[#151c24]/95 dark:text-[#f6f1e7] ${menuPositionClass}`}
         >
           {(["system", "light", "dark"] as Mode[]).map((option) => (
             <button

@@ -43,7 +43,14 @@ const copy = {
     title: "Creative and marketing services built for small businesses.",
     intro:
       "Lienzo Studio is a bilingual digital marketing studio that combines branding, content creation, social media management, website design, graphic design, and local SEO to help small businesses build a stronger digital presence. Whether you are starting from zero or ready to look more consistent and professional, we create systems that help customers trust you faster.",
-    cardLabel: "Service",
+    cardKickers: {
+      "social-media-management": "Instagram / Facebook / rhythm",
+      "brand-identity": "Strategy before aesthetic",
+      "content-creation": "Ideas with a point",
+      "graphic-design": "Design with a job",
+      "website-design": "Pages that pull weight",
+      "local-seo": "Google should know where to put you",
+    },
     connectionTitle: "Built to work together.",
     connectionBody:
       "Brand identity gives your business a clear foundation. Social media keeps that identity active. Website pages explain your services. Local SEO and an optimized Google Business Profile help customers find you. Together, these pieces create a stronger online presence than any single post or design can achieve alone.",
@@ -74,7 +81,14 @@ const copy = {
     title: "Servicios creativos y de marketing para pequeños negocios.",
     intro:
       "Lienzo Studio es un estudio bilingüe de marketing digital que combina branding, creación de contenido, manejo de redes sociales, diseño web, diseño gráfico y SEO local para ayudar a pequeños negocios a construir una presencia digital más fuerte. Ya sea que empieces desde cero o quieras verte más consistente y profesional, creamos sistemas que ayudan a tus clientes a confiar más rápido.",
-    cardLabel: "Servicio",
+    cardKickers: {
+      "social-media-management": "Instagram / Facebook / ritmo",
+      "brand-identity": "Estrategia antes que estética",
+      "content-creation": "Ideas con intención",
+      "graphic-design": "Diseño con propósito",
+      "website-design": "Páginas que sostienen el mensaje",
+      "local-seo": "Google debe saber dónde ponerte",
+    },
     connectionTitle: "Creados para trabajar juntos.",
     connectionBody:
       "La identidad de marca da una base clara a tu negocio. Las redes sociales mantienen esa identidad activa. Las páginas web explican tus servicios. El SEO local y un Google Business Profile optimizado ayudan a que tus clientes te encuentren. Juntas, estas piezas crean una presencia más fuerte que cualquier publicación o diseño por separado.",
@@ -105,6 +119,7 @@ const copy = {
 export default function ServicesSection() {
   const { language } = useLanguage();
   const c = copy[language];
+  const cardKickers: Record<string, string> = c.cardKickers;
 
   return (
     <section
@@ -153,8 +168,8 @@ export default function ServicesSection() {
                   spotlightColor={accent.spotlight}
                 >
                   <div className="relative z-[1] flex h-full flex-col">
-                    <p className={`text-[10px] font-display font-bold uppercase tracking-[0.28em] ${accent.label}`}>
-                      {c.cardLabel} {String(index + 1).padStart(2, "0")}
+                    <p className={`min-h-[2.1rem] text-[10px] font-display font-bold uppercase leading-relaxed tracking-[0.24em] ${accent.label}`}>
+                      {cardKickers[service.slug] ?? service.title[language]}
                     </p>
                     <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-foreground">
                       {service.title[language]}
@@ -286,4 +301,3 @@ export default function ServicesSection() {
     </section>
   );
 }
-
