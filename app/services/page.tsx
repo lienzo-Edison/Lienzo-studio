@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import TransitionLink from "@/components/TransitionLink";
 import SpotlightCard from "@/components/SpotlightCard";
+import { nicheServices } from "@/lib/nicheServices";
 import { services, type ServiceAccent } from "@/lib/services";
 
 const fadeUp = {
@@ -60,6 +61,18 @@ const pageCopy = {
     servicesIntro:
       "Choose one focused service or combine several into a connected marketing system. Each option is shaped around your business, audience, and current stage of growth.",
     serviceLabel: "Service",
+    cardKickers: {
+      "social-media-management": "Instagram / Facebook / rhythm",
+      "brand-identity": "Strategy before aesthetic",
+      "content-creation": "Ideas with a point",
+      "graphic-design": "Design with a job",
+      "website-design": "Pages that pull weight",
+      "local-seo": "Google should know where to put you",
+    },
+    specialtyEyebrow: "Specialty Marketing Pages",
+    specialtyTitle: "Focused support for Hispanic, Mexican, Latino, bilingual, and Mexico-based businesses",
+    specialtyIntro:
+      "These pages explain our most specific areas of expertise for businesses looking for bilingual marketing, Mexico-focused services, and culturally fluent support.",
     outcomesEyebrow: "What This Work Supports",
     outcomesTitle: "More than polished visuals",
     outcomesIntro:
@@ -167,6 +180,18 @@ const pageCopy = {
     servicesIntro:
       "Elige un servicio específico o combina varios en un sistema de marketing conectado. Cada opción se adapta a tu negocio, audiencia y etapa de crecimiento.",
     serviceLabel: "Servicio",
+    cardKickers: {
+      "social-media-management": "Instagram / Facebook / ritmo",
+      "brand-identity": "Estrategia antes que estética",
+      "content-creation": "Ideas con intención",
+      "graphic-design": "Diseño con propósito",
+      "website-design": "Páginas que sostienen el mensaje",
+      "local-seo": "Google debe saber dónde ponerte",
+    },
+    specialtyEyebrow: "Páginas Especializadas",
+    specialtyTitle: "Apoyo enfocado para negocios hispanos, mexicanos, latinos, bilingües y basados en México",
+    specialtyIntro:
+      "Estas páginas explican nuestras áreas de experiencia más específicas para negocios que buscan marketing bilingüe, servicios enfocados en México y apoyo culturalmente natural.",
     outcomesEyebrow: "Lo Que Apoya Este Trabajo",
     outcomesTitle: "Más que visuales atractivos",
     outcomesIntro:
@@ -267,6 +292,7 @@ const pageCopy = {
 export default function ServicesPage() {
   const { language } = useLanguage();
   const c = pageCopy[language];
+  const cardKickers: Record<string, string> = c.cardKickers;
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -372,7 +398,7 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.08 }}
           >
-            {services.map((service, index) => {
+            {services.map((service) => {
               const accent = accentStyles[service.accent];
 
               return (
@@ -382,12 +408,12 @@ export default function ServicesPage() {
                     spotlightColor={accent.spotlight}
                   >
                     <div className="relative z-[1] flex h-full flex-col">
-                      <p className={`text-[10px] font-display font-bold uppercase tracking-[0.28em] ${accent.label}`}>
-                        {c.serviceLabel} {String(index + 1).padStart(2, "0")}
+                      <p className={`min-h-[2.1rem] text-[10px] font-display font-bold uppercase leading-relaxed tracking-[0.24em] ${accent.label}`}>
+                        {cardKickers[service.slug] ?? service.title[language]}
                       </p>
-                      <h2 className="mt-4 font-display text-2xl font-bold leading-tight">
+                      <h3 className="mt-4 font-display text-2xl font-bold leading-tight">
                         {service.title[language]}
-                      </h2>
+                      </h3>
                       <p className="mt-4 text-sm leading-relaxed text-black/65 dark:text-white/65">
                         {service.description[language]}
                       </p>
@@ -421,6 +447,55 @@ export default function ServicesPage() {
                 </motion.article>
               );
             })}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-24">
+        <div className="mx-auto max-w-6xl">
+          <motion.header
+            className="max-w-3xl"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <p className="text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a]">
+              {c.specialtyEyebrow}
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl">
+              {c.specialtyTitle}
+            </h2>
+            <p className="mt-5 text-sm leading-relaxed text-black/65 md:text-base dark:text-white/65">
+              {c.specialtyIntro}
+            </p>
+          </motion.header>
+
+          <motion.div
+            className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.08 }}
+          >
+            {nicheServices.map((service) => (
+              <motion.div key={service.slug} variants={fadeUp}>
+                <TransitionLink
+                  href={`/services/${service.slug}`}
+                  className="block h-full rounded-2xl border border-black/10 bg-white p-5 transition hover:border-[#a61b00]/40 hover:shadow-sm dark:border-white/10 dark:bg-[#151c24] dark:hover:border-[#ff8f7a]/40"
+                >
+                  <p className="text-[10px] font-display font-bold uppercase tracking-[0.24em] text-[#254566] dark:text-[#8fb2d6]">
+                    {service.eyebrow}
+                  </p>
+                  <h3 className="mt-3 font-display text-xl font-bold leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-black/60 dark:text-white/60">
+                    {service.answer}
+                  </p>
+                </TransitionLink>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

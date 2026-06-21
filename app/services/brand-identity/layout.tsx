@@ -3,11 +3,21 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Brand Identity & Strategy",
   description:
-    "Professional logo design and brand identity for small businesses in Northern Colorado and Mexico. Logo, color palette, typography, and brand guidelines. Built from scratch or redesigned. Based in Fort Lupton, CO.",
+    "Brand identity and logo design for small businesses in Colorado and Mexico, including color, typography, guidelines, and visual direction.",
+  alternates: {
+    canonical: "/services/brand-identity",
+  },
   openGraph: {
-    title: "Brand Identity & Logo Design | Lienzo Studio | Northern Colorado",
+    url: "/services/brand-identity",
+    title: "Brand Identity & Logo Design | Lienzo Studio",
     description:
-      "Customized logo design, color palettes, typography, visual direction, and brand applications for businesses in Northern Colorado and Mexico. Contact us for a tailored proposal.",
+      "Logo design, color palettes, typography, visual direction, and brand applications for businesses in Colorado and Mexico.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brand Identity & Logo Design | Lienzo Studio",
+    description:
+      "Brand identity and logo design for small businesses in Colorado and Mexico.",
   },
 };
 

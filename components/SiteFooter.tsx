@@ -7,6 +7,11 @@ export default function SiteFooter() {
   const { language } = useLanguage();
   const label = language === "es" ? "Hecho con" : "Made with";
   const by = language === "es" ? "por" : "by";
+  const services = language === "es" ? "Servicios" : "Services";
+  const industries = language === "es" ? "Industrias" : "Industries";
+  const locations = language === "es" ? "Ubicaciones" : "Locations";
+  const about = language === "es" ? "Acerca" : "About";
+  const bilingual = language === "es" ? "Marketing Bilingüe" : "Bilingual Marketing";
 
   return (
     <footer className="px-6 pb-24 pt-8 text-center md:pb-20">
@@ -32,6 +37,26 @@ export default function SiteFooter() {
             Lienzo Studio
           </TransitionLink>
         </p>
+        <nav
+          aria-label={language === "es" ? "Enlaces SEO" : "SEO links"}
+          className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-black/45 dark:text-white/45"
+        >
+          <TransitionLink href="/services" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
+            {services}
+          </TransitionLink>
+          <TransitionLink href="/industries" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
+            {industries}
+          </TransitionLink>
+          <TransitionLink href="/locations" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
+            {locations}
+          </TransitionLink>
+          <TransitionLink href="/about" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
+            {about}
+          </TransitionLink>
+          <TransitionLink href="/services/bilingual-marketing-agency" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
+            {bilingual}
+          </TransitionLink>
+        </nav>
       </div>
     </footer>
   );

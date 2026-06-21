@@ -9,6 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 import { cookies, headers } from "next/headers";
 import { getLocaleFromAcceptLanguage, isLocale } from "@/lib/i18n";
+import { buildLocalBusinessSchema } from "@/lib/schema";
 import Script from "next/script";
 
 const hostGrotesk = localFont({
@@ -26,7 +27,7 @@ const onlyGraphic = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lienzo.studio"),
   title: {
-    default: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
+    default: "Lienzo Studio | Bilingual Marketing Agency",
     template: "%s | Lienzo Studio",
   },
   description:
@@ -56,11 +57,18 @@ export const metadata: Metadata = {
     shortcut: "/favicon-32x32.png",
   },
   manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     url: "https://lienzo.studio",
-    title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
+    title: "Lienzo Studio | Bilingual Marketing Agency",
     description:
       "Bilingual branding, social media management, content creation, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
+    type: "website",
+    siteName: "Lienzo Studio",
+    locale: "en_US",
+    alternateLocale: "es_MX",
     images: [
       {
         url: "/android-chrome-512x512.png",
@@ -72,7 +80,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lienzo Studio | Social Media Management & Marketing Agency - Northern Colorado",
+    title: "Lienzo Studio | Bilingual Marketing Agency",
     description:
       "Bilingual branding, social media management, content creation, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
     images: ["/android-chrome-512x512.png"],
@@ -98,51 +106,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Lienzo Studio",
-              "description": "Bilingual digital marketing studio providing branding, social media management, content creation, graphic design, website design, and local SEO for small businesses.",
-              "url": "https://lienzo.studio",
-              "telephone": "+17209907795",
-              "email": "sales@lienzo.studio",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Fort Lupton",
-                "addressRegion": "CO",
-                "addressCountry": "US",
-              },
-              "areaServed": [
-                {
-                  "@type": "State",
-                  "name": "Colorado",
-                  "containedInPlace": { "@type": "Country", "name": "United States" },
-                },
-                {
-                  "@type": "Country",
-                  "name": "Mexico",
-                },
-                {
-                  "@type": "Place",
-                  "name": "Latin America",
-                },
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Marketing Services",
-                "itemListElement": [
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Graphic Design" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO and Google Business Profile Optimization" } },
-                ],
-              },
-              "openingHours": "Mo-Su 00:00-23:59",
-              "sameAs": [
-                "https://www.instagram.com/_lienzostudio/",
-                "https://www.facebook.com/people/Lienzo-Studio/61588545936546/",
-              ],
+              ...buildLocalBusinessSchema(),
             }),
           }}
         />

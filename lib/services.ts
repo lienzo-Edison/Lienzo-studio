@@ -97,7 +97,7 @@ export const services: ServiceDefinition[] = [
   {
     slug: "content-creation",
     href: "/services/content-creation",
-    published: false,
+    published: true,
     accent: "green",
     title: {
       en: "Content Creation",
@@ -129,7 +129,7 @@ export const services: ServiceDefinition[] = [
   {
     slug: "graphic-design",
     href: "/services/graphic-design",
-    published: false,
+    published: true,
     accent: "red",
     title: {
       en: "Graphic Design",
@@ -161,7 +161,7 @@ export const services: ServiceDefinition[] = [
   {
     slug: "website-design",
     href: "/services/website-design",
-    published: false,
+    published: true,
     accent: "blue",
     title: {
       en: "Website Design",
@@ -193,7 +193,7 @@ export const services: ServiceDefinition[] = [
   {
     slug: "local-seo",
     href: "/services/local-seo",
-    published: false,
+    published: true,
     accent: "green",
     title: {
       en: "Local SEO & Google Visibility",
@@ -223,4 +223,3 @@ export const services: ServiceDefinition[] = [
     },
   },
 ];
-
