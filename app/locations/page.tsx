@@ -26,7 +26,7 @@ export default function LocationsPage() {
           eyebrow: "Where We Work",
           title: "Colorado & Mexico",
           subtitle:
-            "Our work spans two markets. Rooted in Durango, Mexico and based in Fort Lupton, CO, we bring the same quality and approach to businesses across the Front Range and throughout Northern Mexico.",
+            "Our work spans two markets. Rooted in Durango, Mexico and serving the Colorado Front Range remotely, we bring the same quality and approach to businesses across Colorado and throughout Northern Mexico.",
 
           usSectionEyebrow: "United States",
           usSectionTitle: "Colorado: The Front Range",
@@ -37,7 +37,7 @@ export default function LocationsPage() {
           mxSectionEyebrow: "Mexico",
           mxSectionTitle: "Durango & Northern Mexico",
           mxSectionSubtitle: "This is where Lienzo was built. We have deep experience working with businesses in Durango and are open to working with clients throughout the surrounding northern states.",
-          hqLabel: "Headquarters",
+          hqLabel: "Service Area",
           homeBaseLabel: "Creative Roots",
           expandingLabel: "Serving This Region",
 
@@ -54,7 +54,7 @@ export default function LocationsPage() {
           eyebrow: "Dónde Trabajamos",
           title: "Colorado y México",
           subtitle:
-            "Nuestro trabajo abarca dos mercados. Con raíces en Durango, México y base en Fort Lupton, CO, llevamos la misma calidad y enfoque a negocios en el Front Range y en todo el norte de México.",
+            "Nuestro trabajo abarca dos mercados. Con raíces en Durango, México y servicio remoto en el Front Range de Colorado, llevamos la misma calidad y enfoque a negocios en Colorado y en todo el norte de México.",
 
           usSectionEyebrow: "Estados Unidos",
           usSectionTitle: "Colorado: El Front Range",
@@ -65,7 +65,7 @@ export default function LocationsPage() {
           mxSectionEyebrow: "México",
           mxSectionTitle: "Durango y el Norte de México",
           mxSectionSubtitle: "Aquí es donde nació Lienzo. Tenemos amplia experiencia trabajando con negocios en Durango y estamos abiertos a trabajar con clientes en los estados del norte que nos rodean.",
-          hqLabel: "Sede Principal",
+          hqLabel: "Área de Servicio",
           homeBaseLabel: "Raíces Creativas",
           expandingLabel: "Sirviendo Esta Región",
 

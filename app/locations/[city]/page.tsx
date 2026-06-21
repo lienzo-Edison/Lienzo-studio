@@ -7,6 +7,7 @@ import TransitionLink from "@/components/TransitionLink";
 import SpotlightCard from "@/components/SpotlightCard";
 import { getCityBySlug } from "@/lib/cities";
 import { getMexicoRegionBySlug } from "@/lib/mexicoRegions";
+import { getPriorityLocationBySlug } from "@/lib/priorityLocations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -25,8 +26,90 @@ export default function CityPage() {
 
   const city = getCityBySlug(slug);
   const region = !city ? getMexicoRegionBySlug(slug) : undefined;
+  const priorityLocation = !city && !region ? getPriorityLocationBySlug(slug) : undefined;
 
-  if (!city && !region) notFound();
+  if (!city && !region && !priorityLocation) notFound();
+
+  if (priorityLocation) {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Marketing services in ${priorityLocation.name}`,
+      description: priorityLocation.metaDescription,
+      url: `https://lienzo.studio/locations/${priorityLocation.slug}`,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "Lienzo Studio",
+        url: "https://lienzo.studio",
+      },
+      areaServed: priorityLocation.name,
+    };
+
+    return (
+      <main className="min-h-screen bg-background px-6 pb-24 pt-32 text-foreground md:pt-40">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <section className="mx-auto max-w-4xl">
+          <TransitionLink
+            href="/locations"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-black/45 transition hover:text-black/70 dark:text-white/45 dark:hover:text-white/70"
+          >
+            {language === "es" ? "← Todas las Ubicaciones" : "← All Locations"}
+          </TransitionLink>
+          <p className="mt-8 text-xs font-display font-bold uppercase tracking-[0.3em] text-[#a61b00] dark:text-[#ff8f7a]">
+            {priorityLocation.eyebrow}
+          </p>
+          <h1 className="mt-5 text-balance font-display text-4xl font-bold leading-tight md:text-6xl">
+            {priorityLocation.headline}
+          </h1>
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-black/65 md:text-lg dark:text-white/65">
+            {priorityLocation.intro}
+          </p>
+        </section>
+
+        <section className="mx-auto mt-16 grid max-w-6xl gap-6 lg:grid-cols-2">
+          <article className="rounded-[1.5rem] border border-black/10 bg-white p-7 dark:border-white/10 dark:bg-[#151c24]">
+            <h2 className="font-display text-2xl font-bold">Local relevance signals</h2>
+            <ul className="mt-5 space-y-3">
+              {priorityLocation.marketSignals.map((item) => (
+                <li key={item} className="text-sm leading-relaxed text-black/70 dark:text-white/70">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+          <article className="rounded-[1.5rem] border border-black/10 bg-white p-7 dark:border-white/10 dark:bg-[#151c24]">
+            <h2 className="font-display text-2xl font-bold">Services that fit this market</h2>
+            <ul className="mt-5 space-y-3">
+              {priorityLocation.serviceFit.map((item) => (
+                <li key={item} className="text-sm leading-relaxed text-black/70 dark:text-white/70">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <section className="mx-auto mt-16 max-w-5xl rounded-[1.5rem] bg-[#a61b00] p-8 text-white md:p-12">
+          <h2 className="font-display text-3xl font-bold">
+            Need marketing support in {priorityLocation.name}?
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 md:text-base">
+            We can help define the right starting point for your brand, social media,
+            content, website, or local search visibility.
+          </p>
+          <TransitionLink
+            href="/contact"
+            className="mt-7 inline-flex rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#a61b00] transition hover:bg-[#f6f1e7]"
+          >
+            {language === "es" ? "Contactar a Lienzo" : "Contact Lienzo"}
+          </TransitionLink>
+        </section>
+      </main>
+    );
+  }
 
   const isMexico = !!region;
 

@@ -180,7 +180,7 @@ export const translations: Record<Locale, Translations> = {
       locationsEyebrow: "Where We Work",
       locationsTitle: "From Mexico to the Front Range",
       locationsBody:
-        "We built our foundation working with businesses in Durango, Mexico, developing deep experience in brand, design, and content creation. Based in Fort Lupton, CO, we are now bringing that same quality and approach to small and medium businesses across the Front Range and the Denver metro.",
+        "We built our foundation working with businesses in Durango, Mexico, developing deep experience in brand, design, and content creation. We now serve small and medium businesses remotely across the Colorado Front Range, the Denver metro, and Mexico.",
       locationsCta: "See All Locations",
       teamTitle: "Meet The Team",
       teamSubtitle:
@@ -434,7 +434,7 @@ export const translations: Record<Locale, Translations> = {
       locationsEyebrow: "Dónde Trabajamos",
       locationsTitle: "De México al Front Range",
       locationsBody:
-        "Construimos nuestra base trabajando con negocios en Durango, México, desarrollando experiencia profunda en marca, diseño y creación de contenido. Con base en Fort Lupton, CO, ahora llevamos esa misma calidad y enfoque a pequeñas y medianas empresas en el Front Range y el metro de Denver.",
+        "Construimos nuestra base trabajando con negocios en Durango, México, desarrollando experiencia profunda en marca, diseño y creación de contenido. Ahora atendemos de forma remota a pequeñas y medianas empresas en el Front Range de Colorado, el metro de Denver y México.",
       locationsCta: "Ver Todas las Ciudades",
       teamTitle: "Conoce al Equipo",
       teamSubtitle:

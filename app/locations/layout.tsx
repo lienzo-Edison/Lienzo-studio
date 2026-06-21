@@ -3,11 +3,21 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Locations Served",
   description:
-    "Lienzo Studio serves small and medium businesses across Northern Colorado and the Denver metro area. Social media management and brand identity in Greeley, Longmont, Brighton, Loveland, Fort Collins, Boulder, Thornton, Northglenn, Broomfield, and Commerce City.",
+    "Lienzo Studio serves small businesses in Fort Lupton, Denver, Colorado, Mexico, and LATAM with bilingual social media, branding, and design.",
+  alternates: {
+    canonical: "/locations",
+  },
   openGraph: {
-    title: "Locations Served | Lienzo Studio | Northern Colorado & Denver Metro",
+    url: "/locations",
+    title: "Locations Served | Lienzo Studio",
     description:
-      "Social media management and brand identity for businesses across Northern Colorado and the northern Denver metro. Based in Fort Lupton, CO.",
+      "Bilingual social media management, brand identity, and design for businesses in Colorado, Mexico, and LATAM.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Locations Served | Lienzo Studio",
+    description:
+      "Bilingual marketing services for businesses in Fort Lupton, Denver, Colorado, Mexico, and LATAM.",
   },
 };
 

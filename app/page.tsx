@@ -87,14 +87,14 @@ export default function Home() {
                   priority
                 />
               </div>
-              <motion.p
+              <motion.h1
                 className="max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
               >
                 {t.home.heroSubtitle}
-              </motion.p>
+              </motion.h1>
             </div>
           </div>
         </div>
@@ -250,6 +250,7 @@ export default function Home() {
                           src={audienceImage.src}
                           alt={audienceImage.alt}
                           fill
+                          sizes="(min-width: 768px) 44vw, 100vw"
                           className="object-cover object-center"
                         />
                         {audienceImage.credit && (
