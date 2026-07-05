@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Our Bilingual Marketing Studio",
   description:
-    "Contact Lienzo Studio for bilingual branding, social media management, content creation, website design, graphic design, and local SEO support in Colorado, Mexico, and LATAM.",
+    "Contact Lienzo Studio for bilingual marketing, SEO, websites, campaigns, brand strategy, and design across the U.S., Mexico, and LATAM.",
   alternates: {
     canonical: "/contact",
   },
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: "/contact",
     title: "Contact Lienzo Studio | Bilingual Marketing & Design",
     description:
-      "Start a conversation with our bilingual creative and digital marketing studio serving small businesses in Colorado, Mexico, and LATAM.",
+      "Start a conversation with our bilingual marketing and creative studio serving established and growth-stage companies across the U.S., Mexico, and LATAM.",
   },
   twitter: {
     card: "summary_large_image",

@@ -20,7 +20,7 @@ export const nicheServices: NicheServiceDefinition[] = [
     title: "Bilingual Marketing Agency",
     metaTitle: "Bilingual Marketing Agency | Lienzo Studio",
     metaDescription:
-      "Bilingual marketing agency for English and Spanish audiences, serving Hispanic-owned, Mexican-owned, Latino-owned, and small businesses.",
+      "Bilingual marketing agency helping companies reach English-speaking, Spanish-speaking, and cross-border audiences in the United States and Mexico.",
     eyebrow: "English and Spanish Marketing",
     h1: "Bilingual Marketing Agency for English and Spanish Audiences",
     answer:
@@ -28,10 +28,10 @@ export const nicheServices: NicheServiceDefinition[] = [
     intro:
       "Bilingual marketing is not just translation. It is the work of adapting message, tone, visuals, offers, and customer context so a brand feels natural to Spanish-speaking, English-speaking, and bicultural audiences.",
     audiences: [
-      "Hispanic-owned businesses",
-      "Mexican-owned businesses",
-      "Latino-owned businesses",
-      "Small businesses serving bilingual communities",
+      "Companies serving Spanish-speaking customers",
+      "Organizations with bilingual teams",
+      "Brands expanding between the United States and Mexico",
+      "Companies operating across borders",
     ],
     included: [
       "English and Spanish brand messaging",
@@ -43,12 +43,12 @@ export const nicheServices: NicheServiceDefinition[] = [
     authoritySignals: [
       "Rooted in Durango, Mexico and serving the Colorado Front Range remotely",
       "Built around Spanish and English communication",
-      "Focused on small businesses, restaurants, service companies, and entrepreneurs",
+      "Built for established companies, growing brands, and professional teams",
     ],
     relatedLinks: [
-      { label: "Hispanic-Owned Businesses", href: "/industries/hispanic-owned-businesses" },
-      { label: "Mexican-Owned Businesses", href: "/industries/mexican-owned-businesses" },
-      { label: "Mexico", href: "/locations/mexico" },
+      { label: "Bilingual & Cross-Border Companies", href: "/industries/bilingual-cross-border-companies" },
+      { label: "Marketing in Mexico", href: "/locations/mexico" },
+      { label: "All Industries", href: "/industries" },
     ],
     faqs: [
       {
@@ -445,3 +445,12 @@ export const nicheServices: NicheServiceDefinition[] = [
 export function getNicheServiceBySlug(slug: string): NicheServiceDefinition | undefined {
   return nicheServices.find((service) => service.slug === slug);
 }
+
+export const consolidatedAudienceServiceRedirects: Record<string, string> = {
+  "marketing-agency-for-hispanic-businesses": "/services/bilingual-marketing-agency",
+  "latino-owned-business-marketing": "/services/bilingual-marketing-agency",
+};
+
+export const publicNicheServices = nicheServices.filter(
+  (service) => !(service.slug in consolidatedAudienceServiceRedirects),
+);

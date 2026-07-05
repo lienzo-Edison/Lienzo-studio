@@ -201,18 +201,15 @@ export default function Home() {
                     ? "border-[#a61b00] text-[#a61b00] hover:bg-[#a61b00] hover:text-white dark:border-[#ff8f7a] dark:text-[#ff8f7a] dark:hover:bg-[#ff8f7a] dark:hover:text-[#111820]"
                     : "border-[#2b3425] text-[#2b3425] hover:bg-[#2b3425] hover:text-white dark:border-[#8db08a] dark:text-[#8db08a] dark:hover:bg-[#8db08a] dark:hover:text-[#111820]";
 
-              const audienceImage =
+              const audienceImage: {
+                src: string;
+                alt: string;
+                credit: { href: string; label: string } | null;
+              } =
                 idx === 0
-                  ? { src: "/projects/P3/Dulce_03.png", alt: "Dulce Michi brand storefront", credit: null }
+                  ? { src: "/projects/P2/Mass_1.jpg", alt: "Mass Architecture identity system", credit: null }
                   : idx === 1
-                    ? {
-                        src: "/happy-small-business-owner-plant-shop.jpg",
-                        alt: "Small business owner in plant shop",
-                        credit: {
-                          href: "https://www.freepik.com/free-photo/happy-small-business-owner-plant-shop_17829647.htm",
-                          label: "Image by rawpixel.com on Freepik",
-                        },
-                      }
+                    ? { src: "/projects/P1/WicFix_7.jpg", alt: "WicFix technology brand system", credit: null }
                     : { src: "/projects/P4/revista_sma_4.jpg", alt: "Revista San Miguel de Allende editorial design", credit: null };
 
               return (

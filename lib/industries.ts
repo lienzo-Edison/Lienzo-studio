@@ -14,6 +14,180 @@ export type IndustryDefinition = {
 
 export const industries: IndustryDefinition[] = [
   {
+    slug: "professional-services",
+    title: "Professional Services",
+    metaTitle: "Marketing for Professional Services | Lienzo Studio",
+    metaDescription:
+      "SEO, positioning, websites, content, and brand systems for consulting, legal, engineering, accounting, and advisory firms.",
+    eyebrow: "Professional Services Marketing",
+    hero: "Turn specialized expertise into a clearer position, stronger authority, and qualified demand.",
+    intro:
+      "Lienzo Studio helps consulting, engineering, legal, accounting, and advisory firms explain complex value, improve search visibility, and build the credibility required for considered buying decisions.",
+    challenges: [
+      "Expertise is difficult to differentiate when every competitor makes similar claims.",
+      "Long sales cycles require useful evidence and consistent authority, not only awareness.",
+      "Websites and sales materials often undersell the quality of the team behind them.",
+    ],
+    services: [
+      "Positioning and messaging systems",
+      "SEO and service-page architecture",
+      "Authority content and case studies",
+      "Website strategy and conversion paths",
+      "Brand identity and sales materials",
+    ],
+    proofPoints: [
+      "Clear communication for complex, high-trust services",
+      "Connected marketing and sales enablement",
+      "Bilingual execution for cross-border markets",
+    ],
+    schemaName: "Marketing services for professional service firms",
+  },
+  {
+    slug: "technology-saas",
+    title: "Technology & SaaS",
+    metaTitle: "Marketing for Technology & SaaS | Lienzo Studio",
+    metaDescription:
+      "Positioning, SEO, websites, campaigns, content, and brand systems for technology companies and SaaS teams.",
+    eyebrow: "Technology Marketing",
+    hero: "Make a complex product easier to understand, discover, trust, and buy.",
+    intro:
+      "We help technology and SaaS companies translate product capability into a focused market position, search strategy, website story, and campaign system that supports pipeline and growth.",
+    challenges: [
+      "Product language can obscure the business outcome buyers actually care about.",
+      "Competitive categories require a sharper point of view and stronger proof.",
+      "Marketing, product, and sales assets often tell different versions of the story.",
+    ],
+    services: [
+      "Category and product positioning",
+      "SEO content architecture",
+      "Product and solution landing pages",
+      "Launch and demand-generation campaigns",
+      "Brand systems and sales enablement",
+    ],
+    proofPoints: [
+      "Strategy and creative execution in one team",
+      "Clear storytelling for technical offers",
+      "Scalable systems for multi-channel growth",
+    ],
+    schemaName: "Marketing services for technology and SaaS companies",
+  },
+  {
+    slug: "healthcare-organizations",
+    title: "Healthcare Organizations",
+    metaTitle: "Marketing for Healthcare Organizations | Lienzo Studio",
+    metaDescription:
+      "SEO, websites, content, campaigns, and brand systems for healthcare groups, clinics, and health service organizations.",
+    eyebrow: "Healthcare Marketing",
+    hero: "Clear, credible marketing for organizations built around expertise and trust.",
+    intro:
+      "Lienzo Studio helps healthcare groups and service organizations make complex offerings easier to navigate, strengthen search visibility, and communicate with clarity across patient, partner, and professional audiences.",
+    challenges: [
+      "Multiple services and audiences can make digital experiences difficult to navigate.",
+      "Trust depends on precise messaging, strong presentation, and useful information.",
+      "Organizations need consistent communications across locations, teams, and channels.",
+    ],
+    services: [
+      "Service-line messaging and architecture",
+      "SEO and educational content",
+      "Website and landing-page design",
+      "Campaign and communications systems",
+      "Brand identity and multi-location standards",
+    ],
+    proofPoints: [
+      "Clarity for complex services and diverse audiences",
+      "Bilingual English and Spanish communication",
+      "Practical systems for internal teams",
+    ],
+    schemaName: "Marketing services for healthcare organizations",
+  },
+  {
+    slug: "manufacturing-industrial",
+    title: "Manufacturing & Industrial",
+    metaTitle: "Marketing for Manufacturing & Industrial | Lienzo Studio",
+    metaDescription:
+      "SEO, websites, technical content, sales materials, and brand systems for manufacturers and industrial companies.",
+    eyebrow: "Industrial Marketing",
+    hero: "Make technical capability visible, understandable, and valuable to the right buyers.",
+    intro:
+      "We help manufacturers and industrial companies turn capabilities, processes, and market knowledge into search visibility, stronger digital experiences, and sales-ready communications.",
+    challenges: [
+      "Deep technical value is often hidden behind dated websites and generic messaging.",
+      "Buyers research capabilities, certifications, applications, and proof before contacting sales.",
+      "Distributors, partners, and end buyers need different information from the same brand.",
+    ],
+    services: [
+      "Market and capability positioning",
+      "Technical SEO and content architecture",
+      "Capability pages and case studies",
+      "Website strategy and design",
+      "Sales presentations, catalogs, and brand systems",
+    ],
+    proofPoints: [
+      "Structured communication for technical value",
+      "Search and content built around buyer research",
+      "Cross-border support for U.S. and Mexico markets",
+    ],
+    schemaName: "Marketing services for manufacturing and industrial companies",
+  },
+  {
+    slug: "real-estate-development",
+    title: "Real Estate & Development",
+    metaTitle: "Marketing for Real Estate & Development | Lienzo Studio",
+    metaDescription:
+      "Positioning, websites, SEO, campaigns, and brand systems for commercial real estate, development, and property companies.",
+    eyebrow: "Real Estate Marketing",
+    hero: "Build the story, visibility, and confidence behind high-value places and projects.",
+    intro:
+      "Lienzo Studio supports developers, commercial real estate teams, and property companies with the positioning, digital experience, campaigns, and brand systems needed to engage investors, partners, tenants, and buyers.",
+    challenges: [
+      "Different stakeholders need a clear, consistent investment and project story.",
+      "High-value projects require polished materials across long development cycles.",
+      "Digital visibility and brand confidence influence early consideration.",
+    ],
+    services: [
+      "Project and company positioning",
+      "Development websites and landing pages",
+      "SEO and market content",
+      "Launch and leasing campaigns",
+      "Investor, partner, and sales materials",
+    ],
+    proofPoints: [
+      "Integrated strategy, editorial design, and digital execution",
+      "Systems that stay consistent across project phases",
+      "Bilingual support for cross-border audiences",
+    ],
+    schemaName: "Marketing services for real estate and development companies",
+  },
+  {
+    slug: "financial-advisory",
+    title: "Financial & Advisory Firms",
+    metaTitle: "Marketing for Financial & Advisory Firms | Lienzo Studio",
+    metaDescription:
+      "Positioning, SEO, websites, thought leadership, and brand systems for financial, investment, and advisory firms.",
+    eyebrow: "Financial Services Marketing",
+    hero: "Build authority and trust before the first high-value conversation.",
+    intro:
+      "We help financial and advisory firms make expertise visible through sharper positioning, useful search content, high-trust websites, thought leadership, and consistent brand systems.",
+    challenges: [
+      "Trust must be established before a prospect is ready to speak with the team.",
+      "Specialized services are difficult to explain without sounding generic.",
+      "Thought leadership needs a repeatable system to support reputation and demand.",
+    ],
+    services: [
+      "Positioning and message architecture",
+      "SEO and thought-leadership strategy",
+      "High-trust website experiences",
+      "Reports, insights, and campaign design",
+      "Brand identity and presentation systems",
+    ],
+    proofPoints: [
+      "Clear communication for considered decisions",
+      "Editorial and digital design under one strategy",
+      "Bilingual support for U.S. and Latin American audiences",
+    ],
+    schemaName: "Marketing services for financial and advisory firms",
+  },
+  {
     slug: "restaurants",
     title: "Restaurants",
     metaTitle: "Marketing for Restaurants | Lienzo Studio",
@@ -187,7 +361,45 @@ export const industries: IndustryDefinition[] = [
     ],
     schemaName: "Marketing services for Mexican-owned businesses",
   },
+  {
+    slug: "bilingual-cross-border-companies",
+    title: "Bilingual & Cross-Border Companies",
+    metaTitle: "Marketing for Bilingual & Cross-Border Companies | Lienzo Studio",
+    metaDescription:
+      "Bilingual marketing, SEO, websites, campaigns, and brand systems for companies serving English-speaking and Spanish-speaking markets.",
+    eyebrow: "English & Spanish Marketing",
+    hero: "Marketing that works across languages, markets, and customer expectations.",
+    intro:
+      "Lienzo Studio helps companies communicate clearly with English-speaking, Spanish-speaking, and bicultural audiences. Our work connects strategy, search visibility, content, websites, and brand systems across the United States, Mexico, and LATAM.",
+    challenges: [
+      "Direct translation can lose the tone, context, and commercial meaning behind a message.",
+      "Teams operating across markets need one clear strategy with room for local relevance.",
+      "Search behavior and buyer expectations change across language and location.",
+    ],
+    services: [
+      "English and Spanish positioning and messaging",
+      "Bilingual SEO and content architecture",
+      "Cross-border website and landing-page strategy",
+      "Campaigns adapted for each market",
+      "Brand systems that stay consistent across languages",
+    ],
+    proofPoints: [
+      "A bilingual team working naturally in English and Spanish",
+      "Roots in Durango with a presence in Colorado",
+      "Experience connecting strategy and creative execution across markets",
+    ],
+    schemaName: "Marketing services for bilingual and cross-border companies",
+  },
 ];
+
+export const consolidatedAudienceIndustryRedirects: Record<string, string> = {
+  "hispanic-owned-businesses": "/industries/bilingual-cross-border-companies",
+  "latino-owned-businesses": "/industries/bilingual-cross-border-companies",
+};
+
+export const publicIndustries = industries.filter(
+  (industry) => !(industry.slug in consolidatedAudienceIndustryRedirects),
+);
 
 export function getIndustryBySlug(slug: string): IndustryDefinition | undefined {
   return industries.find((industry) => industry.slug === slug);

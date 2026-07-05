@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Brand Identity & Strategy",
   description:
-    "Brand identity and logo design for small businesses in Colorado and Mexico, including color, typography, guidelines, and visual direction.",
+    "Strategic brand identity for established and growth-stage companies, including positioning alignment, logo direction, typography, visual systems, and practical guidelines.",
   alternates: {
     canonical: "/services/brand-identity",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Brand Identity & Logo Design | Lienzo Studio",
     description:
-      "Brand identity and logo design for small businesses in Colorado and Mexico.",
+      "Strategic brand identity systems for established and growth-stage companies across the U.S. and Mexico.",
   },
 };
 

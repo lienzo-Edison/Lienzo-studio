@@ -26,9 +26,9 @@ const stagger = {
 const copy = {
   en: {
     eyebrow: "Start a Conversation",
-    title: "Let’s make your business look as professional as the work behind it.",
+    title: "Let’s turn your next business objective into a focused marketing system.",
     intro:
-      "Tell us what you are building, what feels incomplete, or where your marketing is getting stuck. Our bilingual team will help you identify a practical next step for your brand, social media, website, content, or local visibility.",
+      "Tell us the growth objective, market opportunity, or constraint you are working through. Our bilingual team will help identify the highest-leverage next step across strategy, SEO, your website, campaigns, content, or brand.",
     availability: "Serving Colorado, the United States, Mexico, and LATAM",
     directTitle: "Choose the easiest way to reach us",
     directBody:
@@ -51,23 +51,23 @@ const copy = {
     prepareBody:
       "You do not need a finished brief. A little context simply helps us understand the right place to begin.",
     prompts: [
-      "What your business offers",
-      "Which service you are considering",
-      "What feels inconsistent or incomplete",
-      "Your ideal timing or launch date",
+      "The business objective or market opportunity",
+      "Your audience and sales process",
+      "What is limiting visibility, demand, or trust",
+      "Your ideal timing, launch date, or internal deadline",
     ],
     nextEyebrow: "What Happens Next",
     nextTitle: "A clear, low-pressure first step",
     steps: [
       {
         number: "01",
-        title: "We learn about the business",
-        body: "We ask a few focused questions about your goals, audience, and current presence.",
+        title: "We understand the commercial context",
+        body: "We ask focused questions about the objective, buyers, sales cycle, current performance, and internal capacity.",
       },
       {
         number: "02",
-        title: "We recommend a direction",
-        body: "We identify the service, priorities, and scope that make the most sense right now.",
+        title: "We identify the highest-leverage move",
+        body: "We recommend the priorities, capabilities, and scope that make the strongest business case now.",
       },
       {
         number: "03",
@@ -83,9 +83,9 @@ const copy = {
   },
   es: {
     eyebrow: "Inicia una Conversación",
-    title: "Hagamos que tu negocio se vea tan profesional como el trabajo que hay detrás.",
+    title: "Convirtamos tu siguiente objetivo de negocio en un sistema de marketing enfocado.",
     intro:
-      "Cuéntanos qué estás construyendo, qué se siente incompleto o dónde se está atorando tu marketing. Nuestro equipo bilingüe te ayudará a identificar un siguiente paso práctico para tu marca, redes sociales, sitio web, contenido o visibilidad local.",
+      "Cuéntanos el objetivo de crecimiento, la oportunidad de mercado o la limitante que estás enfrentando. Nuestro equipo bilingüe identificará el siguiente paso de mayor impacto en estrategia, SEO, sitio web, campañas, contenido o marca.",
     availability: "Trabajamos en Colorado, Estados Unidos, México y LATAM",
     directTitle: "Elige la forma más fácil de contactarnos",
     directBody:
@@ -108,23 +108,23 @@ const copy = {
     prepareBody:
       "No necesitas tener un brief terminado. Un poco de contexto simplemente nos ayuda a entender por dónde empezar.",
     prompts: [
-      "Qué ofrece tu negocio",
-      "Qué servicio estás considerando",
-      "Qué se siente inconsistente o incompleto",
-      "Tu fecha ideal o fecha de lanzamiento",
+      "El objetivo de negocio o la oportunidad de mercado",
+      "Tu audiencia y proceso de ventas",
+      "Qué limita la visibilidad, demanda o confianza",
+      "Tu fecha ideal, lanzamiento o límite interno",
     ],
     nextEyebrow: "Qué Sigue",
     nextTitle: "Un primer paso claro y sin presión",
     steps: [
       {
         number: "01",
-        title: "Conocemos el negocio",
-        body: "Hacemos algunas preguntas enfocadas sobre tus metas, audiencia y presencia actual.",
+        title: "Entendemos el contexto comercial",
+        body: "Hacemos preguntas enfocadas sobre el objetivo, compradores, ciclo de ventas, desempeño actual y capacidad interna.",
       },
       {
         number: "02",
-        title: "Recomendamos una dirección",
-        body: "Identificamos el servicio, prioridades y alcance que tienen más sentido en este momento.",
+        title: "Identificamos el movimiento de mayor impacto",
+        body: "Recomendamos las prioridades, capacidades y alcance con el mejor caso de negocio en este momento.",
       },
       {
         number: "03",

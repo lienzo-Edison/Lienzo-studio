@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getNicheServiceBySlug, nicheServices } from "@/lib/nicheServices";
+import { getNicheServiceBySlug, publicNicheServices } from "@/lib/nicheServices";
 import { services } from "@/lib/services";
 
 export function generateStaticParams() {
@@ -12,7 +12,7 @@ export function generateStaticParams() {
         service.slug !== "social-media-management",
     )
     .map((service) => ({ service: service.slug }))
-    .concat(nicheServices.map((service) => ({ service: service.slug })));
+    .concat(publicNicheServices.map((service) => ({ service: service.slug })));
 }
 
 export async function generateMetadata({

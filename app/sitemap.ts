@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { cities } from "@/lib/cities";
-import { industries } from "@/lib/industries";
-import { nicheServices } from "@/lib/nicheServices";
+import { publicIndustries } from "@/lib/industries";
+import { publicNicheServices } from "@/lib/nicheServices";
 import { services } from "@/lib/services";
 import { priorityLocations } from "@/lib/priorityLocations";
 
@@ -24,19 +24,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `https://lienzo.studio${service.href}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: service.slug === "social-media-management" ? 0.95 : 0.9,
+      priority: service.slug === "local-seo" || service.slug === "website-design" ? 0.95 : 0.9,
     }));
-  const nicheServicePages: MetadataRoute.Sitemap = nicheServices.map((service) => ({
+  const nicheServicePages: MetadataRoute.Sitemap = publicNicheServices.map((service) => ({
     url: `https://lienzo.studio/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.94,
   }));
-  const industryPages: MetadataRoute.Sitemap = industries.map((industry) => ({
+  const industryPages: MetadataRoute.Sitemap = publicIndustries.map((industry) => ({
     url: `https://lienzo.studio/industries/${industry.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.8,
+    priority: ["professional-services", "technology-saas", "healthcare-organizations", "manufacturing-industrial", "real-estate-development", "financial-advisory"].includes(industry.slug) ? 0.9 : 0.8,
   }));
 
   return [

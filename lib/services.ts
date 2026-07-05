@@ -28,8 +28,8 @@ export const services: ServiceDefinition[] = [
       es: "Manejo de Redes Sociales",
     },
     description: {
-      en: "We help small businesses stay consistent on Instagram and Facebook with branded content, captions, planning, and scheduling designed to make your business look active and professional.",
-      es: "Ayudamos a pequeños negocios a mantener una presencia constante en Instagram y Facebook con contenido de marca, textos, planeación y programación que hacen que el negocio se vea activo y profesional.",
+      en: "We turn social channels into a consistent distribution system for expertise, campaigns, employer brand, and company news. Everything is planned around business priorities rather than posting for its own sake.",
+      es: "Convertimos las redes en un sistema constante de distribución para experiencia, campañas, marca empleadora y noticias de la empresa, planeado alrededor de prioridades de negocio.",
     },
     features: {
       en: [
@@ -57,8 +57,8 @@ export const services: ServiceDefinition[] = [
         es: "Manejo de Redes Sociales",
       },
       description: {
-        en: "Social media planning, branded content, captions, and scheduling for small businesses in Colorado, Mexico, and LATAM.",
-        es: "Planeación, contenido de marca, textos y programación de redes sociales para pequeños negocios en Colorado, México y LATAM.",
+        en: "Social media strategy, branded content, executive visibility, campaigns, and distribution for companies across the U.S., Mexico, and LATAM.",
+        es: "Estrategia de redes, contenido de marca, visibilidad ejecutiva, campañas y distribución para empresas en Estados Unidos, México y LATAM.",
       },
     },
   },
@@ -72,8 +72,8 @@ export const services: ServiceDefinition[] = [
       es: "Identidad de Marca",
     },
     description: {
-      en: "We create visual identity systems that give your business a professional, recognizable, and consistent look across social media, print, web, and customer touchpoints.",
-      es: "Creamos sistemas de identidad visual que dan a tu negocio una imagen profesional, reconocible y consistente en redes sociales, impresos, web y cada punto de contacto.",
+      en: "We create strategic identity systems that clarify your position and give teams a distinctive, consistent brand across marketing, sales, digital products, and customer touchpoints.",
+      es: "Creamos sistemas estratégicos de identidad que aclaran tu posición y dan al equipo una marca distintiva y consistente en marketing, ventas, productos digitales y cada punto de contacto.",
     },
     features: {
       en: ["Logo direction", "Color palette", "Typography", "Brand guidelines", "Visual consistency"],
@@ -89,8 +89,8 @@ export const services: ServiceDefinition[] = [
         es: "Identidad de Marca",
       },
       description: {
-        en: "Professional brand identity systems for small businesses, including logo direction, color, typography, and brand guidelines.",
-        es: "Sistemas profesionales de identidad de marca para pequeños negocios, incluyendo logo, color, tipografía y guía de marca.",
+        en: "Strategic brand identity systems including positioning alignment, logo direction, color, typography, and practical guidelines.",
+        es: "Sistemas estratégicos de identidad con alineación de posicionamiento, dirección de logo, color, tipografía y guías prácticas.",
       },
     },
   },
@@ -100,16 +100,16 @@ export const services: ServiceDefinition[] = [
     published: true,
     accent: "green",
     title: {
-      en: "Content Creation",
-      es: "Creación de Contenido",
+      en: "Campaigns & Content",
+      es: "Campañas y Contenido",
     },
     description: {
-      en: "We turn your ideas, offers, services, and business updates into content that feels intentional, polished, and aligned with your brand.",
-      es: "Convertimos tus ideas, ofertas, servicios y novedades en contenido intencional, pulido y alineado con tu marca.",
+      en: "We turn expertise and commercial priorities into campaigns, thought leadership, case studies, and content that build authority and move buyers toward action.",
+      es: "Convertimos experiencia y prioridades comerciales en campañas, liderazgo de opinión, casos de estudio y contenido que construyen autoridad y acercan a los compradores a la acción.",
     },
     features: {
-      en: ["Social media graphics", "Promotional content", "Educational posts", "Reels and story concepts", "Campaign visuals"],
-      es: ["Gráficos para redes", "Contenido promocional", "Posts educativos", "Ideas para reels e historias", "Visuales de campaña"],
+      en: ["Campaign concepts", "Thought leadership", "Case studies", "SEO content", "Multi-channel creative"],
+      es: ["Conceptos de campaña", "Liderazgo de opinión", "Casos de estudio", "Contenido SEO", "Creatividad multicanal"],
     },
     cta: {
       en: "Explore Content Creation",
@@ -117,8 +117,8 @@ export const services: ServiceDefinition[] = [
     },
     metadata: {
       title: {
-        en: "Content Creation",
-        es: "Creación de Contenido",
+        en: "Campaigns & Content",
+        es: "Campañas y Contenido",
       },
       description: {
         en: "Strategic content creation for social media, promotions, education, reels, stories, and campaigns.",
@@ -132,16 +132,16 @@ export const services: ServiceDefinition[] = [
     published: true,
     accent: "red",
     title: {
-      en: "Graphic Design",
-      es: "Diseño Gráfico",
+      en: "Marketing & Sales Design",
+      es: "Diseño para Marketing y Ventas",
     },
     description: {
-      en: "We design the visual assets your business needs to communicate clearly, promote offers, and maintain a professional image across digital and print channels.",
-      es: "Diseñamos los recursos visuales que tu negocio necesita para comunicar con claridad, promover ofertas y mantener una imagen profesional en medios digitales e impresos.",
+      en: "We design the presentations, reports, sales materials, campaign assets, and communications your team needs to explain complex value clearly and consistently.",
+      es: "Diseñamos presentaciones, reportes, materiales comerciales, activos de campaña y comunicaciones para explicar valor complejo con claridad y consistencia.",
     },
     features: {
-      en: ["Flyers and posters", "Menus and catalogs", "Business cards", "Promotional graphics", "Digital assets"],
-      es: ["Volantes y carteles", "Menús y catálogos", "Tarjetas de presentación", "Gráficos promocionales", "Recursos digitales"],
+      en: ["Sales presentations", "Reports and publications", "Campaign systems", "Capability materials", "Digital and print assets"],
+      es: ["Presentaciones de ventas", "Reportes y publicaciones", "Sistemas de campaña", "Materiales de capacidades", "Activos digitales e impresos"],
     },
     cta: {
       en: "Explore Graphic Design",
@@ -149,8 +149,8 @@ export const services: ServiceDefinition[] = [
     },
     metadata: {
       title: {
-        en: "Graphic Design",
-        es: "Diseño Gráfico",
+        en: "Marketing & Sales Design",
+        es: "Diseño para Marketing y Ventas",
       },
       description: {
         en: "Professional graphic design for flyers, menus, catalogs, business cards, promotions, and digital assets.",
@@ -164,12 +164,12 @@ export const services: ServiceDefinition[] = [
     published: true,
     accent: "blue",
     title: {
-      en: "Website Design",
-      es: "Diseño de Sitios Web",
+      en: "Strategic Websites & Landing Pages",
+      es: "Sitios Web Estratégicos y Landing Pages",
     },
     description: {
-      en: "We help small businesses create clean, modern websites that explain their services, build trust, and make it easier for customers to contact them.",
-      es: "Ayudamos a pequeños negocios a crear sitios web limpios y modernos que explican sus servicios, generan confianza y facilitan el contacto con clientes.",
+      en: "We create strategic websites and landing pages that explain complex offers, support search visibility, build buyer confidence, and turn attention into qualified conversations.",
+      es: "Creamos sitios web y landing pages estratégicos que explican ofertas complejas, apoyan la visibilidad, generan confianza y convierten atención en conversaciones calificadas.",
     },
     features: {
       en: ["Landing pages", "Service pages", "Website refreshes", "Mobile-friendly layouts", "Contact-focused structure"],
@@ -181,12 +181,12 @@ export const services: ServiceDefinition[] = [
     },
     metadata: {
       title: {
-        en: "Website Design",
-        es: "Diseño de Sitios Web",
+        en: "Strategic Websites & Landing Pages",
+        es: "Sitios Web Estratégicos y Landing Pages",
       },
       description: {
-        en: "Modern website design, landing pages, service pages, and website refreshes for small businesses.",
-        es: "Diseño web moderno, landing pages, páginas de servicio y renovación de sitios para pequeños negocios.",
+        en: "Website strategy and design, landing pages, service architecture, conversion paths, and SEO-ready content structure.",
+        es: "Estrategia y diseño de sitios, landing pages, arquitectura de servicios, rutas de conversión y estructura preparada para SEO.",
       },
     },
   },
@@ -196,16 +196,16 @@ export const services: ServiceDefinition[] = [
     published: true,
     accent: "green",
     title: {
-      en: "Local SEO & Google Visibility",
-      es: "SEO Local y Visibilidad en Google",
+      en: "SEO & Search Visibility",
+      es: "SEO y Visibilidad en Buscadores",
     },
     description: {
-      en: "We help businesses improve their local online presence through Google Business Profile optimization, service page structure, local keywords, and visibility-focused content.",
-      es: "Ayudamos a negocios a mejorar su presencia local con optimización de Google Business Profile, estructura de páginas de servicio, palabras clave locales y contenido enfocado en visibilidad.",
+      en: "We build search strategies around the services, problems, and markets your buyers research by combining technical foundations, content architecture, and authority-building opportunities.",
+      es: "Construimos estrategias de búsqueda alrededor de los servicios, problemas y mercados que investigan tus compradores, combinando bases técnicas, arquitectura de contenido y oportunidades de autoridad.",
     },
     features: {
-      en: ["Google Business Profile", "Local SEO basics", "Service page structure", "Review strategy guidance", "Visibility tracking"],
-      es: ["Google Business Profile", "Bases de SEO local", "Estructura de servicios", "Estrategia de reseñas", "Seguimiento de visibilidad"],
+      en: ["Search opportunity research", "Technical SEO foundations", "Service and industry pages", "Content architecture", "Visibility measurement"],
+      es: ["Investigación de oportunidades", "Bases técnicas de SEO", "Páginas de servicios e industrias", "Arquitectura de contenido", "Medición de visibilidad"],
     },
     cta: {
       en: "Explore Local SEO",
@@ -213,13 +213,26 @@ export const services: ServiceDefinition[] = [
     },
     metadata: {
       title: {
-        en: "Local SEO & Google Visibility",
-        es: "SEO Local y Visibilidad en Google",
+        en: "SEO & Search Visibility",
+        es: "SEO y Visibilidad en Buscadores",
       },
       description: {
-        en: "Local SEO and Google Business Profile optimization for small businesses that want stronger local search visibility.",
-        es: "SEO local y optimización de Google Business Profile para pequeños negocios que buscan más visibilidad local.",
+        en: "SEO strategy, technical foundations, content architecture, service pages, and search visibility across local and broader markets.",
+        es: "Estrategia SEO, bases técnicas, arquitectura de contenido, páginas de servicio y visibilidad en mercados locales y amplios.",
       },
     },
   },
 ];
+
+const positioningOrder = [
+  "local-seo",
+  "website-design",
+  "content-creation",
+  "social-media-management",
+  "brand-identity",
+  "graphic-design",
+];
+
+export const positionedServices = [...services].sort(
+  (a, b) => positioningOrder.indexOf(a.slug) - positioningOrder.indexOf(b.slug),
+);

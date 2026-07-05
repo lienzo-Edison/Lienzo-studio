@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Services for Small Businesses",
+  title: "Marketing, SEO, Website & Brand Services",
   description:
-    "Explore bilingual social media management, brand identity, content creation, graphic design, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
+    "Explore bilingual marketing strategy, SEO, websites, campaigns, content, brand identity, and design for established and growth-stage companies.",
   keywords: [
-    "digital marketing services for small businesses",
+    "marketing services for established companies",
+    "SEO services for professional firms",
+    "strategic website agency",
     "social media management Colorado",
-    "brand identity for small businesses",
+    "strategic brand identity",
     "content creation services",
     "graphic design services",
-    "website design for small businesses",
+    "website design services",
     "local SEO services Colorado",
     "Google Business Profile optimization",
     "bilingual marketing agency",
@@ -21,15 +23,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "/services",
-    title: "Digital Marketing Services for Small Businesses | Lienzo Studio",
+    title: "Marketing, SEO & Brand Services | Lienzo Studio",
     description:
-      "Branding, social media, content, graphic design, website design, and local SEO from a bilingual studio serving Colorado, Mexico, and LATAM.",
+      "SEO, websites, campaigns, content, brand strategy, and design from a bilingual studio serving the U.S., Mexico, and LATAM.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Services for Small Businesses | Lienzo Studio",
+    title: "Marketing, SEO & Brand Services | Lienzo Studio",
     description:
-      "Bilingual branding, social media, content, website design, graphic design, and local SEO for small businesses.",
+      "Bilingual SEO, websites, campaigns, content, brand strategy, and design for established and growth-stage companies.",
   },
 };
 

@@ -1,6 +1,9 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import TransitionLink from "@/components/TransitionLink";
-import { getIndustryBySlug } from "@/lib/industries";
+import {
+  consolidatedAudienceIndustryRedirects,
+  getIndustryBySlug,
+} from "@/lib/industries";
 
 export default async function IndustryPage({
   params,
@@ -8,6 +11,10 @@ export default async function IndustryPage({
   params: Promise<{ industry: string }>;
 }) {
   const { industry: slug } = await params;
+  const consolidatedTarget = consolidatedAudienceIndustryRedirects[slug];
+
+  if (consolidatedTarget) redirect(consolidatedTarget);
+
   const industry = getIndustryBySlug(slug);
 
   if (!industry) notFound();

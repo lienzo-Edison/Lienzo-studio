@@ -27,11 +27,11 @@ const onlyGraphic = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://lienzo.studio"),
   title: {
-    default: "Lienzo Studio | Bilingual Marketing Agency",
+    default: "Lienzo Studio | Marketing, SEO & Brand Agency",
     template: "%s | Lienzo Studio",
   },
   description:
-    "Bilingual branding, social media management, content creation, graphic design, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
+    "Bilingual marketing, SEO, websites, campaigns, brand strategy, and design for established and growth-stage companies across the U.S., Mexico, and LATAM.",
   keywords: [
     "social media management Northern Colorado",
     "social media agency Fort Lupton CO",
@@ -40,8 +40,11 @@ export const metadata: Metadata = {
     "brand identity Colorado",
     "logo design Northern Colorado",
     "content creation Colorado",
-    "website design for small businesses",
-    "local SEO Colorado",
+    "website design for established companies",
+    "SEO agency for professional services",
+    "SEO strategy Colorado",
+    "content marketing agency",
+    "brand strategy agency",
     "Google Business Profile optimization",
     "bilingual marketing support",
     "marketing agency Greeley CO",
@@ -62,9 +65,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "https://lienzo.studio",
-    title: "Lienzo Studio | Bilingual Marketing Agency",
+    title: "Lienzo Studio | Marketing, SEO & Brand Agency",
     description:
-      "Bilingual branding, social media management, content creation, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
+      "Bilingual marketing, SEO, websites, campaigns, brand strategy, and design for ambitious companies across the U.S., Mexico, and LATAM.",
     type: "website",
     siteName: "Lienzo Studio",
     locale: "en_US",
@@ -80,9 +83,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lienzo Studio | Bilingual Marketing Agency",
+    title: "Lienzo Studio | Marketing, SEO & Brand Agency",
     description:
-      "Bilingual branding, social media management, content creation, website design, and local SEO for small businesses in Colorado, Mexico, and LATAM.",
+      "Bilingual marketing, SEO, websites, campaigns, brand strategy, and design for ambitious companies across the U.S., Mexico, and LATAM.",
     images: ["/android-chrome-512x512.png"],
   },
 };

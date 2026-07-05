@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Industries We Help",
   description:
-    "Marketing, branding, social media, content, websites, and local SEO for restaurants, service businesses, construction companies, and bilingual businesses.",
+    "Marketing, SEO, websites, content, campaigns, and brand systems for professional services, technology, healthcare, industrial, real estate, and advisory companies.",
   alternates: {
     canonical: "/industries",
   },
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     url: "/industries",
     title: "Industries We Help | Lienzo Studio",
     description:
-      "Bilingual marketing support for restaurants, local service businesses, construction companies, Hispanic-owned businesses, and Mexican-owned businesses.",
+      "Bilingual marketing for professional services, technology, healthcare, manufacturing, real estate, financial, and cross-border companies.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Industries We Help | Lienzo Studio",
     description:
-      "Bilingual marketing, branding, social media, websites, and local SEO for small businesses.",
+      "Bilingual marketing, SEO, websites, campaigns, and brand systems for established and growth-stage companies.",
   },
 };
 
