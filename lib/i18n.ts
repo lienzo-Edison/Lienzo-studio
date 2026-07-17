@@ -39,6 +39,7 @@ type Translations = {
     portfolio: string;
     services: string;
     contact: string;
+    customerPortal: string;
   };
   toggle: {
     en: string;
@@ -161,6 +162,7 @@ export const translations: Record<Locale, Translations> = {
       portfolio: "Portfolio",
       services: "Services",
       contact: "Contact",
+      customerPortal: "Customer portal",
     },
     toggle: {
       en: "EN",
@@ -415,6 +417,7 @@ export const translations: Record<Locale, Translations> = {
       portfolio: "Portafolio",
       services: "Servicios",
       contact: "Contacto",
+      customerPortal: "Portal de clientes",
     },
     toggle: {
       en: "EN",
