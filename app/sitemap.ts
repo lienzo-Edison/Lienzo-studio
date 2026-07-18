@@ -4,86 +4,82 @@ import { publicIndustries } from "@/lib/industries";
 import { publicNicheServices } from "@/lib/nicheServices";
 import { services } from "@/lib/services";
 import { priorityLocations } from "@/lib/priorityLocations";
+import { mexicoRegions } from "@/lib/mexicoRegions";
+import { siteUrl } from "@/lib/schema";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locationPages: MetadataRoute.Sitemap = cities.map((city) => ({
-    url: `https://lienzo.studio/locations/${city.slug}`,
-    lastModified: new Date(),
+    url: `${siteUrl}/locations/${city.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.85,
   }));
   const priorityLocationPages: MetadataRoute.Sitemap = priorityLocations.map((location) => ({
-    url: `https://lienzo.studio/locations/${location.slug}`,
-    lastModified: new Date(),
+    url: `${siteUrl}/locations/${location.slug}`,
     changeFrequency: "monthly" as const,
     priority: location.slug === "fort-lupton" || location.slug === "colorado" ? 0.9 : 0.86,
+  }));
+  const mexicoRegionPages: MetadataRoute.Sitemap = mexicoRegions.map((region) => ({
+    url: `${siteUrl}/locations/${region.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
   }));
   const servicePages: MetadataRoute.Sitemap = services
     .filter((service) => service.published)
     .map((service) => ({
-      url: `https://lienzo.studio${service.href}`,
-      lastModified: new Date(),
+      url: `${siteUrl}${service.href}`,
       changeFrequency: "monthly" as const,
       priority: service.slug === "local-seo" || service.slug === "website-design" ? 0.95 : 0.9,
     }));
   const nicheServicePages: MetadataRoute.Sitemap = publicNicheServices.map((service) => ({
-    url: `https://lienzo.studio/services/${service.slug}`,
-    lastModified: new Date(),
+    url: `${siteUrl}/services/${service.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.94,
   }));
   const industryPages: MetadataRoute.Sitemap = publicIndustries.map((industry) => ({
-    url: `https://lienzo.studio/industries/${industry.slug}`,
-    lastModified: new Date(),
+    url: `${siteUrl}/industries/${industry.slug}`,
     changeFrequency: "monthly" as const,
     priority: ["professional-services", "technology-saas", "healthcare-organizations", "manufacturing-industrial", "real-estate-development", "financial-advisory"].includes(industry.slug) ? 0.9 : 0.8,
   }));
 
   return [
     {
-      url: "https://lienzo.studio",
-      lastModified: new Date(),
+      url: siteUrl,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: "https://lienzo.studio/services",
-      lastModified: new Date(),
+      url: `${siteUrl}/services`,
       changeFrequency: "monthly",
       priority: 0.95,
     },
     ...servicePages,
     ...nicheServicePages,
     {
-      url: "https://lienzo.studio/industries",
-      lastModified: new Date(),
+      url: `${siteUrl}/industries`,
       changeFrequency: "monthly",
       priority: 0.85,
     },
     ...industryPages,
     {
-      url: "https://lienzo.studio/locations",
-      lastModified: new Date(),
+      url: `${siteUrl}/locations`,
       changeFrequency: "monthly",
       priority: 0.85,
     },
     ...priorityLocationPages,
     ...locationPages,
+    ...mexicoRegionPages,
     {
-      url: "https://lienzo.studio/about",
-      lastModified: new Date(),
+      url: `${siteUrl}/about`,
       changeFrequency: "monthly",
       priority: 0.88,
     },
     {
-      url: "https://lienzo.studio/portfolio",
-      lastModified: new Date(),
+      url: `${siteUrl}/portfolio`,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://lienzo.studio/contact",
-      lastModified: new Date(),
+      url: `${siteUrl}/contact`,
       changeFrequency: "yearly",
       priority: 0.9,
     },

@@ -9,7 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 import { cookies, headers } from "next/headers";
 import { getLocaleFromAcceptLanguage, isLocale } from "@/lib/i18n";
-import { buildLocalBusinessSchema } from "@/lib/schema";
+import { buildSiteSchemaGraph, siteUrl } from "@/lib/schema";
 import Script from "next/script";
 
 const hostGrotesk = localFont({
@@ -25,7 +25,7 @@ const onlyGraphic = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lienzo.studio"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Lienzo Studio | Marketing, SEO & Brand Agency",
     template: "%s | Lienzo Studio",
@@ -60,11 +60,27 @@ export const metadata: Metadata = {
     shortcut: "/favicon-32x32.png",
   },
   manifest: "/site.webmanifest",
+  applicationName: "Lienzo Studio",
+  authors: [{ name: "Lienzo Studio", url: siteUrl }],
+  creator: "Lienzo Studio",
+  publisher: "Lienzo Studio",
+  category: "Marketing",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    url: "https://lienzo.studio",
+    url: siteUrl,
     title: "Lienzo Studio | Marketing, SEO & Brand Agency",
     description:
       "Bilingual marketing, SEO, websites, campaigns, brand strategy, and design for ambitious companies across the U.S., Mexico, and LATAM.",
@@ -74,10 +90,10 @@ export const metadata: Metadata = {
     alternateLocale: "es_MX",
     images: [
       {
-        url: "/android-chrome-512x512.png",
+        url: "/og-image.png",
         width: 1200,
-        height: 1200,
-        alt: "Lienzo Studio logo",
+        height: 630,
+        alt: "Lienzo Studio — Marketing, SEO & Brand Agency",
       },
     ],
   },
@@ -86,7 +102,7 @@ export const metadata: Metadata = {
     title: "Lienzo Studio | Marketing, SEO & Brand Agency",
     description:
       "Bilingual marketing, SEO, websites, campaigns, brand strategy, and design for ambitious companies across the U.S., Mexico, and LATAM.",
-    images: ["/android-chrome-512x512.png"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -109,7 +125,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              ...buildLocalBusinessSchema(),
+              ...buildSiteSchemaGraph(),
             }),
           }}
         />
@@ -139,6 +155,9 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${hostGrotesk.variable} ${onlyGraphic.variable} antialiased font-sans`}>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
           strategy="afterInteractive"
@@ -183,7 +202,7 @@ fbq('track', 'PageView');`,
         <LanguageProvider initialLanguage={initialLanguage}>
           <PageTransitionProvider>
             <TopNav />
-            <div>
+            <div id="main-content" tabIndex={-1}>
               {children}
               <SiteFooter />
             </div>

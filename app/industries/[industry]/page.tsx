@@ -4,6 +4,7 @@ import {
   consolidatedAudienceIndustryRedirects,
   getIndustryBySlug,
 } from "@/lib/industries";
+import { buildBreadcrumbSchema, buildServiceSchema, siteUrl } from "@/lib/schema";
 
 export default async function IndustryPage({
   params,
@@ -19,20 +20,20 @@ export default async function IndustryPage({
 
   if (!industry) notFound();
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: industry.schemaName,
-    description: industry.metaDescription,
-    url: `https://lienzo.studio/industries/${industry.slug}`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Lienzo Studio",
-      url: "https://lienzo.studio",
-      areaServed: ["Colorado", "Mexico", "United States", "Latin America"],
-    },
-    serviceType: industry.title,
-  };
+  const pageUrl = `${siteUrl}/industries/${industry.slug}`;
+  const schema = [
+    buildServiceSchema({
+      name: industry.schemaName,
+      description: industry.metaDescription,
+      url: pageUrl,
+      serviceType: industry.title,
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", url: siteUrl },
+      { name: "Industries", url: `${siteUrl}/industries` },
+      { name: industry.title, url: pageUrl },
+    ]),
+  ];
 
   return (
     <main className="min-h-screen bg-background px-6 pb-24 pt-32 text-foreground md:pt-40">

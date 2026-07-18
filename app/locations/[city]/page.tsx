@@ -8,6 +8,7 @@ import SpotlightCard from "@/components/SpotlightCard";
 import { getCityBySlug } from "@/lib/cities";
 import { getMexicoRegionBySlug } from "@/lib/mexicoRegions";
 import { getPriorityLocationBySlug } from "@/lib/priorityLocations";
+import { buildBreadcrumbSchema, buildServiceSchema, siteUrl } from "@/lib/schema";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -31,19 +32,22 @@ export default function CityPage() {
   if (!city && !region && !priorityLocation) notFound();
 
   if (priorityLocation) {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: `Marketing services in ${priorityLocation.name}`,
-      description: priorityLocation.metaDescription,
-      url: `https://lienzo.studio/locations/${priorityLocation.slug}`,
-      provider: {
-        "@type": "LocalBusiness",
-        name: "Lienzo Studio",
-        url: "https://lienzo.studio",
+    const pageUrl = `${siteUrl}/locations/${priorityLocation.slug}`;
+    const schema = [
+      {
+        ...buildServiceSchema({
+          name: `Marketing services in ${priorityLocation.name}`,
+          description: priorityLocation.metaDescription,
+          url: pageUrl,
+        }),
+        areaServed: priorityLocation.name,
       },
-      areaServed: priorityLocation.name,
-    };
+      buildBreadcrumbSchema([
+        { name: "Home", url: siteUrl },
+        { name: "Locations", url: `${siteUrl}/locations` },
+        { name: priorityLocation.name, url: pageUrl },
+      ]),
+    ];
 
     return (
       <main className="min-h-screen bg-background px-6 pb-24 pt-32 text-foreground md:pt-40">

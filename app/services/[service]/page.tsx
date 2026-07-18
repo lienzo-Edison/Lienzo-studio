@@ -137,12 +137,20 @@ export default async function ServicePage({
 
   if (!service || !detail) notFound();
 
-  const schema = buildServiceSchema({
-    name: service.title.en,
-    description: service.metadata.description.en,
-    url: `${siteUrl}${service.href}`,
-    serviceType: service.title.en,
-  });
+  const pageUrl = `${siteUrl}${service.href}`;
+  const schema = [
+    buildServiceSchema({
+      name: service.title.en,
+      description: service.metadata.description.en,
+      url: pageUrl,
+      serviceType: service.title.en,
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", url: siteUrl },
+      { name: "Services", url: `${siteUrl}/services` },
+      { name: service.title.en, url: pageUrl },
+    ]),
+  ];
 
   return (
     <main className="min-h-screen bg-background px-6 pb-24 pt-32 text-foreground md:pt-40">

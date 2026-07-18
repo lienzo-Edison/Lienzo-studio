@@ -29,6 +29,13 @@ export default function TopNav() {
     { href: "/contact", label: t.nav.contact },
   ];
 
+  const handleNavItemClick = (href: string) => {
+    setOpenPathname(null);
+    if (href === "/portfolio" && pathname === "/portfolio") {
+      window.dispatchEvent(new Event("lienzo:portfolio-home"));
+    }
+  };
+
   // Lock scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -73,6 +80,7 @@ export default function TopNav() {
               <TransitionLink
                 key={item.href}
                 href={item.href}
+                onClick={() => handleNavItemClick(item.href)}
                 className={`whitespace-nowrap font-display font-bold transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a] ${
                   pathname === "/" ? "nav-wave" : ""
                 }`}
@@ -170,6 +178,7 @@ export default function TopNav() {
                       <TransitionLink
                         key={item.href}
                         href={item.href}
+                        onClick={() => handleNavItemClick(item.href)}
                         className={`font-display text-3xl font-bold uppercase tracking-wider transition ${
                           pathname === item.href
                             ? "text-[#a61b00] dark:text-[#ff8f7a]"

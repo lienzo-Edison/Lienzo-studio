@@ -1,8 +1,11 @@
-export const siteUrl = "https://lienzo.studio";
+export const siteUrl = "https://www.lienzo.studio";
+
+const organizationId = `${siteUrl}/#organization`;
+const localBusinessId = `${siteUrl}/#local-business`;
 
 export const lienzoEntity = {
   "@type": ["LocalBusiness", "ProfessionalService"],
-  "@id": `${siteUrl}/#lienzo-studio`,
+  "@id": localBusinessId,
   name: "Lienzo Studio",
   legalName: "Lienzo Studio",
   url: siteUrl,
@@ -54,10 +57,31 @@ export const lienzoEntity = {
   ],
 };
 
+export function buildOrganizationSchema() {
+  return {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: lienzoEntity.name,
+    legalName: lienzoEntity.legalName,
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/android-chrome-512x512.png`,
+      width: 512,
+      height: 512,
+    },
+    email: lienzoEntity.email,
+    telephone: lienzoEntity.telephone,
+    contactPoint: lienzoEntity.contactPoint,
+    sameAs: lienzoEntity.sameAs,
+  };
+}
+
 export function buildLocalBusinessSchema() {
   return {
-    "@context": "https://schema.org",
     ...lienzoEntity,
+    parentOrganization: { "@id": organizationId },
+    image: `${siteUrl}/og-image.png`,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Marketing, SEO, Brand, and Design Services",
@@ -75,11 +99,17 @@ export function buildLocalBusinessSchema() {
         itemOffered: {
           "@type": "Service",
           name,
-          provider: { "@id": `${siteUrl}/#lienzo-studio` },
+          provider: { "@id": localBusinessId },
         },
       })),
     },
-    openingHours: "Mo-Su 00:00-23:59",
+  };
+}
+
+export function buildSiteSchemaGraph() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [buildOrganizationSchema(), buildLocalBusinessSchema()],
   };
 }
 
@@ -103,7 +133,7 @@ export function buildServiceSchema({
     description,
     url,
     serviceType: serviceType ?? name,
-    provider: { "@id": `${siteUrl}/#lienzo-studio` },
+    provider: { "@id": localBusinessId },
     areaServed: lienzoEntity.areaServed,
     audience: audience?.map((audienceType) => ({
       "@type": "Audience",

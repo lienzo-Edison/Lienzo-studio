@@ -26,7 +26,7 @@ export async function generateMetadata({
 
   if (nicheService) {
     return {
-      title: nicheService.metaTitle,
+      title: { absolute: nicheService.metaTitle },
       description: nicheService.metaDescription,
       alternates: {
         canonical: `/services/${nicheService.slug}`,

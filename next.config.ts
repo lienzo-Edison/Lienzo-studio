@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "lienzo.studio" }],
+        destination: "https://www.lienzo.studio/:path*",
+        permanent: true,
+      },
+      {
         source: "/services/marketing-agency-for-hispanic-businesses",
         destination: "/services/bilingual-marketing-agency",
         permanent: true,

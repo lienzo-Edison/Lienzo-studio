@@ -1,4 +1,5 @@
 import TransitionLink from "@/components/TransitionLink";
+import { siteUrl } from "@/lib/schema";
 import { publicIndustries } from "@/lib/industries";
 
 export default function IndustriesPage() {
@@ -8,11 +9,11 @@ export default function IndustriesPage() {
     name: "Industries We Help",
     description:
       "Industry-specific marketing, branding, social media, website, and local SEO support from Lienzo Studio.",
-    url: "https://lienzo.studio/industries",
+    url: `${siteUrl}/industries`,
     mainEntity: publicIndustries.map((industry) => ({
       "@type": "Service",
       name: industry.schemaName,
-      url: `https://lienzo.studio/industries/${industry.slug}`,
+      url: `${siteUrl}/industries/${industry.slug}`,
       provider: {
         "@type": "LocalBusiness",
         name: "Lienzo Studio",
