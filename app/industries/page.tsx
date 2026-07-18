@@ -1,5 +1,5 @@
 import IndustriesPageContent from "@/components/IndustriesPageContent";
-import { siteUrl } from "@/lib/schema";
+import { serviceAreaCountries, siteUrl } from "@/lib/schema";
 import { publicIndustries } from "@/lib/industries";
 
 export default function IndustriesPage() {
@@ -14,6 +14,7 @@ export default function IndustriesPage() {
       "@type": "Service",
       name: industry.schemaName,
       url: `${siteUrl}/industries/${industry.slug}`,
+      areaServed: serviceAreaCountries,
       provider: {
         "@type": "LocalBusiness",
         name: "Lienzo Studio",

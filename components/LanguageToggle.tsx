@@ -28,7 +28,7 @@ export default function LanguageToggle({ compact = false }: LanguageToggleProps)
       className={
         compact
           ? "grid w-[92px] grid-cols-2 items-center rounded-full border border-black/15 bg-black/5 p-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-black/65 dark:border-white/25 dark:bg-white/10 dark:text-white/80"
-          : "flex items-center gap-1 rounded-full border border-white/20 bg-black/35 p-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 md:text-xs dark:border-white/30 dark:bg-white/10 dark:text-white"
+          : "flex items-center gap-1 rounded-full border border-white/30 bg-black/75 p-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white md:text-xs dark:border-white/40 dark:bg-black/70 dark:text-white"
       }
       role="group"
       aria-label={t.toggle.ariaLabel}
@@ -40,7 +40,7 @@ export default function LanguageToggle({ compact = false }: LanguageToggleProps)
         <button
           type="button"
           onClick={() => setCollapsed(false)}
-          className="flex items-center gap-1 rounded-full px-2 py-1 text-white/80 transition hover:text-white"
+          className="flex items-center gap-1 rounded-full px-2 py-1 text-white"
           aria-expanded={!collapsed}
         >
           <span className="inline-flex h-2 w-2 rounded-full bg-white/70" aria-hidden="true" />
@@ -58,7 +58,7 @@ export default function LanguageToggle({ compact = false }: LanguageToggleProps)
                   : "bg-white/20 text-white"
                 : compact
                   ? "text-black/45 hover:text-black dark:text-white/55 dark:hover:text-white"
-                  : "text-white/60 hover:text-white"
+                  : "text-white/80 hover:text-white"
             }`}
             aria-pressed={language === "en"}
           >
@@ -74,7 +74,7 @@ export default function LanguageToggle({ compact = false }: LanguageToggleProps)
                   : "bg-white/20 text-white"
                 : compact
                   ? "text-black/45 hover:text-black dark:text-white/55 dark:hover:text-white"
-                  : "text-white/60 hover:text-white"
+                  : "text-white/80 hover:text-white"
             }`}
             aria-pressed={language === "es"}
           >

@@ -105,22 +105,18 @@ const pageCopy = {
       "You bring the business context. We turn it into a focused direction, a realistic scope, and work your team can actually use.",
     process: [
       {
-        step: "01",
         title: "Diagnose the growth constraint",
         body: "We learn the offer, market, buyers, sales motion, current performance, and the gap creating the most friction.",
       },
       {
-        step: "02",
         title: "Set the strategic direction",
         body: "We define positioning, priorities, success signals, channel roles, and the focused scope required to move forward.",
       },
       {
-        step: "03",
         title: "Build the system",
         body: "Our team develops the search, website, campaign, content, brand, and design components included in the engagement.",
       },
       {
-        step: "04",
         title: "Activate and improve",
         body: "We launch practical assets, give your team clear guidance, and create a foundation that can be measured and expanded.",
       },
@@ -224,22 +220,18 @@ const pageCopy = {
       "Tú aportas el contexto del negocio. Nosotros lo convertimos en una dirección enfocada, un alcance realista y trabajo que tu equipo sí puede usar.",
     process: [
       {
-        step: "01",
         title: "Diagnosticar la limitante",
         body: "Conocemos la oferta, mercado, compradores, proceso de ventas, desempeño actual y la brecha que crea más fricción.",
       },
       {
-        step: "02",
         title: "Definir la dirección",
         body: "Definimos posicionamiento, prioridades, señales de éxito, rol de canales y el alcance necesario para avanzar.",
       },
       {
-        step: "03",
         title: "Crear el sistema",
         body: "Desarrollamos los componentes de búsqueda, web, campañas, contenido, marca y diseño incluidos en el proyecto.",
       },
       {
-        step: "04",
         title: "Activar y mejorar",
         body: "Lanzamos activos prácticos, damos guía clara al equipo y creamos una base que se puede medir y ampliar.",
       },
@@ -527,16 +519,13 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.12 }}
           >
-            {c.outcomes.map((outcome, index) => (
+            {c.outcomes.map((outcome) => (
               <motion.article
                 key={outcome.title}
                 variants={fadeUp}
                 className="bg-white p-7 dark:bg-[#151c24]"
               >
-                <p className="text-xs font-display font-bold tracking-[0.22em] text-[#254566] dark:text-[#8fb2d6]">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-4 font-display text-xl font-bold">{outcome.title}</h3>
+                <h3 className="font-display text-xl font-bold">{outcome.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-black/65 dark:text-white/65">
                   {outcome.body}
                 </p>
@@ -607,7 +596,7 @@ export default function ServicesPage() {
             </p>
           </motion.header>
 
-          <motion.ol
+          <motion.div
             className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
             variants={stagger}
             initial="hidden"
@@ -615,19 +604,16 @@ export default function ServicesPage() {
             viewport={{ once: true, amount: 0.12 }}
           >
             {c.process.map((step) => (
-              <motion.li
-                key={step.step}
+              <motion.article
+                key={step.title}
                 variants={fadeUp}
                 className="border-t border-white/25 pt-6"
               >
-                <p className="text-xs font-display font-bold tracking-[0.24em] text-[#ffb09a]">
-                  {step.step}
-                </p>
-                <h3 className="mt-4 font-display text-xl font-bold">{step.title}</h3>
+                <h3 className="font-display text-xl font-bold">{step.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{step.body}</p>
-              </motion.li>
+              </motion.article>
             ))}
-          </motion.ol>
+          </motion.div>
         </div>
       </section>
 

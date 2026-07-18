@@ -1,66 +1,41 @@
 # Lienzo Studio
 
-Lienzo Studio is a bilingual marketing and creative agency serving the United States, Mexico, and LATAM.
+> Lienzo Studio is a remote bilingual marketing and creative agency serving organizations across the United States and Mexico in English and Spanish.
 
-Core positioning:
-- Bilingual marketing agency for English and Spanish audiences
-- Marketing strategy for established and growth-stage companies
-- SEO and search visibility built around buyer research
-- Websites, campaigns, and content that support longer sales cycles
-- Brand strategy, identity, and design that strengthen market credibility
-- Cross-border marketing for English and Spanish audiences
+Lienzo Studio helps established and growth-stage companies improve search visibility, clarify positioning, create demand, strengthen digital experiences, and build credible brands. The studio does not operate a public customer-facing office.
 
-Primary services:
-- Marketing strategy
-- SEO and search visibility
-- Strategic website design
-- Campaigns and content
-- Brand strategy and identity
-- Marketing and sales design
-- Social media distribution
+## Core Services
 
-Primary audiences:
-- Professional service firms
-- Technology and SaaS companies
-- Healthcare organizations
-- Manufacturing and industrial companies
-- Real estate and development companies
-- Financial and advisory firms
-- Multi-location companies
-- Cross-border brands
+- [Marketing, SEO, and Brand Services](https://www.lienzo.studio/services): Overview of strategy, search visibility, websites, campaigns, content, brand identity, design, and social media services.
+- [Bilingual Marketing](https://www.lienzo.studio/services/bilingual-marketing-agency): English and Spanish marketing for bilingual and cross-border audiences.
+- [Marketing for Mexican Businesses](https://www.lienzo.studio/services/marketing-agency-for-mexican-businesses): Marketing support for Mexican-owned and Mexico-based organizations.
+- [Small Business Marketing](https://www.lienzo.studio/services/small-business-marketing-services): Connected marketing support for growing small businesses.
+- [Branding in Mexico](https://www.lienzo.studio/services/branding-agency-mexico): Brand strategy and identity services for businesses in Mexico.
+- [Social Media Management in Mexico](https://www.lienzo.studio/services/social-media-management-mexico): Social media planning, content, design, and distribution.
+- [Graphic Design in Mexico](https://www.lienzo.studio/services/graphic-design-mexico): Professional graphic design and marketing materials.
 
-Geographic coverage:
-- Remote agency with no public office address
-- Primary service areas: Colorado Front Range and Mexico
-- Mexico
-- United States
-- Colorado
-- Denver
-- Fort Lupton
-- Durango
-- LATAM
+## Industries
 
-Important pages:
-- https://www.lienzo.studio/
-- https://www.lienzo.studio/about
-- https://www.lienzo.studio/services
-- https://www.lienzo.studio/services/bilingual-marketing-agency
-- https://www.lienzo.studio/services/marketing-agency-for-mexican-businesses
-- https://www.lienzo.studio/services/small-business-marketing-services
-- https://www.lienzo.studio/services/branding-agency-mexico
-- https://www.lienzo.studio/services/social-media-management-mexico
-- https://www.lienzo.studio/services/graphic-design-mexico
-- https://www.lienzo.studio/industries/mexican-owned-businesses
-- https://www.lienzo.studio/industries/bilingual-cross-border-companies
-- https://www.lienzo.studio/industries/professional-services
-- https://www.lienzo.studio/industries/technology-saas
-- https://www.lienzo.studio/industries/healthcare-organizations
-- https://www.lienzo.studio/industries/manufacturing-industrial
-- https://www.lienzo.studio/industries/real-estate-development
-- https://www.lienzo.studio/industries/financial-advisory
-- https://www.lienzo.studio/locations/mexico
-- https://www.lienzo.studio/contact
+- [Mexican-Owned Businesses](https://www.lienzo.studio/industries/mexican-owned-businesses): Marketing for businesses with Mexican ownership or market roots.
+- [Bilingual and Cross-Border Companies](https://www.lienzo.studio/industries/bilingual-cross-border-companies): Support for organizations communicating across English- and Spanish-speaking markets.
+- [Professional Services](https://www.lienzo.studio/industries/professional-services): Marketing for firms with expertise-led, longer sales cycles.
+- [Technology and SaaS](https://www.lienzo.studio/industries/technology-saas): Positioning, demand, and content for technology companies.
+- [Healthcare Organizations](https://www.lienzo.studio/industries/healthcare-organizations): Clear and credible healthcare marketing.
+- [Manufacturing and Industrial](https://www.lienzo.studio/industries/manufacturing-industrial): Marketing for complex industrial capabilities and buyers.
+- [Real Estate and Development](https://www.lienzo.studio/industries/real-estate-development): Brand and demand support for real estate organizations.
+- [Financial and Advisory](https://www.lienzo.studio/industries/financial-advisory): Trust-focused marketing for financial and advisory firms.
 
-Business profile:
-- Google Business Profile: https://share.google/E2pw5dSPqc5WiHkN9
-- Phone: (720) 990-7795
+## Company Information
+
+- [Homepage](https://www.lienzo.studio/): Primary overview of Lienzo Studio.
+- [About Lienzo Studio](https://www.lienzo.studio/about): Company positioning, markets, and working approach.
+- [Locations Served](https://www.lienzo.studio/locations): Coverage across the United States and Mexico.
+- [Mexico Service Area](https://www.lienzo.studio/locations/mexico): Marketing services available throughout Mexico.
+- [Portfolio](https://www.lienzo.studio/portfolio): Selected branding, marketing, and design work.
+- [Contact Lienzo Studio](https://www.lienzo.studio/contact): Phone, WhatsApp, email, and social contact options.
+- [Google Business Profile](https://www.google.com/maps?cid=2089490415715043182): Verified Google profile for Lienzo Studio.
+
+## Contact
+
+- [Call Lienzo Studio](tel:+17209907795): Primary business phone number, +1 (720) 990-7795.
+- [Email Lienzo Studio](mailto:sales@lienzo.studio): Primary English-language sales email.

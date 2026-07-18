@@ -60,17 +60,14 @@ const copy = {
     nextTitle: "A clear, low-pressure first step",
     steps: [
       {
-        number: "01",
         title: "We understand the commercial context",
         body: "We ask focused questions about the objective, buyers, sales cycle, current performance, and internal capacity.",
       },
       {
-        number: "02",
         title: "We identify the highest-leverage move",
         body: "We recommend the priorities, capabilities, and scope that make the strongest business case now.",
       },
       {
-        number: "03",
         title: "You decide how to move forward",
         body: "You receive a clear next step without pressure to purchase services you do not need.",
       },
@@ -117,17 +114,14 @@ const copy = {
     nextTitle: "Un primer paso claro y sin presión",
     steps: [
       {
-        number: "01",
         title: "Entendemos el contexto comercial",
         body: "Hacemos preguntas enfocadas sobre el objetivo, compradores, ciclo de ventas, desempeño actual y capacidad interna.",
       },
       {
-        number: "02",
         title: "Identificamos el movimiento de mayor impacto",
         body: "Recomendamos las prioridades, capacidades y alcance con el mejor caso de negocio en este momento.",
       },
       {
-        number: "03",
         title: "Tú decides cómo avanzar",
         body: "Recibes un siguiente paso claro, sin presión para contratar servicios que no necesitas.",
       },
@@ -441,28 +435,23 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          <motion.ul
+          <motion.div
             className="grid gap-4 sm:grid-cols-2"
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.15 }}
           >
-            {c.prompts.map((prompt, index) => (
-              <motion.li
+            {c.prompts.map((prompt) => (
+              <motion.article
                 key={prompt}
                 variants={fadeUp}
                 className="flex min-h-28 items-end rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-[#151c24]"
               >
-                <div>
-                  <p className="text-xs font-display font-bold tracking-[0.22em] text-[#254566] dark:text-[#8fb2d6]">
-                    0{index + 1}
-                  </p>
-                  <p className="mt-3 font-display text-lg font-bold">{prompt}</p>
-                </div>
-              </motion.li>
+                <p className="font-display text-lg font-bold">{prompt}</p>
+              </motion.article>
             ))}
-          </motion.ul>
+          </motion.div>
         </div>
       </section>
 
@@ -481,7 +470,7 @@ export default function Contact() {
             <h2 className="mt-4 font-display text-3xl font-bold md:text-5xl">{c.nextTitle}</h2>
           </motion.header>
 
-          <motion.ol
+          <motion.div
             className="mt-12 grid gap-8 md:grid-cols-3"
             variants={stagger}
             initial="hidden"
@@ -489,19 +478,16 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.12 }}
           >
             {c.steps.map((step) => (
-              <motion.li
-                key={step.number}
+              <motion.article
+                key={step.title}
                 variants={fadeUp}
                 className="border-t border-white/25 pt-6"
               >
-                <p className="text-xs font-display font-bold tracking-[0.24em] text-[#ffb09a]">
-                  {step.number}
-                </p>
-                <h3 className="mt-4 font-display text-xl font-bold">{step.title}</h3>
+                <h3 className="font-display text-xl font-bold">{step.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{step.body}</p>
-              </motion.li>
+              </motion.article>
             ))}
-          </motion.ol>
+          </motion.div>
         </div>
       </section>
 

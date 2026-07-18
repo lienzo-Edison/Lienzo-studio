@@ -12,7 +12,7 @@ export default function FooterLink() {
     <div className="fixed bottom-5 left-5 z-40 flex items-center justify-center md:bottom-6 md:left-6">
       <TransitionLink
         href="/privacy"
-        className="text-[10px] font-display font-bold uppercase tracking-[0.25em] text-black/30 transition-colors duration-300 hover:text-[#a61b00] dark:text-white/20 dark:hover:text-[#ff8f7a]"
+        className="text-[10px] font-display font-bold uppercase tracking-[0.25em] text-black/60 transition-colors duration-300 hover:text-[#a61b00] dark:text-white/65 dark:hover:text-[#ff8f7a]"
       >
         {t.privacy.footerLink}
       </TransitionLink>
