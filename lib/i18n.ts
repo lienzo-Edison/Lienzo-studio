@@ -359,54 +359,83 @@ export const translations: Record<Locale, Translations> = {
     },
     privacy: {
       title: "Privacy Policy",
-      lastUpdated: "Last updated: April 2026",
+      lastUpdated: "Last Updated: July 2026",
       footerLink: "Privacy Policy",
       sections: [
         {
           title: "1. Who We Are",
-          content: "Lienzo Studio is a branding and digital marketing agency registered in the state of Colorado, United States. We specialize in brand identity, social media content systems, editorial design, and custom graphic assets.\n\nFor any questions regarding this policy, you can contact us at: hello@lienzo.studio"
+          content: "Lienzo Studio is a branding and digital marketing agency registered in the State of Colorado, United States. We specialize in brand identity, social media management, editorial design, website design, and digital marketing solutions.\n\nIf you have any questions about this Privacy Policy or how we handle your information, please contact us at hello@lienzo.studio."
         },
         {
           title: "2. Information We Collect",
           content: [
-            "Through our contact forms and advertising campaigns, we only collect the following personal information:",
+            "When you contact us through our website, forms, social media, or other communication channels, we may collect information such as:",
             "- Full name",
             "- Email address",
             "- Phone number (when provided voluntarily)",
-            "We do not collect sensitive information such as financial data, passwords, or identity documents."
+            "- Business or company name (when applicable)",
+            "- Information you choose to share regarding your project or service request",
+            "We do not intentionally collect sensitive personal information such as government identification numbers, passwords, payment credentials, or medical information."
           ]
         },
         {
           title: "3. How We Use Your Information",
           content: [
-            "The information we collect is used exclusively to:",
-            "- Respond to and follow up on your service request",
-            "- Schedule consultation calls or appointments",
-            "- Send you relevant information about our services, if requested",
-            "We do not use your information for purposes other than those mentioned without your prior consent."
+            "We use the information you provide solely to support our business relationship with you, including:",
+            "- Responding to inquiries and service requests",
+            "- Scheduling consultations and meetings",
+            "- Preparing proposals and project documentation",
+            "- Delivering our services",
+            "- Communicating throughout your project",
+            "- Providing customer support",
+            "- Sending service-related communications that you request or are necessary for an active project",
+            "We do not sell your personal information or use it for unrelated marketing purposes without your consent."
           ]
         },
         {
-          title: "4. Sharing Information with Third Parties",
-          content: "Lienzo Studio does not sell, rent, or share your personal information with third parties under any circumstances.\n\nYour information remains within our team and is treated with strict confidentiality."
-        },
-        {
-          title: "5. Data Retention",
-          content: "We keep your information only for as long as necessary to attend to your request or as long as there is an active working relationship between Lienzo Studio and your business. If you wish for us to delete your data, you can request it at any time."
-        },
-        {
-          title: "6. Your Rights",
+          title: "4. Meeting Recordings",
           content: [
-            "You have the right to request at any time:",
-            "- Access to the information we have about you",
-            "- Correction of incorrect data",
-            "- Deletion of your information from our records",
-            "To exercise any of these rights, write to us at hello@lienzo.studio and we will respond within a maximum of 5 business days."
+            "With your knowledge or consent where required by applicable law, Lienzo Studio may record discovery calls, strategy sessions, project meetings, or other project-related discussions.",
+            "These recordings are used exclusively for internal business purposes, including:",
+            "- Documenting project requirements",
+            "- Preparing meeting notes",
+            "- Creating project documentation",
+            "- Improving communication and collaboration",
+            "- Maintaining accurate project records",
+            "- Supporting the delivery of our services",
+            "Recordings and any notes or transcripts generated from them are used solely by Lienzo Studio in connection with your project.",
+            "When necessary, recordings may be securely processed using trusted service providers that assist us with transcription, documentation, or productivity tools. These providers process information only as needed to perform services on our behalf and are not authorized to use your information for their own marketing or unrelated commercial purposes.",
+            "Access to recordings is limited to authorized Lienzo Studio team members working on your project."
           ]
         },
         {
-          title: "7. Changes to This Policy",
-          content: "We may update this policy occasionally. Any changes will be posted on this page with the corresponding update date. We recommend you review it periodically."
+          title: "5. Sharing Information",
+          content: "We do not sell, rent, or trade your personal information.\n\nWe may share limited information only when necessary to operate our business or provide our services, including trusted providers such as website hosting, payment processing, email services, cloud storage, scheduling platforms, or documentation and transcription tools. These providers are permitted to process information only for the services they perform on our behalf.\n\nWe may also disclose information if required by applicable law or to protect our legal rights."
+        },
+        {
+          title: "6. Data Retention",
+          content: [
+            "We retain your information only for as long as reasonably necessary to:",
+            "- Respond to your inquiries",
+            "- Deliver our services",
+            "- Maintain project records",
+            "- Comply with legal or contractual obligations",
+            "If you request deletion of your personal information, we will honor your request whenever legally and contractually permitted."
+          ]
+        },
+        {
+          title: "7. Your Rights",
+          content: [
+            "You may request at any time:",
+            "- Access to the personal information we hold about you",
+            "- Correction of inaccurate or incomplete information",
+            "- Deletion of your personal information, where applicable",
+            "To exercise these rights, contact us at hello@lienzo.studio. We will make reasonable efforts to respond within five (5) business days."
+          ]
+        },
+        {
+          title: "8. Changes to This Policy",
+          content: "We may update this Privacy Policy from time to time to reflect changes in our services, business practices, or legal requirements.\n\nAny updates will be posted on this page with a revised “Last Updated” date. Continued use of our services after changes become effective constitutes acceptance of the updated policy."
         }
       ]
     },
@@ -614,54 +643,83 @@ export const translations: Record<Locale, Translations> = {
     },
     privacy: {
       title: "Política de Privacidad",
-      lastUpdated: "Última actualización: Abril 2026",
+      lastUpdated: "Última actualización: julio de 2026",
       footerLink: "Política de Privacidad",
       sections: [
         {
           title: "1. Quiénes somos",
-          content: "Lienzo Studio es una agencia de branding y marketing digital registrada en el estado de Colorado, Estados Unidos. Nos especializamos en identidad de marca, sistemas de contenido para redes sociales, diseño editorial y activos gráficos personalizados.\n\nPara cualquier pregunta relacionada con esta política, puedes contactarnos en: hello@lienzo.studio"
+          content: "Lienzo Studio es una agencia de branding y marketing digital registrada en el estado de Colorado, Estados Unidos. Nos especializamos en identidad de marca, gestión de redes sociales, diseño editorial, diseño de sitios web y soluciones de marketing digital.\n\nSi tienes alguna pregunta sobre esta Política de Privacidad o sobre cómo tratamos tu información, contáctanos en hello@lienzo.studio."
         },
         {
           title: "2. Información que recopilamos",
           content: [
-            "A través de nuestros formularios de contacto y campañas publicitarias, recopilamos únicamente la siguiente información personal:",
+            "Cuando te comunicas con nosotros a través de nuestro sitio web, formularios, redes sociales u otros canales de comunicación, podemos recopilar información como:",
             "- Nombre completo",
             "- Correo electrónico",
             "- Número de teléfono (cuando se proporciona voluntariamente)",
-            "No recopilamos información sensible como datos financieros, contraseñas ni documentos de identidad."
+            "- Nombre del negocio o empresa (cuando corresponda)",
+            "- Información que decidas compartir sobre tu proyecto o solicitud de servicio",
+            "No recopilamos intencionalmente información personal sensible, como números de identificación emitidos por el gobierno, contraseñas, credenciales de pago o información médica."
           ]
         },
         {
           title: "3. Cómo usamos tu información",
           content: [
-            "La información que recopilamos se utiliza exclusivamente para:",
-            "- Responderte y dar seguimiento a tu solicitud de servicio",
-            "- Agendar llamadas o citas de consulta",
-            "- Enviarte información relevante sobre nuestros servicios, si así lo solicitaste",
-            "No utilizamos tu información para fines distintos a los mencionados sin tu consentimiento previo."
+            "Utilizamos la información que proporcionas únicamente para apoyar nuestra relación comercial contigo, lo que incluye:",
+            "- Responder consultas y solicitudes de servicio",
+            "- Programar consultas y reuniones",
+            "- Preparar propuestas y documentación del proyecto",
+            "- Prestar nuestros servicios",
+            "- Comunicarnos contigo durante tu proyecto",
+            "- Brindar atención al cliente",
+            "- Enviar comunicaciones relacionadas con el servicio que solicites o que sean necesarias para un proyecto activo",
+            "No vendemos tu información personal ni la utilizamos para fines de marketing no relacionados sin tu consentimiento."
           ]
         },
         {
-          title: "4. Compartir información con terceros",
-          content: "Lienzo Studio no vende, renta ni comparte tu información personal con terceros bajo ninguna circunstancia.\n\nTu información permanece dentro de nuestro equipo de trabajo y es tratada con estricta confidencialidad."
-        },
-        {
-          title: "5. Retención de datos",
-          content: "Conservamos tu información únicamente durante el tiempo necesario para atender tu solicitud o mientras exista una relación de trabajo activa entre Lienzo Studio y tu negocio. Si deseas que eliminemos tus datos, puedes solicitarlo en cualquier momento."
-        },
-        {
-          title: "6. Tus derechos",
+          title: "4. Grabaciones de reuniones",
           content: [
-            "Tienes derecho a solicitar en cualquier momento:",
-            "- Acceso a la información que tenemos sobre ti",
-            "- Corrección de datos incorrectos",
-            "- Eliminación de tu información de nuestros registros",
-            "Para ejercer cualquiera de estos derechos, escríbenos a hello@lienzo.studio y responderemos en un plazo máximo de 5 días hábiles."
+            "Con tu conocimiento o consentimiento, según lo exija la legislación aplicable, Lienzo Studio puede grabar llamadas de descubrimiento, sesiones de estrategia, reuniones de proyecto u otras conversaciones relacionadas con el proyecto.",
+            "Estas grabaciones se utilizan exclusivamente para fines comerciales internos, incluidos:",
+            "- Documentar los requisitos del proyecto",
+            "- Preparar notas de las reuniones",
+            "- Crear documentación del proyecto",
+            "- Mejorar la comunicación y la colaboración",
+            "- Mantener registros precisos del proyecto",
+            "- Apoyar la prestación de nuestros servicios",
+            "Lienzo Studio utiliza las grabaciones y las notas o transcripciones generadas a partir de ellas únicamente en relación con tu proyecto.",
+            "Cuando sea necesario, las grabaciones podrán ser procesadas de forma segura por proveedores de servicios de confianza que nos apoyan con herramientas de transcripción, documentación o productividad. Estos proveedores procesan la información solo en la medida necesaria para prestar servicios en nuestro nombre y no están autorizados a utilizar tu información para su propio marketing ni para fines comerciales no relacionados.",
+            "El acceso a las grabaciones está limitado a los miembros autorizados del equipo de Lienzo Studio que trabajan en tu proyecto."
           ]
         },
         {
-          title: "7. Cambios a esta política",
-          content: "Podemos actualizar esta política ocasionalmente. Cualquier cambio será publicado en esta misma página con la fecha de actualización correspondiente. Te recomendamos revisarla periódicamente."
+          title: "5. Cómo compartimos la información",
+          content: "No vendemos, alquilamos ni intercambiamos tu información personal.\n\nPodemos compartir información limitada únicamente cuando sea necesario para operar nuestro negocio o prestar nuestros servicios, incluso con proveedores de confianza, como servicios de alojamiento web, procesamiento de pagos, correo electrónico, almacenamiento en la nube, plataformas de programación de citas o herramientas de documentación y transcripción. Estos proveedores solo pueden procesar la información para prestar los servicios que realizan en nuestro nombre.\n\nTambién podemos divulgar información si así lo exige la legislación aplicable o para proteger nuestros derechos legales."
+        },
+        {
+          title: "6. Retención de datos",
+          content: [
+            "Conservamos tu información solo durante el tiempo que sea razonablemente necesario para:",
+            "- Responder a tus consultas",
+            "- Prestar nuestros servicios",
+            "- Mantener registros del proyecto",
+            "- Cumplir con obligaciones legales o contractuales",
+            "Si solicitas la eliminación de tu información personal, atenderemos tu solicitud siempre que esté permitido legal y contractualmente."
+          ]
+        },
+        {
+          title: "7. Tus derechos",
+          content: [
+            "Puedes solicitar en cualquier momento:",
+            "- Acceso a la información personal que conservamos sobre ti",
+            "- Corrección de información inexacta o incompleta",
+            "- Eliminación de tu información personal, cuando corresponda",
+            "Para ejercer estos derechos, contáctanos en hello@lienzo.studio. Haremos esfuerzos razonables para responder en un plazo de cinco (5) días hábiles."
+          ]
+        },
+        {
+          title: "8. Cambios a esta política",
+          content: "Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestros servicios, prácticas comerciales o requisitos legales.\n\nTodas las actualizaciones se publicarán en esta página con una fecha de «Última actualización» revisada. El uso continuado de nuestros servicios después de que los cambios entren en vigor constituye la aceptación de la política actualizada."
         }
       ]
     },
