@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
-import ColorBends from "@/components/ColorBends";
+import DeferredColorBends from "@/components/DeferredColorBends";
 import SpotlightCard from "@/components/SpotlightCard";
 import TransitionLink from "@/components/TransitionLink";
 import ServicesSection from "@/components/ServicesSection";
@@ -39,18 +39,13 @@ export default function Home() {
   );
 
   return (
-    <motion.main
-      className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
-    >
+    <main className="relative min-h-screen w-full overflow-x-hidden bg-background text-foreground">
       {/* Hero Section */}
       <section className="px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pt-28 2xl:px-12">
         <div className="mx-auto w-full max-w-[104rem]">
           <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)] dark:border-white/10">
-            <div className="absolute inset-0">
-              <ColorBends
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,#a81a02_0%,transparent_42%),radial-gradient(circle_at_78%_28%,#1d3653_0%,transparent_45%),linear-gradient(135deg,#2b3425_0%,#111820_100%)]">
+              <DeferredColorBends
                 className="h-full w-full"
                 rotation={0}
                 speed={0.2}
@@ -65,8 +60,8 @@ export default function Home() {
                 noise={0.1}
               />
             </div>
-            <div className="absolute inset-0 bg-black/35"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10"></div>
+            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
 
             <div className="relative z-10 grid min-h-[60vh] grid-rows-[1fr_auto] px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
               <div className="pointer-events-none flex items-center justify-center sm:items-start sm:pt-8 md:pt-10 lg:items-center lg:pt-0">
@@ -87,14 +82,9 @@ export default function Home() {
                   priority
                 />
               </div>
-              <motion.h1
-                className="max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
-              >
+              <h1 className="max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
                 {t.home.heroSubtitle}
-              </motion.h1>
+              </h1>
             </div>
           </div>
         </div>
@@ -103,35 +93,14 @@ export default function Home() {
       {/* Who + What Section */}
       <section className="relative px-6 pb-12 pt-6 md:pt-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-16 md:gap-20">
-          <motion.article
-            className="flex flex-col gap-6 border-b border-black/15 pb-12 pt-2 md:flex-row md:items-center md:justify-between md:gap-12 md:pt-4 dark:border-white/15"
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-          >
-            <motion.h2
-              className="font-display font-bold uppercase text-3xl text-[#254566] md:text-4xl dark:text-[#8fb2d6]"
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={sectionViewport}
-              transition={{ duration: 0.55, ease: "easeOut" }}
-            >
+          <article className="flex flex-col gap-6 border-b border-black/15 pb-12 pt-2 md:flex-row md:items-center md:justify-between md:gap-12 md:pt-4 dark:border-white/15">
+            <h2 className="font-display font-bold uppercase text-3xl text-[#254566] md:text-4xl dark:text-[#8fb2d6]">
               {t.home.whoTitle}
-            </motion.h2>
-            <motion.p
-              className="max-w-xl text-sm text-black/70 md:text-base dark:text-white/70"
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={sectionViewport}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
-            >
+            </h2>
+            <p className="max-w-xl text-sm text-black/70 md:text-base dark:text-white/70">
               {t.home.whoBody}
-            </motion.p>
-          </motion.article>
+            </p>
+          </article>
 
           <motion.article
             className="flex flex-col gap-6 border-b border-black/15 pb-12 md:flex-row md:items-center md:justify-between md:gap-12 dark:border-white/15"
@@ -367,6 +336,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </motion.main>
+    </main>
   );
 }

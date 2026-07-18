@@ -163,14 +163,12 @@ export default function ColorBends({
     });
     rendererRef.current = renderer;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
     renderer.setClearColor(0x000000, transparent ? 0 : 1);
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     renderer.domElement.style.display = 'block';
     container.appendChild(renderer.domElement);
-
-    const clock = new THREE.Clock();
 
     const handleResize = () => {
       const w = container.clientWidth || 1;
@@ -189,9 +187,27 @@ export default function ColorBends({
       window.addEventListener('resize', handleResize);
     }
 
-    const loop = () => {
-      const dt = clock.getDelta();
-      const elapsed = clock.elapsedTime;
+    const frameInterval = 1000 / 30;
+    let elapsed = 0;
+    let lastFrameAt = 0;
+    let isIntersecting = true;
+    let pageIsVisible = !document.hidden;
+
+    const loop = timestamp => {
+      if (!isIntersecting || !pageIsVisible) {
+        rafRef.current = null;
+        return;
+      }
+
+      const timeSinceLastFrame = timestamp - lastFrameAt;
+      if (timeSinceLastFrame < frameInterval) {
+        rafRef.current = requestAnimationFrame(loop);
+        return;
+      }
+
+      const dt = Math.min(timeSinceLastFrame / 1000, 0.1);
+      elapsed += dt;
+      lastFrameAt = timestamp;
       material.uniforms.uTime.value = elapsed;
 
       const deg = (rotationRef.current % 360) + autoRotateRef.current * elapsed;
@@ -208,10 +224,40 @@ export default function ColorBends({
       renderer.render(scene, camera);
       rafRef.current = requestAnimationFrame(loop);
     };
-    rafRef.current = requestAnimationFrame(loop);
+
+    const startLoop = () => {
+      if (rafRef.current !== null || !isIntersecting || !pageIsVisible) return;
+      lastFrameAt = performance.now();
+      rafRef.current = requestAnimationFrame(loop);
+    };
+
+    const stopLoop = () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    };
+
+    const intersectionObserver = new IntersectionObserver(
+      entries => {
+        isIntersecting = entries[0]?.isIntersecting ?? false;
+        if (isIntersecting) startLoop();
+        else stopLoop();
+      },
+      { rootMargin: "100px" }
+    );
+    intersectionObserver.observe(container);
+
+    const handleVisibilityChange = () => {
+      pageIsVisible = !document.hidden;
+      if (pageIsVisible) startLoop();
+      else stopLoop();
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    startLoop();
 
     return () => {
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      stopLoop();
+      intersectionObserver.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       if (resizeObserverRef.current) resizeObserverRef.current.disconnect();
       else window.removeEventListener('resize', handleResize);
       geometry.dispose();

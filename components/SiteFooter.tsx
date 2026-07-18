@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import TransitionLink from "@/components/TransitionLink";
+import { googleBusinessProfileUrl } from "@/lib/schema";
 
 export default function SiteFooter() {
   const { language } = useLanguage();
@@ -12,11 +13,31 @@ export default function SiteFooter() {
   const locations = language === "es" ? "Ubicaciones" : "Locations";
   const about = language === "es" ? "Acerca" : "About";
   const bilingual = language === "es" ? "Marketing Bilingüe" : "Bilingual Marketing";
+  const googleProfile = language === "es" ? "Perfil de Google" : "Google Profile";
+  const phoneNumber = "+1 (720) 990-7795";
+  const phoneHref = `tel:${phoneNumber.replace(/[^\d+]/g, "")}`;
 
   return (
     <footer className="px-6 pb-24 pt-8 text-center md:pb-20">
       <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 dark:border-white/10">
-        <p className="inline-flex flex-wrap items-center justify-center gap-1.5 text-xs font-medium tracking-[0.08em] text-black/45 dark:text-white/45">
+        <address className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm font-semibold not-italic text-black/65 dark:text-white/65">
+          <TransitionLink
+            href="/"
+            className="font-display font-bold transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]"
+          >
+            Lienzo Studio
+          </TransitionLink>
+          <span aria-hidden="true" className="text-black/25 dark:text-white/25">
+            |
+          </span>
+          <a
+            href={phoneHref}
+            className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]"
+          >
+            {phoneNumber}
+          </a>
+        </address>
+        <p className="mt-4 inline-flex flex-wrap items-center justify-center gap-1.5 text-xs font-medium tracking-[0.08em] text-black/60 dark:text-white/65">
           <span>{label}</span>
           <svg
             width="14"
@@ -39,7 +60,7 @@ export default function SiteFooter() {
         </p>
         <nav
           aria-label={language === "es" ? "Enlaces SEO" : "SEO links"}
-          className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-black/45 dark:text-white/45"
+          className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-black/65 dark:text-white/65"
         >
           <TransitionLink href="/services" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
             {services}
@@ -57,6 +78,22 @@ export default function SiteFooter() {
             {bilingual}
           </TransitionLink>
         </nav>
+        <div className="mt-4 flex justify-center md:justify-end">
+          <a
+            href={googleBusinessProfileUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={
+              language === "es"
+                ? "Lienzo Studio en Google"
+                : "Lienzo Studio on Google"
+            }
+            className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-black/60 transition hover:text-[#a61b00] dark:text-white/65 dark:hover:text-[#ff8f7a]"
+          >
+            {googleProfile}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     </footer>
   );

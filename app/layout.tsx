@@ -160,11 +160,11 @@ export default async function RootLayout({
         </a>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0WNFWMW6KN"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -175,7 +175,7 @@ gtag('config', 'G-0WNFWMW6KN');`,
         />
         <Script
           id="facebook-pixel"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
