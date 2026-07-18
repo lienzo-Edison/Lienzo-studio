@@ -1,15 +1,18 @@
-export const siteUrl = "https://lienzo.studio";
+export const siteUrl = "https://www.lienzo.studio";
+
+const organizationId = `${siteUrl}/#organization`;
+const localBusinessId = `${siteUrl}/#local-business`;
 
 export const lienzoEntity = {
   "@type": ["LocalBusiness", "ProfessionalService"],
-  "@id": `${siteUrl}/#lienzo-studio`,
+  "@id": localBusinessId,
   name: "Lienzo Studio",
   legalName: "Lienzo Studio",
   url: siteUrl,
   telephone: "+17209907795",
   email: "sales@lienzo.studio",
   description:
-    "Lienzo Studio is a remote bilingual marketing and design agency serving Hispanic-owned, Mexican-owned, Latino-owned, and small businesses across the Colorado Front Range, Mexico, the United States, and LATAM.",
+    "Lienzo Studio is a bilingual marketing and creative agency helping established and growth-stage companies improve search visibility, create demand, clarify positioning, and build stronger brands across the United States, Mexico, and LATAM.",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+17209907795",
@@ -31,9 +34,15 @@ export const lienzoEntity = {
   ],
   knowsAbout: [
     "Bilingual marketing",
-    "Marketing for Hispanic-owned businesses",
+    "Marketing strategy for established companies",
+    "SEO strategy",
+    "Strategic website design",
+    "Content marketing",
+    "Demand generation campaigns",
+    "Brand strategy",
     "Marketing for Mexican-owned businesses",
-    "Latino-owned business marketing",
+    "Marketing for Spanish-speaking audiences",
+    "Cross-border marketing",
     "Branding agency Mexico",
     "Social media management Mexico",
     "Graphic design Mexico",
@@ -48,32 +57,59 @@ export const lienzoEntity = {
   ],
 };
 
+export function buildOrganizationSchema() {
+  return {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: lienzoEntity.name,
+    legalName: lienzoEntity.legalName,
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/android-chrome-512x512.png`,
+      width: 512,
+      height: 512,
+    },
+    email: lienzoEntity.email,
+    telephone: lienzoEntity.telephone,
+    contactPoint: lienzoEntity.contactPoint,
+    sameAs: lienzoEntity.sameAs,
+  };
+}
+
 export function buildLocalBusinessSchema() {
   return {
-    "@context": "https://schema.org",
     ...lienzoEntity,
+    parentOrganization: { "@id": organizationId },
+    image: `${siteUrl}/og-image.png`,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Bilingual Marketing Services",
+      name: "Marketing, SEO, Brand, and Design Services",
       itemListElement: [
-        "Branding",
-        "Graphic Design",
-        "Social Media Management",
-        "Content Creation",
         "Marketing Strategy",
-        "Website Design",
-        "Local SEO",
+        "SEO Strategy",
+        "Strategic Website Design",
+        "Campaigns and Content",
+        "Brand Strategy and Identity",
+        "Marketing and Sales Design",
+        "Social Media Distribution",
         "Bilingual Marketing",
       ].map((name) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name,
-          provider: { "@id": `${siteUrl}/#lienzo-studio` },
+          provider: { "@id": localBusinessId },
         },
       })),
     },
-    openingHours: "Mo-Su 00:00-23:59",
+  };
+}
+
+export function buildSiteSchemaGraph() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [buildOrganizationSchema(), buildLocalBusinessSchema()],
   };
 }
 
@@ -97,7 +133,7 @@ export function buildServiceSchema({
     description,
     url,
     serviceType: serviceType ?? name,
-    provider: { "@id": `${siteUrl}/#lienzo-studio` },
+    provider: { "@id": localBusinessId },
     areaServed: lienzoEntity.areaServed,
     audience: audience?.map((audienceType) => ({
       "@type": "Audience",

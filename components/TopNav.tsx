@@ -10,6 +10,9 @@ import Image from "next/image";
 import ThemeToggle from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
+const customerPortalUrl =
+  "https://billing.stripe.com/p/login/7sYdRa7Um9fObOrgSHfnO00";
+
 export default function TopNav() {
   const [openPathname, setOpenPathname] = useState<string | null>(null);
   const pathname = usePathname();
@@ -25,6 +28,13 @@ export default function TopNav() {
     { href: "/portfolio", label: t.nav.portfolio },
     { href: "/contact", label: t.nav.contact },
   ];
+
+  const handleNavItemClick = (href: string) => {
+    setOpenPathname(null);
+    if (href === "/portfolio" && pathname === "/portfolio") {
+      window.dispatchEvent(new Event("lienzo:portfolio-home"));
+    }
+  };
 
   // Lock scroll when menu is open
   useEffect(() => {
@@ -65,11 +75,12 @@ export default function TopNav() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex min-w-0 flex-1 items-center justify-center gap-10 text-sm font-semibold uppercase tracking-[0.22em]">
+          <div className="hidden md:flex min-w-0 flex-1 items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.22em] lg:gap-10">
             {navItems.map((item, idx) => (
               <TransitionLink
                 key={item.href}
                 href={item.href}
+                onClick={() => handleNavItemClick(item.href)}
                 className={`whitespace-nowrap font-display font-bold transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a] ${
                   pathname === "/" ? "nav-wave" : ""
                 }`}
@@ -83,6 +94,14 @@ export default function TopNav() {
           {/* Desktop Toggles */}
           {!isLandingPage && (
             <div className="hidden md:flex items-center gap-2">
+              <a
+                href={customerPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whitespace-nowrap rounded-full border border-black/20 px-3 py-2 font-display text-[10px] font-bold uppercase tracking-[0.14em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+              >
+                {t.nav.customerPortal}
+              </a>
               <LanguageToggle />
               <ThemeToggle />
             </div>
@@ -159,6 +178,7 @@ export default function TopNav() {
                       <TransitionLink
                         key={item.href}
                         href={item.href}
+                        onClick={() => handleNavItemClick(item.href)}
                         className={`font-display text-3xl font-bold uppercase tracking-wider transition ${
                           pathname === item.href
                             ? "text-[#a61b00] dark:text-[#ff8f7a]"
@@ -173,6 +193,16 @@ export default function TopNav() {
 
                 {!isLandingPage && (
                   <div className="flex flex-col gap-8 border-t border-black/10 pt-8 dark:border-white/10">
+                    <a
+                      href={customerPortalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpenPathname(null)}
+                      className="flex items-center justify-between rounded-full border border-black/15 px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.16em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                    >
+                      {t.nav.customerPortal}
+                      <span aria-hidden="true">↗</span>
+                    </a>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="flex flex-col gap-3">
                         <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">

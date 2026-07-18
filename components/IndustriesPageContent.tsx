@@ -2,7 +2,7 @@
 
 import TransitionLink from "@/components/TransitionLink";
 import { useLanguage } from "@/components/LanguageProvider";
-import { industries, getLocalizedIndustry } from "@/lib/industries";
+import { publicIndustries, getLocalizedIndustry } from "@/lib/industries";
 
 const copy = {
   en: {
@@ -40,7 +40,7 @@ export default function IndustriesPageContent() {
       </section>
 
       <section className="mx-auto mt-16 grid max-w-6xl gap-5 md:grid-cols-2">
-        {industries.map((industry) => {
+        {publicIndustries.map((industry) => {
           const localized = getLocalizedIndustry(industry, language);
 
           return (

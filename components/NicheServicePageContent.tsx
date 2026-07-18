@@ -29,10 +29,10 @@ const spanishCopy: Record<string, LocalizedNicheCopy> = {
     intro:
       "El marketing bilingüe no es solo traducción. Es adaptar mensaje, tono, visuales, ofertas y contexto del cliente para que una marca se sienta natural para audiencias hispanohablantes, angloparlantes y biculturales.",
     audiences: [
-      "Negocios hispanos",
-      "Negocios mexicanos",
-      "Negocios latinos",
-      "Pequeños negocios que atienden comunidades bilingües",
+      "Empresas que atienden clientes hispanohablantes",
+      "Organizaciones con equipos bilingües",
+      "Marcas que crecen entre Estados Unidos y México",
+      "Empresas que operan entre fronteras",
     ],
     included: [
       "Mensajes de marca en inglés y español",
@@ -44,12 +44,12 @@ const spanishCopy: Record<string, LocalizedNicheCopy> = {
     authoritySignals: [
       "Raíces en Durango, México y servicio remoto desde Colorado",
       "Construido alrededor de comunicación en español e inglés",
-      "Enfocado en pequeños negocios, restaurantes, empresas de servicio y emprendedores",
+      "Creado para empresas establecidas, marcas en crecimiento y equipos profesionales",
     ],
     relatedLabels: {
-      "/industries/hispanic-owned-businesses": "Negocios Hispanos",
-      "/industries/mexican-owned-businesses": "Negocios Mexicanos",
-      "/locations/mexico": "México",
+      "/industries/bilingual-cross-border-companies": "Empresas Bilingües y Binacionales",
+      "/locations/mexico": "Marketing en México",
+      "/industries": "Todas las Industrias",
     },
     faqs: [
       {

@@ -1,5 +1,6 @@
 import IndustriesPageContent from "@/components/IndustriesPageContent";
-import { industries } from "@/lib/industries";
+import { siteUrl } from "@/lib/schema";
+import { publicIndustries } from "@/lib/industries";
 
 export default function IndustriesPage() {
   const schema = {
@@ -8,11 +9,11 @@ export default function IndustriesPage() {
     name: "Industries We Help",
     description:
       "Industry-specific marketing, branding, social media, website, and local SEO support from Lienzo Studio.",
-    url: "https://lienzo.studio/industries",
-    mainEntity: industries.map((industry) => ({
+    url: `${siteUrl}/industries`,
+    mainEntity: publicIndustries.map((industry) => ({
       "@type": "Service",
       name: industry.schemaName,
-      url: `https://lienzo.studio/industries/${industry.slug}`,
+      url: `${siteUrl}/industries/${industry.slug}`,
       provider: {
         "@type": "LocalBusiness",
         name: "Lienzo Studio",

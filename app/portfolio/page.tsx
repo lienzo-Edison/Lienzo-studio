@@ -59,20 +59,20 @@ export default function Portfolio() {
       },
       {
         id: "dulcemichi",
-        cover: "/projects/P3/Dulce_01.png",
+        cover: "/projects/P3/Dulce_01.webp",
         title: t.portfolio.projectTitle(3),
         description: t.portfolio.projectDescTertiary,
         gallery: [
-          "/projects/P3/Dulce_01.png",
-          "/projects/P3/Dulce_02.png",
-          "/projects/P3/Dulce_03.png",
-          "/projects/P3/Dulce_04.png",
-          "/projects/P3/Dulce_05.png",
+          "/projects/P3/Dulce_01.webp",
+          "/projects/P3/Dulce_02.webp",
+          "/projects/P3/Dulce_03.webp",
+          "/projects/P3/Dulce_04.webp",
+          "/projects/P3/Dulce_05.webp",
           "/projects/P3/Dulce_06.png",
-          "/projects/P3/Dulce_07.png",
+          "/projects/P3/Dulce_07.webp",
           "/projects/P3/Dulce_08.png",
-          "/projects/P3/Dulce_09.png",
-          "/projects/P3/Dulce_10.png",
+          "/projects/P3/Dulce_09.webp",
+          "/projects/P3/Dulce_10.webp",
         ],
       },
       {
@@ -145,6 +145,23 @@ export default function Portfolio() {
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
+    const returnToPortfolio = () => {
+      if (openProjectRef.current === null) return;
+
+      const state = window.history.state as { portfolioModal?: boolean } | null;
+      if (state?.portfolioModal) {
+        window.history.back();
+      } else {
+        setOpenProject(null);
+      }
+      setMobileMenuOpen(false);
+    };
+
+    window.addEventListener("lienzo:portfolio-home", returnToPortfolio);
+    return () => window.removeEventListener("lienzo:portfolio-home", returnToPortfolio);
   }, []);
 
   useEffect(() => {
@@ -285,7 +302,7 @@ export default function Portfolio() {
                     type="button"
                     onClick={closeProject}
                     aria-label={t.portfolio.closeDetailsLabel}
-                    className="fixed right-6 top-24 z-40 hidden rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/85 backdrop-blur transition hover:border-white/50 hover:bg-white/20 hover:text-white md:inline-flex"
+                    className="fixed right-6 top-24 z-40 hidden rounded-full border border-[#ff8f7a]/45 bg-[#a61b00]/25 px-4 py-2 text-xs uppercase tracking-[0.32em] text-[#ffd4cc] backdrop-blur transition hover:border-[#ff8f7a]/75 hover:bg-[#a61b00]/40 hover:text-white md:inline-flex"
                   >
                     Back to projects
                   </button>
@@ -300,7 +317,7 @@ export default function Portfolio() {
                             target.scrollTo({ top: 0, behavior: "smooth" });
                             setMobileMenuOpen(false);
                           }}
-                          className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-white/90 backdrop-blur transition hover:border-white/50 hover:bg-white/20 hover:text-white"
+                          className="flex items-center gap-2 rounded-full border border-[#ff8f7a]/45 bg-[#a61b00]/25 px-4 py-2 text-xs uppercase tracking-[0.32em] text-[#ffd4cc] backdrop-blur transition hover:border-[#ff8f7a]/75 hover:bg-[#a61b00]/40 hover:text-white"
                         >
                           <span className="text-sm leading-none">↑</span>
                           Navigate top

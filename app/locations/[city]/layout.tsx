@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   if (priorityLocationData) {
     return {
-      title: priorityLocationData.metaTitle,
+      title: { absolute: priorityLocationData.metaTitle },
       description: priorityLocationData.metaDescription,
       alternates: {
         canonical: `/locations/${priorityLocationData.slug}`,
@@ -45,7 +45,7 @@ export async function generateMetadata({
 
   if (regionData) {
     return {
-      title: regionData.en.metaTitle,
+      title: { absolute: regionData.en.metaTitle },
       description: regionData.en.metaDescription,
       alternates: {
         canonical: `/locations/${regionData.slug}`,
@@ -64,7 +64,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: cityData!.en.metaTitle,
+    title: { absolute: cityData!.en.metaTitle },
     description: cityData!.en.metaDescription,
     alternates: {
       canonical: `/locations/${cityData!.slug}`,

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import SpotlightCard from "@/components/SpotlightCard";
 import TransitionLink from "@/components/TransitionLink";
 import { useLanguage } from "@/components/LanguageProvider";
-import { services, type ServiceAccent } from "@/lib/services";
+import { positionedServices, type ServiceAccent } from "@/lib/services";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -40,77 +40,77 @@ const accentStyles: Record<
 const copy = {
   en: {
     eyebrow: "Services",
-    title: "Creative and marketing services built for small businesses.",
+    title: "Marketing systems for companies ready to grow with intention.",
     intro:
-      "Lienzo Studio is a bilingual digital marketing studio that combines branding, content creation, social media management, website design, graphic design, and local SEO to help small businesses build a stronger digital presence. Whether you are starting from zero or ready to look more consistent and professional, we create systems that help customers trust you faster.",
+      "We lead with marketing strategy, SEO, and digital growth. Brand identity and design then make every touchpoint more credible and effective. The result is a connected system built to attract qualified demand, support sales, and strengthen long-term brand value.",
     cardKickers: {
-      "social-media-management": "Instagram / Facebook / rhythm",
-      "brand-identity": "Strategy before aesthetic",
-      "content-creation": "Ideas with a point",
-      "graphic-design": "Design with a job",
-      "website-design": "Pages that pull weight",
-      "local-seo": "Google should know where to put you",
+      "social-media-management": "Distribution / authority / consistency",
+      "brand-identity": "Position / identity / systems",
+      "content-creation": "Campaigns / thought leadership / demand",
+      "graphic-design": "Sales / campaigns / communication",
+      "website-design": "Positioning / conversion / experience",
+      "local-seo": "Search strategy / content / visibility",
     },
-    connectionTitle: "Built to work together.",
+    connectionTitle: "One growth system, not disconnected deliverables.",
     connectionBody:
-      "Brand identity gives your business a clear foundation. Social media keeps that identity active. Website pages explain your services. Local SEO and an optimized Google Business Profile help customers find you. Together, these pieces create a stronger online presence than any single post or design can achieve alone.",
+      "SEO creates discoverability. Your website turns attention into understanding. Content and campaigns build authority. Brand and design make the entire experience credible. We connect those parts around the same commercial priorities so marketing can support a longer, more considered buying journey.",
     whoTitle: "Who we help",
     whoBody:
-      "We work with small businesses and growing brands that need a more polished, consistent, and useful presence.",
+      "We work best with established and growth-stage companies that have valuable expertise, ambitious goals, and a real need for stronger marketing infrastructure.",
     industries: [
-      "Restaurants & cafés",
-      "Beauty & wellness",
-      "Contractors",
-      "Real estate",
-      "Clinics",
-      "Retail shops",
-      "Local service businesses",
-      "Startups and new brands",
+      "Professional services",
+      "Technology & SaaS",
+      "Architecture & construction",
+      "Healthcare organizations",
+      "Real estate & development",
+      "Manufacturing & industrial",
+      "Financial & advisory firms",
+      "Multi-location businesses",
     ],
     marketTitle: "Bilingual support for Colorado, Mexico, and LATAM.",
     marketBody:
       "Lienzo Studio works in English and Spanish, making us a strong fit for businesses serving bilingual communities or operating across the United States, Mexico, and Latin America. Our bilingual marketing support keeps your message clear and culturally natural across markets.",
-    ctaTitle: "Not sure where to start?",
+    ctaTitle: "Ready to build a stronger growth platform?",
     ctaBody:
-      "Tell us about your business and we’ll help you choose the right starting point, whether that is branding, social media, your website, or local visibility.",
+      "Tell us where growth is getting stuck. We’ll identify whether the strongest first move is search visibility, positioning, your website, a campaign, or the brand system supporting it all.",
     contactCta: "Contact Lienzo",
     workCta: "View Our Work",
   },
   es: {
     eyebrow: "Servicios",
-    title: "Servicios creativos y de marketing para pequeños negocios.",
+    title: "Sistemas de marketing para empresas listas para crecer con intención.",
     intro:
-      "Lienzo Studio es un estudio bilingüe de marketing digital que combina branding, creación de contenido, manejo de redes sociales, diseño web, diseño gráfico y SEO local para ayudar a pequeños negocios a construir una presencia digital más fuerte. Ya sea que empieces desde cero o quieras verte más consistente y profesional, creamos sistemas que ayudan a tus clientes a confiar más rápido.",
+      "Lideramos con estrategia de marketing, SEO y crecimiento digital; después integramos identidad de marca y diseño para hacer cada punto de contacto más creíble y efectivo. El resultado es un sistema conectado para atraer demanda calificada, apoyar ventas y fortalecer el valor de marca.",
     cardKickers: {
-      "social-media-management": "Instagram / Facebook / ritmo",
-      "brand-identity": "Estrategia antes que estética",
-      "content-creation": "Ideas con intención",
-      "graphic-design": "Diseño con propósito",
-      "website-design": "Páginas que sostienen el mensaje",
-      "local-seo": "Google debe saber dónde ponerte",
+      "social-media-management": "Distribución / autoridad / consistencia",
+      "brand-identity": "Posición / identidad / sistemas",
+      "content-creation": "Campañas / liderazgo / demanda",
+      "graphic-design": "Ventas / campañas / comunicación",
+      "website-design": "Posicionamiento / conversión / experiencia",
+      "local-seo": "Estrategia / contenido / visibilidad",
     },
-    connectionTitle: "Creados para trabajar juntos.",
+    connectionTitle: "Un sistema de crecimiento, no entregables desconectados.",
     connectionBody:
-      "La identidad de marca da una base clara a tu negocio. Las redes sociales mantienen esa identidad activa. Las páginas web explican tus servicios. El SEO local y un Google Business Profile optimizado ayudan a que tus clientes te encuentren. Juntas, estas piezas crean una presencia más fuerte que cualquier publicación o diseño por separado.",
+      "El SEO genera descubrimiento. Tu sitio convierte atención en entendimiento. El contenido y las campañas construyen autoridad. La marca y el diseño hacen creíble toda la experiencia. Conectamos cada parte con las mismas prioridades comerciales para apoyar una decisión de compra más larga y considerada.",
     whoTitle: "A quién ayudamos",
     whoBody:
-      "Trabajamos con pequeños negocios y marcas en crecimiento que necesitan una presencia más pulida, consistente y útil.",
+      "Trabajamos mejor con empresas establecidas y en crecimiento que tienen experiencia valiosa, metas ambiciosas y una necesidad real de fortalecer su infraestructura de marketing.",
     industries: [
-      "Restaurantes y cafés",
-      "Belleza y bienestar",
-      "Contratistas",
-      "Bienes raíces",
-      "Clínicas",
-      "Tiendas",
-      "Servicios locales",
-      "Emprendimientos y marcas nuevas",
+      "Servicios profesionales",
+      "Tecnología y SaaS",
+      "Arquitectura y construcción",
+      "Organizaciones de salud",
+      "Bienes raíces y desarrollo",
+      "Manufactura e industria",
+      "Firmas financieras y consultoras",
+      "Empresas con múltiples ubicaciones",
     ],
     marketTitle: "Soporte bilingüe para Colorado, México y LATAM.",
     marketBody:
       "Lienzo Studio trabaja en inglés y español, lo que nos permite apoyar a negocios que atienden comunidades bilingües u operan entre Estados Unidos, México y Latinoamérica. Nuestro soporte de marketing bilingüe mantiene tu mensaje claro y culturalmente natural en cada mercado.",
-    ctaTitle: "¿No sabes por dónde empezar?",
+    ctaTitle: "¿Listos para construir una plataforma de crecimiento más fuerte?",
     ctaBody:
-      "Cuéntanos sobre tu negocio y te ayudaremos a elegir el mejor punto de partida, ya sea branding, redes sociales, tu sitio web o visibilidad local.",
+      "Cuéntanos dónde se está frenando el crecimiento. Identificaremos si el mejor primer paso es visibilidad en búsqueda, posicionamiento, el sitio web, una campaña o el sistema de marca que sostiene todo.",
     contactCta: "Contactar a Lienzo",
     workCta: "Ver Nuestro Trabajo",
   },
@@ -151,7 +151,7 @@ export default function ServicesSection() {
         </motion.header>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service, index) => {
+          {positionedServices.map((service, index) => {
             const accent = accentStyles[service.accent];
 
             return (

@@ -1,34 +1,33 @@
 # Lienzo Studio
 
-Lienzo Studio is a bilingual marketing and design agency serving Mexico and the United States.
+Lienzo Studio is a bilingual marketing and creative agency serving the United States, Mexico, and LATAM.
 
 Core positioning:
 - Bilingual marketing agency for English and Spanish audiences
-- Marketing agency for Hispanic-owned businesses
-- Marketing agency for Mexican-owned businesses
-- Latino-owned business marketing support
-- Small business marketing services
-- Branding, social media, graphic design, content, websites, and local SEO
+- Marketing strategy for established and growth-stage companies
+- SEO and search visibility built around buyer research
+- Websites, campaigns, and content that support longer sales cycles
+- Brand strategy, identity, and design that strengthen market credibility
+- Cross-border marketing for English and Spanish audiences
 
 Primary services:
-- Branding
-- Graphic design
-- Social media management
-- Content creation
 - Marketing strategy
-- Website design
-- Local SEO
-- Google Business Profile optimization
+- SEO and search visibility
+- Strategic website design
+- Campaigns and content
+- Brand strategy and identity
+- Marketing and sales design
+- Social media distribution
 
 Primary audiences:
-- Hispanic-owned businesses
-- Mexican-owned businesses
-- Latino-owned businesses
-- Small businesses
-- Restaurants
-- Local service businesses
-- Construction companies
-- Entrepreneurs
+- Professional service firms
+- Technology and SaaS companies
+- Healthcare organizations
+- Manufacturing and industrial companies
+- Real estate and development companies
+- Financial and advisory firms
+- Multi-location companies
+- Cross-border brands
 
 Geographic coverage:
 - Remote agency with no public office address
@@ -42,21 +41,25 @@ Geographic coverage:
 - LATAM
 
 Important pages:
-- https://lienzo.studio/
-- https://lienzo.studio/about
-- https://lienzo.studio/services
-- https://lienzo.studio/services/bilingual-marketing-agency
-- https://lienzo.studio/services/marketing-agency-for-hispanic-businesses
-- https://lienzo.studio/services/marketing-agency-for-mexican-businesses
-- https://lienzo.studio/services/latino-owned-business-marketing
-- https://lienzo.studio/services/small-business-marketing-services
-- https://lienzo.studio/services/branding-agency-mexico
-- https://lienzo.studio/services/social-media-management-mexico
-- https://lienzo.studio/services/graphic-design-mexico
-- https://lienzo.studio/industries/hispanic-owned-businesses
-- https://lienzo.studio/industries/mexican-owned-businesses
-- https://lienzo.studio/locations/mexico
-- https://lienzo.studio/contact
+- https://www.lienzo.studio/
+- https://www.lienzo.studio/about
+- https://www.lienzo.studio/services
+- https://www.lienzo.studio/services/bilingual-marketing-agency
+- https://www.lienzo.studio/services/marketing-agency-for-mexican-businesses
+- https://www.lienzo.studio/services/small-business-marketing-services
+- https://www.lienzo.studio/services/branding-agency-mexico
+- https://www.lienzo.studio/services/social-media-management-mexico
+- https://www.lienzo.studio/services/graphic-design-mexico
+- https://www.lienzo.studio/industries/mexican-owned-businesses
+- https://www.lienzo.studio/industries/bilingual-cross-border-companies
+- https://www.lienzo.studio/industries/professional-services
+- https://www.lienzo.studio/industries/technology-saas
+- https://www.lienzo.studio/industries/healthcare-organizations
+- https://www.lienzo.studio/industries/manufacturing-industrial
+- https://www.lienzo.studio/industries/real-estate-development
+- https://www.lienzo.studio/industries/financial-advisory
+- https://www.lienzo.studio/locations/mexico
+- https://www.lienzo.studio/contact
 
 Business profile:
 - Google Business Profile: https://share.google/E2pw5dSPqc5WiHkN9

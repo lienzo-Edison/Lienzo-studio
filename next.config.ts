@@ -4,6 +4,36 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "lienzo.studio" }],
+        destination: "https://www.lienzo.studio/:path*",
+        permanent: true,
+      },
+      {
+        source: "/services/marketing-agency-for-hispanic-businesses",
+        destination: "/services/bilingual-marketing-agency",
+        permanent: true,
+      },
+      {
+        source: "/services/latino-owned-business-marketing",
+        destination: "/services/bilingual-marketing-agency",
+        permanent: true,
+      },
+      {
+        source: "/industries/hispanic-owned-businesses",
+        destination: "/industries/bilingual-cross-border-companies",
+        permanent: true,
+      },
+      {
+        source: "/industries/latino-owned-businesses",
+        destination: "/industries/bilingual-cross-border-companies",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import TransitionLink from "@/components/TransitionLink";
 import SpotlightCard from "@/components/SpotlightCard";
-import { nicheServices } from "@/lib/nicheServices";
-import { services, type ServiceAccent } from "@/lib/services";
+import { publicNicheServices } from "@/lib/nicheServices";
+import { positionedServices, type ServiceAccent } from "@/lib/services";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -50,85 +50,85 @@ const accentStyles: Record<
 
 const pageCopy = {
   en: {
-    eyebrow: "Creative & Digital Marketing Services",
-    title: "Marketing services that make your business easier to find and trust.",
+    eyebrow: "Marketing, SEO & Brand",
+    title: "Build demand now. Build a stronger brand for what comes next.",
     subtitle:
-      "Lienzo Studio helps small businesses build a professional, consistent online presence through social media management, brand identity, content creation, graphic design, website design, and local SEO. Our bilingual team supports businesses across Colorado, Mexico, and LATAM.",
+      "Lienzo Studio helps established and growth-stage companies strengthen positioning, search visibility, digital experience, campaigns, and brand. Our bilingual team connects marketing performance with high-quality creative across the United States, Mexico, and LATAM.",
     primaryCta: "Find the Right Service",
     secondaryCta: "View Our Work",
     servicesEyebrow: "What We Do",
-    servicesTitle: "A stronger presence at every customer touchpoint",
+    servicesTitle: "A connected system for complex growth",
     servicesIntro:
-      "Choose one focused service or combine several into a connected marketing system. Each option is shaped around your business, audience, and current stage of growth.",
+      "Start with the constraint holding growth back or connect several capabilities around one commercial priority. Every scope is shaped around your buyers, sales cycle, market, and internal team.",
     serviceLabel: "Service",
     cardKickers: {
-      "social-media-management": "Instagram / Facebook / rhythm",
-      "brand-identity": "Strategy before aesthetic",
-      "content-creation": "Ideas with a point",
-      "graphic-design": "Design with a job",
-      "website-design": "Pages that pull weight",
-      "local-seo": "Google should know where to put you",
+      "social-media-management": "Distribution / authority / consistency",
+      "brand-identity": "Position / identity / systems",
+      "content-creation": "Campaigns / thought leadership / demand",
+      "graphic-design": "Sales / campaigns / communication",
+      "website-design": "Positioning / conversion / experience",
+      "local-seo": "Search strategy / content / visibility",
     },
     specialtyEyebrow: "Specialty Marketing Pages",
-    specialtyTitle: "Focused support for Hispanic, Mexican, Latino, bilingual, and Mexico-based businesses",
+    specialtyTitle: "Focused support for bilingual, Spanish-speaking, cross-border, and Mexico-based companies",
     specialtyIntro:
       "These pages explain our most specific areas of expertise for businesses looking for bilingual marketing, Mexico-focused services, and culturally fluent support.",
     outcomesEyebrow: "What This Work Supports",
-    outcomesTitle: "More than polished visuals",
+    outcomesTitle: "Marketing built around business outcomes",
     outcomesIntro:
-      "Good creative work should help the business behind it. We build practical systems that strengthen how customers discover, understand, and remember your company.",
+      "Strong creative work matters, but it should serve a commercial purpose. We build systems that help the right buyers discover, understand, trust, and choose your company.",
     outcomes: [
       {
-        title: "Look professional",
-        body: "Create a clear, credible brand image across social media, web, print, and customer-facing materials.",
+        title: "Create qualified visibility",
+        body: "Earn attention around the services, expertise, and problems your best-fit buyers are actively researching.",
       },
       {
-        title: "Stay consistent",
-        body: "Use repeatable visual and content systems instead of starting every post, promotion, or page from zero.",
+        title: "Clarify complex value",
+        body: "Give buyers, partners, and internal teams a sharper way to understand what makes the company valuable.",
       },
       {
-        title: "Build customer trust",
-        body: "Make it easier for potential customers to understand what you offer and feel confident contacting your business.",
+        title: "Support the sales cycle",
+        body: "Equip marketing and sales with credible web, campaign, case-study, and presentation assets that work together.",
       },
       {
-        title: "Improve local visibility",
-        body: "Support discovery through useful service pages, local SEO foundations, and a stronger Google Business Profile.",
+        title: "Strengthen brand value",
+        body: "Build a distinctive, consistent system that increases confidence today and compounds recognition over time.",
       },
     ],
     connectionEyebrow: "One Connected System",
-    connectionTitle: "Your services should support each other",
+    connectionTitle: "Performance and brand should reinforce each other",
     connectionBody:
-      "Brand identity creates recognition. Content creation gives you useful material to share. Social media management keeps your business active. Website design gives customers a clear place to learn and take action. Local SEO helps the right people find those pages. When these pieces share one strategy, your marketing becomes easier to manage and more convincing to customers.",
+      "SEO and campaigns create demand. The website turns that attention into understanding. Content builds authority across a longer buying cycle. Brand identity and design make every interaction credible and memorable. When these capabilities share one strategy, marketing becomes a growth asset rather than a list of activities.",
     processEyebrow: "How We Work",
-    processTitle: "Clear enough for a busy business owner",
+    processTitle: "Senior attention, clear decisions, practical execution",
     processIntro:
-      "You do not need to arrive with a finished strategy. We help organize the right starting point and keep the process practical.",
+      "You bring the business context. We turn it into a focused direction, a realistic scope, and work your team can actually use.",
     process: [
       {
         step: "01",
-        title: "Understand the business",
-        body: "We learn what you sell, who you serve, what is already working, and where your current presence feels incomplete.",
+        title: "Diagnose the growth constraint",
+        body: "We learn the offer, market, buyers, sales motion, current performance, and the gap creating the most friction.",
       },
       {
         step: "02",
-        title: "Set the direction",
-        body: "We recommend the right service scope, priorities, visual direction, and customer actions to support.",
+        title: "Set the strategic direction",
+        body: "We define positioning, priorities, success signals, channel roles, and the focused scope required to move forward.",
       },
       {
         step: "03",
-        title: "Create the system",
-        body: "Our team develops the brand, content, design, website, or visibility assets included in your project.",
+        title: "Build the system",
+        body: "Our team develops the search, website, campaign, content, brand, and design components included in the engagement.",
       },
       {
         step: "04",
-        title: "Put it to work",
-        body: "You receive practical assets and guidance designed for consistent use across the channels your customers see.",
+        title: "Activate and improve",
+        body: "We launch practical assets, give your team clear guidance, and create a foundation that can be measured and expanded.",
       },
     ],
     audienceEyebrow: "Who We Help",
-    audienceTitle: "Built for local businesses and growing brands",
+    audienceTitle: "Built for established and growth-stage companies",
     audienceBody:
-      "We work with restaurants and cafés, beauty and wellness businesses, contractors, real estate professionals, clinics, retail shops, local service providers, startups, and established companies ready for a more professional online presence.",
+      "We focus on professional services, technology, architecture and construction, healthcare, real estate and development, manufacturing, financial and advisory firms, multi-location companies, and cross-border brands with complex value to communicate.",
     marketTitle: "Bilingual marketing support across markets",
     marketBody:
       "Our team works in English and Spanish for businesses serving bilingual communities in Colorado, across the United States, in Mexico, and throughout LATAM. The goal is not simply to translate words. It is to keep the message clear, natural, and useful for the audience receiving it.",
@@ -139,7 +139,7 @@ const pageCopy = {
       {
         question: "Which marketing service should my business start with?",
         answer:
-          "The right starting point depends on the gap customers notice first. A new business may need brand identity before content. An established local business may benefit most from social media management, a website refresh, or local SEO. We review your current presence and recommend a practical priority.",
+          "The right starting point is the constraint with the largest commercial effect. That may be weak search visibility, unclear positioning, an underperforming website, insufficient authority content, or a brand that no longer matches the company. We diagnose the gap before recommending scope.",
       },
       {
         question: "Can I hire Lienzo Studio for one service?",
@@ -164,90 +164,90 @@ const pageCopy = {
     ],
     ctaTitle: "Not sure where to start?",
     ctaBody:
-      "Tell us what feels incomplete about your brand or online presence. We’ll help you identify the service that can make the clearest difference first.",
+      "Tell us where growth, visibility, or market perception is getting stuck. We’ll identify the highest-leverage place to begin.",
     ctaButton: "Contact Lienzo",
     ctaSecondary: "See Our Portfolio",
   },
   es: {
-    eyebrow: "Servicios Creativos y de Marketing Digital",
-    title: "Marketing que ayuda a que tu negocio sea más fácil de encontrar y confiar.",
+    eyebrow: "Marketing, SEO y Marca",
+    title: "Genera demanda hoy y construye una marca más fuerte para lo que sigue.",
     subtitle:
-      "Lienzo Studio ayuda a pequeños negocios a construir una presencia profesional y consistente con manejo de redes sociales, identidad de marca, creación de contenido, diseño gráfico, diseño web y SEO local. Nuestro equipo bilingüe trabaja con negocios en Colorado, México y LATAM.",
+      "Lienzo Studio ayuda a empresas establecidas y en crecimiento a fortalecer posicionamiento, visibilidad en buscadores, experiencia digital, campañas y marca. Nuestro equipo bilingüe conecta desempeño de marketing con creatividad de alta calidad en Estados Unidos, México y LATAM.",
     primaryCta: "Encontrar el Servicio Ideal",
     secondaryCta: "Ver Nuestro Trabajo",
     servicesEyebrow: "Lo Que Hacemos",
-    servicesTitle: "Una presencia más fuerte en cada punto de contacto",
+    servicesTitle: "Un sistema conectado para el crecimiento complejo",
     servicesIntro:
-      "Elige un servicio específico o combina varios en un sistema de marketing conectado. Cada opción se adapta a tu negocio, audiencia y etapa de crecimiento.",
+      "Empieza con la limitante que frena el crecimiento o conecta varias capacidades alrededor de una prioridad comercial. Cada alcance se adapta a tus compradores, ciclo de ventas, mercado y equipo interno.",
     serviceLabel: "Servicio",
     cardKickers: {
-      "social-media-management": "Instagram / Facebook / ritmo",
-      "brand-identity": "Estrategia antes que estética",
-      "content-creation": "Ideas con intención",
-      "graphic-design": "Diseño con propósito",
-      "website-design": "Páginas que sostienen el mensaje",
-      "local-seo": "Google debe saber dónde ponerte",
+      "social-media-management": "Distribución / autoridad / consistencia",
+      "brand-identity": "Posición / identidad / sistemas",
+      "content-creation": "Campañas / liderazgo / demanda",
+      "graphic-design": "Ventas / campañas / comunicación",
+      "website-design": "Posicionamiento / conversión / experiencia",
+      "local-seo": "Estrategia / contenido / visibilidad",
     },
     specialtyEyebrow: "Páginas Especializadas",
-    specialtyTitle: "Apoyo enfocado para negocios hispanos, mexicanos, latinos, bilingües y basados en México",
+    specialtyTitle: "Apoyo para empresas bilingües, hispanohablantes, binacionales y basadas en México",
     specialtyIntro:
       "Estas páginas explican nuestras áreas de experiencia más específicas para negocios que buscan marketing bilingüe, servicios enfocados en México y apoyo culturalmente natural.",
     outcomesEyebrow: "Lo Que Apoya Este Trabajo",
-    outcomesTitle: "Más que visuales atractivos",
+    outcomesTitle: "Marketing construido alrededor de resultados de negocio",
     outcomesIntro:
-      "El buen trabajo creativo debe ayudar al negocio que está detrás. Construimos sistemas prácticos que fortalecen cómo tus clientes descubren, entienden y recuerdan tu empresa.",
+      "La buena creatividad importa, pero debe servir un propósito comercial. Construimos sistemas que ayudan a los compradores correctos a descubrir, entender, confiar y elegir tu empresa.",
     outcomes: [
       {
-        title: "Verte profesional",
-        body: "Crea una imagen de marca clara y confiable en redes sociales, web, impresos y materiales para clientes.",
+        title: "Crear visibilidad calificada",
+        body: "Gana atención alrededor de los servicios, experiencia y problemas que investigan tus mejores compradores.",
       },
       {
-        title: "Mantener consistencia",
-        body: "Usa sistemas visuales y de contenido repetibles en lugar de empezar cada publicación, promoción o página desde cero.",
+        title: "Aclarar valor complejo",
+        body: "Da a compradores, aliados y equipos internos una forma más clara de entender lo que hace valiosa a la empresa.",
       },
       {
-        title: "Generar confianza",
-        body: "Facilita que clientes potenciales entiendan lo que ofreces y se sientan seguros al contactar tu negocio.",
+        title: "Apoyar el ciclo de ventas",
+        body: "Equipa a marketing y ventas con web, campañas, casos y presentaciones creíbles que trabajan en conjunto.",
       },
       {
-        title: "Mejorar visibilidad local",
-        body: "Apoya el descubrimiento con páginas de servicio útiles, bases de SEO local y un Google Business Profile más fuerte.",
+        title: "Fortalecer el valor de marca",
+        body: "Construye un sistema distintivo y consistente que aumente la confianza hoy y acumule reconocimiento con el tiempo.",
       },
     ],
     connectionEyebrow: "Un Sistema Conectado",
-    connectionTitle: "Tus servicios deben apoyarse entre sí",
+    connectionTitle: "El desempeño y la marca deben reforzarse",
     connectionBody:
-      "La identidad de marca crea reconocimiento. La creación de contenido te da material útil para compartir. El manejo de redes mantiene activo tu negocio. El diseño web ofrece un lugar claro para aprender y tomar acción. El SEO local ayuda a que las personas correctas encuentren esas páginas. Cuando todo comparte una estrategia, tu marketing es más fácil de manejar y más convincente.",
+      "El SEO y las campañas generan demanda. El sitio convierte atención en entendimiento. El contenido construye autoridad durante una decisión de compra más larga. La identidad y el diseño hacen cada interacción creíble y memorable. Cuando todo comparte una estrategia, el marketing se vuelve un activo de crecimiento.",
     processEyebrow: "Cómo Trabajamos",
-    processTitle: "Un proceso claro para dueños de negocio ocupados",
+    processTitle: "Atención senior, decisiones claras y ejecución práctica",
     processIntro:
-      "No necesitas llegar con una estrategia terminada. Te ayudamos a organizar el punto de partida correcto y mantenemos el proceso práctico.",
+      "Tú aportas el contexto del negocio. Nosotros lo convertimos en una dirección enfocada, un alcance realista y trabajo que tu equipo sí puede usar.",
     process: [
       {
         step: "01",
-        title: "Entender el negocio",
-        body: "Conocemos lo que vendes, a quién atiendes, qué ya funciona y dónde se siente incompleta tu presencia actual.",
+        title: "Diagnosticar la limitante",
+        body: "Conocemos la oferta, mercado, compradores, proceso de ventas, desempeño actual y la brecha que crea más fricción.",
       },
       {
         step: "02",
         title: "Definir la dirección",
-        body: "Recomendamos el alcance, las prioridades, la dirección visual y las acciones del cliente que debemos apoyar.",
+        body: "Definimos posicionamiento, prioridades, señales de éxito, rol de canales y el alcance necesario para avanzar.",
       },
       {
         step: "03",
         title: "Crear el sistema",
-        body: "Nuestro equipo desarrolla los recursos de marca, contenido, diseño, sitio web o visibilidad incluidos en tu proyecto.",
+        body: "Desarrollamos los componentes de búsqueda, web, campañas, contenido, marca y diseño incluidos en el proyecto.",
       },
       {
         step: "04",
-        title: "Ponerlo a trabajar",
-        body: "Recibes recursos prácticos y guía para usarlos con consistencia en los canales que ven tus clientes.",
+        title: "Activar y mejorar",
+        body: "Lanzamos activos prácticos, damos guía clara al equipo y creamos una base que se puede medir y ampliar.",
       },
     ],
     audienceEyebrow: "A Quién Ayudamos",
-    audienceTitle: "Hecho para negocios locales y marcas en crecimiento",
+    audienceTitle: "Hecho para empresas establecidas y en crecimiento",
     audienceBody:
-      "Trabajamos con restaurantes y cafés, negocios de belleza y bienestar, contratistas, profesionales de bienes raíces, clínicas, tiendas, proveedores de servicios locales, emprendimientos y empresas establecidas que buscan una presencia más profesional.",
+      "Nos enfocamos en servicios profesionales, tecnología, arquitectura y construcción, salud, bienes raíces y desarrollo, manufactura, firmas financieras y consultoras, empresas con múltiples ubicaciones y marcas binacionales con valor complejo que comunicar.",
     marketTitle: "Marketing bilingüe para diferentes mercados",
     marketBody:
       "Nuestro equipo trabaja en inglés y español para negocios que atienden comunidades bilingües en Colorado, Estados Unidos, México y LATAM. La meta no es solamente traducir palabras, sino mantener el mensaje claro, natural y útil para la audiencia que lo recibe.",
@@ -258,7 +258,7 @@ const pageCopy = {
       {
         question: "¿Con qué servicio de marketing debe empezar mi negocio?",
         answer:
-          "El mejor punto de partida depende de lo primero que tus clientes notan. Un negocio nuevo puede necesitar identidad de marca antes que contenido. Un negocio local establecido puede beneficiarse más del manejo de redes, una renovación web o SEO local. Revisamos tu presencia y recomendamos una prioridad práctica.",
+          "El mejor punto de partida es la limitante con mayor efecto comercial. Puede ser poca visibilidad, posicionamiento confuso, un sitio que no rinde, falta de contenido de autoridad o una marca que ya no representa a la empresa. Diagnosticamos la brecha antes de recomendar alcance.",
       },
       {
         question: "¿Puedo contratar a Lienzo Studio para un solo servicio?",
@@ -283,7 +283,7 @@ const pageCopy = {
     ],
     ctaTitle: "¿No sabes por dónde empezar?",
     ctaBody:
-      "Cuéntanos qué se siente incompleto en tu marca o presencia digital. Te ayudaremos a identificar el servicio que puede hacer la diferencia más clara primero.",
+      "Cuéntanos dónde se está frenando el crecimiento, la visibilidad o la percepción del mercado. Identificaremos el punto de mayor impacto para comenzar.",
     ctaButton: "Contactar a Lienzo",
     ctaSecondary: "Ver Portafolio",
   },
@@ -398,7 +398,7 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.08 }}
           >
-            {services.map((service) => {
+            {positionedServices.map((service) => {
               const accent = accentStyles[service.accent];
 
               return (
@@ -478,7 +478,7 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.08 }}
           >
-            {nicheServices.map((service) => (
+            {publicNicheServices.map((service) => (
               <motion.div key={service.slug} variants={fadeUp}>
                 <TransitionLink
                   href={`/services/${service.slug}`}
@@ -572,7 +572,7 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.15 }}
           >
-            {services.map((service) => (
+            {positionedServices.map((service) => (
               <motion.div
                 key={service.slug}
                 variants={fadeUp}
