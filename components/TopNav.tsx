@@ -20,6 +20,7 @@ export default function TopNav() {
   const isOpen = openPathname === pathname;
 
   const isLandingPage = pathname === "/longs-peak";
+  const isPortalPage = pathname.startsWith("/portal") || pathname.startsWith("/auth/");
 
   const navItems = [
     { href: "/", label: t.nav.home },
@@ -49,7 +50,13 @@ export default function TopNav() {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-[#e6e1d5]/70 text-black backdrop-blur-md dark:border-white/10 dark:bg-black/60 dark:text-[#f6f1e7]">
+      <nav
+        className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md ${
+          isPortalPage
+            ? "border-black/10 bg-[#e6e1d5]/90 text-black"
+            : "border-black/10 bg-[#e6e1d5]/70 text-black dark:border-white/10 dark:bg-black/60 dark:text-[#f6f1e7]"
+        }`}
+      >
         <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-5">
           {/* Logo */}
           <div className="flex items-center shrink-0">
@@ -59,7 +66,7 @@ export default function TopNav() {
                 alt="Lienzo Studio logo"
                 width={160}
                 height={48}
-                className="h-auto w-[100px] sm:w-[110px] md:w-[150px] dark:hidden"
+                className={`h-auto w-[100px] sm:w-[110px] md:w-[150px] ${isPortalPage ? "" : "dark:hidden"}`}
                 priority
               />
               <Image
@@ -67,7 +74,7 @@ export default function TopNav() {
                 alt="Lienzo Studio logo"
                 width={160}
                 height={48}
-                className="hidden h-auto w-[100px] sm:w-[110px] md:w-[150px] dark:block"
+                className={`hidden h-auto w-[100px] sm:w-[110px] md:w-[150px] ${isPortalPage ? "" : "dark:block"}`}
                 priority
               />
             </TransitionLink>
@@ -80,7 +87,7 @@ export default function TopNav() {
                 key={item.href}
                 href={item.href}
                 onClick={() => handleNavItemClick(item.href)}
-                className={`whitespace-nowrap font-display font-bold transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a] ${
+                className={`whitespace-nowrap font-display font-bold transition ${isPortalPage ? "hover:text-black/60" : "hover:text-[#a61b00] dark:hover:text-[#ff8f7a]"} ${
                   pathname === "/" ? "nav-wave" : ""
                 }`}
                 style={{ "--wave-delay": `${idx * 180}ms` } as CSSProperties}
@@ -95,12 +102,16 @@ export default function TopNav() {
             <div className="hidden md:flex items-center gap-2">
               <a
                 href={customerPortalUrl}
-                className="whitespace-nowrap rounded-full border border-black/20 px-3 py-2 font-display text-[10px] font-bold uppercase tracking-[0.14em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                className={`whitespace-nowrap rounded-full border px-3 py-2 font-display text-[10px] font-bold uppercase tracking-[0.14em] transition ${
+                  isPortalPage
+                    ? "border-black/20 text-black/70 hover:border-black hover:text-black"
+                    : "border-black/20 text-black/70 hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                }`}
               >
                 {t.nav.customerPortal}
               </a>
               <LanguageToggle />
-              <ThemeToggle />
+              {!isPortalPage && <ThemeToggle />}
             </div>
           )}
 
@@ -110,7 +121,7 @@ export default function TopNav() {
             className="flex h-10 w-10 items-center justify-center rounded-full md:hidden"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            <div className="relative h-4 w-6 text-black dark:text-[#f6f1e7]">
+            <div className={`relative h-4 w-6 ${isPortalPage ? "text-black" : "text-black dark:text-[#f6f1e7]"}`}>
               <span
                 className={`absolute left-0 block h-0.5 w-full bg-current transition-all duration-300 ${
                   isOpen ? "top-2 rotate-45" : "top-0"
@@ -153,18 +164,18 @@ export default function TopNav() {
               className="absolute inset-y-0 right-0 flex w-full max-w-[300px] flex-col shadow-2xl"
             >
               {/* Solid Background Layer */}
-              <div className="absolute inset-0 bg-[#f6f1e7] dark:bg-[#0d1117]" />
+              <div className={`absolute inset-0 ${isPortalPage ? "bg-[#f6f1e7]" : "bg-[#f6f1e7] dark:bg-[#0d1117]"}`} />
               
               {/* Content Layer */}
               <div className="relative flex h-full flex-col justify-between p-8">
                 <div className="flex flex-col gap-10">
                   <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
+                    <p className={`text-[10px] font-bold uppercase tracking-[0.2em] ${isPortalPage ? "text-black/40" : "text-black/40 dark:text-white/40"}`}>
                       Menu
                     </p>
                     <button 
                       onClick={() => setOpenPathname(null)}
-                      className="text-xs uppercase tracking-widest text-black/60 dark:text-white/60"
+                      className={`text-xs uppercase tracking-widest ${isPortalPage ? "text-black/60" : "text-black/60 dark:text-white/60"}`}
                     >
                       {language === "es" ? "Cerrar" : "Close"}
                     </button>
@@ -178,8 +189,8 @@ export default function TopNav() {
                         onClick={() => handleNavItemClick(item.href)}
                         className={`font-display text-3xl font-bold uppercase tracking-wider transition ${
                           pathname === item.href
-                            ? "text-[#a61b00] dark:text-[#ff8f7a]"
-                            : "text-black dark:text-white"
+                            ? (isPortalPage ? "text-black/55" : "text-[#a61b00] dark:text-[#ff8f7a]")
+                            : (isPortalPage ? "text-black" : "text-black dark:text-white")
                         }`}
                       >
                         {item.label}
@@ -189,28 +200,34 @@ export default function TopNav() {
                 </div>
 
                 {!isLandingPage && (
-                  <div className="flex flex-col gap-8 border-t border-black/10 pt-8 dark:border-white/10">
+                  <div className={`flex flex-col gap-8 border-t border-black/10 pt-8 ${isPortalPage ? "" : "dark:border-white/10"}`}>
                     <a
                       href={customerPortalUrl}
                       onClick={() => setOpenPathname(null)}
-                      className="flex items-center justify-between rounded-full border border-black/15 px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.16em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                      className={`flex items-center justify-between rounded-full border px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.16em] transition ${
+                        isPortalPage
+                          ? "border-black/15 text-black/70 hover:border-black hover:text-black"
+                          : "border-black/15 text-black/70 hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                      }`}
                     >
                       {t.nav.customerPortal}
                       <span aria-hidden="true">→</span>
                     </a>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="flex flex-col gap-3">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+                        <span className={`text-[9px] font-bold uppercase tracking-widest ${isPortalPage ? "text-black/40" : "text-black/40 dark:text-white/40"}`}>
                           {language === "es" ? "Idioma" : "Language"}
                         </span>
                         <LanguageToggle compact />
                       </div>
-                      <div className="flex flex-col gap-3">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
-                          {language === "es" ? "Tema" : "Theme"}
-                        </span>
-                        <ThemeToggle menuPlacement="top" />
-                      </div>
+                      {!isPortalPage && (
+                        <div className="flex flex-col gap-3">
+                          <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+                            {language === "es" ? "Tema" : "Theme"}
+                          </span>
+                          <ThemeToggle menuPlacement="top" />
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}

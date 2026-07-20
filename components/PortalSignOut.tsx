@@ -11,7 +11,7 @@ export default function PortalSignOut() {
         await supabase.auth.signOut();
         window.location.assign("/portal/login");
       }}
-      className="rounded-full border border-black/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition hover:border-[#a61b00] hover:text-[#a61b00] dark:border-white/20 dark:hover:border-[#ff8f7a] dark:hover:text-[#ff8f7a]"
+      className="rounded-full border border-black/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition hover:border-black hover:bg-black/[0.04]"
     >
       Sign out
     </button>
