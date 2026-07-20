@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import PortalSignOut from "@/components/PortalSignOut";
+import PortalAdminResetButton from "@/components/PortalAdminResetButton";
 import { createClient } from "@/lib/supabase/server";
 import {
   assignSampleProject,
@@ -105,6 +106,7 @@ export default async function PortalAdminPage() {
                       </span>
                     ) : (
                       <div className="flex flex-wrap gap-2">
+                        <PortalAdminResetButton userId={account.id} />
                         <form action={changeAccountType}>
                           <input type="hidden" name="userId" value={account.id} />
                           <input type="hidden" name="role" value="new" />

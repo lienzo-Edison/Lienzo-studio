@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 
 export default function PortalAuthForm() {
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
+  const [isResettingPassword, setIsResettingPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
@@ -21,7 +22,17 @@ export default function PortalAuthForm() {
     const fullName = String(formData.get("fullName") ?? "").trim();
     const supabase = createClient();
 
-    if (isCreatingAccount) {
+    if (isResettingPassword) {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth/confirm?next=/portal/reset-password`,
+      });
+
+      setMessage(
+        error
+          ? "We could not send a reset link right now. Please try again in a minute."
+          : "If an account exists for that email, a password reset link is on its way.",
+      );
+    } else if (isCreatingAccount) {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
@@ -59,16 +70,22 @@ export default function PortalAuthForm() {
         Lienzo client portal
       </p>
       <h1 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
-        {isCreatingAccount ? "Create account" : "Welcome back"}
+        {isResettingPassword
+          ? "Reset password"
+          : isCreatingAccount
+            ? "Create account"
+            : "Welcome back"}
       </h1>
       <p className="mt-4 max-w-md text-sm leading-6 text-black/60 dark:text-white/60">
-        {isCreatingAccount
+        {isResettingPassword
+          ? "Enter your email and we will send a secure link to choose a new password."
+          : isCreatingAccount
           ? "Create your account to explore Lienzo services and keep your future work in one place."
           : "Sign in to see your project details, billing access, and Lienzo contact options."}
       </p>
 
       <form onSubmit={handleSubmit} className="mt-8 grid gap-4">
-        {isCreatingAccount && (
+        {isCreatingAccount && !isResettingPassword && (
           <label className="grid gap-2 text-sm font-semibold">
             Your name
             <input
@@ -89,17 +106,19 @@ export default function PortalAuthForm() {
             className="rounded-xl border border-black/15 bg-transparent px-4 py-3 outline-none transition focus:border-[#a61b00] dark:border-white/20 dark:focus:border-[#ff8f7a]"
           />
         </label>
-        <label className="grid gap-2 text-sm font-semibold">
-          Password
-          <input
-            name="password"
-            type="password"
-            required
-            minLength={6}
-            autoComplete={isCreatingAccount ? "new-password" : "current-password"}
-            className="rounded-xl border border-black/15 bg-transparent px-4 py-3 outline-none transition focus:border-[#a61b00] dark:border-white/20 dark:focus:border-[#ff8f7a]"
-          />
-        </label>
+        {!isResettingPassword && (
+          <label className="grid gap-2 text-sm font-semibold">
+            Password
+            <input
+              name="password"
+              type="password"
+              required
+              minLength={6}
+              autoComplete={isCreatingAccount ? "new-password" : "current-password"}
+              className="rounded-xl border border-black/15 bg-transparent px-4 py-3 outline-none transition focus:border-[#a61b00] dark:border-white/20 dark:focus:border-[#ff8f7a]"
+            />
+          </label>
+        )}
         {message && (
           <p className="rounded-xl bg-[#a61b00]/10 px-4 py-3 text-sm text-[#781300] dark:bg-[#ff8f7a]/15 dark:text-[#ffb9ad]">
             {message}
@@ -112,24 +131,39 @@ export default function PortalAuthForm() {
         >
           {isSubmitting
             ? "Working…"
-            : isCreatingAccount
+            : isResettingPassword
+              ? "Send reset link"
+              : isCreatingAccount
               ? "Create account"
               : "Sign in"}
         </button>
       </form>
 
-      <button
-        type="button"
-        onClick={() => {
-          setIsCreatingAccount((value) => !value);
-          setMessage("");
-        }}
-        className="mt-6 text-sm font-semibold underline underline-offset-4"
-      >
-        {isCreatingAccount
-          ? "Already have an account? Sign in"
-          : "New here? Create an account"}
-      </button>
+      <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold underline underline-offset-4">
+        {!isResettingPassword && (
+          <button
+            type="button"
+            onClick={() => {
+              setIsCreatingAccount((value) => !value);
+              setMessage("");
+            }}
+          >
+            {isCreatingAccount
+              ? "Already have an account? Sign in"
+              : "New here? Create an account"}
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => {
+            setIsResettingPassword((value) => !value);
+            setIsCreatingAccount(false);
+            setMessage("");
+          }}
+        >
+          {isResettingPassword ? "Back to sign in" : "Forgot password?"}
+        </button>
+      </div>
     </div>
   );
 }
