@@ -41,27 +41,10 @@ export default function Portfolio() {
         ],
       },
       {
-        id: "mass",
-        cover: "/projects/P2/Mass_1.jpg",
-        title: t.portfolio.projectTitle(2),
-        description: t.portfolio.projectDescSecondary,
-        gallery: [
-          "/projects/P2/Mass_1.jpg",
-          "/projects/P2/Mass_2.jpg",
-          "/projects/P2/Mass_3.jpg",
-          "/projects/P2/Mass_4.jpg",
-          "/projects/P2/Mass_5.jpg",
-          "/projects/P2/Mass_6.jpg",
-          "/projects/P2/Mass_7.jpg",
-          "/projects/P2/Mass_8.jpg",
-          "/projects/P2/Mass_9.jpg",
-        ],
-      },
-      {
         id: "dulcemichi",
         cover: "/projects/P3/Dulce_01.webp",
-        title: t.portfolio.projectTitle(3),
-        description: t.portfolio.projectDescTertiary,
+        title: t.portfolio.projectTitle(2),
+        description: t.portfolio.projectDescSecondary,
         gallery: [
           "/projects/P3/Dulce_01.webp",
           "/projects/P3/Dulce_02.webp",
@@ -78,8 +61,8 @@ export default function Portfolio() {
       {
         id: "revista",
         cover: "/projects/P4/revista_sma_1.jpg",
-        title: t.portfolio.projectTitle(4),
-        description: t.portfolio.projectDescQuaternary,
+        title: t.portfolio.projectTitle(3),
+        description: t.portfolio.projectDescTertiary,
         gallery: [
           "/projects/P4/revista_sma_1.jpg",
           "/projects/P4/revista_sma_2.jpg",

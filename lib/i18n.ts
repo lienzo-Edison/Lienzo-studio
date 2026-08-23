@@ -121,7 +121,6 @@ type Translations = {
     projectDescPrimary: string;
     projectDescSecondary: string;
     projectDescTertiary: string;
-    projectDescQuaternary: string;
     projectDescOther: string;
     projectOverviewPrimary: string;
     projectOverviewOther: (index: number) => string;
@@ -193,7 +192,6 @@ export const translations: Record<Locale, Translations> = {
         { name: "Edison Carrillo", role: "Founder & Director" },
         { name: "Eduardo Carrillo", role: "Brand Designer" },
         { name: "Michelle Portillo", role: "Graphic and Editorial Designer" },
-        { name: "Reymundo Torres", role: "Brand Designer" },
       ],
       audiencesTitle: "Built for the Next Stage",
       audiencesIntro:
@@ -312,19 +310,15 @@ export const translations: Record<Locale, Translations> = {
         index === 1
           ? "WicFix"
           : index === 2
-            ? "Mass Architecture"
+            ? "Dulce Michi"
             : index === 3
-              ? "Dulce Michi"
-              : index === 4
-                ? "Revista San Miguel de Allende"
+              ? "Revista San Miguel de Allende"
               : `Project ${index}`,
       projectDescPrimary:
         "Full brand identity and social media management for a tech services company in Durango, Mexico, built from scratch with a clean, professional aesthetic.",
       projectDescSecondary:
-        "Brand redesign for Mass Architecture, with a refined visual identity, updated typography system, and cohesive brand language for a professional architecture firm.",
-      projectDescTertiary:
         "Complete brand identity, product packaging mockups, and social media management for a dessert café specializing in Japanese-French pastries.",
-      projectDescQuaternary:
+      projectDescTertiary:
         "Full editorial design for Revista San Miguel de Allende, including the layout system, typography, and print-ready design for a cultural magazine built entirely from scratch.",
       projectDescOther: "Brief description of the project goes here.",
       projectOverviewPrimary:
@@ -477,7 +471,6 @@ export const translations: Record<Locale, Translations> = {
         { name: "Edison Carrillo", role: "Fundador y director" },
         { name: "Eduardo Carrillo", role: "Diseñador de marca" },
         { name: "Michelle Portillo", role: "Diseñadora grafica y Editorial" },
-        { name: "Reymundo Torres", role: "Diseñador de marca" },
       ],
       audiencesTitle: "Hecho para la siguiente etapa",
       audiencesIntro:
@@ -596,19 +589,15 @@ export const translations: Record<Locale, Translations> = {
         index === 1
           ? "WicFix"
           : index === 2
-            ? "Mass Architecture"
+            ? "Dulce Michi"
             : index === 3
-              ? "Dulce Michi"
-              : index === 4
-                ? "Revista San Miguel de Allende"
+              ? "Revista San Miguel de Allende"
               : `Proyecto ${index}`,
       projectDescPrimary:
         "Diseño de identidad de marca y manejo de redes sociales para una empresa de servicio técnico en Durango, México, construido desde cero con estética profesional y limpia.",
       projectDescSecondary:
-        "Rediseño de marca para Mass Architecture, con identidad visual refinada, sistema tipográfico actualizado y lenguaje de marca cohesivo para un despacho de arquitectura profesional.",
-      projectDescTertiary:
         "Identidad de marca completa, mockups de empaque de producto y manejo de redes sociales para una cafetería de postres especializada en repostería japonesa-francesa.",
-      projectDescQuaternary:
+      projectDescTertiary:
         "Diseño editorial completo para Revista San Miguel de Allende, con sistema de maquetación, selección tipográfica y diseño listo para impresión de una revista cultural creada desde cero.",
       projectDescOther: "Descripción breve del proyecto aquí.",
       projectOverviewPrimary:

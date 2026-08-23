@@ -26,7 +26,6 @@ export default function Home() {
         "Edison Carrillo": "/pfp/edy.jpeg",
         "Eduardo Carrillo": "/pfp/eduardo.jpeg",
         "Michelle Portillo": "/pfp/mich.jpeg",
-        "Reymundo Torres": "/pfp/rey.jpeg",
       };
 
       return t.home.teamMembers.map((member) => ({
@@ -176,10 +175,10 @@ export default function Home() {
                 credit: { href: string; label: string } | null;
               } =
                 idx === 0
-                  ? { src: "/projects/P2/Mass_1.jpg", alt: "Mass Architecture identity system", credit: null }
+                  ? { src: "/projects/P4/revista_sma_4.jpg", alt: "Revista San Miguel de Allende editorial design", credit: null }
                   : idx === 1
                     ? { src: "/projects/P1/WicFix_7.jpg", alt: "WicFix technology brand system", credit: null }
-                    : { src: "/projects/P4/revista_sma_4.jpg", alt: "Revista San Miguel de Allende editorial design", credit: null };
+                    : { src: "/projects/P3/Dulce_01.webp", alt: "Dulce Michi brand identity", credit: null };
 
               return (
                 <motion.article
