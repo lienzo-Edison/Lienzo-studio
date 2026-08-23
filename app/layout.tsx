@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { PageTransitionProvider } from "@/components/PageTransitionProvider";
-import TopNav from "@/components/TopNav";
-import CornerIcon from "@/components/CornerIcon";
-import FooterLink from "@/components/FooterLink";
-import SiteFooter from "@/components/SiteFooter";
+import SiteFrame from "@/components/SiteFrame";
 import "./globals.css";
 import { cookies, headers } from "next/headers";
 import { getLocaleFromAcceptLanguage, isLocale } from "@/lib/i18n";
@@ -201,13 +198,7 @@ fbq('track', 'PageView');`,
         </noscript>
         <LanguageProvider initialLanguage={initialLanguage}>
           <PageTransitionProvider>
-            <TopNav />
-            <div id="main-content" tabIndex={-1}>
-              {children}
-              <SiteFooter />
-            </div>
-            <FooterLink />
-            <CornerIcon />
+            <SiteFrame>{children}</SiteFrame>
           </PageTransitionProvider>
         </LanguageProvider>
       </body>

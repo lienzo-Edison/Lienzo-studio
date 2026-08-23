@@ -1,0 +1,102 @@
+.page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 7%, rgba(166, 27, 0, 0.42), transparent 24rem),
+    radial-gradient(circle at 90% 54%, rgba(37, 69, 102, 0.42), transparent 26rem),
+    linear-gradient(155deg, #0b0d10 0%, #11161c 56%, #08090b 100%);
+  color: #f6f1e7;
+}
+
+.page::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 84%);
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+}
+
+.card::after {
+  position: absolute;
+  z-index: -1;
+  width: 17rem;
+  height: 7rem;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.introCard {
+  background:
+    radial-gradient(circle at 75% 20%, rgba(255, 120, 78, 0.52), transparent 30%),
+    radial-gradient(circle at 15% 95%, rgba(52, 105, 151, 0.52), transparent 34%),
+    linear-gradient(145deg, #19100f 0%, #0b0d11 60%, #151b22 100%);
+}
+
+.introCard::after {
+  right: -6rem;
+  top: 4.5rem;
+}
+
+.servicesCard {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(49, 93, 140, 0.32), transparent 34%),
+    rgba(255, 255, 255, 0.055);
+}
+
+.servicesCard::after {
+  left: -7rem;
+  bottom: 1rem;
+  border-color: rgba(143, 178, 214, 0.22);
+}
+
+.teamCard {
+  background: #f6f1e7;
+  color: #101419;
+}
+
+.teamCard::after {
+  right: -7rem;
+  top: -1rem;
+  border-color: rgba(166, 27, 0, 0.18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    animation: cardEnter 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .card:nth-of-type(2) {
+    animation-delay: 70ms;
+  }
+
+  .card:nth-of-type(3) {
+    animation-delay: 140ms;
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

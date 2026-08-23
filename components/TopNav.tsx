@@ -20,8 +20,6 @@ export default function TopNav() {
   const t = getTranslations(language);
   const isOpen = openPathname === pathname;
 
-  const isLandingPage = pathname === "/longs-peak";
-
   const navItems = [
     { href: "/", label: t.nav.home },
     { href: "/services", label: t.nav.services },
@@ -92,20 +90,18 @@ export default function TopNav() {
           </div>
 
           {/* Desktop Toggles */}
-          {!isLandingPage && (
-            <div className="hidden items-center gap-2 lg:flex">
-              <a
-                href={customerPortalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whitespace-nowrap rounded-full border border-black/20 px-2.5 py-2 font-display text-[9px] font-bold uppercase tracking-[0.1em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a] xl:px-3 xl:text-[10px] xl:tracking-[0.14em]"
-              >
-                {t.nav.customerPortal}
-              </a>
-              <LanguageToggle />
-              <ThemeToggle />
-            </div>
-          )}
+          <div className="hidden items-center gap-2 lg:flex">
+            <a
+              href={customerPortalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap rounded-full border border-black/20 px-2.5 py-2 font-display text-[9px] font-bold uppercase tracking-[0.1em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a] xl:px-3 xl:text-[10px] xl:tracking-[0.14em]"
+            >
+              {t.nav.customerPortal}
+            </a>
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -191,34 +187,32 @@ export default function TopNav() {
                   </div>
                 </div>
 
-                {!isLandingPage && (
-                  <div className="flex flex-col gap-8 border-t border-black/10 pt-8 dark:border-white/10">
-                    <a
-                      href={customerPortalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setOpenPathname(null)}
-                      className="flex items-center justify-between rounded-full border border-black/15 px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.16em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
-                    >
-                      {t.nav.customerPortal}
-                      <span aria-hidden="true">↗</span>
-                    </a>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="flex flex-col gap-3">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
-                          {language === "es" ? "Idioma" : "Language"}
-                        </span>
-                        <LanguageToggle compact />
-                      </div>
-                      <div className="flex flex-col gap-3">
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
-                          {language === "es" ? "Tema" : "Theme"}
-                        </span>
-                        <ThemeToggle menuPlacement="top" />
-                      </div>
+                <div className="flex flex-col gap-8 border-t border-black/10 pt-8 dark:border-white/10">
+                  <a
+                    href={customerPortalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpenPathname(null)}
+                    className="flex items-center justify-between rounded-full border border-black/15 px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.16em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                  >
+                    {t.nav.customerPortal}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-3">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+                        {language === "es" ? "Idioma" : "Language"}
+                      </span>
+                      <LanguageToggle compact />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+                        {language === "es" ? "Tema" : "Theme"}
+                      </span>
+                      <ThemeToggle menuPlacement="top" />
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             </motion.div>
           </div>

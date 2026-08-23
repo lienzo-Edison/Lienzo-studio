@@ -57,11 +57,6 @@ const jpegJobs = [
         .resize({ width: 2400, height: 2400, fit: "inside", withoutEnlargement: true })
         .jpeg({ quality: 85, mozjpeg: true }),
   },
-  {
-    relativePath: "longs-peak-bg.jpg",
-    shouldRun: (_metadata, size) => size > 600_000,
-    transform: (image) => image.jpeg({ quality: 85, mozjpeg: true }),
-  },
   ...["edy.jpeg", "eduardo.jpeg", "mich.jpeg", "rey.jpeg"].map((name) => ({
     relativePath: `pfp/${name}`,
     shouldRun: (metadata, size) => metadata.width > 720 || metadata.height > 720 || size > 140_000,
