@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getTranslations } from "@/lib/i18n";
 import DeferredColorBends from "@/components/DeferredColorBends";
@@ -16,9 +16,34 @@ const fadeUpVariants = {
 
 const sectionViewport = { once: true, amount: 0.2 };
 
+const lightHeroColors = ["#f6f1e7", "#e6e1d5", "#173957", "#a61b00"];
+const darkHeroColors = ["#a81a02", "#1d3653", "#2b3425"];
+
+const subscribeToDocumentTheme = (onStoreChange: () => void) => {
+  if (typeof document === "undefined") return () => {};
+
+  const observer = new MutationObserver(onStoreChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class", "data-theme"],
+  });
+
+  return () => observer.disconnect();
+};
+
+const getDocumentThemeSnapshot = () =>
+  typeof document !== "undefined" && document.documentElement.classList.contains("dark");
+
+const getServerThemeSnapshot = () => false;
+
 export default function Home() {
   const { language } = useLanguage();
   const t = getTranslations(language);
+  const isDarkTheme = useSyncExternalStore(
+    subscribeToDocumentTheme,
+    getDocumentThemeSnapshot,
+    getServerThemeSnapshot,
+  );
 
   const teamMembers = useMemo(
     () => {
@@ -43,12 +68,12 @@ export default function Home() {
       <section className="px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pt-28 2xl:px-12">
         <div className="mx-auto w-full max-w-[104rem]">
           <div className="relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_24px_90px_rgba(0,0,0,0.18)] dark:border-white/10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,#a81a02_0%,transparent_42%),radial-gradient(circle_at_78%_28%,#1d3653_0%,transparent_45%),linear-gradient(135deg,#2b3425_0%,#111820_100%)]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_22%,rgba(166,27,0,0.88)_0%,transparent_24%),radial-gradient(circle_at_76%_28%,rgba(23,57,87,0.98)_0%,transparent_46%),linear-gradient(135deg,#f6f1e7_0%,#f6f1e7_52%,#e6e1d5_100%)] dark:bg-[radial-gradient(circle_at_18%_20%,#a81a02_0%,transparent_42%),radial-gradient(circle_at_78%_28%,#1d3653_0%,transparent_45%),linear-gradient(135deg,#2b3425_0%,#111820_100%)]">
               <DeferredColorBends
                 className="h-full w-full"
                 rotation={0}
                 speed={0.2}
-                colors={["#a81a02", "#1d3653", "#2b3425"]}
+                colors={isDarkTheme ? darkHeroColors : lightHeroColors}
                 transparent
                 autoRotate={0.1}
                 scale={1}
@@ -59,29 +84,21 @@ export default function Home() {
                 noise={0.1}
               />
             </div>
-            <div className="absolute inset-0 bg-black/50"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
+            <div className="absolute inset-0 bg-white/5 dark:bg-black/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#f6f1e7]/80 via-transparent to-white/10 dark:from-black/80 dark:via-black/50 dark:to-black/30"></div>
 
             <div className="relative z-10 grid min-h-[60vh] grid-rows-[1fr_auto] px-7 py-10 md:min-h-[68vh] md:px-12 md:py-14">
               <div className="pointer-events-none flex items-center justify-center sm:items-start sm:pt-8 md:pt-10 lg:items-center lg:pt-0">
                 <Image
-                  src="/logos/logo-circular-02.svg"
+                  src={isDarkTheme ? "/logos/logo-circular-02.svg" : "/logos/logo-circular-01.svg"}
                   alt={t.home.heroLogoAlt}
                   width={680}
                   height={680}
-                  className="w-[260px] opacity-85 sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[560px] dark:hidden"
-                  priority
-                />
-                <Image
-                  src="/logos/logo-circular-02.svg"
-                  alt={t.home.heroLogoAlt}
-                  width={680}
-                  height={680}
-                  className="hidden w-[260px] opacity-85 sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[560px] dark:block"
+                  className="w-[260px] opacity-90 sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] 2xl:w-[560px]"
                   priority
                 />
               </div>
-              <h1 className="max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
+              <h1 className="max-w-4xl text-balance font-display font-bold uppercase text-3xl leading-tight text-[#18344f] sm:text-4xl md:text-5xl dark:text-white">
                 {t.home.heroSubtitle}
               </h1>
             </div>
@@ -303,7 +320,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
             {teamMembers.map((member, idx) => (
               <motion.article
                 key={member.name}

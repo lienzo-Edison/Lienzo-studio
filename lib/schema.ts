@@ -2,10 +2,45 @@ export const siteUrl = "https://www.lienzo.studio";
 export const googleBusinessProfileUrl =
   "https://www.google.com/maps?cid=2089490415715043182";
 
+export const socialProfiles = [
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/_lienzostudio/",
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/people/Lienzo-Studio/61588545936546/",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/company/lienzostudio",
+  },
+] as const;
+
 const organizationId = `${siteUrl}/#organization`;
 const localBusinessId = `${siteUrl}/#local-business`;
 
-export const serviceAreaCountries = [
+export const primaryServiceAreas = [
+  {
+    "@type": "State",
+    name: "Colorado",
+    containedInPlace: {
+      "@type": "Country",
+      name: "United States",
+    },
+  },
+  {
+    "@type": "State",
+    name: "Durango",
+    containedInPlace: {
+      "@type": "Country",
+      name: "Mexico",
+    },
+  },
+] as const;
+
+export const serviceAreas = [
+  ...primaryServiceAreas,
   {
     "@type": "Country",
     name: "United States",
@@ -25,15 +60,20 @@ export const lienzoEntity = {
   telephone: "+17209907795",
   email: "sales@lienzo.studio",
   description:
-    "Lienzo Studio is a bilingual marketing and creative agency helping established and growth-stage companies improve search visibility, create demand, clarify positioning, and build stronger brands across the United States, Mexico, and LATAM.",
+    "Lienzo Studio is a bilingual marketing and creative agency helping established and growth-stage companies improve search visibility, create demand, clarify positioning, and build stronger brands. The studio focuses on Colorado and Durango, Mexico, while serving businesses throughout the United States and Mexico.",
+  foundingDate: "2026-02",
+  numberOfEmployees: {
+    "@type": "QuantitativeValue",
+    value: 3,
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+17209907795",
     contactType: "sales",
-    areaServed: serviceAreaCountries,
+    areaServed: serviceAreas,
     availableLanguage: ["English", "Spanish"],
   },
-  areaServed: serviceAreaCountries,
+  areaServed: serviceAreas,
   knowsAbout: [
     "Bilingual marketing",
     "Marketing strategy for established companies",
@@ -54,8 +94,7 @@ export const lienzoEntity = {
   ],
   sameAs: [
     googleBusinessProfileUrl,
-    "https://www.instagram.com/_lienzostudio/",
-    "https://www.facebook.com/people/Lienzo-Studio/61588545936546/",
+    ...socialProfiles.map((profile) => profile.url),
   ],
 };
 
@@ -74,6 +113,8 @@ export function buildOrganizationSchema() {
     },
     email: lienzoEntity.email,
     telephone: lienzoEntity.telephone,
+    foundingDate: lienzoEntity.foundingDate,
+    numberOfEmployees: lienzoEntity.numberOfEmployees,
     contactPoint: lienzoEntity.contactPoint,
     areaServed: lienzoEntity.areaServed,
     sameAs: lienzoEntity.sameAs,

@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import TransitionLink from "@/components/TransitionLink";
-import { googleBusinessProfileUrl } from "@/lib/schema";
+import { googleBusinessProfileUrl, socialProfiles } from "@/lib/schema";
 
 export default function SiteFooter() {
   const { language } = useLanguage();
@@ -77,6 +77,24 @@ export default function SiteFooter() {
           <TransitionLink href="/services/bilingual-marketing-agency" className="transition hover:text-[#a61b00] dark:hover:text-[#ff8f7a]">
             {bilingual}
           </TransitionLink>
+        </nav>
+        <nav
+          aria-label={language === "es" ? "Redes sociales" : "Social media"}
+          className="mt-5 flex flex-wrap justify-center gap-2"
+        >
+          {socialProfiles.map((profile) => (
+            <a
+              key={profile.url}
+              href={profile.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${language === "es" ? "Lienzo Studio en" : "Lienzo Studio on"} ${profile.name}`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-black/[0.025] px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/15 dark:bg-white/[0.04] dark:text-white/75 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+            >
+              {profile.name}
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))}
         </nav>
         <div className="mt-4 flex justify-center md:justify-end">
           <a

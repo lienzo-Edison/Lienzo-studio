@@ -51,7 +51,7 @@ export default function TopNav() {
   return (
     <>
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-[#e6e1d5]/70 text-black backdrop-blur-md dark:border-white/10 dark:bg-black/60 dark:text-[#f6f1e7]">
-        <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-5">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-6 md:py-4 lg:px-5 xl:px-8 xl:py-5">
           {/* Logo */}
           <div className="flex items-center shrink-0">
             <TransitionLink href="/">
@@ -60,7 +60,7 @@ export default function TopNav() {
                 alt="Lienzo Studio logo"
                 width={160}
                 height={48}
-                className="h-auto w-[100px] sm:w-[110px] md:w-[150px] dark:hidden"
+                className="h-auto w-[100px] sm:w-[110px] md:w-[130px] xl:w-[150px] dark:hidden"
                 priority
               />
               <Image
@@ -68,14 +68,14 @@ export default function TopNav() {
                 alt="Lienzo Studio logo"
                 width={160}
                 height={48}
-                className="hidden h-auto w-[100px] sm:w-[110px] md:w-[150px] dark:block"
+                className="hidden h-auto w-[100px] sm:w-[110px] md:w-[130px] xl:w-[150px] dark:block"
                 priority
               />
             </TransitionLink>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex min-w-0 flex-1 items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.22em] lg:gap-10">
+          <div className="hidden min-w-0 flex-1 items-center justify-center gap-4 text-[11px] font-semibold uppercase tracking-[0.16em] lg:flex xl:gap-10 xl:text-sm xl:tracking-[0.22em]">
             {navItems.map((item, idx) => (
               <TransitionLink
                 key={item.href}
@@ -93,12 +93,12 @@ export default function TopNav() {
 
           {/* Desktop Toggles */}
           {!isLandingPage && (
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden items-center gap-2 lg:flex">
               <a
                 href={customerPortalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whitespace-nowrap rounded-full border border-black/20 px-3 py-2 font-display text-[10px] font-bold uppercase tracking-[0.14em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a]"
+                className="whitespace-nowrap rounded-full border border-black/20 px-2.5 py-2 font-display text-[9px] font-bold uppercase tracking-[0.1em] text-black/70 transition hover:border-[#a61b00]/50 hover:text-[#a61b00] dark:border-white/20 dark:text-white/70 dark:hover:border-[#ff8f7a]/60 dark:hover:text-[#ff8f7a] xl:px-3 xl:text-[10px] xl:tracking-[0.14em]"
               >
                 {t.nav.customerPortal}
               </a>
@@ -110,7 +110,7 @@ export default function TopNav() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setOpenPathname((current) => (current === pathname ? null : pathname))}
-            className="flex h-10 w-10 items-center justify-center rounded-full md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full lg:hidden"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             <div className="relative h-4 w-6 text-black dark:text-[#f6f1e7]">
@@ -137,7 +137,7 @@ export default function TopNav() {
       {/* Mobile Drawer - Moved outside <nav> to prevent inheritance issues */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[100] md:hidden">
+          <div className="fixed inset-0 z-[100] lg:hidden">
             {/* Overlay/Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
