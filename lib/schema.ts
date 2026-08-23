@@ -125,7 +125,7 @@ export function buildLocalBusinessSchema() {
   return {
     ...lienzoEntity,
     parentOrganization: { "@id": organizationId },
-    image: `${siteUrl}/og-image.png`,
+    image: `${siteUrl}/og-image-logo.png`,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Marketing, SEO, Brand, and Design Services",

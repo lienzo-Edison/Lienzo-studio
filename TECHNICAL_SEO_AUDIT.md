@@ -59,7 +59,7 @@ Other completed improvements include full sitemap coverage, explicit indexing ru
 - Replaced the square 512×512 favicon used as a `summary_large_image` with a dedicated 1200×630 branded social card.
 - Added accurate width, height, and alt text.
 - Kept inherited Open Graph and Twitter metadata so route-specific titles/descriptions combine with the global image and site identity.
-- The generated asset is `public/og-image.png`.
+- The current logo-forward asset is `public/og-image-logo.png`.
 
 ### Favicon and web manifest
 

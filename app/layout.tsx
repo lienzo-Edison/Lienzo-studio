@@ -87,10 +87,10 @@ export const metadata: Metadata = {
     alternateLocale: "es_MX",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image-logo.png",
         width: 1200,
         height: 630,
-        alt: "Lienzo Studio — Marketing, SEO & Brand Agency",
+        alt: "Lienzo Studio logo — Design, Brand, Publicity",
       },
     ],
   },
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     title: "Lienzo Studio | Marketing, SEO & Brand Agency",
     description:
       "Bilingual marketing, SEO, websites, campaigns, brand strategy, and design for ambitious companies across the U.S., Mexico, and LATAM.",
-    images: ["/og-image.png"],
+    images: ["/og-image-logo.png"],
   },
 };
 

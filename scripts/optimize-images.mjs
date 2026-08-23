@@ -77,10 +77,10 @@ for (const job of jpegJobs) {
   ]);
 }
 
-const socialCard = path.join(publicDir, "og-image.png");
+const socialCard = path.join(publicDir, "og-image-logo.png");
 if ((await fileSize(socialCard)) > 600_000) {
   results.push([
-    "og-image.png",
+    "og-image-logo.png",
     await replaceWhenSmaller(socialCard, socialCard, (image) =>
       image.png({ palette: true, quality: 95, effort: 10 }),
     ),
